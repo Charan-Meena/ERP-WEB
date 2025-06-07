@@ -1,0 +1,19 @@
+<div class="sidebar">
+  <ul class="menu">
+    <li>
+      <a (click)="toggleDropdown('dashboard')">Dashboard</a>
+      <ul *ngIf="dropdownStates['dashboard']" class="submenu">
+        <li><a routerLink="/dashboard/overview">Overview</a></li>
+        <li><a routerLink="/dashboard/stats">Stats</a></li>
+      </ul>
+    </li>
+
+    <li>
+      <a (click)="toggleDropdown('settings')">Settings</a>
+      <ul *ngIf="dropdownStates['settings']" class="submenu">
+        <li><a routerLink="/settings/profile">Profile</a></li>
+        <li><a routerLink="/settings/account">Account</a></li>
+      </ul>
+    </li>
+  </ul>
+</div>

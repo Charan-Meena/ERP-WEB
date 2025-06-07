@@ -1,0 +1,119 @@
+<!-- <div class="container">
+    <div class="login-card">
+      <h2>Login</h2>
+        <label for="username">Username:</label>
+        <input type="text" [(ngModel)]="loginobj.loginID" name="loginID" required>
+  
+        <label for="password">Password:</label>
+        <input type="password" [(ngModel)]="loginobj.Password"  name="Password" required>
+  
+        <button type="submit" (click)="loginSubmit()">Login</button>
+    </div>
+  </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="body">
+    <!-- Splash Screen -->
+    <!-- <div id="splash-screen">
+        <div class="splash-content">
+            <img src="logo.png" alt="Budget Buddy Logo">
+            <h1>Budget Buddy</h1>
+        </div>
+    </div> -->
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen">
+        <h2>Login</h2>
+        <form [formGroup]="LoginForm" (ngSubmit)="FormSubmit()">
+            <div>
+                    <input type="text" formControlName="loginID" name="loginID" placeholder="loginID" required>
+                @if((getloginForm['loginID'].touched || isLoginFormSubmited) && getloginForm['loginID'].invalid)
+                {
+                        <div class="errorMessage">
+                            @if(getloginForm['loginID'].errors && getloginForm['loginID'].errors['required']){
+                                <div>Name is required.</div>
+                            }
+                        </div>
+                }
+            </div>
+            <div>
+                    <input type="password" formControlName="password" name="password" placeholder="Password" required>
+                    @if((getloginForm['password'].touched || isLoginFormSubmited) && getloginForm['password'].invalid)
+                    {
+                        <div class="errorMessage">
+                            @if(getloginForm['password'].errors && getloginForm['password'].errors['required']){
+                                <div>Password is required.</div>
+                            }
+                        </div>
+                    }
+            </div>
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a href="#" id="signup-link">Sign Up</a></p>
+        </form>
+    </div>
+
+    <!-- Sign Up Screen -->
+    <!-- <div id="signup-screen" class="screen hidden">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+            <input type="text" id="new-username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="new-password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+            <p>Already have an account? <a href="#" id="login-link">Login</a></p>
+        </form>
+    </div> -->
+
+    <!-- Home Screen -->
+    <!-- <div id="home-screen" class="screen hidden">
+        <div class="carousel">
+            <div class="carousel-track">
+                <img src="image1.jpg" alt="Stock Image 1">
+                <img src="image2.jpg" alt="Stock Image 2">
+                <img src="image3.jpg" alt="Stock Image 3">
+            </div>
+        </div>
+
+        <div class="account-summary">
+            <h3>Account Balance</h3>
+            <p>ZAR <span id="balance">12,450.75</span></p>
+            <button id="link-card">Link Bank Card</button>
+        </div>
+
+        <div class="budget-tracker">
+            <h3>Budget Overview</h3>
+            <div class="budget-item">
+                <p>Groceries</p>
+                <p>ZAR 2,000 / 5,000</p>
+                <div class="progress-bar"><div class="progress" style="width: 40%;"></div></div>
+            </div>
+            <div class="budget-item">
+                <p>Entertainment</p>
+                <p>ZAR 1,500 / 3,000</p>
+                <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+            </div>
+            <div class="budget-item">
+                <p>Transport</p>
+                <p>ZAR 800 / 2,000</p>
+                <div class="progress-bar"><div class="progress" style="width: 40%;"></div></div>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#" class="tab active" data-tab="home"><i class="fas fa-home"></i> Home</a>
+            <a href="#" class="tab" data-tab="budget"><i class="fas fa-chart-pie"></i> Budget</a>
+            <a href="#" class="tab" data-tab="profile"><i class="fas fa-user"></i> Profile</a>
+        </nav>
+    </div> -->
+</div>
+
+
