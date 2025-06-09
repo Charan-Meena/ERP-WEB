@@ -1,0 +1,66 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color:  #39A6A3;">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#">ERP Solution</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/registration">User Registration</a>
+        </li>
+        <li class="nav-item dropdown">
+              <a type="button" class="nav-link dropdown-toggle" aria-labelledby="navbarDropdown" (click)="toggleDropdown('PrgrameManagment')">PrgrameManagment</a>
+              <ul class="dropdown-menu" *ngIf="activeDropdown === 'PrgrameManagment'" class="submenu">   
+                <li><a class="dropdown-item" href="/PrgrameMaster">Programe Master</a></li>
+                <li><a class="dropdown-item" href="/BranchMaster">Branch Master</a></li>
+                <li><a class="dropdown-item" href="/course-scheme">Course Scheme</a></li>
+                <li><a class="dropdown-item" href="/PrgrameMaster">NOT Active</a></li>
+              </ul>
+         </li>
+         <li class="nav-item dropdown">
+              <a type="button" class="nav-link dropdown-toggle" aria-labelledby="navbarDropdown" (click)="toggleDropdown('settings')">Settings</a>
+              <ul class="dropdown-menu" *ngIf="activeDropdown === 'settings'" class="submenu">
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Account</a></li>
+              </ul>
+         </li>
+         <li class="nav-item dropdown">
+              <a type="button" class="nav-link dropdown-toggle" aria-labelledby="navbarDropdown" (click)="toggleDropdown('exam')">Examination</a>
+              <ul class="dropdown-menu" *ngIf="activeDropdown === 'exam'" class="submenu">
+                  <li><a class="dropdown-item" href="/Online-Exam">Online Examination</a></li>
+                   <li><a class="dropdown-item" href="/admin-Exam">Admin Panel</a></li>
+              </ul>
+         </li>
+        <li class="nav-item">
+          <a class="nav-link ">Link</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+       
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <div class="row header">
+        <div class="col-9">
+            <button type="button" class="btn btn-outline-danger" (click)="LogOut()">Logout</button>
+        </div>
+        <div class="col-3" If="sessionService.isAuthenticated()">
+               Welcome, {{UserInfo.fullname}}
+         </div>
+      </div>
+    </div>
+  </div>
+  .
+  <div class="row">
+    <div class="col">
+     <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>

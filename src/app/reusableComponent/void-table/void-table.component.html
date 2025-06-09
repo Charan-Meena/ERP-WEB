@@ -1,0 +1,90 @@
+<fieldset>
+    <div class="card">
+        <div class="card border-0 p-0">
+            <div class="card-body p-0">
+                <div class="row">
+                    <div class="col-9">
+                        <div id="tableId_wrapper" class="dataTables_wrapper no-footer">
+                            <div class="dataTables_length" id="tableId_length">
+                                <label>
+                                    <select aria-controls="tableId" class="form-select"
+                                        (change)="changefunction($event)">
+                                        <option value="5">Page Size</option>
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                    </select></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <input type="search" placeholder="Search Record.." class="form-control" aria-controls="tableId"
+                             (input)="pageSearchByText($event)">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th class="hoz-td sorting sorting_asc" rowspan="1" colspan="1" style="width: 15px;"
+                                        aria-sort="ascending"
+                                        aria-label="Student Name: activate to sort column descending" 
+                                        >S.No.
+                                    </th>
+                                    <th class="hoz-td sorting sorting_asc" rowspan="1" colspan="1" style="width: 15px;"
+                                        aria-sort="ascending"
+                                        aria-label="Student Name: activate to sort column descending" 
+                                        *ngFor="let heederItem of ColumnData">{{heederItem}}
+                                    </th>
+                                     <th class="hoz-td sorting sorting_asc" rowspan="1" colspan="1" style="width: 15px;"
+                                        aria-sort="ascending"
+                                        aria-label="Student Name: activate to sort column descending" 
+                                        >Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                    <tr class="odd" *ngFor="let tableItem of TableData;let i=index">
+                                    <td>
+                                        <div class="flex flex-top">
+                                            <p><span>{{i+1}}</span></p>
+                                        </div>
+                                    </td>
+                                    <td *ngFor="let heederItem of ColumnData; let j=index">
+                                        <div class="flex flex-top">
+                                            <p><span>{{tableItem[heederItem]}}</span></p>
+                                        </div>
+                                    </td>
+                                    <td><a class="btn btn-icon btn-sm view-icon rounded-pill" (click)="onEdit(tableItem)" title="Edit"><i class="fa fa-edit" style="font-size:22px"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item previous" [class.active]="PageNumber != 1"
+                                    [class.disabled]="PageNumber == 1">
+                                    <button type="button" class="page-link" (click)="previous()">
+                                        <<</button>
+                                </li>
+                                <li class="page-item" *ngFor="let i of pageArray" [class.active]="PageNumber == i+1"
+                                    [class.disabled]="pageCount == 1">
+                                    <button type="button" class="page-link" (click)="onpagechange(i+1)">{{ i + 1
+                                        }}</button>
+                                </li>
+                                <li class="page-item next" [class.active]="PageNumber != pageCount"
+                                    [class.disabled]="PageNumber == pageCount">
+                                    <button type="button" class="page-link" (click)="next()"> >></button>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</fieldset>
