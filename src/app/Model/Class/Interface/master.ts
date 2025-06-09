@@ -55,7 +55,8 @@ export interface ProgrameMenanet{
     programeID:number,
     programeName:string,
     programeDuration:string,
-    programeLebel:string
+    programeLebel:string,
+    Action:string,
 }
 export interface PROGRAME_API_RESPONSE{
 	data:ResponseData

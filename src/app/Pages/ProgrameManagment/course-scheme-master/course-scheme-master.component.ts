@@ -22,6 +22,7 @@ export class CourseSchemeMasterComponent extends BaseService implements OnInit{
   pageCount:number=0;
   courseSchemeList:Array<CourseScheme>=[];
   programeListDDL:Array<ProgrameMenanet>=[];
+  columnArray:Array<string>=['courseSchemeName','programeName','isActive','Action']
   searchText:string="";
   TableParam:any={
    PageNumber:this.PageNumber,

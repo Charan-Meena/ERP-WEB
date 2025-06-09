@@ -3,13 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BaseService } from '../../../Base/base.service';
 import { PROGRAME_API_RESPONSE, ProgrameMenanet } from '../../../Model/Class/Interface/master';
-//import { DatatableDirective } from '../../../directives/datatable.directive';
+import { VoidTableComponent } from '../../../reusableComponent/void-table/void-table.component';
 
 
 @Component({
   selector: 'app-programe-master',
   standalone: true,
-  imports: [ReactiveFormsModule,FormsModule,CommonModule],
+  imports: [ReactiveFormsModule,FormsModule,CommonModule,VoidTableComponent],
   templateUrl: './programe-master.component.html',
   styleUrl: './programe-master.component.css'
 })
@@ -22,6 +22,7 @@ export class ProgrameMasterComponent extends BaseService implements OnInit{
   pageCount:number=0;
   programeList:Array<ProgrameMenanet>=[];
   searchText:string="";
+  columnArray:Array<string>=['programeName','programeDuration','programeLebel','Action','Add']
   TableParam:any={
    PageNumber:this.PageNumber,
    RowsOfPage:this.RowsOfPage,
@@ -59,9 +60,15 @@ Fromsubmit(){
     }
       });
     }
-onEdit(onEdit:ProgrameMenanet){
-  this.ProgrameResitrationForm.patchValue(onEdit)
-console.log(onEdit);
+onActionEvent(actionData:ProgrameMenanet){
+  if(actionData.Action=='Edit'){
+   this.ProgrameResitrationForm.patchValue(actionData);
+    console.log(actionData.Action)
+  }
+  else{
+    this.clearForm();
+    console.log(actionData.Action)
+  }
 }
 getUserList(){
   this.pageArray=[];
@@ -78,53 +85,10 @@ this.ApiServices.requestPost('/api/ProgrameManagment/programeList',this.TablePar
   }
 })
 }
-sendTheNewValue(e:any){
-  this.RowsOfPage=2;
-  this.PageNumber=1;
-this.searchText = e.target.value;
-console.log(e.target.value);
-this.TableParam={
-   PageNumber:this.PageNumber,
-   RowsOfPage:this.RowsOfPage,
-   searchText:this.searchText
-  };
-this.getUserList();
-}
+
 onpagechange(pageNumber:number){
-  this.PageNumber=pageNumber;
- this.TableParam={
-   PageNumber:this.PageNumber,
-   RowsOfPage:this.RowsOfPage,
-   searchText:this.searchText
-  };
-  this.getUserList();
-}
-previous(){
-  this.PageNumber--;
- this.TableParam={
-   PageNumber:this.PageNumber,
-   RowsOfPage:this.RowsOfPage,
-   searchText:""
-  };
-  this.getUserList();
-}
-next(){
-  this.PageNumber++;
- this.TableParam={
-   PageNumber:this.PageNumber,
-   RowsOfPage:this.RowsOfPage,
-   searchText:this.searchText
-  };
-  this.getUserList();
-}
-changefunction(env:any){
-   this.RowsOfPage= env.target.value
-    this.TableParam={
-   PageNumber:1,
-   RowsOfPage:this.RowsOfPage,
-  searchText:this.searchText
-  };
-  this.getUserList();
+  this.TableParam=pageNumber;
+   this.getUserList();
 }
 
  get progFormControls(){

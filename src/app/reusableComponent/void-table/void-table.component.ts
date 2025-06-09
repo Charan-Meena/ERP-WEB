@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BaseService } from '../../Base/base.service';
 import { CourseScheme } from '../../Model/Class/Interface/master';
+import { from } from 'rxjs';
 
 
 
@@ -25,7 +26,7 @@ export class VoidTableComponent extends BaseService implements OnInit{
   @Input() ColumnData:Array<string>=[];
   @Input() pageArray:any=[];
   @Output() pageChange=new EventEmitter<any>();
-  @Output() editPageData=new EventEmitter<any>();
+  @Output() onActionPageData=new EventEmitter<any>();
 
   constructor(){
        super();
@@ -35,9 +36,10 @@ ngOnInit():void{
 console.log('TableData',this.TableData);
 }
 
-onEdit(formvData:any){
-this.editPageData.emit(formvData);
-console.log(formvData);
+onActionEvent(formData:any,Action:string){
+  let formObj={...formData}
+  formObj['Action']=Action
+this.onActionPageData.emit(formObj);
 }
 pageSearchByText(e:any){
    this.searchText = e.target.value;
