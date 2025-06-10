@@ -22,7 +22,7 @@ export class ProgrameMasterComponent extends BaseService implements OnInit{
   pageCount:number=0;
   programeList:Array<ProgrameMenanet>=[];
   searchText:string="";
-  columnArray:Array<string>=['programeName','programeDuration','programeLebel','Action','Add']
+  columnArray:Array<string>=['programeName','programeDuration','programeLebel','Action']
   TableParam:any={
    PageNumber:this.PageNumber,
    RowsOfPage:this.RowsOfPage,

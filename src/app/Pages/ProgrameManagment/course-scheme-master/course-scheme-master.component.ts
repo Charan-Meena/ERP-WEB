@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BaseService } from '../../../Base/base.service';
 import { CourseScheme, COURSESCHEME_API_RESPONSE, PROGRAME_API_RESPONSE, ProgrameMenanet } from '../../../Model/Class/Interface/master';
 import { VoidTableComponent } from "../../../reusableComponent/void-table/void-table.component";
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { CourseSchemeSubjectComponent } from '../../../modalPages/course-scheme-subject/course-scheme-subject.component';
 @Component({
   selector: 'app-course-scheme-master',
   standalone: true,
@@ -22,8 +23,10 @@ export class CourseSchemeMasterComponent extends BaseService implements OnInit{
   pageCount:number=0;
   courseSchemeList:Array<CourseScheme>=[];
   programeListDDL:Array<ProgrameMenanet>=[];
-  columnArray:Array<string>=['courseSchemeName','programeName','isActive','Action']
+  columnArray:Array<string>=['courseSchemeName','programeName','isActive','Action','Add']
   searchText:string="";
+  private modalStatus = inject(NgbModal);
+  modalRef: any;
   TableParam:any={
    PageNumber:this.PageNumber,
    RowsOfPage:this.RowsOfPage,
@@ -63,13 +66,20 @@ Fromsubmit(){
       console.log('error',e);
     }
       });
-    }
-onEdit(formvalue:CourseScheme){
-  let courseSchemeMatsterobj ={...formvalue}
+}
+
+onActionEvent(actionData:CourseScheme){
+  if(actionData.Action=='Edit'){
+ let courseSchemeMatsterobj ={...actionData}
   courseSchemeMatsterobj['isActive']= courseSchemeMatsterobj.isActive=="true"?0:1;
     this.courseSchemeMatsterForm.patchValue(courseSchemeMatsterobj)
-
-console.log(formvalue);
+    console.log(actionData.Action)
+  }
+  else{
+    this.clearForm();
+    console.log(actionData.Action)
+    this.openModalPage();
+  }
 }
 //getProgrameDDL
 getProgrameDDL(){
@@ -109,6 +119,16 @@ get progFormControls(){
 clearForm(){
   this.courseSchemeMatsterForm.reset();
 }
-
+openModalPage(){
+   if (this.modalRef) this.modalRef = null;
+      this.modalRef = this.modalStatus.open(CourseSchemeSubjectComponent, { centered: true, size: 'xl' });
+      this.modalRef.result.then((closeEvent: any) => {
+        if(closeEvent=='REFRESH'){
+        }
+      }).catch((e: any) => {
+        console.log("Error:Modal Open ::", e);
+      });
+      //this.modalRef.componentInstance.recieptObj = recieptObj;
+}
 
 }

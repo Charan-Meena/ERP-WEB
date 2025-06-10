@@ -66,7 +66,8 @@ courseSchemeID: number,
 courseSchemeName:string,
 programeID: number,
 programeName:string,
-isActive:any
+isActive:any,
+Action:string,
 }
  export interface   COURSESCHEME_API_RESPONSE{
 	data:ResponseData
