@@ -13,7 +13,7 @@
                               <div class="card border-0 p-0">
                                  <div class="card-body p-0">
                                 <div class="row">
-                                  <div class="col-md-3">
+                                  <div class="col-md">
                                     <input type="text" formControlName="courseSchemeName" name="courseSchemeName" class="form-control"
                                       placeholder="Course Scheme Name" required>
                                     <input type="text" formControlName="courseSchemeID" name="courseSchemeID" hidden="hidden">
@@ -24,7 +24,20 @@
                                         Name is required.</div>
                                     </div>
                                    </div>
-                                  <div class="col-md-3">
+                                   <div class="col-md">
+                                    <select class="form-select" formControlName="examPattern" name="examPattern" required >
+                                      <option value="" disabled selected>Select Exam Pattern</option>
+                                      <option value="Yearly">Yearly</option>
+                                      <option value="Semester">Semester</option>
+                                    </select>
+                                    <div
+                                      *ngIf="(progFormControls['examPattern'].touched || iscourseSchemeMatsterForm) && progFormControls['examPattern'].invalid"
+                                      class="errorMessage">
+                                      <div *ngIf="progFormControls['examPattern'].errors && progFormControls['examPattern'].errors['required']">
+                                        Exam Pattern is required.</div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md">
                                     <select class="form-select" formControlName="programeID" name="programeID" required >
                                       <option value="" disabled selected>Select Programe</option>
                                       <option *ngFor="let Item of programeListDDL" [value]="Item.programeID">{{Item.programeName}}</option>
@@ -36,7 +49,7 @@
                                         Programe is required.</div>
                                     </div>
                                   </div>
-                                  <div class="col-md-3">
+                                  <div class="col-md">
                                     <select class="form-select" formControlName="isActive" name="isActive" required>
                                       <option value="" disabled selected>Select</option>
                                       <option value="1">Active</option>
@@ -49,7 +62,7 @@
                                         Programe Lebel is required.</div>
                                     </div>
                                   </div>         
-                                    <div class="col-md-3">
+                                    <div class="col-md-2">
                                       <button type="submit" class="btn btn-outline-success btn-sm">Submit</button>
                                     </div>
                                 </div>

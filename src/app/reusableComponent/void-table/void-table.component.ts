@@ -87,4 +87,4 @@ next(){
   };
   this.pageChange.emit(this.TableParam);
 }
-}
+} 

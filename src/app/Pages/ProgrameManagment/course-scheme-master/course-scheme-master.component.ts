@@ -23,7 +23,7 @@ export class CourseSchemeMasterComponent extends BaseService implements OnInit{
   pageCount:number=0;
   courseSchemeList:Array<CourseScheme>=[];
   programeListDDL:Array<ProgrameMenanet>=[];
-  columnArray:Array<string>=['courseSchemeName','programeName','isActive','Action','Add']
+  columnArray:Array<string>=['courseSchemeName','examPattern','programeName','isActive','Action','Add']
   searchText:string="";
   private modalStatus = inject(NgbModal);
   modalRef: any;
@@ -44,6 +44,7 @@ ngOnInit():void{
       courseSchemeName:['',Validators.required],
       programeID:['',Validators.required],
       isActive:['',Validators.required],
+      examPattern:['',Validators.required]
   });
   setTimeout(()=>{
     this.getCourseSchemeList();
@@ -73,12 +74,11 @@ onActionEvent(actionData:CourseScheme){
  let courseSchemeMatsterobj ={...actionData}
   courseSchemeMatsterobj['isActive']= courseSchemeMatsterobj.isActive=="true"?0:1;
     this.courseSchemeMatsterForm.patchValue(courseSchemeMatsterobj)
-    console.log(actionData.Action)
+    console.log(actionData)
   }
-  else{
+  if(actionData.Action=='Add'){
     this.clearForm();
-    console.log(actionData.Action)
-    this.openModalPage();
+    this.openModalPage(actionData);
   }
 }
 //getProgrameDDL
@@ -86,7 +86,6 @@ getProgrameDDL(){
   this.ApiServices.requestGet("/api/ProgrameManagment/getProgrameDDL").subscribe({
     next:(res:PROGRAME_API_RESPONSE |any)=>{
        this.programeListDDL=res.data;
-       console.log('programeListDDL',this.programeListDDL)
     },
     error(e){
       console.log('error',e)
@@ -119,7 +118,7 @@ get progFormControls(){
 clearForm(){
   this.courseSchemeMatsterForm.reset();
 }
-openModalPage(){
+openModalPage(actionData:CourseScheme){
    if (this.modalRef) this.modalRef = null;
       this.modalRef = this.modalStatus.open(CourseSchemeSubjectComponent, { centered: true, size: 'xl' });
       this.modalRef.result.then((closeEvent: any) => {
@@ -128,7 +127,7 @@ openModalPage(){
       }).catch((e: any) => {
         console.log("Error:Modal Open ::", e);
       });
-      //this.modalRef.componentInstance.recieptObj = recieptObj;
+      this.modalRef.componentInstance.courseSchemeObj = actionData;
 }
 
 }

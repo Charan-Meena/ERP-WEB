@@ -64,6 +64,7 @@ export interface PROGRAME_API_RESPONSE{
 export interface CourseScheme{
 courseSchemeID: number,
 courseSchemeName:string,
+examPattern:string,
 programeID: number,
 programeName:string,
 isActive:any,

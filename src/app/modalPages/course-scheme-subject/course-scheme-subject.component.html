@@ -1,18 +1,148 @@
-<div class="registration-box border-box mb-3 ">
-    <div class="container">
-        <div class="registration-box">
-            <div class="card border-0 p-0">
-                <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Subject Name">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Subject Name">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Subject Name">
-                    </div>
-                </div>      
-          </div>
-      </div>
+<div class="main-content modal-popup-main modal-experience-form">
+    <div class="page-content">
+        <div class="registration-main">
+            <div class="modal-dialog">
+                <div class="modal-content"> 
+                    <form >                                        
+                        <div class="container-fluid">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="top-box d-flex align-items-center justify-content-between">
+                                  <div class="d-flex align-items-center">
+                                    <div class="right-box-img">
+                                    </div>
+                                    <div class="main-box-titel">
+                                        <h1>Test Page</h1>
+                                    </div>
+                                  </div>
+                                  <div class="mobile-full"> 
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="closeModal('CLOSE')">CLOSE</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        <div class="modal-body">
+                            <div class="registration-box border-box"> 
+                                <div class="container">
+                                    <div class="registration-box">                                        
+                                        <div class="card border-0 p-0">
+                                            <div class="card-body p-0"> 
+                                                <fieldset class="border-box">
+                                                    <legend class="float-none w-auto"><b><span class="badge bg-secondary">Examination Paper Details Add</span></b></legend>                                                    
+                                                    <div class="card border-0 p-0">
+                                                        <div class="card-body p-0">
+                                                            <fieldset class="border-box">
+                                                                <div class="row my-3">
+                                                                    <div class="col-4">
+                                                                        <select class="form-select">
+                                                                            <option value="">Select Pattern</option>
+                                                                            <option value="Yearly">Yearly</option>
+                                                                            <option value="Semester">Semester</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-4">
+                                                                        @if(patternType =='Yearly'){
+                                                                       <select class="form-select">
+                                                                            <option value="">Select Year</option>
+                                                                            <option value="1">1 Year</option>
+                                                                            <option value="2">2 Year</option>
+                                                                            <option value="3">3 Year</option>
+                                                                            <option value="4">4 Year</option>
+                                                                            <option value="5">5 Year</option>
+                                                                        </select>
+                                                                        }
+                                                                        @else {
+                                                                            <select class="form-select">
+                                                                            <option value="">Select Semester</option>
+                                                                            <option value="1">First Semester</option>
+                                                                            <option value="2">Second Semester</option>
+                                                                            <option value="3">Third Semester</option>
+                                                                            <option value="4">Fourth Semester</option>
+                                                                            <option value="5">Fifth Semester</option>
+                                                                            <option value="6">Sixth Semester</option>
+                                                                            <option value="7">Seventh Semester</option>
+                                                                            <option value="8">Eight Semester</option>
+                                                                        </select>
+                                                                        }
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row my-3">
+                                                                            <div class="col-md-3">
+                                                                                    <input type="text" class="form-control" placeholder="Is Copulsary">                                                                
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                    <input type="text" class="form-control" placeholder="Sequence Number">   
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                   <input type="text" class="form-control" placeholder="Paper Name">                                                         
+                                                                            </div>
+                                                                            <div class="col-md-3">
+                                                                                   <input type="text" class="form-control" placeholder="Paper Code">                                                         
+                                                                            </div>
+                                                                </div>                                                                    
+                                                                <div class="row my-3">
+                                                                            <div class="col-md">
+                                                                                   <input type="text" class="form-control" placeholder="PSeq">                                                         
+                                                                            </div>
+                                                                            <div class="col-md">
+                                                                                    <input type="text" class="form-control" placeholder="THMax">                                                                
+                                                                            </div>
+                                                                            <div class="col-md my-0">
+                                                                                    <input type="text" class="form-control" placeholder="THMin">   
+                                                                            </div>
+                                                                            <div class="col-md">
+                                                                                   <input type="text" class="form-control" placeholder="PRMax">                                                         
+                                                                            </div>
+                                                                            <div class="col-md">
+                                                                                   <input type="text" class="form-control" placeholder="PRMin">                                                         
+                                                                            </div>
+                                                                            <div class="col-md">
+                                                                                    <input type="text" class="form-control" placeholder="SSMax">                                                                
+                                                                            </div>
+                                                                            <div class="col-md">
+                                                                                    <input type="text" class="form-control" placeholder="SSMin">   
+                                                                            </div>
+                                                                            <div class="col-md">
+                                                                                   <input type="text" class="form-control" placeholder="TMAx">                                                         
+                                                                            </div>
+                                                                            <div class="col-md">
+                                                                                   <input type="text" class="form-control" placeholder="TMin">                                                         
+                                                                            </div>
+                                                                            
+                                                                             
+                                                                </div>
+                                                                <div class="row button-des">
+                                                                        <div class="col-md-2">
+                                                                            <button type="button" class="btn btn-outline-success btn-sm">Add Subject</button>
+                                                                        </div>
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card border-0 p-0">
+                                                        <div class="card-body p-0">
+                                                            <fieldset class="border-box mb-3">
+                                                                                                                                                                                                
+                                                            </fieldset>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                         <!-- <div class="col-3">
+                                                            <button type="button" class="btn btn-success">Save Personel Verification</button>
+                                                        </div> -->
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                                                      
+                            </div>                        
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
