@@ -2,6 +2,7 @@ import { ResponseData } from "./Interface/master"
 
 export interface ICourseSubject{
 	SubjectCourseID:number,
+	courseSchemeID:number,
 	examPattern:string,
 	SemYear:number,
 	IsCompulsory:any,

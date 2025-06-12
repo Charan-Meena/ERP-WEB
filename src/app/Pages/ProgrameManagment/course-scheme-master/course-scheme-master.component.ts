@@ -6,6 +6,7 @@ import { CourseScheme, COURSESCHEME_API_RESPONSE, PROGRAME_API_RESPONSE, Program
 import { VoidTableComponent } from "../../../reusableComponent/void-table/void-table.component";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CourseSchemeSubjectComponent } from '../../../modalPages/course-scheme-subject/course-scheme-subject.component';
+import { NavigationExtras } from '@angular/router';
 @Component({
   selector: 'app-course-scheme-master',
   standalone: true,
@@ -78,7 +79,7 @@ onActionEvent(actionData:CourseScheme){
   }
   if(actionData.Action=='Add'){
     this.clearForm();
-    this.openModalPage(actionData);
+    this.openPaperPage(actionData);
   }
 }
 //getProgrameDDL
@@ -129,5 +130,13 @@ openModalPage(actionData:CourseScheme){
       });
       this.modalRef.componentInstance.courseSchemeObj = actionData;
 }
-
+openPaperPage(CourseObj:CourseScheme){
+        const navigationExtras: NavigationExtras = {
+            state: {
+              CourseObj: CourseObj,
+            }
+          };
+          this.router.navigate(['/subject-list'], navigationExtras);
+         //this.pageOpen('/subject-list')
+      }
 }

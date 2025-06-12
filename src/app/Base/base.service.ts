@@ -3,6 +3,7 @@ import { SessionManagementService } from '../Services/session-management.service
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ApiServicesService } from '../Services/api-services.service';
+import { SendRecievedDataService } from '../Services/send-recieved-data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class BaseService {
     session=inject(SessionManagementService);
     http=inject(HttpClient);
     ApiServices =inject(ApiServicesService);
-//router =inject(Router);
+    dataservices =inject(SendRecievedDataService)
   constructor(
 
   ) { }

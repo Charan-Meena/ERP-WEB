@@ -3,25 +3,7 @@
         <div class="registration-main">
             <div class="modal-dialog">
                 <div class="modal-content"> 
-                    <form >                                        
-                        <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-md-12">
-                                <div class="top-box d-flex align-items-center justify-content-between">
-                                  <div class="d-flex align-items-center">
-                                    <div class="right-box-img">
-                                    </div>
-                                    <div class="main-box-titel">
-                                        <h1>Test Page</h1>
-                                    </div>
-                                  </div>
-                                  <div class="mobile-full"> 
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="closeModal('CLOSE')">CLOSE</button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                    <form  [formGroup]="courseSubjectForm" (ngSubmit)="Fromsubmit()">                                        
                         <div class="modal-body">
                             <div class="registration-box border-box"> 
                                 <div class="container">
@@ -29,21 +11,23 @@
                                         <div class="card border-0 p-0">
                                             <div class="card-body p-0"> 
                                                 <fieldset class="border-box">
-                                                    <legend class="float-none w-auto"><b><span class="badge bg-secondary">Examination Paper Details Add</span></b></legend>                                                    
+                                                    <div class="row">
+                                                        <div class="col-9">
+                                                        <legend class="float-none w-auto"><b><span class="badge bg-secondary">Examination Paper Details Add</span></b></legend>
+                                                        </div>
+                                                        <div class="col-3">
+                                                                <button type="button" class="close" data-bs-dismiss="modal" (click)="closeModal('CLOSE')"><span aria-hidden="true">&times;</span></button> 
+                                                                
+                                                        </div>
+                                                    </div>
+
                                                     <div class="card border-0 p-0">
                                                         <div class="card-body p-0">
                                                             <fieldset class="border-box">
                                                                 <div class="row my-3">
                                                                     <div class="col-4">
-                                                                        <select class="form-select">
-                                                                            <option value="">Select Pattern</option>
-                                                                            <option value="Yearly">Yearly</option>
-                                                                            <option value="Semester">Semester</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-4">
                                                                         @if(patternType =='Yearly'){
-                                                                       <select class="form-select">
+                                                                       <select class="form-select" formControlName="SemYear" name="SemYear">
                                                                             <option value="">Select Year</option>
                                                                             <option value="1">1 Year</option>
                                                                             <option value="2">2 Year</option>
@@ -53,7 +37,7 @@
                                                                         </select>
                                                                         }
                                                                         @else {
-                                                                            <select class="form-select">
+                                                                        <select class="form-select" formControlName="SemYear" name="SemYear">
                                                                             <option value="">Select Semester</option>
                                                                             <option value="1">First Semester</option>
                                                                             <option value="2">Second Semester</option>
@@ -69,48 +53,150 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="row my-3">
-                                                                            <div class="col-md-3">
-                                                                                    <input type="text" class="form-control" placeholder="Is Copulsary">                                                                
+                                                                            <div class="col-md-2">
+                                                                                <select class="form-select" formControlName="IsCompulsory" name="IsCompulsory">
+                                                                                    <option value="" disabled selected>Is Compulsury</option>
+                                                                                    <option value="1">Yes</option>
+                                                                                    <option value="0">No</option>
+                                                                                </select>
+                                                                                 @if((subjectFormControls['IsCompulsory'].touched || iscourseSubjectForm) && subjectFormControls['IsCompulsory'].invalid)
+                                                                                {
+                                                                                    <div class="errorMessage">
+                                                                                        @if(subjectFormControls['IsCompulsory'].errors && subjectFormControls['IsCompulsory'].errors['required'])
+                                                                                        {
+                                                                                            <div>Course Scheme Name is required.</div>
+                                                                                        } 
+                                                                                    </div>
+                                                                                } 
                                                                             </div>
                                                                             <div class="col-md-3">
-                                                                                    <input type="text" class="form-control" placeholder="Sequence Number">   
+                                                                                    <input type="text" formControlName="SubjSeq" name="SubjSeq" class="form-control" placeholder="Sequence Number">
+                                                                                     @if((subjectFormControls['SubjSeq'].touched || iscourseSubjectForm) && subjectFormControls['SubjSeq'].invalid)
+                                                                                {
+                                                                                    <div class="errorMessage">
+                                                                                        @if(subjectFormControls['SubjSeq'].errors && subjectFormControls['SubjSeq'].errors['required'])
+                                                                                        {
+                                                                                            <div>Course Scheme Name is required.</div>
+                                                                                        } 
+                                                                                    </div>
+                                                                                }    
                                                                             </div>
                                                                             <div class="col-md-3">
-                                                                                   <input type="text" class="form-control" placeholder="Paper Name">                                                         
+                                                                                   <input type="text" formControlName="SubjName" name="SubjName" class="form-control" placeholder="Paper Name"> 
+                                                                                   <input type="text" hidden="hidden" formControlName="SubjectCourseID" name="SubjectCourseID" class="form-control">
+                                                                                   @if((subjectFormControls['SubjName'].touched || iscourseSubjectForm) && subjectFormControls['SubjName'].invalid)
+                                                                                {
+                                                                                    <div class="errorMessage">
+                                                                                        @if(subjectFormControls['SubjName'].errors && subjectFormControls['SubjName'].errors['required'])
+                                                                                        {
+                                                                                            <div>Course Scheme Name is required.</div>
+                                                                                        } 
+                                                                                    </div>
+                                                                                }     
+                                                                                                                                          
                                                                             </div>
-                                                                            <div class="col-md-3">
-                                                                                   <input type="text" class="form-control" placeholder="Paper Code">                                                         
+                                                                            <div class="col-md-2">
+                                                                                   <input type="text" formControlName="SubjectCode" name="SubjectCode" class="form-control" placeholder="Paper Code"> 
+                                                                                    @if((subjectFormControls['SubjectCode'].touched || iscourseSubjectForm) && subjectFormControls['SubjectCode'].invalid)
+                                                                                {
+                                                                                    <div class="errorMessage">
+                                                                                        @if(subjectFormControls['SubjectCode'].errors && subjectFormControls['SubjectCode'].errors['required'])
+                                                                                        {
+                                                                                            <div>Course Scheme Name is required.</div>
+                                                                                        } 
+                                                                                    </div>
+                                                                                }                                                             
+                                                                            </div>
+                                                                             <div class="col-md-2">
+                                                                                <select class="form-select" formControlName="ActiveStatus" name="ActiveStatus">
+                                                                                    <option value="" disabled selected>Active Status</option>
+                                                                                    <option value="1">Yes</option>
+                                                                                    <option value="0">No</option>
+                                                                                </select>
+                                                                                    @if((subjectFormControls['ActiveStatus'].touched || iscourseSubjectForm) && subjectFormControls['ActiveStatus'].invalid)
+                                                                                {
+                                                                                    <div class="errorMessage">
+                                                                                        @if(subjectFormControls['ActiveStatus'].errors && subjectFormControls['ActiveStatus'].errors['required'])
+                                                                                        {
+                                                                                            <div>Course Scheme Name is required.</div>
+                                                                                        } 
+                                                                                    </div>
+                                                                                }                                                                        
                                                                             </div>
                                                                 </div>                                                                    
                                                                 <div class="row my-3">
                                                                             <div class="col-md">
-                                                                                   <input type="text" class="form-control" placeholder="PSeq">                                                         
+                                                                                   <input type="text" formControlName="TheoryMax" name="TheoryMax" class="form-control" placeholder="TheoryMax"> 
+                                                                                  @if((subjectFormControls['TheoryMax'].touched || iscourseSubjectForm) && subjectFormControls['TheoryMax'].invalid)
+                                                                                {
+                                                                                    <div class="errorMessage">
+                                                                                        @if(subjectFormControls['TheoryMax'].errors && subjectFormControls['TheoryMax'].errors['required'])
+                                                                                        {
+                                                                                            <div>Course Scheme Name is required.</div>
+                                                                                        } 
+                                                                                    </div>
+                                                                                }                                                             
                                                                             </div>
                                                                             <div class="col-md">
-                                                                                    <input type="text" class="form-control" placeholder="THMax">                                                                
-                                                                            </div>
-                                                                            <div class="col-md my-0">
-                                                                                    <input type="text" class="form-control" placeholder="THMin">   
-                                                                            </div>
-                                                                            <div class="col-md">
-                                                                                   <input type="text" class="form-control" placeholder="PRMax">                                                         
-                                                                            </div>
-                                                                            <div class="col-md">
-                                                                                   <input type="text" class="form-control" placeholder="PRMin">                                                         
-                                                                            </div>
-                                                                            <div class="col-md">
-                                                                                    <input type="text" class="form-control" placeholder="SSMax">                                                                
+                                                                                    <input type="text" formControlName="TheoryMin" name="TheoryMin" class="form-control" placeholder="TheoryMin"> 
+                                                                                     @if((subjectFormControls['TheoryMin'].touched || iscourseSubjectForm) && subjectFormControls['TheoryMin'].invalid)
+                                                                                {
+                                                                                    <div class="errorMessage">
+                                                                                        @if(subjectFormControls['TheoryMin'].errors && subjectFormControls['TheoryMin'].errors['required'])
+                                                                                        {
+                                                                                            <div>Course Scheme Name is required.</div>
+                                                                                        } 
+                                                                                    </div>
+                                                                                }                                                                       
                                                                             </div>
                                                                             <div class="col-md">
-                                                                                    <input type="text" class="form-control" placeholder="SSMin">   
+                                                                                    <input type="text" formControlName="PractMax" name="PractMax" class="form-control" placeholder="PractMax">
+                                                                                     @if((subjectFormControls['TheoryMin'].touched || iscourseSubjectForm) && subjectFormControls['TheoryMin'].invalid){
+                                                                                    <div class="errorMessage">
+                                                                                        @if(subjectFormControls['TheoryMin'].errors && subjectFormControls['TheoryMin'].errors['required']){
+                                                                                            <div>Course Scheme Name is required.</div>} 
+                                                                                    </div>}         
                                                                             </div>
                                                                             <div class="col-md">
-                                                                                   <input type="text" class="form-control" placeholder="TMAx">                                                         
+                                                                                   <input type="text" formControlName="PractMin" name="PractMin" class="form-control" placeholder="PractMin">
+                                                                                    @if((subjectFormControls['PractMin'].touched || iscourseSubjectForm) && subjectFormControls['PractMin'].invalid){
+                                                                                    <div class="errorMessage">
+                                                                                        @if(subjectFormControls['PractMin'].errors && subjectFormControls['PractMin'].errors['required']){
+                                                                                            <div>Course Scheme Name is required.</div>} 
+                                                                                    </div>}                                                         
                                                                             </div>
                                                                             <div class="col-md">
-                                                                                   <input type="text" class="form-control" placeholder="TMin">                                                         
+                                                                                   <input type="text" formControlName="SesMax" name="SesMax" class="form-control" placeholder="SesMax">
+                                                                                   @if((subjectFormControls['SesMax'].touched || iscourseSubjectForm) && subjectFormControls['SesMax'].invalid){
+                                                                                    <div class="errorMessage">
+                                                                                        @if(subjectFormControls['SesMax'].errors && subjectFormControls['SesMax'].errors['required']){
+                                                                                            <div>Course Scheme Name is required.</div>} 
+                                                                                    </div>}                                                           
                                                                             </div>
-                                                                            
+                                                                            <div class="col-md">
+                                                                                    <input type="text" formControlName="SesMin" name="SesMin" class="form-control" placeholder="SesMin">
+                                                                                    @if((subjectFormControls['SesMin'].touched || iscourseSubjectForm) && subjectFormControls['SesMin'].invalid){
+                                                                                    <div class="errorMessage">
+                                                                                        @if(subjectFormControls['SesMin'].errors && subjectFormControls['SesMin'].errors['required']){
+                                                                                            <div>Course Scheme Name is required.</div>} 
+                                                                                    </div>}                                                                
+                                                                            </div>
+                                                                            <div class="col-md">
+                                                                                    <input type="text" formControlName="MaxTotal" name="MaxTotal" class="form-control" placeholder="MaxTotal">
+                                                                                    @if((subjectFormControls['MaxTotal'].touched || iscourseSubjectForm) && subjectFormControls['MaxTotal'].invalid){
+                                                                                    <div class="errorMessage">
+                                                                                        @if(subjectFormControls['MaxTotal'].errors && subjectFormControls['MaxTotal'].errors['required']){
+                                                                                            <div>Course Scheme Name is required.</div>} 
+                                                                                    </div>}       
+                                                                            </div>
+                                                                            <div class="col-md">
+                                                                                   <input type="text" formControlName="MinTotal" name="MinTotal" class="form-control" placeholder="MinTotal"> 
+                                                                                    @if((subjectFormControls['MinTotal'].touched || iscourseSubjectForm) && subjectFormControls['MinTotal'].invalid){
+                                                                                    <div class="errorMessage">
+                                                                                        @if(subjectFormControls['MinTotal'].errors && subjectFormControls['MinTotal'].errors['required']){
+                                                                                            <div>Course Scheme Name is required.</div>} 
+                                                                                    </div>}                                                          
+                                                                            </div>                                                                          
                                                                              
                                                                 </div>
                                                                 <div class="row button-des">
@@ -128,11 +214,7 @@
                                                             </fieldset>
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                         <!-- <div class="col-3">
-                                                            <button type="button" class="btn btn-success">Save Personel Verification</button>
-                                                        </div> -->
-                                                    </div>
+                                                  
                                                 </fieldset>
                                             </div>
                                         </div>

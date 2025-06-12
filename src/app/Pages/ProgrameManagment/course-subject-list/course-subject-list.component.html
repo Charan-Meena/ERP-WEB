@@ -1,0 +1,30 @@
+<div class="registration-box border-box mb-3 ">
+    <div class="container">
+        <div class="registration-box">
+            <div class="card border-0 p-0">
+                <div class="card-body p-0">
+                    <fieldset class="border-box mb-3">
+                      <div class="row">
+                        <div class="col-10">
+                          <legend class="float-none w-auto"><b><span class="badge bg-secondary">Exam Paper List- {{courseSchemeObj.courseSchemeName}}</span></b></legend>
+                        </div>
+                        <div class="col-2">
+                          <!-- <a class="btn btn-icon btn-sm view-icon rounded-pill fa-plus-square-font"><i class="fa fa-plus-square"></i></a> -->
+                           <button class="btn btn-success" (click)="openModalPage()">Add</button>
+                        </div>
+                      </div>
+                     
+                        <div class="card border-0 p-0">
+                          <div class="card-body p-0">
+                            <app-void-table [pageArray]="pageArray" [TableData]="courseSchemeList" [ColumnData]="columnArray"
+                             (pageChange)="onpagechange($event)"
+                             (onActionPageData)="onActionEvent($event)">
+                            </app-void-table>
+                          </div>
+                        </div>
+                  </fieldset>
+                </div>
+            </div>            
+          </div>
+      </div>
+</div>

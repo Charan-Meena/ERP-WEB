@@ -10,6 +10,7 @@ import { ProgrameMasterComponent } from './Pages/ProgrameManagment/programe-mast
 import { OnlineExaminationComponent } from './Pages/MCQExamination/online-examination/online-examination.component';
 import { AdminPanelOnlineExamComponent } from './Pages/MCQExamination/admin-panel-online-exam/admin-panel-online-exam.component';
 import { CourseSchemeMasterComponent } from './Pages/ProgrameManagment/course-scheme-master/course-scheme-master.component';
+import { CourseSubjectListComponent } from './Pages/ProgrameManagment/course-subject-list/course-subject-list.component';
 
 export const routes: Routes = [
     {
@@ -39,7 +40,8 @@ export const routes: Routes = [
         {path:'PrgrameMaster',component:ProgrameMasterComponent},
         {path:'Online-Exam',component:OnlineExaminationComponent},
         {path:'admin-Exam',component:AdminPanelOnlineExamComponent},
-        {path:'course-scheme',component:CourseSchemeMasterComponent}
+        {path:'course-scheme',component:CourseSchemeMasterComponent},
+        {path:'subject-list',component:CourseSubjectListComponent}
      ]   
     }
 
