@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup,FormsModule,ReactiveFormsModule,Validators } fro
 import { BaseService } from '../../Base/base.service';
 import { CourseScheme, COURSESCHEME_API_RESPONSE} from '../../Model/Class/Interface/master';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ICourseSubject } from '../../Model/Class/programe';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class CourseSchemeSubjectComponent extends BaseService implements OnInit{
   activeModal = inject(NgbActiveModal);
   courseSubjectForm:FormGroup = new FormGroup({});
   iscourseSubjectForm:boolean=false;
+  subjectList:Array<ICourseSubject>=[];
   @Input() courseSchemeObj:CourseScheme=<CourseScheme>{};
   patternType:string='';
 
@@ -50,13 +52,38 @@ ngOnInit():void{
   }, 10);
 }
 
-Fromsubmit(){
-  this.iscourseSubjectForm = true;
-  console.log(this.courseSubjectForm.value);
-  return;
+AddSubject(){
+  debugger;
+  // this.iscourseSubjectForm = true;
+  // if(!this.courseSubjectForm.valid){return;}
+  const subjectList:any= {
+        IsCompulsory:this.courseSubjectForm.controls['IsCompulsory'].value,
+        SubjSeq:this.courseSubjectForm.controls['SubjSeq'].value,
+        SubjName:this.courseSubjectForm.controls['SubjName'].value,
+        SubjectCode:this.courseSubjectForm.controls['SubjectCode'].value,
+        TheoryMax:this.courseSubjectForm.controls['TheoryMax'].value,
+        TheoryMin:this.courseSubjectForm.controls['TheoryMin'].value,
+        PractMax:this.courseSubjectForm.controls['PractMax'].value,
+        SesMax:this.courseSubjectForm.controls['SesMax'].value,
+        SesMin:this.courseSubjectForm.controls['SesMin'].value,
+        MaxTotal:this.courseSubjectForm.controls['MaxTotal'].value,
+        MinTotal:this.courseSubjectForm.controls['MaxTotal'].value,
+        ActiveStatus:this.courseSubjectForm.controls['MaxTotal'].value
+     }
+     this.subjectList.push(subjectList)
+     console.log(this.subjectList)
+}
 
-  if(!this.courseSubjectForm.valid){return;}
-    this.ApiServices.requestPost('/api/ProgrameManagment/courseMStRegistration',this.courseSubjectForm.value).subscribe({
+
+
+Fromsubmit(){
+      let JsonString= [{"IsCompulsory":"1","SubjSeq":"1","SubjName":"khjh","SubjectCode":"kjhj","TheoryMax":"11","TheoryMin":"11","PractMax":"11","SesMax":"11","SesMin":"11","MaxTotal":"11","MinTotal":"11","ActiveStatus":"11"},{"IsCompulsory":"1","SubjSeq":"1","SubjName":"aaa","SubjectCode":"bb","TheoryMax":"22","TheoryMin":"22","PractMax":"22","SesMax":"22","SesMin":"22","MaxTotal":"22","MinTotal":"22","ActiveStatus":"22"}]
+     const subjectParam={
+      courseSchemeID:this.courseSubjectForm.controls['courseSchemeID'].value,
+      SubjectDetails:JSON.stringify(JsonString)
+      //SubjectDetails:JsonString
+     }
+    this.ApiServices.requestPost('/api/ProgrameManagment/examPaperAdd',subjectParam,true).subscribe({
     next:(res: COURSESCHEME_API_RESPONSE | any)=>{
      console.log(res)
      this.ApiServices.showToaster(res.statusCode,res.message);

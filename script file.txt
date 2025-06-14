@@ -1,0 +1,975 @@
+******script file***************
+USE [master]
+GO
+/****** Object:  Database [ARP]    Script Date: 14-06-2025 18:52:49 ******/
+CREATE DATABASE [ARP]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'ARP', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\ARP.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'ARP_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\ARP_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+ALTER DATABASE [ARP] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [ARP].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [ARP] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [ARP] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [ARP] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [ARP] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [ARP] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [ARP] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [ARP] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [ARP] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [ARP] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [ARP] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [ARP] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [ARP] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [ARP] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [ARP] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [ARP] SET  ENABLE_BROKER 
+GO
+ALTER DATABASE [ARP] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [ARP] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [ARP] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [ARP] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [ARP] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [ARP] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [ARP] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [ARP] SET RECOVERY FULL 
+GO
+ALTER DATABASE [ARP] SET  MULTI_USER 
+GO
+ALTER DATABASE [ARP] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [ARP] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [ARP] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [ARP] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [ARP] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [ARP] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'ARP', N'ON'
+GO
+ALTER DATABASE [ARP] SET QUERY_STORE = OFF
+GO
+USE [ARP]
+GO
+/****** Object:  Table [dbo].[Role_Table]    Script Date: 14-06-2025 18:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Role_Table](
+	[roleId] [int] IDENTITY(1,1) NOT NULL,
+	[role] [nvarchar](50) NULL,
+	[ActiveStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SampleFruits]    Script Date: 14-06-2025 18:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SampleFruits](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[FruitName] [varchar](50) NULL,
+	[Price] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_CourseScheme]    Script Date: 14-06-2025 18:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_CourseScheme](
+	[courseSchemeID] [int] IDENTITY(1,1) NOT NULL,
+	[courseSchemeName] [varchar](100) NULL,
+	[programeID] [int] NULL,
+	[isActive] [bit] NULL,
+	[createdby] [int] NULL,
+	[Updatedby] [int] NULL,
+	[craetedon] [date] NULL,
+	[updatedon] [date] NULL,
+	[examPattern] [nvarchar](50) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_Designation]    Script Date: 14-06-2025 18:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_Designation](
+	[dId] [int] IDENTITY(1,1) NOT NULL,
+	[Designation] [varchar](20) NULL,
+	[IsActive] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_ExamPaper]    Script Date: 14-06-2025 18:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_ExamPaper](
+	[SubjectCourseID] [int] IDENTITY(1,1) NOT NULL,
+	[courseSchemeID] [int] NULL,
+	[examPattern] [nvarchar](100) NULL,
+	[SemYear] [int] NULL,
+	[IsCompulsory] [int] NULL,
+	[SubjSeq] [int] NULL,
+	[SubjName] [nvarchar](1000) NULL,
+	[SubjectCode] [nvarchar](1000) NULL,
+	[TheoryMax] [int] NULL,
+	[TheoryMin] [int] NULL,
+	[PractMax] [int] NULL,
+	[PractMin] [int] NULL,
+	[SesMax] [int] NULL,
+	[SesMin] [int] NULL,
+	[MaxTotal] [int] NULL,
+	[MinTotal] [int] NULL,
+	[Passing_On_Rule] [varchar](100) NULL,
+	[createdBy] [int] NULL,
+	[createdon] [date] NULL,
+	[Updatedby] [int] NULL,
+	[updatedon] [date] NULL,
+	[ActiveStatus] [bit] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_ProgrameMaster]    Script Date: 14-06-2025 18:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_ProgrameMaster](
+	[ProgrameID] [int] IDENTITY(1,1) NOT NULL,
+	[ProgrameName] [varchar](300) NULL,
+	[ProgrameDuration] [varchar](100) NULL,
+	[ProgrameLebel] [varchar](200) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_User_login]    Script Date: 14-06-2025 18:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_User_login](
+	[loginID] [nvarchar](50) NULL,
+	[Password] [nvarchar](max) NULL,
+	[UserName] [nvarchar](50) NULL,
+	[Fullname] [nvarchar](1000) NULL,
+	[Email] [nvarchar](200) NULL,
+	[PhoneNumber] [nvarchar](50) NULL,
+	[gender] [nvarchar](10) NULL,
+	[UserId] [bigint] IDENTITY(1,1) NOT NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Role_Table] ON 
+
+INSERT [dbo].[Role_Table] ([roleId], [role], [ActiveStatus]) VALUES (1, N'Super Admin', 1)
+INSERT [dbo].[Role_Table] ([roleId], [role], [ActiveStatus]) VALUES (2, N'Admin', 1)
+INSERT [dbo].[Role_Table] ([roleId], [role], [ActiveStatus]) VALUES (3, N'TL', 1)
+INSERT [dbo].[Role_Table] ([roleId], [role], [ActiveStatus]) VALUES (4, N'SD', 1)
+INSERT [dbo].[Role_Table] ([roleId], [role], [ActiveStatus]) VALUES (5, N'JD', 1)
+INSERT [dbo].[Role_Table] ([roleId], [role], [ActiveStatus]) VALUES (6, N'HR', 1)
+INSERT [dbo].[Role_Table] ([roleId], [role], [ActiveStatus]) VALUES (7, N'Finance', 1)
+INSERT [dbo].[Role_Table] ([roleId], [role], [ActiveStatus]) VALUES (8, N'Account', 1)
+SET IDENTITY_INSERT [dbo].[Role_Table] OFF
+GO
+SET IDENTITY_INSERT [dbo].[SampleFruits] ON 
+
+INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (1, N'Apple', 20)
+INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (2, N'Apricot', 12)
+INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (3, N'Banana', 8)
+INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (4, N'Cherry', 11)
+INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (5, N'Strawberry', 26)
+INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (6, N'Lemon', 4)
+INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (7, N'Kiwi', 14)
+INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (8, N'Coconut', 34)
+INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (9, N'Orange', 24)
+INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (10, N'Raspberry', 13)
+INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (11, N'Mango', 9)
+INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (12, N'Mandarin', 19)
+INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (13, N'Pineapple', 22)
+SET IDENTITY_INSERT [dbo].[SampleFruits] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_CourseScheme] ON 
+
+INSERT [dbo].[Tbl_CourseScheme] ([courseSchemeID], [courseSchemeName], [programeID], [isActive], [createdby], [Updatedby], [craetedon], [updatedon], [examPattern]) VALUES (1, N'CS-BCA-25', 1, 1, NULL, NULL, NULL, NULL, N'Semster')
+INSERT [dbo].[Tbl_CourseScheme] ([courseSchemeID], [courseSchemeName], [programeID], [isActive], [createdby], [Updatedby], [craetedon], [updatedon], [examPattern]) VALUES (2, N'CS-DCA-25', 2, 1, NULL, NULL, NULL, NULL, N'Semster')
+INSERT [dbo].[Tbl_CourseScheme] ([courseSchemeID], [courseSchemeName], [programeID], [isActive], [createdby], [Updatedby], [craetedon], [updatedon], [examPattern]) VALUES (3, N'CS-BCA-18', 1, 1, NULL, NULL, NULL, NULL, N'Semster')
+INSERT [dbo].[Tbl_CourseScheme] ([courseSchemeID], [courseSchemeName], [programeID], [isActive], [createdby], [Updatedby], [craetedon], [updatedon], [examPattern]) VALUES (4, N'BSC-21', 1, 1, NULL, NULL, NULL, NULL, N'Semster')
+INSERT [dbo].[Tbl_CourseScheme] ([courseSchemeID], [courseSchemeName], [programeID], [isActive], [createdby], [Updatedby], [craetedon], [updatedon], [examPattern]) VALUES (5, N'BSC-22', 3, 1, NULL, NULL, NULL, NULL, N'Semster')
+INSERT [dbo].[Tbl_CourseScheme] ([courseSchemeID], [courseSchemeName], [programeID], [isActive], [createdby], [Updatedby], [craetedon], [updatedon], [examPattern]) VALUES (6, N'BSC-23', 3, 1, NULL, NULL, NULL, NULL, N'Semster')
+INSERT [dbo].[Tbl_CourseScheme] ([courseSchemeID], [courseSchemeName], [programeID], [isActive], [createdby], [Updatedby], [craetedon], [updatedon], [examPattern]) VALUES (1005, N'CS-MBA22', 6, 1, NULL, NULL, NULL, NULL, N'Yearly')
+INSERT [dbo].[Tbl_CourseScheme] ([courseSchemeID], [courseSchemeName], [programeID], [isActive], [createdby], [Updatedby], [craetedon], [updatedon], [examPattern]) VALUES (1006, N'Test1', 1, 1, NULL, NULL, NULL, NULL, N'test')
+SET IDENTITY_INSERT [dbo].[Tbl_CourseScheme] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_Designation] ON 
+
+INSERT [dbo].[Tbl_Designation] ([dId], [Designation], [IsActive]) VALUES (1, N'TL', 1)
+INSERT [dbo].[Tbl_Designation] ([dId], [Designation], [IsActive]) VALUES (2, N'Project Manager', 1)
+SET IDENTITY_INSERT [dbo].[Tbl_Designation] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_ExamPaper] ON 
+
+INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus]) VALUES (1, 1, NULL, NULL, 1, 1, N'khjh', N'kjhj', 11, 11, 11, NULL, 11, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus]) VALUES (3, 1, NULL, NULL, 1, 1, N'aaa', N'bb', 22, 22, 22, NULL, 22, 22, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus]) VALUES (2, 1, NULL, NULL, 1, 1, N'khjh', N'kjhj', 11, 11, 11, NULL, 11, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus]) VALUES (4, 1, NULL, NULL, 1, 1, N'aaa', N'bb', 22, 22, 22, NULL, 22, 22, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+SET IDENTITY_INSERT [dbo].[Tbl_ExamPaper] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_ProgrameMaster] ON 
+
+INSERT [dbo].[Tbl_ProgrameMaster] ([ProgrameID], [ProgrameName], [ProgrameDuration], [ProgrameLebel]) VALUES (1, N'BCA', N'3 Year', N'UG')
+INSERT [dbo].[Tbl_ProgrameMaster] ([ProgrameID], [ProgrameName], [ProgrameDuration], [ProgrameLebel]) VALUES (2, N'DCA', N'1 Year', N'Diploma')
+INSERT [dbo].[Tbl_ProgrameMaster] ([ProgrameID], [ProgrameName], [ProgrameDuration], [ProgrameLebel]) VALUES (3, N'BSC-PCM', N'3 Year', N'UG')
+INSERT [dbo].[Tbl_ProgrameMaster] ([ProgrameID], [ProgrameName], [ProgrameDuration], [ProgrameLebel]) VALUES (4, N'MCA', N'2 Year', N'PG')
+INSERT [dbo].[Tbl_ProgrameMaster] ([ProgrameID], [ProgrameName], [ProgrameDuration], [ProgrameLebel]) VALUES (5, N'MSC', N'2 Year', N'PG')
+INSERT [dbo].[Tbl_ProgrameMaster] ([ProgrameID], [ProgrameName], [ProgrameDuration], [ProgrameLebel]) VALUES (6, N'MBA', N'2 Year', N'PG Diploma')
+SET IDENTITY_INSERT [dbo].[Tbl_ProgrameMaster] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_User_login] ON 
+
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'Shankar', N'gxf+9DKTdR1XylLE2N8E7A==', N'Shankar', N'Shankar', N'shankar@gmail.com', N'982647894', N'male', 1)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'Akash', N'hF1JkBmfx08IfL2JGBapDg==', N'Akash', N'Akash', N'', N'7845219634', N'male', 2)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'Kailash', N'0U7XGYtX++DHUdtOLZigVA==', N'Kailash', N'Kailash', N'kailash@gmail.com', N'9856387521', N'male', 3)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'bnmsbdfmndsbnfmbdsnmf', N'4yyruN7flzIscL7oKcMwIiGtfldJtlBhhhDC1sChgBCXufgMX29qCf5l3jLCuQov', N'bdnmbnmdsbfmns', N'bsmndbnmdbsnmf', N'bnsmdbcnmsbfnm', N'bnmsbdnbdshfjsh', N'male', 8)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'kjkdsjfkdsjklfjdskljf', N'NSGCIdA1KYFz34mH1O0wzTmWmrDknwcAMRfKs09Duj7u4XHYXoM/ssLS0+yNEIsP', N'lknsdnfdsnf', N'nsdnfdslkfjlk', N'lkjlksdjfdskfk', N'jfjkdjflkjdslkfj', N'male', 9)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'kjkljklvjdflkjgfl', N'YBVYERtG607vcerU1sHvyaTjSEiPMMmoHqDtyIFmaKN79m8Jw47JWv3tvc5AAYXW', N'lknvddgfkhjdlksjh', N'dhkjdshgkfdhghfd', N'jkljfkdsfkhdsklhgfdlkh', N'kljkljdfkljdsklfjdlksjkl', N'male', 10)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'Ramnath', N'VJhs4YA21TpfczVF5BeGag==', N'Ramnath', N'Ramnath', N'Ramnath', N'Ramnath', N'male', 11)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'hhhhhhhhh', N'dcBJy9MuarnZgUY3agOOvuVUj42FP6KUgBO6jrnkkfs=', N'hhhhhhhhh', N'hhhhhhhhh', N'hhhhhhhhh', N'hhhhhhhhh', N'female', 12)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'fhfghgfh', N'kpsbqRSVN7n9hj3l9Fva+Q==', N'dfgfdghfdh', N'dsfdsfd', N'dfgfdghfdh', N'fdhfghgf', N'male', 10012)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'fdgfdg', N'zk0jcijOBbukz+HN3buh2XgkSZ8Fvi/CPcD1f3AyyLM=', N'dgfdgfd', N'dsgfdsgfd', N'gdfgfdgfd', N'ffdgfdg', N'male', 10013)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'fghgfh', N'wc7PF3XhB3JyH1OnA+e+fw==', N'hbfghgf', N'dfgfd', N'hfghgfh', N'fghgfh', N'male', 10015)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'fddfgfdhg', N'XCZZ9MCRCkW5GuV7LWBkPZXCOA1fl32G3EQsTy81qGA=', N'dgdfg', N'dfsdgd', N'dfgdfgfd', N'dfgfdg', N'male', 10016)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'fhfghgfhfghgf', N'mtn59igf2BkOeCVWhqtkD9rWx5SkEdEVB6b8+TroWnQ=', N'dfgdfgtfhg', N'sgsgdf', N'tfrhdhgtrhgt', N'fdhfghgfh', N'male', 10017)
+SET IDENTITY_INSERT [dbo].[Tbl_User_login] OFF
+GO
+/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme]    Script Date: 14-06-2025 18:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[Sp_CourseScheme] --CourseSchemeList
+@Action varchar(100)='',
+@programeID int=null,
+@courseSchemeID int=null,
+@courseSchemeName varchar(100)=null,
+@examPattern nvarchar(50)=null,
+@isActive bit=null,
+@PageNumber INT=1,
+@RowsOfPage INT=5,
+@SearchText NVARCHAR(MAX) ='',
+@SQL NVARCHAR(MAX) = N'',
+@Table2 NVARCHAR(MAX) = N''
+
+AS
+BEGIN
+      If(@Action='CourseSchemeRegistration')
+	  BEGIN
+			INSERT INTO Tbl_CourseScheme(
+				courseSchemeName,
+				examPattern,
+				programeID,
+				isActive)
+			VALUES(
+				@courseSchemeName,
+				@examPattern,
+				@programeID,
+				@isActive)
+	   select 1 as StatusCode ,'CourseScheme Added Successfully ' as [Message] 
+	 END
+   If(@Action='UpdateCourseSchemeRegistration')
+	 Begin
+	 Update Tbl_CourseScheme set 
+	 courseSchemeName=@courseSchemeName,@examPattern=examPattern,
+	 programeID=@ProgrameID,
+	 isActive=@isActive where courseSchemeID=@courseSchemeID
+	 select 1 as StatusCode ,'CourseScheme Updated Successfully' as [Message]
+	 End
+
+ IF (@Action = 'CourseSchemeList')
+    BEGIN
+        SET NOCOUNT ON;
+
+        DECLARE @Offset INT = (@PageNumber - 1) * @RowsOfPage;
+        DECLARE @TotalRecords INT = 0;
+        DECLARE @TotalPages INT = 0;
+
+        -- Base WHERE clause
+        DECLARE @WhereClause NVARCHAR(MAX) = N'1=1';
+
+        -- Add filters with parameterized placeholders
+        IF @programeID IS NOT NULL
+            SET @WhereClause += N' AND C.programeID = @programeID';
+
+        IF @courseSchemeID IS NOT NULL
+            SET @WhereClause += N' AND C.courseSchemeID = @courseSchemeID';
+
+        IF @courseSchemeName IS NOT NULL
+            SET @WhereClause += N' AND C.courseSchemeName LIKE ''%'' + @courseSchemeName + ''%''';
+
+        IF @examPattern IS NOT NULL
+            SET @WhereClause += N' AND C.examPattern LIKE ''%'' + @examPattern + ''%''';
+
+        IF @isActive IS NOT NULL
+            SET @WhereClause += N' AND C.isActive = @isActive';
+
+        -- Add search text filter across multiple columns
+        IF (@SearchText IS NOT NULL AND LEN(@SearchText) > 0)
+        BEGIN
+            SET @WhereClause += N' AND ( ' +
+                N'CAST(C.courseSchemeID AS NVARCHAR(MAX)) LIKE ''%'' + @SearchText + ''%'' COLLATE SQL_Latin1_General_CP1_CI_AS OR ' +
+                N'C.courseSchemeName LIKE ''%'' + @SearchText + ''%'' COLLATE SQL_Latin1_General_CP1_CI_AS OR ' +
+                N'CAST(C.programeID AS NVARCHAR(MAX)) LIKE ''%'' + @SearchText + ''%'' COLLATE SQL_Latin1_General_CP1_CI_AS OR ' +
+                N'CAST(C.isActive AS NVARCHAR(MAX)) LIKE ''%'' + @SearchText + ''%'' COLLATE SQL_Latin1_General_CP1_CI_AS OR ' +
+                N'C.examPattern LIKE ''%'' + @SearchText + ''%'' COLLATE SQL_Latin1_General_CP1_CI_AS OR ' +
+                N'P.ProgrameName LIKE ''%'' + @SearchText + ''%'' COLLATE SQL_Latin1_General_CP1_CI_AS ' +
+                N')';
+        END
+
+        -- Parameter definitions for sp_executesql
+        DECLARE @ParamDefs NVARCHAR(MAX) = N'
+            @programeID INT,
+            @courseSchemeID INT,
+            @courseSchemeName VARCHAR(100),
+            @examPattern VARCHAR(100),
+            @isActive BIT,
+            @SearchText NVARCHAR(MAX),
+            @TotalRecordsOut INT OUTPUT';
+
+        -- Count total records
+        DECLARE @CountSQL NVARCHAR(MAX) = N'
+            SELECT @TotalRecordsOut = COUNT(*)
+            FROM Tbl_CourseScheme C
+            INNER JOIN Tbl_ProgrameMaster P ON C.programeID = P.ProgrameID
+            WHERE ' + @WhereClause;
+
+        EXEC sp_executesql @CountSQL, @ParamDefs,
+            @programeID = @programeID,
+            @courseSchemeID = @courseSchemeID,
+            @courseSchemeName = @courseSchemeName,
+            @examPattern = @examPattern,
+            @isActive = @isActive,
+            @SearchText = @SearchText,
+            @TotalRecordsOut = @TotalRecords OUTPUT;
+
+        SET @TotalPages = CEILING(1.0 * @TotalRecords / @RowsOfPage);
+
+        -- Select paged data
+        DECLARE @DataSQL NVARCHAR(MAX) = N'
+            SELECT
+                C.courseSchemeID,
+                C.courseSchemeName,
+                C.programeID,
+                C.isActive,
+                P.ProgrameName,
+                C.examPattern
+            FROM Tbl_CourseScheme C
+            INNER JOIN Tbl_ProgrameMaster P ON C.programeID = P.ProgrameID
+            WHERE ' + @WhereClause + '
+            ORDER BY C.courseSchemeID
+            OFFSET @Offset ROWS
+            FETCH NEXT @RowsOfPage ROWS ONLY;';
+
+        -- Add offset and rows parameters
+        SET @ParamDefs += N', @Offset INT, @RowsOfPage INT';
+
+        EXEC sp_executesql @DataSQL, @ParamDefs,
+            @programeID = @programeID,
+            @courseSchemeID = @courseSchemeID,
+            @courseSchemeName = @courseSchemeName,
+            @examPattern = @examPattern,
+            @isActive = @isActive,
+            @SearchText = @SearchText,
+            @TotalRecordsOut = @TotalRecords OUTPUT,
+            @Offset = @Offset,
+            @RowsOfPage = @RowsOfPage;
+
+        -- Return total records and pages
+        SELECT @TotalRecords AS TotalRecords, @TotalPages AS TotalPages;
+    END
+End
+GO
+/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme_Test]    Script Date: 14-06-2025 18:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[Sp_CourseScheme_Test]
+@Action varchar(100)='CourseSchemeList',
+@programeID int=null,
+@courseSchemeID int=null,
+@courseSchemeName varchar(100)=null,
+@examPattern varchar(100)=null,
+@isActive bit=null,
+@PageNumber INT=1,
+@RowsOfPage INT=10,
+@SearchText NVARCHAR(MAX) ='bca',
+@SQL NVARCHAR(MAX) = N'',
+@Table2 NVARCHAR(MAX) = N''
+
+AS
+BEGIN
+      If(@Action='CourseSchemeRegistration')
+	  BEGIN
+			INSERT INTO Tbl_CourseScheme(
+				courseSchemeName,
+				examPattern,
+				programeID,
+				isActive)
+			VALUES(
+				@courseSchemeName,
+				@examPattern,
+				@programeID,
+				@isActive)
+	   select 1 as StatusCode ,'CourseScheme Added Successfully ' as [Message] 
+	 END
+   If(@Action='UpdateCourseSchemeRegistration')
+	 Begin
+	 Update Tbl_CourseScheme set 
+	 courseSchemeName=@courseSchemeName,examPattern=@examPattern,
+	 programeID=@ProgrameID,
+	 isActive=@isActive where courseSchemeID=@courseSchemeID
+	 select 1 as StatusCode ,'CourseScheme Updated Successfully' as [Message]
+	 End
+     
+
+   IF (@Action = 'CourseSchemeList')
+    BEGIN
+        SET NOCOUNT ON;
+
+        DECLARE @Offset INT = (@PageNumber - 1) * @RowsOfPage;
+        DECLARE @TotalRecords INT = 0;
+        DECLARE @TotalPages INT = 0;
+
+        -- Base WHERE clause
+        DECLARE @WhereClause NVARCHAR(MAX) = N'1=1';
+
+        -- Add filters with parameterized placeholders
+        IF @programeID IS NOT NULL
+            SET @WhereClause += N' AND C.programeID = @programeID';
+
+        IF @courseSchemeID IS NOT NULL
+            SET @WhereClause += N' AND C.courseSchemeID = @courseSchemeID';
+
+        IF @courseSchemeName IS NOT NULL
+            SET @WhereClause += N' AND C.courseSchemeName LIKE ''%'' + @courseSchemeName + ''%''';
+
+        IF @examPattern IS NOT NULL
+            SET @WhereClause += N' AND C.examPattern LIKE ''%'' + @examPattern + ''%''';
+
+        IF @isActive IS NOT NULL
+            SET @WhereClause += N' AND C.isActive = @isActive';
+
+        -- Add search text filter across multiple columns
+        IF (@SearchText IS NOT NULL AND LEN(@SearchText) > 0)
+        BEGIN
+            SET @WhereClause += N' AND ( ' +
+                N'CAST(C.courseSchemeID AS NVARCHAR(MAX)) LIKE ''%'' + @SearchText + ''%'' COLLATE SQL_Latin1_General_CP1_CI_AS OR ' +
+                N'C.courseSchemeName LIKE ''%'' + @SearchText + ''%'' COLLATE SQL_Latin1_General_CP1_CI_AS OR ' +
+                N'CAST(C.programeID AS NVARCHAR(MAX)) LIKE ''%'' + @SearchText + ''%'' COLLATE SQL_Latin1_General_CP1_CI_AS OR ' +
+                N'CAST(C.isActive AS NVARCHAR(MAX)) LIKE ''%'' + @SearchText + ''%'' COLLATE SQL_Latin1_General_CP1_CI_AS OR ' +
+                N'C.examPattern LIKE ''%'' + @SearchText + ''%'' COLLATE SQL_Latin1_General_CP1_CI_AS OR ' +
+                N'P.ProgrameName LIKE ''%'' + @SearchText + ''%'' COLLATE SQL_Latin1_General_CP1_CI_AS ' +
+                N')';
+        END
+
+        -- Parameter definitions for sp_executesql
+        DECLARE @ParamDefs NVARCHAR(MAX) = N'
+            @programeID INT,
+            @courseSchemeID INT,
+            @courseSchemeName VARCHAR(100),
+            @examPattern VARCHAR(100),
+            @isActive BIT,
+            @SearchText NVARCHAR(MAX),
+            @TotalRecordsOut INT OUTPUT';
+
+        -- Count total records
+        DECLARE @CountSQL NVARCHAR(MAX) = N'
+            SELECT @TotalRecordsOut = COUNT(*)
+            FROM Tbl_CourseScheme C
+            INNER JOIN Tbl_ProgrameMaster P ON C.programeID = P.ProgrameID
+            WHERE ' + @WhereClause;
+
+        EXEC sp_executesql @CountSQL, @ParamDefs,
+            @programeID = @programeID,
+            @courseSchemeID = @courseSchemeID,
+            @courseSchemeName = @courseSchemeName,
+            @examPattern = @examPattern,
+            @isActive = @isActive,
+            @SearchText = @SearchText,
+            @TotalRecordsOut = @TotalRecords OUTPUT;
+
+        SET @TotalPages = CEILING(1.0 * @TotalRecords / @RowsOfPage);
+
+        -- Select paged data
+        DECLARE @DataSQL NVARCHAR(MAX) = N'
+            SELECT
+                C.courseSchemeID,
+                C.courseSchemeName,
+                C.programeID,
+                C.isActive,
+                P.ProgrameName,
+                C.examPattern
+            FROM Tbl_CourseScheme C
+            INNER JOIN Tbl_ProgrameMaster P ON C.programeID = P.ProgrameID
+            WHERE ' + @WhereClause + '
+            ORDER BY C.courseSchemeID
+            OFFSET @Offset ROWS
+            FETCH NEXT @RowsOfPage ROWS ONLY;';
+
+        -- Add offset and rows parameters
+        SET @ParamDefs += N', @Offset INT, @RowsOfPage INT';
+
+        EXEC sp_executesql @DataSQL, @ParamDefs,
+            @programeID = @programeID,
+            @courseSchemeID = @courseSchemeID,
+            @courseSchemeName = @courseSchemeName,
+            @examPattern = @examPattern,
+            @isActive = @isActive,
+            @SearchText = @SearchText,
+            @TotalRecordsOut = @TotalRecords OUTPUT,
+            @Offset = @Offset,
+            @RowsOfPage = @RowsOfPage;
+
+        -- Return total records and pages
+        SELECT @TotalRecords AS TotalRecords, @TotalPages AS TotalPages;
+    END
+    
+
+End
+GO
+/****** Object:  StoredProcedure [dbo].[Sp_Designation]    Script Date: 14-06-2025 18:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+--create Table Tbl_Designation(
+--dId int identity(1,1) Not Null,
+--Designation varchar(20) Null,
+--IsActive int null
+--)
+
+CREATE Procedure [dbo].[Sp_Designation] --'GetAllDesignation'
+@Action nvarchar(1000) =null
+
+as
+Begin
+        IF(@Action='GetAllDesignation')
+	    BEGIN
+		select dId, Designation from Tbl_Designation where IsActive=1
+        END
+
+End
+GO
+/****** Object:  StoredProcedure [dbo].[Sp_ExamPaper]    Script Date: 14-06-2025 18:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[Sp_ExamPaper]
+ @Action varchar(100)='',
+ @SubjectCourseID int = null,
+ @courseSchemeID int =null,
+ @examPattern nvarchar(100)= null,
+ @SemYear int = null,
+ @IsCompulsory int = null,
+ @SubjSeq int = null,
+ @SubjName nvarchar(1000)= null,
+ @SubjectCode nvarchar(1000)= null,
+ @TheoryMax int =null,
+ @TheoryMin int =null,
+ @PractMax int =null,
+ @PractMin int =null,
+ @SesMax int =null,
+ @SesMin int =null,
+ @MaxTotal int =null,
+ @MinTotal int =null,   
+ @Passing_On_Rule varchar(100) =null,
+ @ActiveStatus bit =null
+ AS 
+ BEGIN
+ If(@Action='InsertPaper')
+ Begin
+ insert into Tbl_ExamPaper(
+ examPattern,
+ courseSchemeID,
+ SemYear, 
+ IsCompulsory, 
+ SubjSeq, 
+ SubjName, 
+ SubjectCode,
+ TheoryMax, 
+ TheoryMin, 
+ PractMax, 
+ PractMin, 
+ SesMax, 
+ SesMin,
+ MaxTotal, 
+ MinTotal, 
+ Passing_On_Rule,
+ ActiveStatus 
+ )
+ values(
+ @examPattern,
+ @courseSchemeID,
+ @SemYear, 
+ @IsCompulsory, 
+ @SubjSeq, 
+ @SubjName, 
+ @SubjectCode,
+ @TheoryMax, 
+ @TheoryMin, 
+ @PractMax, 
+ @PractMin, 
+ @SesMax, 
+ @SesMin,
+ @MaxTotal, 
+ @MinTotal, 
+ @Passing_On_Rule,
+ @ActiveStatus 
+ )
+ End
+
+ END
+GO
+/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagment]    Script Date: 14-06-2025 18:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[Sp_ProgrameManagment] --GetProgrameDDL
+@Action varchar(100)=null,
+@ProgrameID int=null,
+@ProgrameName varchar(300)=NULL,
+@ProgrameDuration varchar(100)=NULL,
+@ProgrameLebel varchar(200)=NULL,
+@PageNumber INT=1,
+@RowsOfPage INT=2,
+@SearchText NVARCHAR(MAX) ='',
+@SQL NVARCHAR(MAX) = N'',
+@Table2 NVARCHAR(MAX) = N''
+
+AS
+BEGIN
+     IF(@Action='InsertProgrameMaster')
+	 BEGIN
+	 INSERT INTO Tbl_ProgrameMaster(
+	 ProgrameName,
+     ProgrameDuration,
+     ProgrameLebel
+	 )
+	 VALUES(
+	 @ProgrameName,
+	 @ProgrameDuration,
+	 @ProgrameLebel
+	 )
+	--select @@identity,
+	   select 1 as StatusCode ,'Programe Added Successfully' as [Message] 
+	 END
+	 If(@Action='UpdateProgrameMaster')
+	 Begin
+	 Update Tbl_ProgrameMaster set 
+	 ProgrameName=@ProgrameName,
+	 ProgrameDuration=@ProgrameDuration,
+	 ProgrameLebel=@ProgrameLebel where ProgrameID=@ProgrameID
+	 select 1 as StatusCode ,'Programe Updated Successfully' as [Message]
+	 End
+     if(@Action='GetProgrameList')
+     BEGIN
+              SET NOCOUNT ON;
+    DECLARE @Offset INT = (@PageNumber - 1) * @RowsOfPage;
+    DECLARE @WhereClause NVARCHAR(MAX) = '';
+    DECLARE @TotalRecords INT;
+    DECLARE @TotalPages INT;
+
+    IF @SearchText = ''
+    BEGIN
+        SELECT @TotalRecords = COUNT(*) FROM Tbl_ProgrameMaster;
+        SET @TotalPages = CEILING(1.0 * @TotalRecords / @RowsOfPage);
+
+        SELECT *
+        FROM Tbl_ProgrameMaster
+        ORDER BY ProgrameID
+        OFFSET @Offset ROWS
+        FETCH NEXT @RowsOfPage ROWS ONLY;
+		select @TotalRecords AS TotalRecords, @TotalPages AS TotalPages
+    END
+    ELSE
+    BEGIN
+        -- Dynamically build WHERE clause
+        SELECT @WhereClause = STRING_AGG(
+            'CAST(' + QUOTENAME(COLUMN_NAME) + ' AS NVARCHAR(MAX)) LIKE ''%' + @SearchText + '%''',
+            ' OR '
+        )
+        FROM INFORMATION_SCHEMA.COLUMNS
+        WHERE TABLE_NAME = 'Tbl_ProgrameMaster';
+
+        -- Get total records matching search
+        SET @SQL = N'SELECT @TotalRecordsOut = COUNT(*) FROM Tbl_ProgrameMaster WHERE ' + @WhereClause;
+        EXEC sp_executesql @SQL, N'@TotalRecordsOut INT OUTPUT', @TotalRecordsOut = @TotalRecords OUTPUT;
+
+        SET @TotalPages = CEILING(1.0 * @TotalRecords / @RowsOfPage);
+
+        -- Get paginated filtered data
+        SET @SQL = 'SELECT * FROM Tbl_ProgrameMaster WHERE ' + @WhereClause + 'ORDER BY ProgrameID
+            OFFSET ' + CAST(@Offset AS NVARCHAR) + ' ROWS FETCH NEXT ' + CAST(@RowsOfPage AS NVARCHAR) + ' ROWS ONLY';
+
+	    SET @Table2 ='SELECT ' + CAST(@TotalRecords AS NVARCHAR) + ' AS TotalRecords, ' + 
+                        CAST(@TotalPages AS NVARCHAR) + ' AS TotalPages';
+
+        EXEC sp_executesql @SQL;
+		EXEC sp_executesql @Table2;
+    END
+  END
+	 If(@Action='GetProgrameDDL')
+	 Begin
+	 select ProgrameName,ProgrameID from Tbl_ProgrameMaster
+	 End
+End
+GO
+/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagmenttest]    Script Date: 14-06-2025 18:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[Sp_ProgrameManagmenttest] 
+@Action Varchar(100)='GetProgrameList',
+@ProgrameID int=null,
+@ProgrameName varchar(300)=NULL,
+@ProgrameDuration varchar(100)=NULL,
+@ProgrameLebel varchar(200)=NULL,
+@PageNumber INT=1,
+@RowsOfPage INT=2,
+@SearchText NVARCHAR(MAX) ='',
+@SQL NVARCHAR(MAX) = N'',
+@Table2 NVARCHAR(MAX) = N''
+
+AS
+BEGIN
+     IF(@Action='InsertProgrameMaster')
+	 BEGIN
+	 INSERT INTO Tbl_ProgrameMaster(
+	 ProgrameName,
+     ProgrameDuration,
+     ProgrameLebel
+	 )
+	 VALUES(
+	 @ProgrameName,
+	 @ProgrameDuration,
+	 @ProgrameLebel
+	 )
+	--select @@identity,
+	   select 1 as StatusCode ,'Programe Added Successfully' as [Message] 
+	 END
+	 
+     if(@Action='GetProgrameList')
+     BEGIN
+    SET NOCOUNT ON;
+    DECLARE @Offset INT = (@PageNumber - 1) * @RowsOfPage;
+    DECLARE @WhereClause NVARCHAR(MAX) = '';
+    DECLARE @TotalRecords INT;
+    DECLARE @TotalPages INT;
+
+    IF @SearchText = ''
+    BEGIN
+	    SET @TotalRecords =(Select COUNT(*) FROM Tbl_ProgrameMaster);
+        SET @TotalPages = CEILING(1.0 * @TotalRecords / @RowsOfPage);
+	select(select( SELECT *
+        FROM Tbl_ProgrameMaster
+        ORDER BY ProgrameID
+        OFFSET @Offset ROWS
+        FETCH NEXT @RowsOfPage ROWS ONLY
+		FOR JSON PATH
+	)as Programe,
+	(
+	    select @TotalRecords AS TotalRecords, @TotalPages AS TotalPages
+		 FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
+	   ) as Pagination   
+	  FOR JSON PATH, WITHOUT_ARRAY_WRAPPER) as dataObject
+       
+    END
+    ELSE
+    BEGIN
+        -- Dynamically build WHERE clause
+        SELECT @WhereClause = STRING_AGG(
+            'CAST(' + QUOTENAME(COLUMN_NAME) + ' AS NVARCHAR(MAX)) LIKE ''%' + @SearchText + '%''',
+            ' OR '
+        )
+        FROM INFORMATION_SCHEMA.COLUMNS
+        WHERE TABLE_NAME = 'Tbl_ProgrameMaster';
+
+        -- Get total records matching search
+        SET @SQL = N'SELECT @TotalRecordsOut = COUNT(*) FROM Tbl_ProgrameMaster WHERE ' + @WhereClause;
+        EXEC sp_executesql @SQL, N'@TotalRecordsOut INT OUTPUT', @TotalRecordsOut = @TotalRecords OUTPUT;
+
+        SET @TotalPages = CEILING(1.0 * @TotalRecords / @RowsOfPage);
+
+        -- Get paginated filtered data
+        SET @SQL = 'SELECT * FROM Tbl_ProgrameMaster WHERE ' + @WhereClause + 'ORDER BY ProgrameID
+            OFFSET ' + CAST(@Offset AS NVARCHAR) + ' ROWS FETCH NEXT ' + CAST(@RowsOfPage AS NVARCHAR) + ' ROWS ONLY';
+
+	    SET @Table2 ='SELECT ' + CAST(@TotalRecords AS NVARCHAR) + ' AS TotalRecords, ' + 
+                        CAST(@TotalPages AS NVARCHAR) + ' AS TotalPages';
+
+        EXEC sp_executesql @SQL;
+		EXEC sp_executesql @Table2;
+    END
+  END
+End
+
+
+
+
+
+
+--  Sp_ProgrameManagmenttest
+--{"Programe":[{"ProgrameID":1,"ProgrameName":"BCA","ProgrameDuration":"3 Year","ProgrameLebel":"UG"},{"ProgrameID":2,"ProgrameName":"DCA","ProgrameDuration":"1 Year","ProgrameLebel":"Diploma"}],"Paginationtemp":"{\"Pagination\":[{\"TotalRecords\":17,\"TotalPages\":9}]}"}
+--{"Programe":[{"ProgrameID":1,"ProgrameName":"BCA","ProgrameDuration":"3 Year","ProgrameLebel":"UG"},{"ProgrameID":2,"ProgrameName":"DCA","ProgrameDuration":"1 Year","ProgrameLebel":"Diploma"}],"Pagination":"{\"TotalRecords\":17,\"TotalPages\":9}"}
+GO
+/****** Object:  StoredProcedure [dbo].[Sp_Role]    Script Date: 14-06-2025 18:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE Procedure [dbo].[Sp_Role] --'GetAllRoll'
+@Action nvarchar(1000) =null
+
+as
+Begin
+        IF(@Action='GetAllRoll')
+	    BEGIN
+		select roleId, role from Role_Table where ActiveStatus=1
+        END
+
+End
+
+GO
+/****** Object:  StoredProcedure [dbo].[Sp_UserAction]    Script Date: 14-06-2025 18:52:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE Procedure [dbo].[Sp_UserAction] --'UserLogin','12345','admin'
+@Action nvarchar(1000) =null,
+@loginID  nvarchar(50) =null,
+@Password nvarchar(max) =null,
+@Fullname nvarchar(1000) =null,
+@Email nvarchar(200) =null,
+@PhoneNumber nvarchar(50) =null,
+@gender nvarchar(10) = null,
+@Username nvarchar(1000) =null,
+@chechUser int=null,
+@PageNumber INT=0,
+@RowsOfPage INT=0,
+@SearchText NVARCHAR(MAX) ='',
+@SQL NVARCHAR(MAX) = N''
+as
+Begin
+        IF(@Action='UserLogin')
+	    BEGIN
+		--select count(*) as usercount,[loginID] from [Tbl_User_login] where loginID=@loginID and Password=@Password
+		select 
+		loginID,userName,fullname,email,phoneNumber,gender,userId
+		from [Tbl_User_login] where loginID=@loginID and Password=@Password
+        END
+
+
+IF(@Action='UserRegistration')
+begin
+     set @chechUser= (select count(loginID) [loginID] from [Tbl_User_login] where loginID=@loginID)
+     if(@chechUser=0)
+	    BEGIN
+		insert into [Tbl_User_login]
+		(loginID,
+		Password,
+		Fullname,
+		Email,
+		PhoneNumber,
+		gender,
+		Username)
+		values (
+		@loginID,
+		@Password,
+		@Fullname,
+		@Email,
+		@PhoneNumber,
+		@gender,
+		@Username)
+		select 1 as StatusCode ,'User Registration Successfully' as [Message]
+		end
+		Else
+			Begin
+					select 3 as StatusCode, 'User Already Exist'  as [Message]
+			End
+        
+END
+--UserList
+IF(@Action='UserList')
+		begin
+		If(@SearchText='')
+		begin
+		    DECLARE @MaxTablePage  AS float
+				SELECT @MaxTablePage = COUNT(*) FROM [Tbl_User_login]
+				SET @MaxTablePage = CEILING(@MaxTablePage/@RowsOfPage)
+			SELECT *,(select (Select count (*) from [Tbl_User_login])) as totalReord,@MaxTablePage as TotalPage FROM [Tbl_User_login]
+			ORDER BY [UserId] 
+			OFFSET (@PageNumber-1)*@RowsOfPage ROWS
+			FETCH NEXT @RowsOfPage ROWS ONLY
+			select (Select count (*) from [Tbl_User_login]) as total
+		
+		end
+		else
+		begin
+					SELECT @SQL = @SQL + 
+					CASE WHEN @SQL = '' THEN '' ELSE ' OR ' END +
+					'CAST(' + QUOTENAME(COLUMN_NAME) + ' AS NVARCHAR(MAX)) LIKE ''%' + @SearchText + '%'''
+						FROM INFORMATION_SCHEMA.COLUMNS
+					WHERE TABLE_NAME = 'Tbl_User_login';
+					SET @SQL = 'SELECT * FROM Tbl_User_login WHERE ' + @SQL;
+					EXEC sp_executesql @SQL;
+		end
+			
+		End
+END
+
+GO
+USE [master]
+GO
+ALTER DATABASE [ARP] SET  READ_WRITE 
+GO
