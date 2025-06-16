@@ -64,6 +64,7 @@ AddSubject(){
         TheoryMax:this.courseSubjectForm.controls['TheoryMax'].value,
         TheoryMin:this.courseSubjectForm.controls['TheoryMin'].value,
         PractMax:this.courseSubjectForm.controls['PractMax'].value,
+        PractMin:this.courseSubjectForm.controls['PractMin'].value,
         SesMax:this.courseSubjectForm.controls['SesMax'].value,
         SesMin:this.courseSubjectForm.controls['SesMin'].value,
         MaxTotal:this.courseSubjectForm.controls['MaxTotal'].value,
@@ -77,14 +78,11 @@ AddSubject(){
 
 
 Fromsubmit(){
-     let JsonString= [
-{"IsCompulsory":"1","SubjSeq":"4","SubjName":"ddd","SubjectCode":"dd-1","TheoryMax":"11","TheoryMin":"11","PractMax":"11","PractMin":"11","SesMax":"11","SesMin":"11","MaxTotal":"11","MinTotal":"11","ActiveStatus":"1"},
-{"IsCompulsory":"1","SubjSeq":"5","SubjName":"eee","SubjectCode":"ee-101","TheoryMax":"22","TheoryMin":"22","PractMax":"22","PractMin":"22","SesMax":"22","SesMin":"22","MaxTotal":"22","MinTotal":"22","ActiveStatus":"1"},
-{"IsCompulsory":"1","SubjSeq":"6","SubjName":"fff","SubjectCode":"ff-101","TheoryMax":"33","TheoryMin":"33","PractMax":"33","PractMin":"33","SesMax":"33","SesMin":"33","MaxTotal":"33","MinTotal":"33","ActiveStatus":"1"},
-]
      const subjectParam={
       courseSchemeID:this.courseSubjectForm.controls['courseSchemeID'].value,
-      SubjectDetails:JSON.stringify(JsonString)
+      examPattern:this.courseSchemeObj.examPattern,
+      SemYear:this.courseSubjectForm.controls['SemYear'].value,
+      SubjectDetails:JSON.stringify(this.subjectList)
       //SubjectDetails:JsonString
      }
     this.ApiServices.requestPost('/api/ProgrameManagment/examPaperAdd',subjectParam).subscribe({
