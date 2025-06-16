@@ -77,13 +77,17 @@ AddSubject(){
 
 
 Fromsubmit(){
-      let JsonString= [{"IsCompulsory":"1","SubjSeq":"1","SubjName":"khjh","SubjectCode":"kjhj","TheoryMax":"11","TheoryMin":"11","PractMax":"11","SesMax":"11","SesMin":"11","MaxTotal":"11","MinTotal":"11","ActiveStatus":"11"},{"IsCompulsory":"1","SubjSeq":"1","SubjName":"aaa","SubjectCode":"bb","TheoryMax":"22","TheoryMin":"22","PractMax":"22","SesMax":"22","SesMin":"22","MaxTotal":"22","MinTotal":"22","ActiveStatus":"22"}]
+     let JsonString= [
+{"IsCompulsory":"1","SubjSeq":"4","SubjName":"ddd","SubjectCode":"dd-1","TheoryMax":"11","TheoryMin":"11","PractMax":"11","PractMin":"11","SesMax":"11","SesMin":"11","MaxTotal":"11","MinTotal":"11","ActiveStatus":"1"},
+{"IsCompulsory":"1","SubjSeq":"5","SubjName":"eee","SubjectCode":"ee-101","TheoryMax":"22","TheoryMin":"22","PractMax":"22","PractMin":"22","SesMax":"22","SesMin":"22","MaxTotal":"22","MinTotal":"22","ActiveStatus":"1"},
+{"IsCompulsory":"1","SubjSeq":"6","SubjName":"fff","SubjectCode":"ff-101","TheoryMax":"33","TheoryMin":"33","PractMax":"33","PractMin":"33","SesMax":"33","SesMin":"33","MaxTotal":"33","MinTotal":"33","ActiveStatus":"1"},
+]
      const subjectParam={
       courseSchemeID:this.courseSubjectForm.controls['courseSchemeID'].value,
       SubjectDetails:JSON.stringify(JsonString)
       //SubjectDetails:JsonString
      }
-    this.ApiServices.requestPost('/api/ProgrameManagment/examPaperAdd',subjectParam,true).subscribe({
+    this.ApiServices.requestPost('/api/ProgrameManagment/examPaperAdd',subjectParam).subscribe({
     next:(res: COURSESCHEME_API_RESPONSE | any)=>{
      console.log(res)
      this.ApiServices.showToaster(res.statusCode,res.message);
