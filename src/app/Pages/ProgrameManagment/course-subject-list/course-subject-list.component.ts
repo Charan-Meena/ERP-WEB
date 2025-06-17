@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { BaseService } from '../../../Base/base.service';
-import { CourseScheme, COURSESCHEME_API_RESPONSE, PROGRAME_API_RESPONSE, ProgrameMenanet } from '../../../Model/Class/Interface/master';
+import { COURSEPAPER_API_RESPONSE, CourseScheme, COURSESCHEME_API_RESPONSE, ICoursePaper, PROGRAME_API_RESPONSE, ProgrameMenanet } from '../../../Model/Class/Interface/master';
 import { VoidTableComponent } from "../../../reusableComponent/void-table/void-table.component";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CourseSchemeSubjectComponent } from '../../../modalPages/course-scheme-subject/course-scheme-subject.component';
@@ -21,9 +21,12 @@ export class CourseSubjectListComponent extends BaseService implements OnInit{
   PageNumber:number=1;
   RowsOfPage:number=5;
   pageCount:number=0;
-  courseSchemeList:Array<CourseScheme>=[];
+  coursePaperList:Array<ICoursePaper>=[];
   programeListDDL:Array<ProgrameMenanet>=[];
-  columnArray:Array<string>=['courseSchemeName','examPattern','programeName','isActive','Action','Add']
+  columnArray:Array<string>=['semYear',
+                             'isCompulsory','subjName','subjectCode','theoryMax','theoryMin',
+                             'practMax','practMin','sesMax','sesMin','maxTotal','minTotal','activeStatus',
+                             'Action']
   searchText:string="";
   courseSchemeObj:CourseScheme=<CourseScheme>{};
   TableParam:any={
@@ -35,7 +38,6 @@ export class CourseSubjectListComponent extends BaseService implements OnInit{
   modalRef: any;
 
   constructor(private fb:FormBuilder){
-    
        super();
   }
 
@@ -44,6 +46,7 @@ const currentState = this.router.lastSuccessfulNavigation;
 this.courseSchemeObj = currentState?.extras?.state?.['CourseObj'];
   setTimeout(()=>{
    console.log('this.courseSchemeObj',this.courseSchemeObj)
+   this.getCoursePaperList()
   },10)
 
 }
@@ -52,20 +55,16 @@ onActionEvent(actionData:CourseScheme){
   if(actionData.Action=='Edit'){
  let courseSchemeMatsterobj ={...actionData}
   courseSchemeMatsterobj['isActive']= courseSchemeMatsterobj.isActive=="true"?0:1;
-    //this.courseSchemeMatsterForm.patchValue(courseSchemeMatsterobj)
     console.log(actionData)
   }
   if(actionData.Action=='Add'){
-   // this.openPaperPage(actionData)
-    //this.openPaperPage(actionData);
   }
 }
-
-      getCourseSchemeList(){
+      getCoursePaperList(){
       this.pageArray=[];
-      this.ApiServices.requestPost('/api/ProgrameManagment/courseSchemeList',this.TableParam).subscribe({
-      next:(res:COURSESCHEME_API_RESPONSE| any)=>{
-        this.courseSchemeList=res.data || [];
+      this.ApiServices.requestPost('/api/ProgrameManagment/coursePaperList',this.TableParam).subscribe({
+      next:(res:COURSEPAPER_API_RESPONSE| any)=>{
+        this.coursePaperList=res.data || [];
         this.pageCount=res.totalPages;
         for(let i=0;i<this.pageCount;i++){
             this.pageArray.push(i);
@@ -78,9 +77,8 @@ onActionEvent(actionData:CourseScheme){
     }
     onpagechange(pageData:any){
        this.TableParam=pageData;
-       this.getCourseSchemeList();
+       this.getCoursePaperList();
   }
-
      openModalPage(){
           if (this.modalRef) this.modalRef = null;
           this.modalRef = this.modalStatus.open(CourseSchemeSubjectComponent, { centered: true, size: 'xl' });
@@ -91,7 +89,5 @@ onActionEvent(actionData:CourseScheme){
                  console.log("Error:Modal Open ::", e);
             });
           this.modalRef.componentInstance.courseSchemeObj = this.courseSchemeObj;
-      }
-
-      
+      }  
 }

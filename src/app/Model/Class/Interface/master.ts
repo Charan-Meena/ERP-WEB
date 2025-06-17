@@ -73,3 +73,31 @@ Action:string,
  export interface   COURSESCHEME_API_RESPONSE{
 	data:ResponseData
 }   
+
+export interface ICoursePaper{
+    subjectCourseID:number,
+    courseSchemeID:number,
+    examPattern:string,
+    semYear:string,
+    isCompulsory:number,
+    subjSeq:number,
+    subjName:string,
+    subjectCode:string,
+    theoryMax:number,
+    theoryMin:number,
+    practMax:number,
+    practMin:number,
+    sesMax:number,
+    sesMin:number,
+    maxTotal:number,
+    minTotal:number,
+    passing_On_Rule:number, 
+    createdBy:number,
+    createdon:number,
+    updatedby:number,
+    updatedon:number,
+    activeStatus:any
+}
+export interface   COURSEPAPER_API_RESPONSE{
+	data:ResponseData
+}  
