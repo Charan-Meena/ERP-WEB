@@ -1,7 +1,6 @@
-******script file***************
 USE [master]
 GO
-/****** Object:  Database [ARP]    Script Date: 14-06-2025 18:52:49 ******/
+/****** Object:  Database [ARP]    Script Date: 17-06-2025 18:40:52 ******/
 CREATE DATABASE [ARP]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -83,7 +82,7 @@ ALTER DATABASE [ARP] SET QUERY_STORE = OFF
 GO
 USE [ARP]
 GO
-/****** Object:  Table [dbo].[Role_Table]    Script Date: 14-06-2025 18:52:49 ******/
+/****** Object:  Table [dbo].[Role_Table]    Script Date: 17-06-2025 18:40:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -94,7 +93,7 @@ CREATE TABLE [dbo].[Role_Table](
 	[ActiveStatus] [bit] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SampleFruits]    Script Date: 14-06-2025 18:52:49 ******/
+/****** Object:  Table [dbo].[SampleFruits]    Script Date: 17-06-2025 18:40:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -109,7 +108,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_CourseScheme]    Script Date: 14-06-2025 18:52:49 ******/
+/****** Object:  Table [dbo].[Tbl_CourseScheme]    Script Date: 17-06-2025 18:40:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -126,7 +125,7 @@ CREATE TABLE [dbo].[Tbl_CourseScheme](
 	[examPattern] [nvarchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_Designation]    Script Date: 14-06-2025 18:52:49 ******/
+/****** Object:  Table [dbo].[Tbl_Designation]    Script Date: 17-06-2025 18:40:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -137,7 +136,7 @@ CREATE TABLE [dbo].[Tbl_Designation](
 	[IsActive] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ExamPaper]    Script Date: 14-06-2025 18:52:49 ******/
+/****** Object:  Table [dbo].[Tbl_ExamPaper]    Script Date: 17-06-2025 18:40:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -167,7 +166,7 @@ CREATE TABLE [dbo].[Tbl_ExamPaper](
 	[ActiveStatus] [bit] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ProgrameMaster]    Script Date: 14-06-2025 18:52:49 ******/
+/****** Object:  Table [dbo].[Tbl_ProgrameMaster]    Script Date: 17-06-2025 18:40:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -179,7 +178,7 @@ CREATE TABLE [dbo].[Tbl_ProgrameMaster](
 	[ProgrameLebel] [varchar](200) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_User_login]    Script Date: 14-06-2025 18:52:49 ******/
+/****** Object:  Table [dbo].[Tbl_User_login]    Script Date: 17-06-2025 18:40:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -244,10 +243,13 @@ SET IDENTITY_INSERT [dbo].[Tbl_Designation] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_ExamPaper] ON 
 
-INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus]) VALUES (1, 1, NULL, NULL, 1, 1, N'khjh', N'kjhj', 11, 11, 11, NULL, 11, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
-INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus]) VALUES (3, 1, NULL, NULL, 1, 1, N'aaa', N'bb', 22, 22, 22, NULL, 22, 22, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
-INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus]) VALUES (2, 1, NULL, NULL, 1, 1, N'khjh', N'kjhj', 11, 11, 11, NULL, 11, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
-INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus]) VALUES (4, 1, NULL, NULL, 1, 1, N'aaa', N'bb', 22, 22, 22, NULL, 22, 22, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus]) VALUES (1, 1, NULL, NULL, 1, 4, N'ddd', N'dd-1', 11, 11, 11, 11, 11, 11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1)
+INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus]) VALUES (2, 1, NULL, NULL, 1, 5, N'eee', N'ee-101', 22, 22, 22, 22, 22, 22, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1)
+INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus]) VALUES (3, 1, NULL, NULL, 1, 6, N'fff', N'ff-101', 33, 33, 33, 33, 33, 33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1)
+INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus]) VALUES (4, 2, N'Semster', 1, 1, 1, N'CSSCSACAS', N'CS-101', 70, 30, 20, NULL, 10, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1)
+INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus]) VALUES (5, 2, N'Semster', 1, 1, 2, N'BODMAS', N'CS-102', 70, 30, 20, NULL, 10, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1)
+INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus]) VALUES (6, 2, N'Semster', 1, 1, 2, N'CODMAS', N'CS-103', 70, 30, 20, NULL, 10, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1)
+INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus]) VALUES (7, 2, N'Semster', 1, 1, 2, N'DODMAS', N'CS-104', 70, 30, 20, NULL, 10, 5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1)
 SET IDENTITY_INSERT [dbo].[Tbl_ExamPaper] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_ProgrameMaster] ON 
@@ -277,7 +279,17 @@ INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [E
 INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'fhfghgfhfghgf', N'mtn59igf2BkOeCVWhqtkD9rWx5SkEdEVB6b8+TroWnQ=', N'dfgdfgtfhg', N'sgsgdf', N'tfrhdhgtrhgt', N'fdhfghgfh', N'male', 10017)
 SET IDENTITY_INSERT [dbo].[Tbl_User_login] OFF
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme]    Script Date: 14-06-2025 18:52:49 ******/
+SET ANSI_PADDING ON
+GO
+/****** Object:  Index [UX_ExamPaperSub]    Script Date: 17-06-2025 18:40:52 ******/
+CREATE UNIQUE NONCLUSTERED INDEX [UX_ExamPaperSub] ON [dbo].[Tbl_ExamPaper]
+(
+	[courseSchemeID] ASC,
+	[SubjectCode] ASC,
+	[SubjName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
+/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme]    Script Date: 17-06-2025 18:40:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -423,7 +435,7 @@ BEGIN
     END
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme_Test]    Script Date: 14-06-2025 18:52:49 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme_Test]    Script Date: 17-06-2025 18:40:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -532,7 +544,6 @@ BEGIN
             @isActive = @isActive,
             @SearchText = @SearchText,
             @TotalRecordsOut = @TotalRecords OUTPUT;
-
         SET @TotalPages = CEILING(1.0 * @TotalRecords / @RowsOfPage);
 
         -- Select paged data
@@ -546,11 +557,8 @@ BEGIN
                 C.examPattern
             FROM Tbl_CourseScheme C
             INNER JOIN Tbl_ProgrameMaster P ON C.programeID = P.ProgrameID
-            WHERE ' + @WhereClause + '
-            ORDER BY C.courseSchemeID
-            OFFSET @Offset ROWS
-            FETCH NEXT @RowsOfPage ROWS ONLY;';
-
+            WHERE ' + @WhereClause + '  ORDER BY C.courseSchemeID
+            OFFSET @Offset ROWS FETCH NEXT @RowsOfPage ROWS ONLY;';
         -- Add offset and rows parameters
         SET @ParamDefs += N', @Offset INT, @RowsOfPage INT';
 
@@ -572,7 +580,7 @@ BEGIN
 
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_Designation]    Script Date: 14-06-2025 18:52:49 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_Designation]    Script Date: 17-06-2025 18:40:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -595,78 +603,155 @@ Begin
 
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ExamPaper]    Script Date: 14-06-2025 18:52:49 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ExamPaper]    Script Date: 17-06-2025 18:40:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE procedure [dbo].[Sp_ExamPaper]
- @Action varchar(100)='',
- @SubjectCourseID int = null,
- @courseSchemeID int =null,
- @examPattern nvarchar(100)= null,
- @SemYear int = null,
- @IsCompulsory int = null,
- @SubjSeq int = null,
- @SubjName nvarchar(1000)= null,
- @SubjectCode nvarchar(1000)= null,
- @TheoryMax int =null,
- @TheoryMin int =null,
- @PractMax int =null,
- @PractMin int =null,
- @SesMax int =null,
- @SesMin int =null,
- @MaxTotal int =null,
- @MinTotal int =null,   
- @Passing_On_Rule varchar(100) =null,
- @ActiveStatus bit =null
- AS 
- BEGIN
- If(@Action='InsertPaper')
+CREATE PROCEDURE [dbo].[Sp_ExamPaper]
+    @Action VARCHAR(50) = 'paperList',
+    @CourseSchemeID INT = NULL,
+    @SemYear INT = NULL,
+    @examPattern nvarchar(100)= null,
+    @IsCompulsory INT = NULL,
+    @SubjSeq INT = NULL,
+    @SubjName NVARCHAR(1000) = NULL,
+    @SubjectCode NVARCHAR(1000) = NULL,
+    @TheoryMax INT = NULL,
+    @TheoryMin INT = NULL,
+    @PractMax INT = NULL,
+    @PractMin INT = NULL,
+    @SesMax INT = NULL,
+    @SesMin INT = NULL,
+    @MaxTotal INT = NULL,
+    @MinTotal INT = NULL,
+	@Passing_On_Rule varchar(100) =null,
+    @ActiveStatus BIT = NULL,
+    @PageNumber INT = 1,
+    @RowsOfPage INT = 10,
+    @SearchText NVARCHAR(MAX)=''
+AS
+BEGIN
+    
+     If(@Action='InsertPaper')
  Begin
- insert into Tbl_ExamPaper(
- examPattern,
- courseSchemeID,
- SemYear, 
- IsCompulsory, 
- SubjSeq, 
- SubjName, 
- SubjectCode,
- TheoryMax, 
- TheoryMin, 
- PractMax, 
- PractMin, 
- SesMax, 
- SesMin,
- MaxTotal, 
- MinTotal, 
- Passing_On_Rule,
- ActiveStatus 
- )
- values(
- @examPattern,
- @courseSchemeID,
- @SemYear, 
- @IsCompulsory, 
- @SubjSeq, 
- @SubjName, 
- @SubjectCode,
- @TheoryMax, 
- @TheoryMin, 
- @PractMax, 
- @PractMin, 
- @SesMax, 
- @SesMin,
- @MaxTotal, 
- @MinTotal, 
- @Passing_On_Rule,
- @ActiveStatus 
- )
+ declare @isExist int=0;
+ set @isExist =(SELECT count(*) FROM Tbl_ExamPaper WHERE courseSchemeID = @courseSchemeID AND SubjName = @SubjName AND SubjectCode = @SubjectCode AND SubjSeq = @SubjSeq)
+ --IF NOT EXISTS (SELECT 1 FROM Tbl_ExamPaper WHERE courseSchemeID = @courseSchemeID AND SubjName = @SubjName AND SubjectCode = @SubjectCode AND SubjSeq = @SubjSeq)
+  if(@isExist=0)
+  Begin
+ insert into Tbl_ExamPaper(examPattern,courseSchemeID,SemYear,IsCompulsory,SubjSeq,SubjName,SubjectCode,TheoryMax,TheoryMin,PractMax,PractMin,SesMax,SesMin,MaxTotal,MinTotal,Passing_On_Rule,ActiveStatus)
+ values(@examPattern,@courseSchemeID,@SemYear,@IsCompulsory,@SubjSeq,@SubjName,@SubjectCode,@TheoryMax,@TheoryMin,@PractMax,@PractMin,@SesMax,@SesMin,@MaxTotal,@MinTotal,@Passing_On_Rule,@ActiveStatus)
+ select 1 as StatusCode ,'Papers Added Successfully' as [Message], @isExist as [count]
+End
+	else
+		begin
+		 select 1 as StatusCode ,'Papers Already added' as [Message], @isExist as [count]
+		end
  End
+    IF (@Action = 'paperList')
+    BEGIN
+	SET NOCOUNT ON;
+        DECLARE @Offset INT = (@PageNumber - 1) * @RowsOfPage;
+        DECLARE @WhereClause NVARCHAR(MAX) = N'1=1';
+        DECLARE @TotalRecords INT = 0, @TotalPages INT = 0;
+        -- Dynamic filters
+        IF @CourseSchemeID IS NOT NULL
+            SET @WhereClause += ' AND CourseSchemeID = @CourseSchemeID';
+        IF @SemYear IS NOT NULL
+            SET @WhereClause += ' AND SemYear = @SemYear';
+        IF @IsCompulsory IS NOT NULL
+            SET @WhereClause += ' AND IsCompulsory = @IsCompulsory';
+        IF @SubjSeq IS NOT NULL
+            SET @WhereClause += ' AND SubjSeq = @SubjSeq';
+        IF @SubjName IS NOT NULL
+            SET @WhereClause += ' AND SubjName LIKE ''%'' + @SubjName + ''%''';
+        IF @SubjectCode IS NOT NULL
+            SET @WhereClause += ' AND SubjectCode LIKE ''%'' + @SubjectCode + ''%''';
+        IF @TheoryMax IS NOT NULL
+            SET @WhereClause += ' AND TheoryMax = @TheoryMax';
+        IF @TheoryMin IS NOT NULL
+            SET @WhereClause += ' AND TheoryMin = @TheoryMin';
+        IF @PractMax IS NOT NULL
+            SET @WhereClause += ' AND PractMax = @PractMax';
+        IF @PractMin IS NOT NULL
+            SET @WhereClause += ' AND PractMin = @PractMin';
+        IF @SesMax IS NOT NULL
+            SET @WhereClause += ' AND SesMax = @SesMax';
+        IF @SesMin IS NOT NULL
+            SET @WhereClause += ' AND SesMin = @SesMin';
+        IF @MaxTotal IS NOT NULL
+            SET @WhereClause += ' AND MaxTotal = @MaxTotal';
+        IF @MinTotal IS NOT NULL
+            SET @WhereClause += ' AND MinTotal = @MinTotal';
+        IF @ActiveStatus IS NOT NULL
+            SET @WhereClause += ' AND ActiveStatus = @ActiveStatus';
 
- END
+        -- Apply search text across relevant fields
+        IF @SearchText IS NOT NULL AND LEN(@SearchText) > 0
+        BEGIN
+            SET @WhereClause += N' AND (
+                CAST(CourseSchemeID AS NVARCHAR) LIKE ''%'' + @SearchText + ''%'' OR
+                SubjName LIKE ''%'' + @SearchText + ''%'' OR
+                SubjectCode LIKE ''%'' + @SearchText + ''%'' OR
+                CAST(SemYear AS NVARCHAR) LIKE ''%'' + @SearchText + ''%'' OR
+                CAST(SubjSeq AS NVARCHAR) LIKE ''%'' + @SearchText + ''%'' OR
+                CAST(TheoryMax AS NVARCHAR) LIKE ''%'' + @SearchText + ''%'' OR
+                CAST(TheoryMin AS NVARCHAR) LIKE ''%'' + @SearchText + ''%'' OR
+                CAST(PractMax AS NVARCHAR) LIKE ''%'' + @SearchText + ''%'' OR
+                CAST(PractMin AS NVARCHAR) LIKE ''%'' + @SearchText + ''%'' OR
+                CAST(SesMax AS NVARCHAR) LIKE ''%'' + @SearchText + ''%'' OR
+                CAST(SesMin AS NVARCHAR) LIKE ''%'' + @SearchText + ''%'' OR
+                CAST(MaxTotal AS NVARCHAR) LIKE ''%'' + @SearchText + ''%'' OR
+                CAST(MinTotal AS NVARCHAR) LIKE ''%'' + @SearchText + ''%'')';
+        END
+
+        -- Count query
+        DECLARE @SQL_Count NVARCHAR(MAX) = N'
+            SELECT @TotalRecordsOut = COUNT(*) 
+            FROM Tbl_ExamPaper 
+            WHERE ' + @WhereClause;
+
+        EXEC sp_executesql @SQL_Count,
+            N'@CourseSchemeID INT, @SemYear INT, @IsCompulsory INT, @SubjSeq INT,
+              @SubjName NVARCHAR(1000), @SubjectCode NVARCHAR(1000),
+              @TheoryMax INT, @TheoryMin INT, @PractMax INT, @PractMin INT,
+              @SesMax INT, @SesMin INT, @MaxTotal INT, @MinTotal INT, @ActiveStatus BIT,
+              @SearchText NVARCHAR(MAX), @TotalRecordsOut INT OUTPUT',
+            @CourseSchemeID, @SemYear, @IsCompulsory, @SubjSeq,
+            @SubjName, @SubjectCode,
+            @TheoryMax, @TheoryMin, @PractMax, @PractMin,
+            @SesMax, @SesMin, @MaxTotal, @MinTotal, @ActiveStatus,
+            @SearchText, @TotalRecordsOut = @TotalRecords OUTPUT;
+
+        SET @TotalPages = CEILING(1.0 * @TotalRecords / @RowsOfPage);
+
+        -- Data query
+        DECLARE @SQL_Data NVARCHAR(MAX) = N'
+            SELECT *
+            FROM Tbl_ExamPaper
+            WHERE ' + @WhereClause + '
+            ORDER BY SubjectCode
+            OFFSET @Offset ROWS FETCH NEXT @RowsOfPage ROWS ONLY';
+
+        EXEC sp_executesql @SQL_Data,
+            N'@CourseSchemeID INT, @SemYear INT, @IsCompulsory INT, @SubjSeq INT,
+              @SubjName NVARCHAR(1000), @SubjectCode NVARCHAR(1000),
+              @TheoryMax INT, @TheoryMin INT, @PractMax INT, @PractMin INT,
+              @SesMax INT, @SesMin INT, @MaxTotal INT, @MinTotal INT, @ActiveStatus BIT,
+              @SearchText NVARCHAR(MAX), @Offset INT, @RowsOfPage INT',
+            @CourseSchemeID, @SemYear, @IsCompulsory, @SubjSeq,
+            @SubjName, @SubjectCode,
+            @TheoryMax, @TheoryMin, @PractMax, @PractMin,
+            @SesMax, @SesMin, @MaxTotal, @MinTotal, @ActiveStatus,
+            @SearchText, @Offset, @RowsOfPage;
+
+        -- Return total records & pages
+        SELECT @TotalRecords AS TotalRecords, @TotalPages AS TotalPages;
+    END
+END
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagment]    Script Date: 14-06-2025 18:52:49 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagment]    Script Date: 17-06-2025 18:40:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -761,7 +846,7 @@ BEGIN
 	 End
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagmenttest]    Script Date: 14-06-2025 18:52:49 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagmenttest]    Script Date: 17-06-2025 18:40:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -860,7 +945,7 @@ End
 --{"Programe":[{"ProgrameID":1,"ProgrameName":"BCA","ProgrameDuration":"3 Year","ProgrameLebel":"UG"},{"ProgrameID":2,"ProgrameName":"DCA","ProgrameDuration":"1 Year","ProgrameLebel":"Diploma"}],"Paginationtemp":"{\"Pagination\":[{\"TotalRecords\":17,\"TotalPages\":9}]}"}
 --{"Programe":[{"ProgrameID":1,"ProgrameName":"BCA","ProgrameDuration":"3 Year","ProgrameLebel":"UG"},{"ProgrameID":2,"ProgrameName":"DCA","ProgrameDuration":"1 Year","ProgrameLebel":"Diploma"}],"Pagination":"{\"TotalRecords\":17,\"TotalPages\":9}"}
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_Role]    Script Date: 14-06-2025 18:52:49 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_Role]    Script Date: 17-06-2025 18:40:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -879,7 +964,7 @@ Begin
 End
 
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_UserAction]    Script Date: 14-06-2025 18:52:49 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_UserAction]    Script Date: 17-06-2025 18:40:52 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
