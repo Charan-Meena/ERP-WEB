@@ -25,7 +25,7 @@ export class CourseSubjectListComponent extends BaseService implements OnInit{
   programeListDDL:Array<ProgrameMenanet>=[];
   columnArray:Array<string>=['semYear',
                              'isCompulsory','subjName','subjectCode','theoryMax','theoryMin',
-                             'practMax','practMin','sesMax','sesMin','maxTotal','minTotal','activeStatus',
+                             'practMax','practMin','sesMax','sesMin','maxTotal','activeStatus',
                              'Action']
   searchText:string="";
   courseSchemeObj:CourseScheme=<CourseScheme>{};

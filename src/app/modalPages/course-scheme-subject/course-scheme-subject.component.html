@@ -77,15 +77,15 @@
                                                                             &&
                                                                             subjectFormControls['IsCompulsory'].errors['required'])
                                                                             {
-                                                                            <div>Course Scheme Name is required.</div>
+                                                                            <div>IsCompulsory is required.</div>
                                                                             }
                                                                         </div>
                                                                         }
                                                                     </div>
-                                                                    <div class="col-md-3">
+                                                                    <div class="col-md-2">
                                                                         <input type="text" formControlName="SubjSeq"
                                                                             name="SubjSeq" class="form-control"
-                                                                            placeholder="Sequence Number">
+                                                                            placeholder="Paper Sequence.">
                                                                         @if((subjectFormControls['SubjSeq'].touched ||
                                                                         iscourseSubjectForm) &&
                                                                         subjectFormControls['SubjSeq'].invalid)
@@ -94,12 +94,12 @@
                                                                             @if(subjectFormControls['SubjSeq'].errors &&
                                                                             subjectFormControls['SubjSeq'].errors['required'])
                                                                             {
-                                                                            <div>Course Scheme Name is required.</div>
+                                                                            <div>Paper Sequence is required.</div>
                                                                             }
                                                                         </div>
                                                                         }
                                                                     </div>
-                                                                    <div class="col-md-3">
+                                                                    <div class="col-md-4">
                                                                         <input type="text" formControlName="SubjName"
                                                                             name="SubjName" class="form-control"
                                                                             placeholder="Paper Name">
@@ -115,7 +115,7 @@
                                                                             &&
                                                                             subjectFormControls['SubjName'].errors['required'])
                                                                             {
-                                                                            <div>Course Scheme Name is required.</div>
+                                                                            <div>SubjName is required.</div>
                                                                             }
                                                                         </div>
                                                                         }
@@ -134,7 +134,7 @@
                                                                             &&
                                                                             subjectFormControls['SubjectCode'].errors['required'])
                                                                             {
-                                                                            <div>Course Scheme Name is required.</div>
+                                                                            <div>SubjectCode is required.</div>
                                                                             }
                                                                         </div>
                                                                         }
@@ -157,7 +157,7 @@
                                                                             &&
                                                                             subjectFormControls['ActiveStatus'].errors['required'])
                                                                             {
-                                                                            <div>Course Scheme Name is required.</div>
+                                                                            <div>ActiveStatus is required.</div>
                                                                             }
                                                                         </div>
                                                                         }
@@ -177,7 +177,7 @@
                                                                             &&
                                                                             subjectFormControls['TheoryMax'].errors['required'])
                                                                             {
-                                                                            <div>Course Scheme Name is required.</div>
+                                                                            <div>TheoryMax is required.</div>
                                                                             }
                                                                         </div>
                                                                         }
@@ -195,7 +195,7 @@
                                                                             &&
                                                                             subjectFormControls['TheoryMin'].errors['required'])
                                                                             {
-                                                                            <div>Course Scheme Name is required.</div>
+                                                                            <div>TheoryMin is required.</div>
                                                                             }
                                                                         </div>
                                                                         }
@@ -211,7 +211,7 @@
                                                                             @if(subjectFormControls['TheoryMin'].errors
                                                                             &&
                                                                             subjectFormControls['TheoryMin'].errors['required']){
-                                                                            <div>Course Scheme Name is required.</div>}
+                                                                            <div>PractMax is required.</div>}
                                                                         </div>}
                                                                     </div>
                                                                     <div class="col-md">
@@ -225,7 +225,7 @@
                                                                             @if(subjectFormControls['PractMin'].errors
                                                                             &&
                                                                             subjectFormControls['PractMin'].errors['required']){
-                                                                            <div>Course Scheme Name is required.</div>}
+                                                                            <div>PractMin is required.</div>}
                                                                         </div>}
                                                                     </div>
                                                                     <div class="col-md">
@@ -238,7 +238,7 @@
                                                                         <div class="errorMessage">
                                                                             @if(subjectFormControls['SesMax'].errors &&
                                                                             subjectFormControls['SesMax'].errors['required']){
-                                                                            <div>Course Scheme Name is required.</div>}
+                                                                            <div>SesMax is required.</div>}
                                                                         </div>}
                                                                     </div>
                                                                     <div class="col-md">
@@ -251,10 +251,10 @@
                                                                         <div class="errorMessage">
                                                                             @if(subjectFormControls['SesMin'].errors &&
                                                                             subjectFormControls['SesMin'].errors['required']){
-                                                                            <div>Course Scheme Name is required.</div>}
+                                                                            <div>SesMin is required.</div>}
                                                                         </div>}
                                                                     </div>
-                                                                    <div class="col-md">
+                                                                    <!-- <div class="col-md">
                                                                         <input type="text" formControlName="MaxTotal"
                                                                             name="MaxTotal" class="form-control"
                                                                             placeholder="MaxTotal" NumberOnly>
@@ -267,7 +267,7 @@
                                                                             subjectFormControls['MaxTotal'].errors['required']){
                                                                             <div>Course Scheme Name is required.</div>}
                                                                         </div>}
-                                                                    </div>
+                                                                    </div> -->
                                                                     <!-- <div class="col-md">
                                                                         <input type="text" formControlName="MinTotal"
                                                                             name="MinTotal" class="form-control"
@@ -356,11 +356,11 @@
                                                                                 style="width: 10px;">
                                                                                 MaxTotal
                                                                             </th>
-                                                                            <th class="hoz-td sorting sorting_asc"
+                                                                            <!-- <th class="hoz-td sorting sorting_asc"
                                                                                 rowspan="1" colspan="1"
                                                                                 style="width: 10px;">
                                                                                 MinTotal
-                                                                            </th>
+                                                                            </th> -->
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -422,10 +422,6 @@
                                                                                 </div>
                                                                               </td>
                                                                               <td>
-                                                                              <div class="flex flex-top">
-                                                                                    <p><span>{{item.MinTotal}}</span></p>
-                                                                                </div>
-                                                                              </td>
                                                                         </tr>
                                                                         }
                                                                         
