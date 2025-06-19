@@ -167,7 +167,7 @@
                                                                     <div class="col-md">
                                                                         <input type="text" formControlName="TheoryMax"
                                                                             name="TheoryMax" class="form-control"
-                                                                            placeholder="TheoryMax">
+                                                                            placeholder="TheoryMax" NumberOnly>
                                                                         @if((subjectFormControls['TheoryMax'].touched ||
                                                                         iscourseSubjectForm) &&
                                                                         subjectFormControls['TheoryMax'].invalid)
@@ -185,7 +185,7 @@
                                                                     <div class="col-md">
                                                                         <input type="text" formControlName="TheoryMin"
                                                                             name="TheoryMin" class="form-control"
-                                                                            placeholder="TheoryMin">
+                                                                            placeholder="TheoryMin" NumberOnly (blur)="validateMinMax('TheoryMin')">
                                                                         @if((subjectFormControls['TheoryMin'].touched ||
                                                                         iscourseSubjectForm) &&
                                                                         subjectFormControls['TheoryMin'].invalid)
@@ -203,7 +203,7 @@
                                                                     <div class="col-md">
                                                                         <input type="text" formControlName="PractMax"
                                                                             name="PractMax" class="form-control"
-                                                                            placeholder="PractMax">
+                                                                            placeholder="PractMax" NumberOnly>
                                                                         @if((subjectFormControls['TheoryMin'].touched ||
                                                                         iscourseSubjectForm) &&
                                                                         subjectFormControls['TheoryMin'].invalid){
@@ -217,7 +217,7 @@
                                                                     <div class="col-md">
                                                                         <input type="text" formControlName="PractMin"
                                                                             name="PractMin" class="form-control"
-                                                                            placeholder="PractMin">
+                                                                            placeholder="PractMin" (blur)="validateMinMax('PractMin')" NumberOnly>
                                                                         @if((subjectFormControls['PractMin'].touched ||
                                                                         iscourseSubjectForm) &&
                                                                         subjectFormControls['PractMin'].invalid){
@@ -231,7 +231,7 @@
                                                                     <div class="col-md">
                                                                         <input type="text" formControlName="SesMax"
                                                                             name="SesMax" class="form-control"
-                                                                            placeholder="SesMax">
+                                                                            placeholder="SesMax" NumberOnly>
                                                                         @if((subjectFormControls['SesMax'].touched ||
                                                                         iscourseSubjectForm) &&
                                                                         subjectFormControls['SesMax'].invalid){
@@ -244,7 +244,7 @@
                                                                     <div class="col-md">
                                                                         <input type="text" formControlName="SesMin"
                                                                             name="SesMin" class="form-control"
-                                                                            placeholder="SesMin">
+                                                                            placeholder="SesMin" (blur)="validateMinMax('SesMin')" NumberOnly>
                                                                         @if((subjectFormControls['SesMin'].touched ||
                                                                         iscourseSubjectForm) &&
                                                                         subjectFormControls['SesMin'].invalid){
@@ -257,7 +257,7 @@
                                                                     <div class="col-md">
                                                                         <input type="text" formControlName="MaxTotal"
                                                                             name="MaxTotal" class="form-control"
-                                                                            placeholder="MaxTotal">
+                                                                            placeholder="MaxTotal" NumberOnly>
                                                                         @if((subjectFormControls['MaxTotal'].touched ||
                                                                         iscourseSubjectForm) &&
                                                                         subjectFormControls['MaxTotal'].invalid){
@@ -268,10 +268,10 @@
                                                                             <div>Course Scheme Name is required.</div>}
                                                                         </div>}
                                                                     </div>
-                                                                    <div class="col-md">
+                                                                    <!-- <div class="col-md">
                                                                         <input type="text" formControlName="MinTotal"
                                                                             name="MinTotal" class="form-control"
-                                                                            placeholder="MinTotal">
+                                                                            placeholder="MinTotal" NumberOnly>
                                                                         @if((subjectFormControls['MinTotal'].touched ||
                                                                         iscourseSubjectForm) &&
                                                                         subjectFormControls['MinTotal'].invalid){
@@ -281,14 +281,13 @@
                                                                             subjectFormControls['MinTotal'].errors['required']){
                                                                             <div>Course Scheme Name is required.</div>}
                                                                         </div>}
-                                                                    </div>
+                                                                    </div> -->
 
                                                                 </div>
                                                                 <div class="row button-des">
                                                                     <div class="col-md-2">
                                                                         <button type="button"
-                                                                            class="btn btn-outline-success btn-sm" (click)="AddSubject()">Add
-                                                                            Subject</button>
+                                                                            class="btn btn-outline-success btn-sm" (click)="AddSubject()">Add Subject</button>
                                                                     </div>
                                                                 </div>
                                                             </fieldset>
