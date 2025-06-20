@@ -5,11 +5,12 @@ import { UserRegistration, USERREGISTRATION_API_RESPONSE } from '../../Model/Cla
 import { BaseService } from '../../Base/base.service';
 import { Subject } from 'rxjs';
 import { DatatableDirective } from '../../directives/datatable.directive';
+import { VoidTableComponent } from '../../reusableComponent/void-table/void-table.component';
 
 @Component({
   selector: 'app-user-registration',
   standalone: true,
-  imports: [ReactiveFormsModule,FormsModule,CommonModule,DatatableDirective],
+  imports: [ReactiveFormsModule,FormsModule,CommonModule,VoidTableComponent],
   templateUrl: './user-registration.component.html',
   styleUrl: './user-registration.component.css'
 })
@@ -19,16 +20,19 @@ export class UserRegistrationComponent extends BaseService implements OnInit{
   userList:Array<UserRegistration>=[];
   dtOptions: any = {};
   dttrigger:Subject<any>=new Subject<any>();
-  pageArray:any=[];
-  PageNumber:number=1;
-  RowsOfPage:number=2;
-  pageCount:number=0;
-  searchText:string="";
-  TableParam:any={
-   PageNumber:this.PageNumber,
-   RowsOfPage:this.RowsOfPage,
-   searchText:this.searchText
-  };
+//////////////////////////
+    pageArray:any=[];
+    PageNumber:number=1;
+    RowsOfPage:number=5;
+    pageCount:number=0;
+    columnArray:Array<string>=['courseSchemeName','examPattern','programeName','isActive','Action','Add']
+    searchText:string="";
+    TableParam:any={
+      PageNumber:this.PageNumber,
+      RowsOfPage:this.RowsOfPage,
+      searchText:this.searchText
+    };
+
   constructor(private fb: FormBuilder) {
     super();
   }
@@ -45,16 +49,23 @@ ngOnInit(): void {
     setTimeout(() => {
       this.getUserList();
     }, 100);
-  // form = new FormGroup({
-  //   Fullname: new FormControl('', [Validators.required, Validators.minLength(3)]),
-  //   Username: new FormControl('', [Validators.required]),
-  //   Email: new FormControl('', Validators.required),
-  //   PhoneNumber: new FormControl('', Validators.required),
-  //   Password: new FormControl('', Validators.required),
-  //   gender:new FormControl('', Validators.required),
-  //   loginID:new FormControl('', Validators.required),
-  // });
+}
 
+pageChange(pageData:any){
+  this.TableParam=pageData;
+  this.getUserList();
+}
+onActionEvent(actionData:any){
+  if(actionData.Action=='Edit'){
+         let courseSchemeMatsterobj ={...actionData}
+         courseSchemeMatsterobj['isActive']= courseSchemeMatsterobj.isActive=="true"?0:1;
+         //this.courseSchemeMatsterForm.patchValue(courseSchemeMatsterobj)
+         console.log(actionData)
+    }
+  if(actionData.Action=='Add'){
+    //this.clearForm();
+    //this.openPaperPage(actionData);
+  }
 }
 getUserList(){
   this.pageArray=[];
@@ -71,52 +82,6 @@ this.ApiServices.requestPost('/api/User/UserList',this.TableParam).subscribe({
     console.log(e);
   }
 })
-}
-sendTheNewValue(e:any){
-this.searchText = e.target.value;
-console.log(e.target.value);
-this.TableParam={
-   PageNumber:this.PageNumber,
-   RowsOfPage:this.RowsOfPage,
-   searchText:this.searchText
-  };
-this.getUserList();
-}
-onpagechange(pageNumber:number){
-  this.PageNumber=pageNumber;
- this.TableParam={
-   PageNumber:this.PageNumber,
-   RowsOfPage:this.RowsOfPage,
-   searchText:this.searchText
-  };
-  this.getUserList();
-}
-previous(){
-  this.PageNumber--;
- this.TableParam={
-   PageNumber:this.PageNumber,
-   RowsOfPage:this.RowsOfPage,
-   searchText:""
-  };
-  this.getUserList();
-}
-next(){
-  this.PageNumber++;
- this.TableParam={
-   PageNumber:this.PageNumber,
-   RowsOfPage:this.RowsOfPage,
-   searchText:""
-  };
-  this.getUserList();
-}
-changefunction(env:any){
-   this.RowsOfPage= env.target.value
-    this.TableParam={
-   PageNumber:1,
-   RowsOfPage:this.RowsOfPage,
-   searchText:""
-  };
-  this.getUserList();
 }
 
 Fromsubmit(){
@@ -140,14 +105,12 @@ Fromsubmit(){
   }
     });
 }
- get f(){
+ get ueseFormControl(){
     return this.userRegistraionFormGroup.controls;
   }
   clearForm(){
     this.userRegistraionFormGroup.reset();
   }
-
-
 
 }
 
