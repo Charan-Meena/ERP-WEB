@@ -14,47 +14,38 @@
                                  <div class="card-body">
                                 <div class="row p-2">
                                   <div class="col-md-4">
-                                    <input type="text" class="form-control" formControlName="Fullname" name="Fullname" id="Fullname" placeholder="Enter your name" required />
-                                    <div *ngIf="(ueseFormControl['Fullname'].touched || isuserFormsubmitted) && ueseFormControl['Fullname'].invalid" class="errorMessage">
-                                      <div *ngIf="ueseFormControl['Fullname'].errors && ueseFormControl['Fullname'].errors['required']">Name is required.</div>
-                                      <div *ngIf="ueseFormControl['Fullname'].errors && ueseFormControl['Fullname'].errors['minlength']">Name should be 3 character.</div>
+                                    <input type="text" class="form-control" formControlName="fullname" name="fullname" id="fullname" placeholder="Enter your name" required />
+                                    <div *ngIf="(ueseFormControl['fullname'].touched || isuserFormsubmitted) && ueseFormControl['fullname'].invalid" class="errorMessage">
+                                      <div *ngIf="ueseFormControl['fullname'].errors && ueseFormControl['fullname'].errors['required']">Name is required.</div>
+                                      <div *ngIf="ueseFormControl['fullname'].errors && ueseFormControl['fullname'].errors['minlength']">Name should be 3 character.</div>
                                     </div>
                                    </div>
                                    <div class="col-md-4">
-                                    <input type="text" class="form-control" formControlName="Username" name="Username" id="Username" placeholder="Enter your username" required />
-                                     <div *ngIf="(ueseFormControl['Username'].touched ||isuserFormsubmitted) && ueseFormControl['Username'].invalid" class="errorMessage">
-                                     <div *ngIf="ueseFormControl['Username'].errors && ueseFormControl['Username'].errors['required']">Username is required.</div>
+                                    <input type="text" class="form-control" formControlName="userName" name="userName" id="userName" placeholder="Enter your username" required />
+                                     <div *ngIf="(ueseFormControl['userName'].touched ||isuserFormsubmitted) && ueseFormControl['userName'].invalid" class="errorMessage">
+                                     <div *ngIf="ueseFormControl['userName'].errors && ueseFormControl['userName'].errors['required']">Username is required.</div>
                                      </div>
                                   </div>
                                   <div class="col-md-4">
-                                    <input type="text" class="form-control" formControlName="Email" name="Email" id="Email" placeholder="Enter your email" required />
-                                    <div *ngIf="(ueseFormControl['Email'].touched || isuserFormsubmitted) && ueseFormControl['Email'].invalid"
+                                    <input type="text" class="form-control" formControlName="email" name="email" id="email" placeholder="Enter your email" required />
+                                    <div *ngIf="(ueseFormControl['email'].touched || isuserFormsubmitted) && ueseFormControl['email'].invalid"
                                       class="errorMessage">
-                                      <div *ngIf="ueseFormControl['Email'].errors && ueseFormControl['Email'].errors['required']">Email is required.</div>
+                                      <div *ngIf="ueseFormControl['email'].errors && ueseFormControl['email'].errors['required']">Email is required.</div>
                                     </div>
                                   </div>
                                   </div>
                                   <div class="row p-2">
                                    <div class="col-md-4">
-                                         <input type="text" class="form-control" formControlName="PhoneNumber" name="PhoneNumber" id="PhoneNumber" placeholder="Enter your number"
+                                         <input type="text" class="form-control" formControlName="phoneNumber" name="phoneNumber" id="phoneNumber" placeholder="Enter your number"
                                                required />
-                                        <div *ngIf="(ueseFormControl['PhoneNumber'].touched || isuserFormsubmitted) && ueseFormControl['PhoneNumber'].invalid"
+                                        <div *ngIf="(ueseFormControl['phoneNumber'].touched || isuserFormsubmitted) && ueseFormControl['phoneNumber'].invalid"
                                            class="errorMessage">
-                                              <div *ngIf="ueseFormControl['PhoneNumber'].errors && ueseFormControl['PhoneNumber'].errors['required']">PhoneNumber
+                                              <div *ngIf="ueseFormControl['phoneNumber'].errors && ueseFormControl['phoneNumber'].errors['required']">PhoneNumber
                                                is required.</div>
                                         </div>
                                      </div>
-                                  <div class="col-md-4">
-                                      <input type="password" class="form-control" formControlName="Password" name="Password" id="Password" placeholder="Enter your Password"
-                                        required />
-                                      <div *ngIf="(ueseFormControl['Password'].touched || isuserFormsubmitted)&& ueseFormControl['Password'].invalid"
-                                        class="errorMessage">
-                                        <div *ngIf="ueseFormControl['Password'].errors && ueseFormControl['Password'].errors['required']">PhoneNumber is
-                                          required.</div>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                      <input type="password" class="form-control" formControlName="loginID" name="loginID" id="loginID" placeholder="Enter your loginID"
+                                     <div class="col-md-4">
+                                      <input type="text" class="form-control" formControlName="loginID" name="loginID" id="loginID" placeholder="Enter your loginID"
                                         required />
                                       <div *ngIf="(ueseFormControl['loginID'].touched || isuserFormsubmitted) && ueseFormControl['loginID'].invalid"
                                         class="errorMessage">
@@ -62,6 +53,16 @@
                                           required.</div>
                                       </div>
                                     </div>
+                                  <div class="col-md-4">
+                                      <input type="password" class="form-control" formControlName="password" name="password" id="password" placeholder="Enter your Password"
+                                        required />
+                                      <div *ngIf="(ueseFormControl['password'].touched || isuserFormsubmitted)&& ueseFormControl['password'].invalid"
+                                        class="errorMessage">
+                                        <div *ngIf="ueseFormControl['password'].errors && ueseFormControl['password'].errors['required']">PhoneNumber is
+                                          required.</div>
+                                      </div>
+                                    </div>
+                                    
                                   </div>
                                   <div class="row p-2">
                                   

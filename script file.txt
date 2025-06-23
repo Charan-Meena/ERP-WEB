@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [ARP]    Script Date: 20-06-2025 19:03:53 ******/
+/****** Object:  Database [ARP]    Script Date: 23-06-2025 18:47:03 ******/
 CREATE DATABASE [ARP]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,7 +82,7 @@ ALTER DATABASE [ARP] SET QUERY_STORE = OFF
 GO
 USE [ARP]
 GO
-/****** Object:  Table [dbo].[Role_Table]    Script Date: 20-06-2025 19:03:53 ******/
+/****** Object:  Table [dbo].[Role_Table]    Script Date: 23-06-2025 18:47:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -93,7 +93,7 @@ CREATE TABLE [dbo].[Role_Table](
 	[ActiveStatus] [bit] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SampleFruits]    Script Date: 20-06-2025 19:03:53 ******/
+/****** Object:  Table [dbo].[SampleFruits]    Script Date: 23-06-2025 18:47:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -108,7 +108,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_CourseScheme]    Script Date: 20-06-2025 19:03:53 ******/
+/****** Object:  Table [dbo].[Tbl_CourseScheme]    Script Date: 23-06-2025 18:47:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -125,7 +125,7 @@ CREATE TABLE [dbo].[Tbl_CourseScheme](
 	[examPattern] [nvarchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_Designation]    Script Date: 20-06-2025 19:03:53 ******/
+/****** Object:  Table [dbo].[Tbl_Designation]    Script Date: 23-06-2025 18:47:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -136,7 +136,7 @@ CREATE TABLE [dbo].[Tbl_Designation](
 	[IsActive] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ExamPaper]    Script Date: 20-06-2025 19:03:53 ******/
+/****** Object:  Table [dbo].[Tbl_ExamPaper]    Script Date: 23-06-2025 18:47:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -166,7 +166,7 @@ CREATE TABLE [dbo].[Tbl_ExamPaper](
 	[ActiveStatus] [bit] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ProgrameMaster]    Script Date: 20-06-2025 19:03:53 ******/
+/****** Object:  Table [dbo].[Tbl_ProgrameMaster]    Script Date: 23-06-2025 18:47:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -178,7 +178,7 @@ CREATE TABLE [dbo].[Tbl_ProgrameMaster](
 	[ProgrameLebel] [varchar](200) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_User_login]    Script Date: 20-06-2025 19:03:53 ******/
+/****** Object:  Table [dbo].[Tbl_User_login]    Script Date: 23-06-2025 18:47:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -191,8 +191,22 @@ CREATE TABLE [dbo].[Tbl_User_login](
 	[Email] [nvarchar](200) NULL,
 	[PhoneNumber] [nvarchar](50) NULL,
 	[gender] [nvarchar](10) NULL,
-	[UserId] [bigint] IDENTITY(1,1) NOT NULL
+	[UserId] [bigint] IDENTITY(1,1) NOT NULL,
+	[entityType] [int] NULL,
+	[parentId] [int] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_UserRoll]    Script Date: 23-06-2025 18:47:03 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_UserRoll](
+	[rollID] [int] IDENTITY(1,1) NOT NULL,
+	[rollName] [varchar](200) NULL,
+	[parentId] [int] NULL,
+	[entityType] [int] NULL
+) ON [PRIMARY]
 GO
 SET IDENTITY_INSERT [dbo].[Role_Table] ON 
 GO
@@ -306,37 +320,53 @@ SET IDENTITY_INSERT [dbo].[Tbl_ProgrameMaster] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_User_login] ON 
 GO
-INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'Shankar', N'gxf+9DKTdR1XylLE2N8E7A==', N'Shankar', N'Shankar', N'shankar@gmail.com', N'982647894', N'male', 1)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId], [entityType], [parentId]) VALUES (N'Shankar', N'gxf+9DKTdR1XylLE2N8E7A==', N'Shankar', N'Shankar', N'shankar@gmail.com', N'982647894', N'male', 1, 6, 4)
 GO
-INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'Akash', N'hF1JkBmfx08IfL2JGBapDg==', N'Akash', N'Akash', N'', N'7845219634', N'male', 2)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId], [entityType], [parentId]) VALUES (N'Akash', N'hF1JkBmfx08IfL2JGBapDg==', N'Akash', N'Akash', N'', N'7845219634', N'male', 2, 1, 1)
 GO
-INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'Kailash', N'0U7XGYtX++DHUdtOLZigVA==', N'Kailash', N'Kailash', N'kailash@gmail.com', N'9856387521', N'male', 3)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId], [entityType], [parentId]) VALUES (N'Kailash', N'0U7XGYtX++DHUdtOLZigVA==', N'Kailash', N'Kailash', N'kailash@gmail.com', N'9856387521', N'male', 3, 6, 4)
 GO
-INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'bnmsbdfmndsbnfmbdsnmf', N'4yyruN7flzIscL7oKcMwIiGtfldJtlBhhhDC1sChgBCXufgMX29qCf5l3jLCuQov', N'bdnmbnmdsbfmns', N'bsmndbnmdbsnmf', N'bnsmdbcnmsbfnm', N'bnmsbdnbdshfjsh', N'male', 8)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId], [entityType], [parentId]) VALUES (N'bnmsbdfmndsbnfmbdsnmf', N'4yyruN7flzIscL7oKcMwIiGtfldJtlBhhhDC1sChgBCXufgMX29qCf5l3jLCuQov', N'bdnmbnmdsbfmns', N'bsmndbnmdbsnmf', N'bnsmdbcnmsbfnm', N'bnmsbdnbdshfjsh', N'male', 8, 6, 4)
 GO
-INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'kjkdsjfkdsjklfjdskljf', N'NSGCIdA1KYFz34mH1O0wzTmWmrDknwcAMRfKs09Duj7u4XHYXoM/ssLS0+yNEIsP', N'lknsdnfdsnf', N'nsdnfdslkfjlk', N'lkjlksdjfdskfk', N'jfjkdjflkjdslkfj', N'male', 9)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId], [entityType], [parentId]) VALUES (N'kjkdsjfkdsjklfjdskljf', N'NSGCIdA1KYFz34mH1O0wzTmWmrDknwcAMRfKs09Duj7u4XHYXoM/ssLS0+yNEIsP', N'lknsdnfdsnf', N'nsdnfdslkfjlk', N'lkjlksdjfdskfk', N'jfjkdjflkjdslkfj', N'male', 9, 6, 4)
 GO
-INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'kjkljklvjdflkjgfl', N'YBVYERtG607vcerU1sHvyaTjSEiPMMmoHqDtyIFmaKN79m8Jw47JWv3tvc5AAYXW', N'lknvddgfkhjdlksjh', N'dhkjdshgkfdhghfd', N'jkljfkdsfkhdsklhgfdlkh', N'kljkljdfkljdsklfjdlksjkl', N'male', 10)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId], [entityType], [parentId]) VALUES (N'kjkljklvjdflkjgfl', N'YBVYERtG607vcerU1sHvyaTjSEiPMMmoHqDtyIFmaKN79m8Jw47JWv3tvc5AAYXW', N'lknvddgfkhjdlksjh', N'dhkjdshgkfdhghfd', N'jkljfkdsfkhdsklhgfdlkh', N'kljkljdfkljdsklfjdlksjkl', N'male', 10, 6, 4)
 GO
-INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'Ramnath', N'VJhs4YA21TpfczVF5BeGag==', N'Ramnath', N'Ramnath', N'Ramnath', N'Ramnath', N'male', 11)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId], [entityType], [parentId]) VALUES (N'Ramnath', N'VJhs4YA21TpfczVF5BeGag==', N'Ramnath', N'Ramnath', N'Ramnath', N'Ramnath', N'male', 11, 6, 4)
 GO
-INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'hhhhhhhhh', N'dcBJy9MuarnZgUY3agOOvuVUj42FP6KUgBO6jrnkkfs=', N'hhhhhhhhh', N'hhhhhhhhh', N'hhhhhhhhh', N'hhhhhhhhh', N'female', 12)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId], [entityType], [parentId]) VALUES (N'hhhhhhhhh', N'dcBJy9MuarnZgUY3agOOvuVUj42FP6KUgBO6jrnkkfs=', N'hhhhhhhhh', N'hhhhhhhhh', N'hhhhhhhhh', N'hhhhhhhhh', N'female', 12, 6, 4)
 GO
-INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'fhfghgfh', N'kpsbqRSVN7n9hj3l9Fva+Q==', N'dfgfdghfdh', N'dsfdsfd', N'dfgfdghfdh', N'fdhfghgf', N'male', 10012)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId], [entityType], [parentId]) VALUES (N'fhfghgfh', N'kpsbqRSVN7n9hj3l9Fva+Q==', N'dfgfdghfdh', N'dsfdsfd', N'dfgfdghfdh', N'fdhfghgf', N'male', 10012, 6, 4)
 GO
-INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'fdgfdg', N'zk0jcijOBbukz+HN3buh2XgkSZ8Fvi/CPcD1f3AyyLM=', N'dgfdgfd', N'dsgfdsgfd', N'gdfgfdgfd', N'ffdgfdg', N'male', 10013)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId], [entityType], [parentId]) VALUES (N'fdgfdg', N'zk0jcijOBbukz+HN3buh2XgkSZ8Fvi/CPcD1f3AyyLM=', N'dgfdgfd', N'dsgfdsgfd', N'gdfgfdgfd', N'ffdgfdg', N'male', 10013, 6, 4)
 GO
-INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'fghgfh', N'wc7PF3XhB3JyH1OnA+e+fw==', N'hbfghgf', N'dfgfd', N'hfghgfh', N'fghgfh', N'male', 10015)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId], [entityType], [parentId]) VALUES (N'fghgfh', N'wc7PF3XhB3JyH1OnA+e+fw==', N'hbfghgf', N'dfgfd', N'hfghgfh', N'fghgfh', N'male', 10015, 6, 4)
 GO
-INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'fddfgfdhg', N'XCZZ9MCRCkW5GuV7LWBkPZXCOA1fl32G3EQsTy81qGA=', N'dgdfg', N'dfsdgd', N'dfgdfgfd', N'dfgfdg', N'male', 10016)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId], [entityType], [parentId]) VALUES (N'fddfgfdhg', N'XCZZ9MCRCkW5GuV7LWBkPZXCOA1fl32G3EQsTy81qGA=', N'dgdfg', N'dfsdgd', N'dfgdfgfd', N'dfgfdg', N'male', 10016, 6, 4)
 GO
-INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId]) VALUES (N'fhfghgfhfghgf', N'mtn59igf2BkOeCVWhqtkD9rWx5SkEdEVB6b8+TroWnQ=', N'dfgdfgtfhg', N'sgsgdf', N'tfrhdhgtrhgt', N'fdhfghgfh', N'male', 10017)
+INSERT [dbo].[Tbl_User_login] ([loginID], [Password], [UserName], [Fullname], [Email], [PhoneNumber], [gender], [UserId], [entityType], [parentId]) VALUES (N'fhfghgfhfghgf', N'mtn59igf2BkOeCVWhqtkD9rWx5SkEdEVB6b8+TroWnQ=', N'dfgdfgtfhg', N'sgsgdf', N'tfrhdhgtrhgt', N'fdhfghgfh', N'male', 10017, 6, 4)
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_User_login] OFF
 GO
+SET IDENTITY_INSERT [dbo].[Tbl_UserRoll] ON 
+GO
+INSERT [dbo].[Tbl_UserRoll] ([rollID], [rollName], [parentId], [entityType]) VALUES (1, N'TechAdmin', 1, 1)
+GO
+INSERT [dbo].[Tbl_UserRoll] ([rollID], [rollName], [parentId], [entityType]) VALUES (2, N'University', 1, 2)
+GO
+INSERT [dbo].[Tbl_UserRoll] ([rollID], [rollName], [parentId], [entityType]) VALUES (3, N'UniversityEmployee', 2, 3)
+GO
+INSERT [dbo].[Tbl_UserRoll] ([rollID], [rollName], [parentId], [entityType]) VALUES (4, N'CollegeAdmin', 2, 4)
+GO
+INSERT [dbo].[Tbl_UserRoll] ([rollID], [rollName], [parentId], [entityType]) VALUES (5, N'CollegeEmployee', 4, 5)
+GO
+INSERT [dbo].[Tbl_UserRoll] ([rollID], [rollName], [parentId], [entityType]) VALUES (6, N'Student', 4, 6)
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_UserRoll] OFF
+GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UX_ExamPaperSub]    Script Date: 20-06-2025 19:03:53 ******/
+/****** Object:  Index [UX_ExamPaperSub]    Script Date: 23-06-2025 18:47:03 ******/
 CREATE UNIQUE NONCLUSTERED INDEX [UX_ExamPaperSub] ON [dbo].[Tbl_ExamPaper]
 (
 	[courseSchemeID] ASC,
@@ -344,7 +374,7 @@ CREATE UNIQUE NONCLUSTERED INDEX [UX_ExamPaperSub] ON [dbo].[Tbl_ExamPaper]
 	[SubjName] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme]    Script Date: 20-06-2025 19:03:53 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme]    Script Date: 23-06-2025 18:47:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -490,7 +520,7 @@ BEGIN
     END
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme_Test]    Script Date: 20-06-2025 19:03:53 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme_Test]    Script Date: 23-06-2025 18:47:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -635,7 +665,7 @@ BEGIN
 
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_Designation]    Script Date: 20-06-2025 19:03:53 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_Designation]    Script Date: 23-06-2025 18:47:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -658,7 +688,7 @@ Begin
 
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ExamPaper]    Script Date: 20-06-2025 19:03:53 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ExamPaper]    Script Date: 23-06-2025 18:47:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -806,7 +836,7 @@ End
     END
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagment]    Script Date: 20-06-2025 19:03:53 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagment]    Script Date: 23-06-2025 18:47:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -901,7 +931,7 @@ BEGIN
 	 End
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagmenttest]    Script Date: 20-06-2025 19:03:53 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagmenttest]    Script Date: 23-06-2025 18:47:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1000,7 +1030,7 @@ End
 --{"Programe":[{"ProgrameID":1,"ProgrameName":"BCA","ProgrameDuration":"3 Year","ProgrameLebel":"UG"},{"ProgrameID":2,"ProgrameName":"DCA","ProgrameDuration":"1 Year","ProgrameLebel":"Diploma"}],"Paginationtemp":"{\"Pagination\":[{\"TotalRecords\":17,\"TotalPages\":9}]}"}
 --{"Programe":[{"ProgrameID":1,"ProgrameName":"BCA","ProgrameDuration":"3 Year","ProgrameLebel":"UG"},{"ProgrameID":2,"ProgrameName":"DCA","ProgrameDuration":"1 Year","ProgrameLebel":"Diploma"}],"Pagination":"{\"TotalRecords\":17,\"TotalPages\":9}"}
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_Role]    Script Date: 20-06-2025 19:03:53 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_Role]    Script Date: 23-06-2025 18:47:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1019,7 +1049,7 @@ Begin
 End
 
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_UserAction]    Script Date: 20-06-2025 19:03:53 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_UserAction]    Script Date: 23-06-2025 18:47:03 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

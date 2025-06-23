@@ -11,6 +11,10 @@ import { OnlineExaminationComponent } from './Pages/MCQExamination/online-examin
 import { AdminPanelOnlineExamComponent } from './Pages/MCQExamination/admin-panel-online-exam/admin-panel-online-exam.component';
 import { CourseSchemeMasterComponent } from './Pages/ProgrameManagment/course-scheme-master/course-scheme-master.component';
 import { CourseSubjectListComponent } from './Pages/ProgrameManagment/course-subject-list/course-subject-list.component';
+import { StudentListComponent } from './Students/student-list/student-list.component';
+import { UniEmployeeListComponent } from './User/uni-employee-list/uni-employee-list.component';
+import { CollegeEmployeeListComponent } from './User/college-employee-list/college-employee-list.component';
+import { CollegeAdminListComponent } from './User/college-admin-list/college-admin-list.component';
 
 export const routes: Routes = [
     {
@@ -41,7 +45,11 @@ export const routes: Routes = [
         {path:'Online-Exam',component:OnlineExaminationComponent},
         {path:'admin-Exam',component:AdminPanelOnlineExamComponent},
         {path:'course-scheme',component:CourseSchemeMasterComponent},
-        {path:'subject-list',component:CourseSubjectListComponent}
+        {path:'subject-list',component:CourseSubjectListComponent},
+        {path:'student-list',component:StudentListComponent},
+        {path:'uniemployee-list',component:UniEmployeeListComponent},
+        {path:'college-employee-list',component:CollegeEmployeeListComponent},
+        {path:'college-admin-list',component:CollegeAdminListComponent}
      ]   
     }
 

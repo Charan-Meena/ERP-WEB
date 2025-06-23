@@ -18,6 +18,7 @@ export class UserRegistrationComponent extends BaseService implements OnInit{
   userRegistraionFormGroup: FormGroup = new FormGroup({});
   isuserFormsubmitted:boolean=false;
   userList:Array<UserRegistration>=[];
+  userObj:UserRegistration=<UserRegistration>{};
   dtOptions: any = {};
   dttrigger:Subject<any>=new Subject<any>();
 //////////////////////////
@@ -25,7 +26,7 @@ export class UserRegistrationComponent extends BaseService implements OnInit{
     PageNumber:number=1;
     RowsOfPage:number=5;
     pageCount:number=0;
-    columnArray:Array<string>=['courseSchemeName','examPattern','programeName','isActive','Action','Add']
+    columnArray:Array<string>=['loginID','userName','fullname','phoneNumber','gender','Action']
     searchText:string="";
     TableParam:any={
       PageNumber:this.PageNumber,
@@ -38,11 +39,11 @@ export class UserRegistrationComponent extends BaseService implements OnInit{
   }
 ngOnInit(): void {
     this.userRegistraionFormGroup = this.fb.group({
-      Fullname: ['', Validators.required],
-      Username: ['', Validators.required],
-      Email: ['', Validators.required],
-      PhoneNumber: ['', Validators.required],
-      Password: ['', Validators.required],
+      fullname: ['', Validators.required],
+      userName: ['', Validators.required],
+      email: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      password: ['', Validators.required],
       gender: ['', Validators.required],
       loginID: ['', Validators.required],
     });
@@ -56,10 +57,11 @@ pageChange(pageData:any){
   this.getUserList();
 }
 onActionEvent(actionData:any){
+  debugger;
   if(actionData.Action=='Edit'){
-         let courseSchemeMatsterobj ={...actionData}
-         courseSchemeMatsterobj['isActive']= courseSchemeMatsterobj.isActive=="true"?0:1;
-         //this.courseSchemeMatsterForm.patchValue(courseSchemeMatsterobj)
+         let UserObjobj ={...actionData}
+         //userObj['Active']= userObj.isActive=="true"?0:1;
+         this.userRegistraionFormGroup.patchValue(UserObjobj)
          console.log(actionData)
     }
   if(actionData.Action=='Add'){

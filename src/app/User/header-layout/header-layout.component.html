@@ -10,7 +10,16 @@
           <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/registration">User Registration</a>
+          <a  type="button" class="nav-link dropdown-toggle" aria-labelledby="navbarDropdown" (click)="toggleDropdown('UserRegistration')">User Registration</a>
+          @if(activeDropdown === 'UserRegistration'){
+            <ul class="dropdown-menu" class="submenu">   
+                <li><a class="dropdown-item" href="/uniemployee-list">University Employee</a></li>
+                <li><a class="dropdown-item" href="/college-admin-list">College Admin</a></li>
+                <li><a class="dropdown-item" href="/college-employee-list">College Employee</a></li>
+                <li><a class="dropdown-item" href="/student-list">Student</a></li>
+          </ul>
+          } 
+          
         </li>
         <li class="nav-item dropdown">
               <a type="button" class="nav-link dropdown-toggle" aria-labelledby="navbarDropdown" (click)="toggleDropdown('PrgrameManagment')">PrgrameManagment</a>
