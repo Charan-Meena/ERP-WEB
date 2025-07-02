@@ -1,0 +1,145 @@
+<div class="main-content modal-popup-main modal-experience-form">
+    <div class="page-content">
+        <div class="registration-main">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form [formGroup]="studentForm" (ngSubmit)="Fromsubmit()">
+                        <div class="modal-body">
+                            <div class="registration-box border-box">
+                                <div class="container">
+                                    <div class="registration-box">
+                                        <div class="card border-0 p-0">
+                                            <div class="card-body p-0">
+                                                <fieldset class="border-box">
+                                                    <div class="row">
+                                                        <div class="col-9">
+                                                            <legend class="float-none w-auto"><b><span
+                                                                        class="badge bg-secondary">Student Registration</span></b></legend>
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <button type="button" class="btn btn-danger"
+                                                                data-bs-dismiss="modal"
+                                                                (click)="closeModal('CLOSE')">Close</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card border-0 p-0">
+                                                        <div class="card-body p-0">
+                                                            <fieldset class="border-box">
+                                                                <div class="row my-3">
+                                                                    <div class="col-md-3">
+                                                                    <input type="text" formControlName="fullname" name="fullname" class="form-control" placeholder="Enter Full Name" >
+                                                                        @if((studentFormControls['fullname'].touched|| isstudentForm) && studentFormControls['fullname'].invalid)
+                                                                        {<div class="errorMessage">
+                                                                            @if(studentFormControls['fullname'].errors && studentFormControls['fullname'].errors['required'])
+                                                                            { <div>Fullname is required.</div> }
+                                                                        </div> 
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <input type="text" formControlName="email" name="email" class="form-control" placeholder="Email...">
+                                                                        @if((studentFormControls['email'].touched || isstudentForm) && studentFormControls['email'].invalid)
+                                                                        {
+                                                                        <div class="errorMessage">
+                                                                            @if(studentFormControls['email'].errors && studentFormControls['email'].errors['required'])
+                                                                            {
+                                                                            <div>email is required.</div>
+                                                                            }
+                                                                        </div>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <input type="text" formControlName="phoneNumber"
+                                                                            name="phoneNumber" class="form-control"
+                                                                            placeholder="Mobile Number" NumberOnly maxlength="10">
+                                                                        <!-- <input type="text" hidden="hidden" formControlName="SubjectCourseID" name="SubjectCourseID" class="form-control"> -->
+                                                                        @if((studentFormControls['phoneNumber'].touched || isstudentForm) && studentFormControls['phoneNumber'].invalid)
+                                                                        {
+                                                                        <div class="errorMessage">
+                                                                            @if(studentFormControls['phoneNumber'].errors && studentFormControls['phoneNumber'].errors['required'])
+                                                                            {
+                                                                            <div>phoneNumber is required.</div>
+                                                                            }
+                                                                        </div>
+                                                                        }
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row my-3">
+                                                                     <div class="col-md-3">
+                                                                        <input type="password" formControlName="passwordhash" name="passwordhash" class="form-control" placeholder="Enter Password">
+                                                                        @if((studentFormControls['passwordhash'].touched || isstudentForm) && studentFormControls['passwordhash'].invalid)
+                                                                        {
+                                                                        <div class="errorMessage">
+                                                                            @if(studentFormControls['passwordhash'].errors && studentFormControls['passwordhash'].errors['required'])
+                                                                            {
+                                                                            <div>Password is Required.</div>
+                                                                            }
+                                                                        </div>
+                                                                        }
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                         <select class="form-select"
+                                                                            formControlName="activeStatus" name="activeStatus">
+                                                                            <option value="">Active Status</option>
+                                                                            <option value="1">Yes</option>
+                                                                            <option value="0">No</option>
+                                                                        </select>
+                                                                        @if((studentFormControls['activeStatus'].touched || isstudentForm) && studentFormControls['activeStatus'].invalid)
+                                                                        {
+                                                                        <div class="errorMessage">
+                                                                            @if(studentFormControls['activeStatus'].errors && studentFormControls['activeStatus'].errors['required'])
+                                                                            {
+                                                                            <div>Active Status is Required.</div>
+                                                                            }
+                                                                        </div>
+                                                                        }
+                                                                    </div>
+                                                                     <div class="col-md-3">
+                                                                        <div class="form-check form-check-inline">
+                                                                            <input class="form-check-input" type="radio" formControlName="gender" name="gender" id="inlineRadio1" value="male">
+                                                                            <label class="form-check-label" for="inlineRadio1">Male</label>
+                                                                        </div>
+                                                                        <div class="form-check form-check-inline">
+                                                                            <input class="form-check-input" type="radio" formControlName="gender" name="gender" id="inlineRadio2" value="female">
+                                                                            <label class="form-check-label" for="inlineRadio2">Female</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row my-3">
+                                                                        <div class="col-md-3">
+                                                                        <input type="date" formControlName="dob" name="dob" class="form-control" placeholder="Enter DOB">
+                                                                        @if((studentFormControls['dob'].touched || isstudentForm) && studentFormControls['dob'].invalid)
+                                                                        {
+                                                                        <div class="errorMessage">
+                                                                            @if(studentFormControls['dob'].errors && studentFormControls['dob'].errors['required'])
+                                                                            {
+                                                                            <div>Password is Required.</div>
+                                                                            }
+                                                                        </div>
+                                                                        }
+                                                                    </div>
+                                                                        <div class="col-md-3">
+                                                                        <div class="row button-des">
+                                                                            <div class="col-md-2">
+                                                                                <button type="submit" class="btn btn-outline-success btn-sm">Save</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

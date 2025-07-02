@@ -24,6 +24,9 @@ export class OnlineExaminationComponent extends BaseService  implements OnInit{
     filtermcqQuestion:Array<ImcqExam>=[];
     sbmitPaper:Array<ImcqExam>=[];
     chart: any;
+    timeLeft: number = 60 * 60; // 1 hour in seconds
+    interval: any;
+    isExamActive: boolean = true;
     mcqQuestion:Array<ImcqExam>=[
       {
           "q_Id": 1,
@@ -186,11 +189,49 @@ export class OnlineExaminationComponent extends BaseService  implements OnInit{
       super();   
     }
     ngOnInit(){
+      this.startTimer();
        setTimeout(() => {
         this.getQuestion(this.mcqQuestion[0].q_Id,0);
        }, 100);
       
   }
+///////*********Timer Logic Start*******************//////////
+  startTimer() {
+    this.interval = setInterval(() => {
+      if (this.timeLeft > 0) {
+        this.timeLeft--;
+      } else {
+        this.isExamActive = false;
+        clearInterval(this.interval);
+      }
+    }, 1000);
+  }
+    ngOnDestroy() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  }
+   formatTime(seconds: number): string {
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${this.pad(m)}:${this.pad(s)}`;
+  }
+  get hours(): string {
+  return this.pad(Math.floor(this.timeLeft / 3600));
+}
+
+get minutes(): string {
+  return this.pad(Math.floor((this.timeLeft % 3600) / 60));
+}
+
+get seconds(): string {
+  return this.pad(this.timeLeft % 60);
+}
+  pad(num: number): string {
+    return num < 10 ? '0' + num : num.toString();
+  }
+
+  ///////*********Timer Logic End*******************//////////
 
     nextQueCall(){
       if(this.currentIndex<(this.mcqLenghth-1))

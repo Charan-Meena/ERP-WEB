@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [ARP]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  Database [ARP]    Script Date: 02-07-2025 18:43:48 ******/
 CREATE DATABASE [ARP]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,7 +82,7 @@ ALTER DATABASE [ARP] SET QUERY_STORE = OFF
 GO
 USE [ARP]
 GO
-/****** Object:  Table [dbo].[Role_Table]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  Table [dbo].[Role_Table]    Script Date: 02-07-2025 18:43:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -93,7 +93,7 @@ CREATE TABLE [dbo].[Role_Table](
 	[ActiveStatus] [bit] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SampleFruits]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  Table [dbo].[SampleFruits]    Script Date: 02-07-2025 18:43:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -108,7 +108,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_CourseScheme]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  Table [dbo].[Tbl_CourseScheme]    Script Date: 02-07-2025 18:43:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -125,7 +125,7 @@ CREATE TABLE [dbo].[Tbl_CourseScheme](
 	[examPattern] [nvarchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_Designation]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  Table [dbo].[Tbl_Designation]    Script Date: 02-07-2025 18:43:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -136,7 +136,7 @@ CREATE TABLE [dbo].[Tbl_Designation](
 	[IsActive] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ExamPaper]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  Table [dbo].[Tbl_ExamPaper]    Script Date: 02-07-2025 18:43:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -166,7 +166,44 @@ CREATE TABLE [dbo].[Tbl_ExamPaper](
 	[ActiveStatus] [bit] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ProgrameMaster]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  Table [dbo].[Tbl_ExamQuestionBank]    Script Date: 02-07-2025 18:43:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_ExamQuestionBank](
+	[questionId] [int] IDENTITY(1,1) NOT NULL,
+	[paperID] [int] NULL,
+	[question] [nvarchar](max) NULL,
+	[a_Option] [nvarchar](1000) NULL,
+	[b_Option] [nvarchar](1000) NULL,
+	[c_Option] [nvarchar](100) NULL,
+	[d_Option] [nvarchar](1000) NULL,
+	[answer] [nvarchar](10) NULL,
+	[isActive] [bit] NULL,
+	[createdBy] [int] NULL,
+	[createdOn] [date] NULL,
+	[updatedBy] [int] NULL,
+	[updatedOn] [date] NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_Login]    Script Date: 02-07-2025 18:43:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_Login](
+	[userID] [int] IDENTITY(1,1) NOT NULL,
+	[userName] [varchar](200) NULL,
+	[passwordhash] [varchar](max) NULL,
+	[activeStatus] [bit] NULL,
+	[userrole] [varchar](max) NULL,
+	[lastLogin] [datetime] NULL,
+	[entityTypeId] [int] NULL,
+	[parentId] [int] NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_ProgrameMaster]    Script Date: 02-07-2025 18:43:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -178,7 +215,46 @@ CREATE TABLE [dbo].[Tbl_ProgrameMaster](
 	[ProgrameLebel] [varchar](200) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_User_login]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  Table [dbo].[Tbl_StaffInfo]    Script Date: 02-07-2025 18:43:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_StaffInfo](
+	[userID] [int] NULL,
+	[fullname] [nvarchar](1000) NULL,
+	[email] [nvarchar](200) NULL,
+	[phoneNumber] [nvarchar](50) NULL,
+	[gender] [nvarchar](10) NULL,
+	[dob] [date] NULL,
+	[staffCode] [nvarchar](200) NULL,
+	[departmentID] [int] NULL,
+	[designation] [varchar](200) NULL,
+	[joiningDate] [date] NULL,
+	[activeStatus] [bit] NULL,
+	[entityType] [int] NULL,
+	[parentId] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_StudentInfo]    Script Date: 02-07-2025 18:43:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_StudentInfo](
+	[studentID] [int] IDENTITY(1,1) NOT NULL,
+	[userID] [int] NULL,
+	[fullname] [nvarchar](1000) NULL,
+	[email] [nvarchar](200) NULL,
+	[phoneNumber] [nvarchar](50) NULL,
+	[gender] [nvarchar](10) NULL,
+	[dob] [datetime] NULL,
+	[activeStatus] [bit] NULL,
+	[entityType] [int] NULL,
+	[parentId] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_User_login]    Script Date: 02-07-2025 18:43:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -196,7 +272,7 @@ CREATE TABLE [dbo].[Tbl_User_login](
 	[parentId] [int] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_UserRoll]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  Table [dbo].[Tbl_UserRoll]    Script Date: 02-07-2025 18:43:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -302,6 +378,26 @@ INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern]
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_ExamPaper] OFF
 GO
+SET IDENTITY_INSERT [dbo].[Tbl_ExamQuestionBank] ON 
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [a_Option], [b_Option], [c_Option], [d_Option], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (1, 0, N'gdsgdfgfdgfd', N'fhgfhfgh', N'fdhfghf', N'ghfghfghgf', N'fhfghfgh', N'A', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [a_Option], [b_Option], [c_Option], [d_Option], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (2, 0, N'fbfghbgf', N'fhgfh', N'fhfg', N'hfg', N'fhfg', N'A', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [a_Option], [b_Option], [c_Option], [d_Option], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (3, 0, N'fbfghbgf', N'fhgfh', N'fhfg', N'hfg', N'fhfg', N'A', NULL, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [a_Option], [b_Option], [c_Option], [d_Option], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (4, 0, N'zxvxcvcxvb', N'cxbcvb', N'cvbcvb', N'cvbvcb', N'cbvvcb', N'C', NULL, NULL, NULL, NULL, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_ExamQuestionBank] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_Login] ON 
+GO
+INSERT [dbo].[Tbl_Login] ([userID], [userName], [passwordhash], [activeStatus], [userrole], [lastLogin], [entityTypeId], [parentId]) VALUES (1, N'7976978987', N'2Mt03MgmpTOGa6xGsT1LUEYiJM5EfW7ckWAvflHRvFs=', 1, N'', NULL, 0, 0)
+GO
+INSERT [dbo].[Tbl_Login] ([userID], [userName], [passwordhash], [activeStatus], [userrole], [lastLogin], [entityTypeId], [parentId]) VALUES (2, N'7976978988', N'2Mt03MgmpTOGa6xGsT1LUEYiJM5EfW7ckWAvflHRvFs=', 1, N'', NULL, 0, 0)
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_Login] OFF
+GO
 SET IDENTITY_INSERT [dbo].[Tbl_ProgrameMaster] ON 
 GO
 INSERT [dbo].[Tbl_ProgrameMaster] ([ProgrameID], [ProgrameName], [ProgrameDuration], [ProgrameLebel]) VALUES (1, N'BCA', N'3 Year', N'UG')
@@ -317,6 +413,14 @@ GO
 INSERT [dbo].[Tbl_ProgrameMaster] ([ProgrameID], [ProgrameName], [ProgrameDuration], [ProgrameLebel]) VALUES (6, N'MBA', N'2 Year', N'PG Diploma')
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_ProgrameMaster] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_StudentInfo] ON 
+GO
+INSERT [dbo].[Tbl_StudentInfo] ([studentID], [userID], [fullname], [email], [phoneNumber], [gender], [dob], [activeStatus], [entityType], [parentId]) VALUES (1, 1, N'aaaa', N'ghgjgjhgh', N'7976978987', N'male', CAST(N'2025-01-06T00:00:00.000' AS DateTime), 1, 0, 0)
+GO
+INSERT [dbo].[Tbl_StudentInfo] ([studentID], [userID], [fullname], [email], [phoneNumber], [gender], [dob], [activeStatus], [entityType], [parentId]) VALUES (2, 2, N'aaaa', N'ghgjgjhgh', N'7976978988', N'male', CAST(N'2025-01-06T00:00:00.000' AS DateTime), 1, 0, 0)
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_StudentInfo] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_User_login] ON 
 GO
@@ -366,7 +470,7 @@ SET IDENTITY_INSERT [dbo].[Tbl_UserRoll] OFF
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UX_ExamPaperSub]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  Index [UX_ExamPaperSub]    Script Date: 02-07-2025 18:43:49 ******/
 CREATE UNIQUE NONCLUSTERED INDEX [UX_ExamPaperSub] ON [dbo].[Tbl_ExamPaper]
 (
 	[courseSchemeID] ASC,
@@ -374,7 +478,7 @@ CREATE UNIQUE NONCLUSTERED INDEX [UX_ExamPaperSub] ON [dbo].[Tbl_ExamPaper]
 	[SubjName] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme]    Script Date: 02-07-2025 18:43:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -520,7 +624,7 @@ BEGIN
     END
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme_Test]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme_Test]    Script Date: 02-07-2025 18:43:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -665,7 +769,7 @@ BEGIN
 
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_Designation]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_Designation]    Script Date: 02-07-2025 18:43:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -688,7 +792,7 @@ Begin
 
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ExamPaper]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ExamPaper]    Script Date: 02-07-2025 18:43:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -836,7 +940,36 @@ End
     END
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagment]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ExamPaperQuestionBank]    Script Date: 02-07-2025 18:43:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+create PROCEDURE [dbo].[Sp_ExamPaperQuestionBank]
+    @Action VARCHAR(50) = null,
+    @questionId int = null,
+	@paperID int = null,
+	@question nvarchar(max) = null,
+	@a_Option nvarchar(1000)= null,
+	@b_Option nvarchar(1000)= null,
+	@c_Option nvarchar(100) = null,
+	@d_Option nvarchar(1000)=  null,
+	@answer nvarchar(10) =null,
+	@isActive bit = null
+AS
+BEGIN
+     If(@Action='InsertQuestion')
+ Begin
+ declare @isExist int=0;
+  insert into Tbl_ExamQuestionBank(paperID,question,a_Option,b_Option,c_Option,d_Option,answer,isActive)
+ values(@paperID,@question,@a_Option,@b_Option,@c_Option,@d_Option,@answer,@isActive)
+ select 1 as StatusCode ,'Question Added Successfully' as [Message], @isExist as [count]
+ End
+   
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagment]    Script Date: 02-07-2025 18:43:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -931,7 +1064,7 @@ BEGIN
 	 End
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagmenttest]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagmenttest]    Script Date: 02-07-2025 18:43:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1030,7 +1163,7 @@ End
 --{"Programe":[{"ProgrameID":1,"ProgrameName":"BCA","ProgrameDuration":"3 Year","ProgrameLebel":"UG"},{"ProgrameID":2,"ProgrameName":"DCA","ProgrameDuration":"1 Year","ProgrameLebel":"Diploma"}],"Paginationtemp":"{\"Pagination\":[{\"TotalRecords\":17,\"TotalPages\":9}]}"}
 --{"Programe":[{"ProgrameID":1,"ProgrameName":"BCA","ProgrameDuration":"3 Year","ProgrameLebel":"UG"},{"ProgrameID":2,"ProgrameName":"DCA","ProgrameDuration":"1 Year","ProgrameLebel":"Diploma"}],"Pagination":"{\"TotalRecords\":17,\"TotalPages\":9}"}
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_Role]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_Role]    Script Date: 02-07-2025 18:43:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1049,7 +1182,102 @@ Begin
 End
 
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_UserAction]    Script Date: 23-06-2025 18:47:03 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_StudentAction]    Script Date: 02-07-2025 18:43:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE Procedure [dbo].[Sp_StudentAction]
+@Action nvarchar(1000) =null,
+@studentID int =null,
+@userID int =null,
+@fullname varchar(200) =null,
+@email varchar(200) =null,
+@phoneNumber varchar(20) =null,
+@dob datetime =null,
+@gender varchar(10)=null,
+@activeStatus bit =null,
+@entityType int =null,
+@parentId int=null,
+@userName varchar(200)=null,
+@passwordhash varchar(max) =null,
+@userrole varchar(200)=null,
+@lastLogin date =null,
+@chechUser int=null,
+@PageNumber INT=0,
+@RowsOfPage INT=0,
+@SearchText NVARCHAR(MAX) ='',
+@SQL NVARCHAR(MAX) = N''
+as
+Begin
+  --      IF(@Action='UserLogin')
+	 --   BEGIN
+		----select count(*) as usercount,[loginID] from [Tbl_User_login] where loginID=@loginID and Password=@Password
+		--select 
+		--loginID,userName,fullname,email,phoneNumber,gender,userId
+		--from [Tbl_User_login] where loginID=@loginID and Password=@Password
+  --      END
+IF(@Action='InsertLogin')
+BEGIN
+set @chechUser= (select count(userName) userName from Tbl_Login where userName=@userName)
+IF(@chechUser>0)
+BEGIN
+select 0 as StatusCode
+END
+ELSE
+BEGIN
+INSERT INTO Tbl_Login(userName,passwordhash,activeStatus,userrole,lastLogin,entityTypeId,parentId) 
+                     values(@userName,@passwordhash,@activeStatus,@userrole,@lastLogin,@entityType,@parentId)
+	  select @@IDENTITY
+END
+END
+
+
+IF(@Action='InsertStudent')
+BEGIN set @chechUser= (select count(phoneNumber) [phoneNumber] from Tbl_StudentInfo where [phoneNumber]=@phoneNumber)
+IF(@chechUser>0)
+BEGIN
+ select 3 as StatusCode, 'User Already Exist'  as [Message]
+END
+ELSE
+  BEGIN 
+  INSERT INTO Tbl_StudentInfo(userID,fullname,email,phoneNumber,gender,dob,activeStatus,entityType,parentId)
+	  values(@userID,@fullname,@email,@phoneNumber,@gender,@dob,@activeStatus,@entityType,@parentId)
+	  select 1 as StatusCode ,'User Registration Successfully' as [Message]
+  END
+END
+
+IF(@Action='UserList')
+		begin
+		If(@SearchText='')
+		begin
+		    DECLARE @MaxTablePage  AS float
+				SELECT @MaxTablePage = COUNT(*) FROM [Tbl_User_login]
+				SET @MaxTablePage = CEILING(@MaxTablePage/@RowsOfPage)
+			SELECT *,(select (Select count (*) from [Tbl_User_login])) as totalReord,@MaxTablePage as TotalPage FROM [Tbl_User_login]
+			ORDER BY [UserId] 
+			OFFSET (@PageNumber-1)*@RowsOfPage ROWS
+			FETCH NEXT @RowsOfPage ROWS ONLY
+			select (Select count (*) from [Tbl_User_login]) as total
+		
+		end
+		else
+		begin
+					SELECT @SQL = @SQL + 
+					CASE WHEN @SQL = '' THEN '' ELSE ' OR ' END +
+					'CAST(' + QUOTENAME(COLUMN_NAME) + ' AS NVARCHAR(MAX)) LIKE ''%' + @SearchText + '%'''
+						FROM INFORMATION_SCHEMA.COLUMNS
+					WHERE TABLE_NAME = 'Tbl_User_login';
+					SET @SQL = 'SELECT * FROM Tbl_User_login WHERE ' + @SQL;
+					EXEC sp_executesql @SQL;
+		end
+			
+		End
+END
+
+GO
+/****** Object:  StoredProcedure [dbo].[Sp_UserAction]    Script Date: 02-07-2025 18:43:49 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

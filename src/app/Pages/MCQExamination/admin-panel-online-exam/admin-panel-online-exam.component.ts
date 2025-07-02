@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BaseService } from '../../../Base/base.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { ICoursePaper } from '../../../Model/Class/Interface/master';
 
 @Component({
   selector: 'app-admin-panel-online-exam',
@@ -10,46 +12,41 @@ import { CommonModule } from '@angular/common';
   templateUrl: './admin-panel-online-exam.component.html',
   styleUrl: './admin-panel-online-exam.component.css'
 })
-export class AdminPanelOnlineExamComponent extends BaseService  implements OnInit{
 
+export class AdminPanelOnlineExamComponent extends BaseService  implements OnInit{
     mcqAdminForm: FormGroup = new FormGroup({});
-  ismcqAdminFormSubmitted: boolean = false;
-  QuestionList:Array<any>=[];
+    ismcqAdminFormSubmitted: boolean = false;
+    QuestionList:Array<any>=[];
     currentIndex:number= -1;
+    coursePaperObj:ICoursePaper=<ICoursePaper>{}
+    
   constructor(
     private fb: FormBuilder,
   ) {
     super();
   }//EOF constructor
-  ngOnInit() {
+ngOnInit() {
+const currentState = this.router.lastSuccessfulNavigation;
+this.coursePaperObj = currentState?.extras?.state?.['CoursePaperObj'];
  this.mcqAdminForm = this.fb.group({
-      ProjectID: ['', Validators.required],
-      FacultySectorID: ['', Validators.required],
-      ProgrammeID: ['', Validators.required],
-      ExamTimeTableDate: ['', Validators.required],
-      SemesterID:['', Validators.required],
-      CourseSchemeID:['',Validators.required],
-      SubjectID:['',Validators.required],
+      //paperID:['',Validators.required],
       question:[''],
-      OptionA:[''],
-      OptionB:[''],
-      OptionC:[''],
-      OptionD:[''],
-      Answere:[''],
+      optionA:[''],
+      optionB:[''],
+      optionC:[''],
+      optionD:[''],
+      answer:[''],
     });
 }
 onSubmit(){
-    let param={
-      ProjectID: this.mcqAdminForm.controls['ProjectID'].value,
-      FacultySectorID: this.mcqAdminForm.controls['FacultySectorID'].value,
-      ProgrammeID: this.mcqAdminForm.controls['ProgrammeID'].value,
-      ExamTimeTableDate: this.mcqAdminForm.controls['ExamTimeTableDate'].value,
-      SemesterID:this.mcqAdminForm.controls['SemesterID'].value,
-      CourseSchemeID:this.mcqAdminForm.controls['CourseSchemeID'].value,
-      SubjectID:this.mcqAdminForm.controls['SubjectID'].value,
-      QuestionList:JSON.stringify(this.QuestionList)
-    }
-    console.log('param',param);
+  this.ApiServices.requestPost('/api/ProgrameManagment/examQuestionRegistration',this.mcqAdminForm.value).subscribe({
+     next:(res:any)=>{
+         this.ApiServices.showToaster(res.statusCode,res.message)
+     },
+     error(e){
+      console.log('Error',e)
+     }
+  })
     
   }
   get mcqAdminFormControl() {
@@ -73,7 +70,8 @@ onSubmit(){
           Answere:[''], })
        }
        else{
-        window.alert("Please fill All Questions Feilds..")
+        this.ApiServices.showToaster(3,'Please fill all Field')
+       //this.apiServiceInstance.showSnack('Please fill all Field', 'danger', 4000);
        }
     }
     edit(i:any){
@@ -109,6 +107,4 @@ onSubmit(){
   }//remove
 
 }
-
-
 

@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 .top-box{
        
-         background:#EBF3FE url(assets/js/Images/header-image.jpg) no-repeat 120px 4px;    
+         background-color:#321fa0;
+         color: #EBF3FE;    
         padding: 0px 20px 0 20px;
         min-height:80px;
         margin-bottom: 25px;
@@ -32,7 +33,7 @@
         }
     }
     .header{
-       background:#EBF3FE url(assets/js/Images/banenr-bg.png) no-repeat 120px 4px;  
+       background:#EBF3FE url(assets/Images/banenr-bg.png) no-repeat 120px 4px;  
         padding: 0px 20px 0 20px;
         min-height:80px;
         margin-bottom: 25px;

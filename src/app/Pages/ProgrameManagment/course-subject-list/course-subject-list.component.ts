@@ -6,6 +6,7 @@ import { COURSEPAPER_API_RESPONSE, CourseScheme, ICoursePaper, ProgrameMenanet }
 import { VoidTableComponent } from "../../../reusableComponent/void-table/void-table.component";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CourseSchemeSubjectComponent } from '../../../modalPages/course-scheme-subject/course-scheme-subject.component';
+import { NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-course-subject-list',
@@ -25,7 +26,7 @@ export class CourseSubjectListComponent extends BaseService implements OnInit{
   columnArray:Array<string>=['semYear',
                              'isCompulsory','subjName','subjectCode','theoryMax','theoryMin',
                              'practMax','practMin','sesMax','sesMin','maxTotal','activeStatus',
-                             'Action']
+                             'Action','Add']
   searchText:string="";
   courseSchemeObj:CourseScheme=<CourseScheme>{};
   TableParam:any={
@@ -43,6 +44,7 @@ export class CourseSubjectListComponent extends BaseService implements OnInit{
 ngOnInit():void{
 const currentState = this.router.lastSuccessfulNavigation;
 this.courseSchemeObj = currentState?.extras?.state?.['CourseObj'];
+
   setTimeout(()=>{
    console.log('this.courseSchemeObj',this.courseSchemeObj)
    this.getCoursePaperList()
@@ -50,16 +52,27 @@ this.courseSchemeObj = currentState?.extras?.state?.['CourseObj'];
 
 }
 
-onActionEvent(actionData:CourseScheme){
+onActionEvent(actionData:ICoursePaper){
   if(actionData.Action=='Edit'){
  let courseSchemeMatsterobj ={...actionData}
-  courseSchemeMatsterobj['isActive']= courseSchemeMatsterobj.isActive=="true"?0:1;
+  //courseSchemeMatsterobj['isActive']= courseSchemeMatsterobj.isActive=="true"?0:1;
     console.log(actionData)
   }
   if(actionData.Action=='Add'){
+    this.openPaperPage(actionData);
   }
 }
-      getCoursePaperList(){
+
+openPaperPage(actionData:ICoursePaper){
+        const navigationExtras: NavigationExtras = {
+            state: {
+              CoursePaperObj: actionData,
+            }
+          };
+          this.router.navigate(['/admin-Exam'], navigationExtras);
+         //this.pageOpen('/admin-Exam')
+}
+getCoursePaperList(){
       this.pageArray=[];
       this.ApiServices.requestPost('/api/ProgrameManagment/coursePaperList',this.TableParam).subscribe({
       next:(res:COURSEPAPER_API_RESPONSE| any)=>{
@@ -74,11 +87,11 @@ onActionEvent(actionData:CourseScheme){
           }
       })
     }
-    onpagechange(pageData:any){
+onpagechange(pageData:any){
        this.TableParam=pageData;
        this.getCoursePaperList();
-  }
-     openModalPage(){
+}
+    openModalPage(){
           if (this.modalRef) this.modalRef = null;
           this.modalRef = this.modalStatus.open(CourseSchemeSubjectComponent, { centered: true, size: 'xl' });
           this.modalRef.result.then((closeEvent: any) => {
@@ -88,5 +101,5 @@ onActionEvent(actionData:CourseScheme){
                  console.log("Error:Modal Open ::", e);
             });
           this.modalRef.componentInstance.courseSchemeObj = this.courseSchemeObj;
-      }  
+    }  
 }

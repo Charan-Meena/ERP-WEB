@@ -6,11 +6,10 @@
                     <div class="col-md-12">
                         <div class="top-box d-flex align-items-center justify-content-between">
                             <div class="d-flex align-items-center">
-                                <div class="right-box-img">
-                                </div>
-                                <div class="main-box-titel">
-                                    <h1>MCQ Admin Panel</h1>
-                                </div>
+                                
+                              
+                                    <h3>Paper Question Book -{{coursePaperObj.subjName}}-{{coursePaperObj.subjectCode}}</h3>
+                               
                             </div>
                         </div>
                     </div>
@@ -20,45 +19,52 @@
                 <div class="container-fluid">
                     <div class="work-order-detail registration-box">
                         <div class="work-order-detail registration-box">
-                            <div class="row" >
-                                <div class="col-md my-2">
-                                    <div class="input-field">
-                                        <input placeholder="Ecnter MCQ question" class="form-control" type="text" formControlName="question" name="question" autocomplete="off" maxlength=100>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="row">
-                                <div class="col-md my-2">
-                                    <div class="input-field">
-                                        <input placeholder="Ecnter MCQ Answer Option-A" class="form-control" type="text" formControlName="OptionA" name="OptionA" autocomplete="off" maxlength=100>
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md my-2">
-                                    <div class="input-field">
-                                        <input placeholder="Ecnter MCQ Answer Option-B" class="form-control" type="text" formControlName="OptionB" name="OptionB" autocomplete="off" maxlength=100>
-                                    </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md my-2">
-                                        <div class="input-field">
-                                            <input placeholder="Ecnter MCQ Answer Option-C" class="form-control" type="text" formControlName="OptionC" name="OptionC" autocomplete="off" maxlength=100>
+                            <div class="row">
+                                <div class="col-md-8 my-2">
+                                    <div class="col-md-12 mb-3">
+                                        <div>
+                                            <textarea class="form-control" formControlName="question" placeholder="Enter Question here......."
+                                                name="question" id="exampleFormControlTextarea1" rows="8"></textarea>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                     <div class="col-md my-2">
-                                        <div class="input-field">
-                                            <input placeholder="Ecnter MCQ Answer Option-D" class="form-control" type="text" formControlName="OptionD" name="OptionD" autocomplete="off" maxlength=100>
-                                        </div>
-                                    </div>
-                                </div>
-                              <div class="row my-3">
-                                        <div class="col">
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md mt-2">
                                             <div class="input-field">
-                                                <select formControlName="Answere" name="Answere" class="form-select">
+                                                <input placeholder="Ecnter MCQ Answer Option-A" class="form-control" type="text"
+                                                    formControlName="optionA" name="optionA" autocomplete="off" maxlength=100>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md my-0">
+                                            <div class="input-field">
+                                                <input placeholder="Ecnter MCQ Answer Option-B" class="form-control" type="text"
+                                                    formControlName="optionB" name="optionB" autocomplete="off" maxlength=100>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md my-0">
+                                            <div class="input-field">
+                                                <input placeholder="Ecnter MCQ Answer Option-C" class="form-control" type="text"
+                                                    formControlName="optionC" name="optionC" autocomplete="off" maxlength=100>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md my-0">
+                                            <div class="input-field">
+                                                <input placeholder="Ecnter MCQ Answer Option-D" class="form-control" type="text"
+                                                    formControlName="optionD" name="optionD" autocomplete="off" maxlength=100>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-11">
+                                            <div class="input-field">
+                                                <select formControlName="answer" name="answer" class="form-select">
                                                     <option value="" disabled selected>Please Select</option>
                                                     <option value="A">Option-A</option>
                                                     <option value="B">Option-B</option>
@@ -67,62 +73,18 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col">
-                                            <!-- <button class="btn btn-success" (click)="AddQuestion()">Add</button> -->
-                                            <a class="btn btn-icon btn-sm view-icon rounded-pill fa-plus-square-font"(click)="AddQuestion()" *ngIf="currentIndex== -1"><i class="fa fa-plus-square-o" style="font-size: 40px;color: black;margin-right: -10px;margin-left: -25px;margin-top: -3px;"></i></a>
-        
-                                            <a class="btn btn-icon btn-sm view-icon rounded-pill fa-plus-square-font"(click)="updateQuestion()" *ngIf="currentIndex >=0"><i style='color: green;
-                                                font-size: 33px;
-                                                margin-left: -33px;
-                                                margin-top: -3px;
-                                                margin-right: -18px;' class='far'>&#xf164;</i></a>
+                                        <div class="col-1">
+                                            <button class="btn btn-success" type="submit">save</button>
                                         </div>
-                                </div>
-                                
-                            <div class="row" *ngIf="QuestionList.length>0">
-                                <table style="width: 99%;margin-left: 13px;" class="table table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <th scope="col"><label>Question</label></th>
-                                            <th scope="col"><label>Option-A</label></th>
-                                            <th scope="col"><label>Option-B</label></th>
-                                            <th scope="col"><label>Option-C</label></th>
-                                            <th scope="col"><label>Option-D</label></th>
-                                            <th scope="col"><label>Answer</label></th>
-                                            <th scope="col"><label>Action</label></th>
-                                          </tr>
-                                           <tr *ngFor="let Item of QuestionList; let i=index" >
-                                            <td><span >{{Item.question}}</span></td>
-                                            <td><span >{{Item.OptionA}}</span></td>
-                                            <td><span >{{Item.OptionB}}</span></td>
-                                            <td><span >{{Item.OptionC}}</span></td>
-                                            <td><span >{{Item.OptionD}}</span></td>
-                                            <td><span >{{Item.Answere}}</span></td>
-                                            <!-- <td> <label>
-                                                <i  class="fa fa-close text-danger fs-6" data-unicode="f00d"></i> 
-                                                <i class="fa fa-check text-success fs-6" data-unicode="f00c"></i>
-                                            </label>
-                                            </td> -->
-                                            <td class="icon-fonts-mian">
-                                                <a class="btn btn-icon btn-sm view-icon rounded-pill"  title="Edit" (click)="edit(i)"><i class="fa fa-edit"></i></a>
-                                                <a class="btn btn-icon btn-sm view-icon danger rounded-pill" title="Delete" (click)="remove(i)"><i class="fa fa-trash" style="color:red"></i></a>                                              
-                                            </td> 
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="row" *ngIf="QuestionList.length>0">
-                                <div class="col-auto" >
-                                    <button class="btn btn-success" type="submit">save</button>
-                                    <!-- <a class="btn btn-icon btn-sm view-icon rounded-pill fa-plus-square-font"(click)="AddSubject()" *ngIf="btnshow"><i class="fa fa-plus-square"></i></a> -->
+                                    </div>
                                 </div>
                             </div>
-                            
+
                         </div>
-                       
                     </div>
                 </div>
             </form>
         </section>
     </div>
 </div>
+

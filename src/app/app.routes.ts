@@ -15,6 +15,7 @@ import { StudentListComponent } from './Students/student-list/student-list.compo
 import { UniEmployeeListComponent } from './User/uni-employee-list/uni-employee-list.component';
 import { CollegeEmployeeListComponent } from './User/college-employee-list/college-employee-list.component';
 import { CollegeAdminListComponent } from './User/college-admin-list/college-admin-list.component';
+import { StudentExamComponent } from './Pages/MCQExamination/student-exam/student-exam.component';
 
 export const routes: Routes = [
     {
@@ -43,6 +44,7 @@ export const routes: Routes = [
         {path:'registration',component:UserRegistrationComponent},
         {path:'PrgrameMaster',component:ProgrameMasterComponent},
         {path:'Online-Exam',component:OnlineExaminationComponent},
+        {path:'Online-Exam11',component:StudentExamComponent},
         {path:'admin-Exam',component:AdminPanelOnlineExamComponent},
         {path:'course-scheme',component:CourseSchemeMasterComponent},
         {path:'subject-list',component:CourseSubjectListComponent},

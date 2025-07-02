@@ -96,7 +96,8 @@ export interface ICoursePaper{
     createdon:number,
     updatedby:number,
     updatedon:number,
-    activeStatus:any
+    activeStatus:any,
+    Action:string,
 }
 export interface   COURSEPAPER_API_RESPONSE{
 	data:ResponseData
