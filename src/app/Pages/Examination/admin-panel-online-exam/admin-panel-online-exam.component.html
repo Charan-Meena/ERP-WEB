@@ -1,0 +1,90 @@
+<div class="dashboard-page main-content exam-time-table-slot-page">
+    <div class="page-content">
+        <section class="work-order-detail-section">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="top-box d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center">
+                                
+                              
+                                    <h3>Paper Question Book -{{coursePaperObj.subjName}}-{{coursePaperObj.subjectCode}}</h3>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form [formGroup]="mcqAdminForm" (ngSubmit)="onSubmit()">
+                <div class="container-fluid">
+                    <div class="work-order-detail registration-box">
+                        <div class="work-order-detail registration-box">
+                            <div class="row">
+                                <div class="col-md-8 my-2">
+                                    <div class="col-md-12 mb-3">
+                                        <div>
+                                            <textarea class="form-control" formControlName="question" placeholder="Enter Question here......."
+                                                name="question" id="exampleFormControlTextarea1" rows="8"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md mt-2">
+                                            <div class="input-field">
+                                                <input placeholder="Ecnter MCQ Answer Option-A" class="form-control" type="text"
+                                                    formControlName="optionA" name="optionA" autocomplete="off" maxlength=100>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md my-0">
+                                            <div class="input-field">
+                                                <input placeholder="Ecnter MCQ Answer Option-B" class="form-control" type="text"
+                                                    formControlName="optionB" name="optionB" autocomplete="off" maxlength=100>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md my-0">
+                                            <div class="input-field">
+                                                <input placeholder="Ecnter MCQ Answer Option-C" class="form-control" type="text"
+                                                    formControlName="optionC" name="optionC" autocomplete="off" maxlength=100>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md my-0">
+                                            <div class="input-field">
+                                                <input placeholder="Ecnter MCQ Answer Option-D" class="form-control" type="text"
+                                                    formControlName="optionD" name="optionD" autocomplete="off" maxlength=100>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-11">
+                                            <div class="input-field">
+                                                <select formControlName="answer" name="answer" class="form-select">
+                                                    <option value="" disabled selected>Please Select</option>
+                                                    <option value="A">Option-A</option>
+                                                    <option value="B">Option-B</option>
+                                                    <option value="C">Option-C</option>
+                                                    <option value="D">Option-D</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-1">
+                                            <button class="btn btn-success" type="submit">save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+

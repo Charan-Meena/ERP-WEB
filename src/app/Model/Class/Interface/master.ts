@@ -102,3 +102,4 @@ export interface ICoursePaper{
 export interface   COURSEPAPER_API_RESPONSE{
 	data:ResponseData
 }  
+

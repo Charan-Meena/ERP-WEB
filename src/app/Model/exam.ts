@@ -1,3 +1,4 @@
+import { ResponseData } from "./Class/Interface/master"
 
 
 
@@ -14,3 +15,29 @@ export interface ImcqExam{
 	AnswerOption:string,
 	AnserDescription:string
   }
+
+  export interface IQuestionBank{
+    paperID:number,
+    questionId:number,
+    question:string,
+    optionA:string,
+    optionB:string,
+    optionC:string,
+    optionD:string,
+    answer:string,
+	givenAnswer:string,
+    isActive:any
+}
+export interface   QUESTIONBANK_API_RESPONSE extends ResponseData{
+	data:Array<IQuestionBank>
+}  
+
+
+export interface IstudentExamSubmit{
+    paperID:number,  
+    questionId:number,
+    answer:string,
+    studentID:number,
+    givenAnswer:string,
+    examSession:string
+}

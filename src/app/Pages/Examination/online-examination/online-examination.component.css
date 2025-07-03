@@ -1,0 +1,101 @@
+.exam-time-table-slot-page{
+    .card-col{
+        padding: 0 1.3rem;
+        margin-bottom: 1.5rem;
+        .mcard{
+            padding: 0;
+            margin: 0;
+            .card{
+                margin: 0.2rem;
+                .card-body{
+                    padding: 0.5rem 0.8rem;
+                    .card-title{
+                        margin-bottom: 0.8rem;
+                        h4{
+                            font-size: 0.876rem;
+                            font-weight: 600;
+                            padding: 0;
+                            margin: 0;
+                        }
+                        p{
+                            padding: 0;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+   
+}
+#myChart {
+    width: 100%; /* You can set to 100% or any fixed pixel value like '500px' */
+    height: 400px; /* Adjust height as needed */
+  }
+
+  h1{
+    color: crimson;
+  }
+
+
+  .timer-container {
+  display: flex;
+  gap: 3px;
+  justify-content: right;
+  margin-bottom: 9px;
+}
+
+.timer-box {
+  background-color: #7d0000; /* Maroon */
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px 10px 0 10px;
+  text-align: center;
+  min-width: 80px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.timer-box .time {
+  font-size: 24px;
+  font-weight: bold;
+  display: block;
+}
+
+.timer-box .label {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+
+.student-top-part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.07);
+    background: #fff;
+    padding: 20px;
+             .profile-img {
+              width: 120px;
+              height: 120px;
+              margin-right: 20px;
+            }
+         .section_heading {
+           display: flex;
+          align-items: center;
+         }
+}
+
+.profile-basic{ 
+.h2 {
+    color: #6b0203;
+    font-weight: 600;
+}
+.text-muted {
+    color: #000 !important;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+}

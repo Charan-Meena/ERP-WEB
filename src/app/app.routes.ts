@@ -7,15 +7,16 @@ import { UserRegistrationComponent } from './User/user-registration/user-registr
 import { authGaurdGuard } from './guard/auth-gaurd.guard';
 import { DashBoardLayoutComponent } from './User/dash-board-layout/dash-board-layout.component';
 import { ProgrameMasterComponent } from './Pages/ProgrameManagment/programe-master/programe-master.component';
-import { OnlineExaminationComponent } from './Pages/MCQExamination/online-examination/online-examination.component';
-import { AdminPanelOnlineExamComponent } from './Pages/MCQExamination/admin-panel-online-exam/admin-panel-online-exam.component';
+import { OnlineExaminationComponent } from './Pages/Examination/online-examination/online-examination.component';
+import { AdminPanelOnlineExamComponent } from './Pages/Examination/admin-panel-online-exam/admin-panel-online-exam.component';
 import { CourseSchemeMasterComponent } from './Pages/ProgrameManagment/course-scheme-master/course-scheme-master.component';
 import { CourseSubjectListComponent } from './Pages/ProgrameManagment/course-subject-list/course-subject-list.component';
 import { StudentListComponent } from './Students/student-list/student-list.component';
 import { UniEmployeeListComponent } from './User/uni-employee-list/uni-employee-list.component';
 import { CollegeEmployeeListComponent } from './User/college-employee-list/college-employee-list.component';
 import { CollegeAdminListComponent } from './User/college-admin-list/college-admin-list.component';
-import { StudentExamComponent } from './Pages/MCQExamination/student-exam/student-exam.component';
+import { StudentExamComponent } from './Pages/Examination/student-exam/student-exam.component';
+import { CreateExamScheduleComponent } from './Pages/Examination/create-exam-schedule/create-exam-schedule.component';
 
 export const routes: Routes = [
     {
@@ -51,7 +52,8 @@ export const routes: Routes = [
         {path:'student-list',component:StudentListComponent},
         {path:'uniemployee-list',component:UniEmployeeListComponent},
         {path:'college-employee-list',component:CollegeEmployeeListComponent},
-        {path:'college-admin-list',component:CollegeAdminListComponent}
+        {path:'college-admin-list',component:CollegeAdminListComponent},
+        {path:'exam-schedule',component:CreateExamScheduleComponent}
      ]   
     }
 

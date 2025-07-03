@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [ARP]    Script Date: 02-07-2025 18:43:48 ******/
+/****** Object:  Database [ARP]    Script Date: 03-07-2025 19:34:46 ******/
 CREATE DATABASE [ARP]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,7 +82,7 @@ ALTER DATABASE [ARP] SET QUERY_STORE = OFF
 GO
 USE [ARP]
 GO
-/****** Object:  Table [dbo].[Role_Table]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  Table [dbo].[Role_Table]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -93,7 +93,7 @@ CREATE TABLE [dbo].[Role_Table](
 	[ActiveStatus] [bit] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SampleFruits]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  Table [dbo].[SampleFruits]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -108,7 +108,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_CourseScheme]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  Table [dbo].[Tbl_CourseScheme]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -125,7 +125,7 @@ CREATE TABLE [dbo].[Tbl_CourseScheme](
 	[examPattern] [nvarchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_Designation]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  Table [dbo].[Tbl_Designation]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -136,7 +136,7 @@ CREATE TABLE [dbo].[Tbl_Designation](
 	[IsActive] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ExamPaper]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  Table [dbo].[Tbl_ExamPaper]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -166,7 +166,7 @@ CREATE TABLE [dbo].[Tbl_ExamPaper](
 	[ActiveStatus] [bit] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ExamQuestionBank]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  Table [dbo].[Tbl_ExamQuestionBank]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -175,10 +175,10 @@ CREATE TABLE [dbo].[Tbl_ExamQuestionBank](
 	[questionId] [int] IDENTITY(1,1) NOT NULL,
 	[paperID] [int] NULL,
 	[question] [nvarchar](max) NULL,
-	[a_Option] [nvarchar](1000) NULL,
-	[b_Option] [nvarchar](1000) NULL,
-	[c_Option] [nvarchar](100) NULL,
-	[d_Option] [nvarchar](1000) NULL,
+	[optionA] [nvarchar](1000) NULL,
+	[optionB] [nvarchar](1000) NULL,
+	[optionC] [nvarchar](100) NULL,
+	[optionD] [nvarchar](1000) NULL,
 	[answer] [nvarchar](10) NULL,
 	[isActive] [bit] NULL,
 	[createdBy] [int] NULL,
@@ -187,7 +187,7 @@ CREATE TABLE [dbo].[Tbl_ExamQuestionBank](
 	[updatedOn] [date] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_Login]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  Table [dbo].[Tbl_Login]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -203,7 +203,7 @@ CREATE TABLE [dbo].[Tbl_Login](
 	[parentId] [int] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ProgrameMaster]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  Table [dbo].[Tbl_ProgrameMaster]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -215,7 +215,7 @@ CREATE TABLE [dbo].[Tbl_ProgrameMaster](
 	[ProgrameLebel] [varchar](200) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_StaffInfo]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  Table [dbo].[Tbl_StaffInfo]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -236,7 +236,21 @@ CREATE TABLE [dbo].[Tbl_StaffInfo](
 	[parentId] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_StudentInfo]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  Table [dbo].[Tbl_studentExamSubmit]    Script Date: 03-07-2025 19:34:46 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_studentExamSubmit](
+	[studentID] [int] NULL,
+	[paperID] [int] NULL,
+	[questionId] [int] NULL,
+	[answer] [varchar](10) NULL,
+	[givenAnswer] [varchar](10) NULL,
+	[examSession] [varchar](10) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_StudentInfo]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -254,7 +268,7 @@ CREATE TABLE [dbo].[Tbl_StudentInfo](
 	[parentId] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_User_login]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  Table [dbo].[Tbl_User_login]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -272,7 +286,7 @@ CREATE TABLE [dbo].[Tbl_User_login](
 	[parentId] [int] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_UserRoll]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  Table [dbo].[Tbl_UserRoll]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -380,13 +394,41 @@ SET IDENTITY_INSERT [dbo].[Tbl_ExamPaper] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_ExamQuestionBank] ON 
 GO
-INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [a_Option], [b_Option], [c_Option], [d_Option], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (1, 0, N'gdsgdfgfdgfd', N'fhgfhfgh', N'fdhfghf', N'ghfghfghgf', N'fhfghfgh', N'A', NULL, NULL, NULL, NULL, NULL)
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (1, 1, N'Who is the father of Computers?', N' James Gosling', N'Charles Babbage', N'Dennis Ritchie', N'Bjarne Stroustrup', N'B', 1, NULL, NULL, NULL, NULL)
 GO
-INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [a_Option], [b_Option], [c_Option], [d_Option], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (2, 0, N'fbfghbgf', N'fhgfh', N'fhfg', N'hfg', N'fhfg', N'A', NULL, NULL, NULL, NULL, NULL)
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (2, 1, N'Which of the following is the correct abbreviation of COMPUTER?
+', N'Commonly Occupied Machines Used in Technical and Educational Research', N' Commonly Operated Machines Used in Technical and Environmental Research', N'Commonly Oriented Machines Used in Technical and Educational Research', N'Commonly Operated Machines Used in Technical and Educational Research', N'D', 1, NULL, NULL, NULL, NULL)
 GO
-INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [a_Option], [b_Option], [c_Option], [d_Option], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (3, 0, N'fbfghbgf', N'fhgfh', N'fhfg', N'hfg', N'fhfg', N'A', NULL, NULL, NULL, NULL, NULL)
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (3, 1, N'Which of the following is the correct definition of Computer?', N' Computer is a machine or device that can be programmed to perform arithmetical or logic operation s', N' Computer understands only binary language which is written in the form of 0s & 1s', N' Computer is a programmable electron device that stores, retrieves, and processes the data', N'All of the mentioned', N'D', 1, NULL, NULL, NULL, NULL)
 GO
-INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [a_Option], [b_Option], [c_Option], [d_Option], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (4, 0, N'zxvxcvcxvb', N'cxbcvb', N'cvbcvb', N'cvbvcb', N'cbvvcb', N'C', NULL, NULL, NULL, NULL, NULL)
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (4, 1, N'What is the full form of CPU?', N'Computer Processing Unit', N'Computer Principle Unit', N'Central Processing Unit', N'Control Processing Unit', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (5, 1, N'Which of the following language does the computer understand?', N'Computer understands only C Language', N'Computer understands only Assembly Language', N'Computer understands only Binary Language', N'Computer understands only BASIC', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (6, 1, N'Which of the following computer language is written in binary codes only?', N'pascal', N'machine language', N'C', N'C#', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (7, 1, N'Which of the following is the brain of the computer?', N'Central Processing Unit', N'Memory', N'Arithmetic and Logic unit', N'Control unit', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (8, 1, N'Which of the following is not a characteristic of a computer?', N'Versatility', N'Accuracy', N'Diligence', N'I.Q.', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (9, 1, N'Which of the following is the smallest unit of data in a computer?
+', N'Bit', N'KB', N'Nibble', N'Byte', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (10, 1, N'Which of the following unit is responsible for converting the data received from the user into a computer understandable format?', N'Output Unit', N'Input Unit', N'Memory Unit', N'Arithmetic & Logic Unit', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (11, 1, N'Which of the following monitor looks like a television and are normally used with non-portable computer systems?', N'LED', N'LCD', N'CRT', N'Flat Panel Monitors', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (12, 1, N'Which of the following is not a type of computer code?', N'EDIC', N'ASCII', N'BCD', N'EBCDIC', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (13, 1, N'Which of the following part of a processor contains the hardware necessary to perform all the operations required by a computer?', N'Controller', N'Registers', N'Cache', N'Data path', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (14, 1, N'Which of the following is designed to control the operations of a computer?', N'User', N'Application Software', N'System Software', N'Utility Software', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (15, 1, N'Which of the following is used in EBCDIC?', N'Super Computers', N'Mainframes', N'Machine Codes', N'Programming', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (16, 1, N'Which of the following are physical devices of a computer?', N'Hardware', N'Software', N'System Software', N'Package', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (17, 1, N'Which of the following defines the assigned ordering among the characters used by the computer?', N'Accumulation', N'Sorting', N'Collating Sequence', N'Unicode', N'C', 1, NULL, NULL, NULL, NULL)
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_ExamQuestionBank] OFF
 GO
@@ -413,6 +455,36 @@ GO
 INSERT [dbo].[Tbl_ProgrameMaster] ([ProgrameID], [ProgrameName], [ProgrameDuration], [ProgrameLebel]) VALUES (6, N'MBA', N'2 Year', N'PG Diploma')
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_ProgrameMaster] OFF
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 15, N'B', N'A', NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 9, N'A', N'D', NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 5, N'C', N'', NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 2, N'D', N'B', NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 12, N'A', N'A', NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 13, N'D', N'D', NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 17, N'C', N'B', NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 8, N'D', N'D', NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 4, N'C', N'C', NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 10, N'B', N'B', NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 3, N'D', N'B', NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 6, N'B', N'C', NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 1, N'B', N'B', NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 16, N'A', N'C', NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 7, N'A', N'C', NULL)
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_StudentInfo] ON 
 GO
@@ -470,7 +542,7 @@ SET IDENTITY_INSERT [dbo].[Tbl_UserRoll] OFF
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UX_ExamPaperSub]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  Index [UX_ExamPaperSub]    Script Date: 03-07-2025 19:34:46 ******/
 CREATE UNIQUE NONCLUSTERED INDEX [UX_ExamPaperSub] ON [dbo].[Tbl_ExamPaper]
 (
 	[courseSchemeID] ASC,
@@ -478,7 +550,7 @@ CREATE UNIQUE NONCLUSTERED INDEX [UX_ExamPaperSub] ON [dbo].[Tbl_ExamPaper]
 	[SubjName] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -624,7 +696,7 @@ BEGIN
     END
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme_Test]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme_Test]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -769,7 +841,7 @@ BEGIN
 
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_Designation]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_Designation]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -792,7 +864,7 @@ Begin
 
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ExamPaper]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ExamPaper]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -940,36 +1012,58 @@ End
     END
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ExamPaperQuestionBank]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ExamPaperQuestionBank]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-create PROCEDURE [dbo].[Sp_ExamPaperQuestionBank]
+CREATE PROCEDURE [dbo].[Sp_ExamPaperQuestionBank]
     @Action VARCHAR(50) = null,
     @questionId int = null,
 	@paperID int = null,
 	@question nvarchar(max) = null,
-	@a_Option nvarchar(1000)= null,
-	@b_Option nvarchar(1000)= null,
-	@c_Option nvarchar(100) = null,
-	@d_Option nvarchar(1000)=  null,
+	@optionA nvarchar(1000)= null,
+	@optionB nvarchar(1000)= null,
+	@optionC nvarchar(100) = null,
+	@optionD nvarchar(1000)=  null,
 	@answer nvarchar(10) =null,
-	@isActive bit = null
+	@isActive bit = null,
+	@studentID int = null, 
+	@givenAnswer varchar(10) = null,
+	@examSession varchar(100) = null
 AS
 BEGIN
-     If(@Action='InsertQuestion')
+If(@Action='InsertQuestion')
  Begin
  declare @isExist int=0;
-  insert into Tbl_ExamQuestionBank(paperID,question,a_Option,b_Option,c_Option,d_Option,answer,isActive)
- values(@paperID,@question,@a_Option,@b_Option,@c_Option,@d_Option,@answer,@isActive)
+  insert into Tbl_ExamQuestionBank(paperID,question,optionA,optionB,optionC,optionD,answer,isActive)
+ values(@paperID,@question,@optionA,@optionB,@optionC,@optionD,@answer,1)
  select 1 as StatusCode ,'Question Added Successfully' as [Message], @isExist as [count]
  End
-   
+
+ IF(@Action='GetQuestion')
+ BEGIN
+ select Top 15 paperID,questionId,question,optionA,optionB,optionC,optionD,'' as givenAnswer from Tbl_ExamQuestionBank where paperID=1 ORDER BY NEWID();
+ END
+ IF(@Action='ExamAnswerSubmit')
+ BEGIN
+ INSERT INTO Tbl_studentExamSubmit(studentID,paperID,questionId,answer,givenAnswer,examSession) values(@studentID,@paperID,@questionId,@answer,@givenAnswer,@examSession)
+ UPDATE Tbl_studentExamSubmit SET Tbl_studentExamSubmit.answer = Tbl_ExamQuestionBank.answer
+FROM Tbl_studentExamSubmit
+JOIN Tbl_ExamQuestionBank
+ON [Tbl_studentExamSubmit].[questionId] = Tbl_ExamQuestionBank.[questionId]
+ END
 END
+
+
+
+UPDATE Tbl_studentExamSubmit SET Tbl_studentExamSubmit.answer = Tbl_ExamQuestionBank.answer
+FROM Tbl_studentExamSubmit
+JOIN Tbl_ExamQuestionBank
+ON [Tbl_studentExamSubmit].[questionId] = Tbl_ExamQuestionBank.[questionId]
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagment]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagment]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1064,7 +1158,7 @@ BEGIN
 	 End
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagmenttest]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagmenttest]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1163,7 +1257,7 @@ End
 --{"Programe":[{"ProgrameID":1,"ProgrameName":"BCA","ProgrameDuration":"3 Year","ProgrameLebel":"UG"},{"ProgrameID":2,"ProgrameName":"DCA","ProgrameDuration":"1 Year","ProgrameLebel":"Diploma"}],"Paginationtemp":"{\"Pagination\":[{\"TotalRecords\":17,\"TotalPages\":9}]}"}
 --{"Programe":[{"ProgrameID":1,"ProgrameName":"BCA","ProgrameDuration":"3 Year","ProgrameLebel":"UG"},{"ProgrameID":2,"ProgrameName":"DCA","ProgrameDuration":"1 Year","ProgrameLebel":"Diploma"}],"Pagination":"{\"TotalRecords\":17,\"TotalPages\":9}"}
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_Role]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_Role]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1182,7 +1276,7 @@ Begin
 End
 
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_StudentAction]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_StudentAction]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1277,7 +1371,7 @@ IF(@Action='UserList')
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_UserAction]    Script Date: 02-07-2025 18:43:49 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_UserAction]    Script Date: 03-07-2025 19:34:46 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
