@@ -51,11 +51,16 @@ ngOnInit():void{
 
 
 Fromsubmit(){
+  this.isstudentForm=true;
+  if (!this.studentForm.valid ) {
+      return;
+    } 
   console.log(this.studentForm.value)
     this.ApiServices.requestPost('/api/student/studentRegistration',this.studentForm.value).subscribe({
     next:(res: COURSESCHEME_API_RESPONSE | any)=>{
      console.log(res)
      this.ApiServices.showToaster(res.statusCode,res.message);
+     this.closeModal('CLOSE');
     },
     error(e:any){
       console.log('error',e);
@@ -65,6 +70,7 @@ Fromsubmit(){
 get studentFormControls(){
     return this.studentForm.controls;
   }
+
 
 closeModal(type:any){
     this.activeModal.close(type);

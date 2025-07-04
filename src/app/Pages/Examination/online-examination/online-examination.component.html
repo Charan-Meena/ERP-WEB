@@ -124,8 +124,8 @@
                                             <div class="card-title"  style="text-align: center;font-family: cursive;background-color: burlywood;">Select-Question</div>
                                             <div class="row">
                                                 <div class="col-md-2 p-2" *ngFor="let mcqList of questionListforExam; let i=index">
-                                                    <button type="button" class="btn btn-outline-danger" (click)="getQuestion(mcqList.questionId,i)" *ngIf="mcqList.givenAnswer=='' ">{{i+1}}</button>
-                                                    <button type="button" class="btn btn-success" (click)="getQuestion(mcqList.questionId,i)" *ngIf="mcqList.givenAnswer!='' ">{{i+1}}</button>
+                                                    <button type="button" class="btn btn-outline-danger" (click)="getQuestion(mcqList.questionId,i)" *ngIf="mcqList.givenAnswer==''">{{i+1}}</button>
+                                                    <button type="button" class="btn btn-success" (click)="getQuestion(mcqList.questionId,i)" *ngIf="mcqList.givenAnswer!=''">{{i+1}}</button>
                                                 </div>
                                             </div>
                                         </div>

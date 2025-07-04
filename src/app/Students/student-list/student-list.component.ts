@@ -23,7 +23,7 @@ export class StudentListComponent extends BaseService implements OnInit{
   pageCount:number=0;
   userList:Array<UserRegistration>=[];
   userObj:UserRegistration=<UserRegistration>{};
-  columnArray:Array<string>=['loginID','userName','fullname','phoneNumber','gender','Action']
+  columnArray:Array<string>=['fullname','email','dob','phoneNumber','gender','activeStatus','Action']
   searchText:string="";
   courseSchemeObj:CourseScheme=<CourseScheme>{};
   TableParam:any={
@@ -42,7 +42,7 @@ ngOnInit():void{
 const currentState = this.router.lastSuccessfulNavigation;
 this.courseSchemeObj = currentState?.extras?.state?.['CourseObj'];
   setTimeout(()=>{
-   this.getUserList()
+   this.studentList()
   },10)
 
 }
@@ -58,13 +58,13 @@ onActionEvent(actionData:CourseScheme){
 }
   onpagechange(pageData:any){
        this.TableParam=pageData;
-       this.getUserList();
+       this.studentList();
   }
 
-    getUserList(){
+    studentList(){
       this.pageArray=[];
-    this.ApiServices.requestPost('/api/User/UserList',this.TableParam).subscribe({
-      next:(res:USERREGISTRATION_API_RESPONSE | any)=>{
+    this.ApiServices.requestPost('/api/student/studentList',this.TableParam).subscribe({
+      next:(res:any)=>{
         this.userList=res.data || [];
         this.pageCount=res.data[0].totalPage;
        for(let i=0;i<this.pageCount;i++){

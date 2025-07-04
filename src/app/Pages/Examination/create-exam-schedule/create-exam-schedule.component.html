@@ -1,1 +1,115 @@
-<p>create-exam-schedule works!</p>
+<div class="registration-box border-box mb-3 ">
+    <div class="container">
+        <div class="registration-box">
+            <div class="card border-0 p-0">
+                <div class="card-body p-0">
+                    <fieldset class="border-box mb-3">
+                      <legend class="float-none w-auto"><b><span class="badge bg-secondary">Programe Registration</span></b></legend>
+                        <div class="card border-0 p-0">
+                          <div class="card-body p-0">
+                             <form [formGroup]="ProgrameResitrationForm" (ngSubmit)="Fromsubmit()">
+                            <fieldset class="border-box mb-3">
+                              <div class="card">
+                              <div class="card border-0 p-0">
+                                 <div class="card-body p-0">
+                            <div class="row p-2">
+                               <div class="col-md-3">
+                                    <select class="form-select" formControlName="programeId" name="programeId" required (change)="fetchBatchDDL(1)">
+                                      <option value="" disabled selected>Select Programe</option>
+                                      @for (item of programeDDL; track programeDDL) 
+                                      {
+                                               <option [value]=item.programeID>{{item.programeName}}</option>
+                                      }
+                                    </select>
+                                    <div
+                                      *ngIf="(progFormControls['programeId'].touched || isProgrameFormSubmitted) && progFormControls['programeId'].invalid"
+                                      class="errorMessage">
+                                      <div *ngIf="progFormControls['programeId'].errors && progFormControls['programeId'].errors['required']">
+                                        Programe is required.</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-select" formControlName="batch_Id" name="batch_Id" required>
+                                      <option value="" disabled selected>Select Batch</option>
+                                       @for (item of batchDDL; track batchDDL) 
+                                      {
+                                               <option [value]=item.batch_ID>{{item.batch_Name}}</option>
+                                      }
+                                    </select>
+                                    <div
+                                      *ngIf="(progFormControls['batch_Id'].touched || isProgrameFormSubmitted) && progFormControls['batch_Id'].invalid"
+                                      class="errorMessage">
+                                      <div *ngIf="progFormControls['batch_Id'].errors && progFormControls['batch_Id'].errors['required']">
+                                        Batch is required.</div>
+                                    </div>
+                                </div>
+                                  <div class="col-md-3">
+                                    <select class="form-select" formControlName="semester_year" name="semester_year" required>
+                                      <option value="" disabled selected>Select Semester_Year</option>
+                                      <option value="1">First</option>
+                                      <option value="2">Second</option>
+                                      <option value="3">Third</option>
+                                      <option value="4">Fourth</option>
+                                      <option value="5">Fifth</option>
+                                      <option value="6">Sixth</option>
+                                    </select>
+                                    <div
+                                      *ngIf="(progFormControls['semester_year'].touched || isProgrameFormSubmitted) && progFormControls['semester_year'].invalid"
+                                      class="errorMessage">
+                                      <div *ngIf="progFormControls['semester_year'].errors && progFormControls['semester_year'].errors['required']">
+                                        Semester_Year is required.</div>
+                                    </div>
+                                  </div>         
+                                    <!-- <div class="col-md-3">
+                                      
+                                    </div> -->
+                                </div>
+                                <div class="row p-2">
+                                <div class="col-md-3">
+                                    <input type="date" class="form-select" formControlName="openDate" name="openDate" required>
+                                    <div
+                                      *ngIf="(progFormControls['openDate'].touched || isProgrameFormSubmitted) && progFormControls['openDate'].invalid"
+                                      class="errorMessage">
+                                      <div *ngIf="progFormControls['openDate'].errors && progFormControls['openDate'].errors['required']">
+                                        Open Date is required.</div>
+                                    </div>
+                                </div> 
+                                <div class="col-md-3">
+                                    <input type="date" class="form-select" formControlName="closeDate" name="closeDate" required>
+                                    <div
+                                      *ngIf="(progFormControls['closeDate'].touched || isProgrameFormSubmitted) && progFormControls['closeDate'].invalid"
+                                      class="errorMessage">
+                                      <div *ngIf="progFormControls['closeDate'].errors && progFormControls['closeDate'].errors['required']">
+                                        Open Date is required.</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" formControlName="examSession" name="examSession" required placeholder="Exam Session">
+                                    <div
+                                      *ngIf="(progFormControls['examSession'].touched || isProgrameFormSubmitted) && progFormControls['examSession'].invalid"
+                                      class="errorMessage">
+                                      <div *ngIf="progFormControls['examSession'].errors && progFormControls['examSession'].errors['required']">
+                                        examSession is required.</div>
+                                    </div>
+                                </div>
+                                    <div class="col-3">
+                                        <button type="submit" class="btn btn-outline-success btn-sm">Submit</button>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                              </div>
+                            </fieldset>
+                            </form>
+                              <app-void-table [pageArray]="pageArray" [TableData]="programeList" [ColumnData]="columnArray"
+                             (pageChange)="onpagechange($event)"
+                             (onActionPageData)="onActionEvent($event)">
+                            </app-void-table>
+                           </div>
+                        </div>
+                  </fieldset>
+                </div>
+            </div>            
+          </div>
+      </div>
+</div>

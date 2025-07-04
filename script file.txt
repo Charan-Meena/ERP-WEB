@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [ARP]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  Database [ARP]    Script Date: 04-07-2025 19:29:30 ******/
 CREATE DATABASE [ARP]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,7 +82,28 @@ ALTER DATABASE [ARP] SET QUERY_STORE = OFF
 GO
 USE [ARP]
 GO
-/****** Object:  Table [dbo].[Role_Table]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  Table [dbo].[Batch_master]    Script Date: 04-07-2025 19:29:31 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Batch_master](
+	[Batch_ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[programeId] [int] NULL,
+	[Batch_name] [varchar](10) NULL,
+	[Start_Session] [varchar](15) NULL,
+	[End_Session] [varchar](15) NULL,
+	[Batch_Year] [varchar](5) NULL,
+	[currentSem_year] [int] NULL,
+	[startSem_year] [int] NULL,
+	[endSem_year] [int] NULL,
+	[Course_Duration] [varchar](7) NULL,
+	[Semester_Year] [varchar](12) NULL,
+	[Intake] [bigint] NULL,
+	[coursScheme] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Role_Table]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -93,7 +114,7 @@ CREATE TABLE [dbo].[Role_Table](
 	[ActiveStatus] [bit] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SampleFruits]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  Table [dbo].[SampleFruits]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -108,7 +129,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_CourseScheme]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  Table [dbo].[Tbl_CourseScheme]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -125,7 +146,7 @@ CREATE TABLE [dbo].[Tbl_CourseScheme](
 	[examPattern] [nvarchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_Designation]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  Table [dbo].[Tbl_Designation]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -136,7 +157,7 @@ CREATE TABLE [dbo].[Tbl_Designation](
 	[IsActive] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ExamPaper]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  Table [dbo].[Tbl_ExamPaper]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -166,7 +187,7 @@ CREATE TABLE [dbo].[Tbl_ExamPaper](
 	[ActiveStatus] [bit] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ExamQuestionBank]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  Table [dbo].[Tbl_ExamQuestionBank]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -187,7 +208,24 @@ CREATE TABLE [dbo].[Tbl_ExamQuestionBank](
 	[updatedOn] [date] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_Login]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  Table [dbo].[Tbl_ExamSchedule]    Script Date: 04-07-2025 19:29:31 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_ExamSchedule](
+	[examScheduleID] [int] IDENTITY(1,1) NOT NULL,
+	[programeId] [int] NULL,
+	[batch_Id] [int] NULL,
+	[semester_year] [int] NULL,
+	[examSession] [varchar](20) NULL,
+	[openDate] [date] NULL,
+	[closeDate] [date] NULL,
+	[createdBy] [int] NULL,
+	[createdon] [date] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_Login]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -203,7 +241,7 @@ CREATE TABLE [dbo].[Tbl_Login](
 	[parentId] [int] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ProgrameMaster]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  Table [dbo].[Tbl_ProgrameMaster]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -215,7 +253,7 @@ CREATE TABLE [dbo].[Tbl_ProgrameMaster](
 	[ProgrameLebel] [varchar](200) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_StaffInfo]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  Table [dbo].[Tbl_StaffInfo]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -236,12 +274,13 @@ CREATE TABLE [dbo].[Tbl_StaffInfo](
 	[parentId] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_studentExamSubmit]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  Table [dbo].[Tbl_studentExamSubmit]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[Tbl_studentExamSubmit](
+	[submitID] [int] IDENTITY(1,1) NOT NULL,
 	[studentID] [int] NULL,
 	[paperID] [int] NULL,
 	[questionId] [int] NULL,
@@ -250,7 +289,7 @@ CREATE TABLE [dbo].[Tbl_studentExamSubmit](
 	[examSession] [varchar](10) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_StudentInfo]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  Table [dbo].[Tbl_StudentInfo]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -265,10 +304,11 @@ CREATE TABLE [dbo].[Tbl_StudentInfo](
 	[dob] [datetime] NULL,
 	[activeStatus] [bit] NULL,
 	[entityType] [int] NULL,
-	[parentId] [int] NULL
+	[parentId] [int] NULL,
+	[Batch_ID] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_User_login]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  Table [dbo].[Tbl_User_login]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -286,7 +326,7 @@ CREATE TABLE [dbo].[Tbl_User_login](
 	[parentId] [int] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_UserRoll]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  Table [dbo].[Tbl_UserRoll]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -297,6 +337,14 @@ CREATE TABLE [dbo].[Tbl_UserRoll](
 	[parentId] [int] NULL,
 	[entityType] [int] NULL
 ) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Batch_master] ON 
+GO
+INSERT [dbo].[Batch_master] ([Batch_ID], [programeId], [Batch_name], [Start_Session], [End_Session], [Batch_Year], [currentSem_year], [startSem_year], [endSem_year], [Course_Duration], [Semester_Year], [Intake], [coursScheme]) VALUES (1, 1, N'BCA-2025', N'JUNE-2025', N'JUNE-2028', N'2025', 1, 1, 6, N'3 Year', N'Semster', 60, 1)
+GO
+INSERT [dbo].[Batch_master] ([Batch_ID], [programeId], [Batch_name], [Start_Session], [End_Session], [Batch_Year], [currentSem_year], [startSem_year], [endSem_year], [Course_Duration], [Semester_Year], [Intake], [coursScheme]) VALUES (2, 2, N'DCA-2025', N'JUNE-2025', N'JUNE-2026', N'2025', 1, 1, 2, N'1 Year', N'Semester', 100, 2)
+GO
+SET IDENTITY_INSERT [dbo].[Batch_master] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Role_Table] ON 
 GO
@@ -430,19 +478,67 @@ INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optio
 GO
 INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (17, 1, N'Which of the following defines the assigned ordering among the characters used by the computer?', N'Accumulation', N'Sorting', N'Collating Sequence', N'Unicode', N'C', 1, NULL, NULL, NULL, NULL)
 GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (18, 1, N'Which of the following storage is a system where a robotic arm will connect or disconnect off-line mass storage media according to the computer operating system demands?
+', N'Magnetic', N'Secondary', N'Virtual', N'Tertiary', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (19, 1, N'20. Which of the following is known as the interval between the instant a computer makes a request for the transfer of data from a disk system to the primary storage and the instance the operation is completed?', N'Disk utilization time', N'Drive utilization time', N'Disk access time', N'Disk arrival time', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (20, 1, N'Which of the following devices provides the communication between a computer and the outer world?', N'Compact', N' I/O', N'Drivers', N'Storage', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (21, 1, N'Which of the following are the input devices that enable direct data entry into a computer system from source documents?', N'System Access devices', N'Data acquiring devices', N'Data retrieving devices', N'Data Scanning devices', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (22, 1, N'Which of the following is the device used for converting maps, pictures, and drawings into digital form for storage in computers?', N'Image Scanner', N'MICR', N'Digitizer', N'Scanner', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (23, 1, N'Which of the following can access the server?', N'Web Client', N'User', N'Web Browser', N'Web Server', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (24, 1, N'Which of the following is known as the language made up of binary-coded instructions?', N'High level', N'BASIC', N'C', N'Machine', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (25, 1, N'Which of the following package allows individuals to use personal computers for storing and retrieving their personal information?', N'Personal assistance package', N'Graphics package', N'Spreadsheet package', N'Animation package', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (26, 1, N'Which of the following is created when a user opens an account in the computer system?', N'SFD', N'MFD', N'Subdirectory', N'RFD', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (27, 1, N'Which of the following is a technique that marked the beginning of computer communications?', N'User Environment', N'Batch Environment', N'Time Sharing', N'Message passing', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (28, 1, N'Which of the following is a type of technique in which dumb terminals are connected to a central computer system?
+', N'Time Sharing', N'Message passing', N'Batch environment', N'User environment', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (29, 1, N'Which of the following service allows a user to log in to another computer somewhere on the Internet?', N'e-mail', N'UseNet', N'Telnet', N'FTP', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (30, 1, N'Which of the following is not a type of computer on the basis of operation?', N'Digital', N'Analog', N'Hybrid', N'Remote', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (31, 1, N'Which of the following invention gave birth to the much cheaper microcomputers?', N'PDAs', N'Microprocessors', N'Microcomputers', N'Mainframes', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (32, 1, N'Which of the following computers are lower than mainframe computers in terms of speed and storage capacity?', N'Mainframes', N'Hybrid', N'Mini', N'Super', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (33, 1, N'Which of the following is the first neural network computer?', N'AN', N'AM', N'RFD', N'SNARC', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (34, 1, N'Electronic circuits that operate on one or more input signals to produce standard output.', N'Series circuits', N'Parallel Circuits', N'Logic Signals', N'Logic Gates', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (35, 1, N'Logic Gates are the building blocks of all circuits in a computer.', N'True', N'False', N'null', N'null', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (36, 1, N'A __________ gate gives the output as 1 only if all the inputs signals are 1.', N'AND', N'OR', N'EXOR', N'NOR', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (37, 1, N'The boolean expression of an OR gate is _______', N'A.B', N'A’B+AB’', N' A+B', N' A’B’', N'C', 1, NULL, NULL, NULL, NULL)
+GO
 SET IDENTITY_INSERT [dbo].[Tbl_ExamQuestionBank] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_Login] ON 
 GO
-INSERT [dbo].[Tbl_Login] ([userID], [userName], [passwordhash], [activeStatus], [userrole], [lastLogin], [entityTypeId], [parentId]) VALUES (1, N'7976978987', N'2Mt03MgmpTOGa6xGsT1LUEYiJM5EfW7ckWAvflHRvFs=', 1, N'', NULL, 0, 0)
+INSERT [dbo].[Tbl_Login] ([userID], [userName], [passwordhash], [activeStatus], [userrole], [lastLogin], [entityTypeId], [parentId]) VALUES (1, N'7800000001', N'MNY9AjGHl2ceXOMGwJbzgV8ccXjFfhIFUQYg5uaUr2I=', 1, N'', NULL, 6, 0)
 GO
-INSERT [dbo].[Tbl_Login] ([userID], [userName], [passwordhash], [activeStatus], [userrole], [lastLogin], [entityTypeId], [parentId]) VALUES (2, N'7976978988', N'2Mt03MgmpTOGa6xGsT1LUEYiJM5EfW7ckWAvflHRvFs=', 1, N'', NULL, 0, 0)
+INSERT [dbo].[Tbl_Login] ([userID], [userName], [passwordhash], [activeStatus], [userrole], [lastLogin], [entityTypeId], [parentId]) VALUES (2, N'7800000002', N'MNY9AjGHl2ceXOMGwJbzgfYq7HDwEnJa1tlg/RULTg4=', 1, N'', NULL, 6, 0)
+GO
+INSERT [dbo].[Tbl_Login] ([userID], [userName], [passwordhash], [activeStatus], [userrole], [lastLogin], [entityTypeId], [parentId]) VALUES (3, N'7800000003', N'MNY9AjGHl2ceXOMGwJbzgXQn/bVQaKAVs552GRsgufM=', 1, N'', NULL, 6, 0)
+GO
+INSERT [dbo].[Tbl_Login] ([userID], [userName], [passwordhash], [activeStatus], [userrole], [lastLogin], [entityTypeId], [parentId]) VALUES (4, N'7800000004', N'MNY9AjGHl2ceXOMGwJbzgWVWEiLC6JxiArw9dutjwUM=', 1, N'', NULL, 6, 0)
+GO
+INSERT [dbo].[Tbl_Login] ([userID], [userName], [passwordhash], [activeStatus], [userrole], [lastLogin], [entityTypeId], [parentId]) VALUES (5, N'7800000005', N'MNY9AjGHl2ceXOMGwJbzgUpIuvqVpbeMBCLqAa206Bw=', 1, N'', NULL, 6, 0)
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_Login] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_ProgrameMaster] ON 
 GO
-INSERT [dbo].[Tbl_ProgrameMaster] ([ProgrameID], [ProgrameName], [ProgrameDuration], [ProgrameLebel]) VALUES (1, N'BCA', N'3 Year', N'UG')
+INSERT [dbo].[Tbl_ProgrameMaster] ([ProgrameID], [ProgrameName], [ProgrameDuration], [ProgrameLebel]) VALUES (1, N'BCA', N'3 Years', N'UG')
 GO
 INSERT [dbo].[Tbl_ProgrameMaster] ([ProgrameID], [ProgrameName], [ProgrameDuration], [ProgrameLebel]) VALUES (2, N'DCA', N'1 Year', N'Diploma')
 GO
@@ -456,41 +552,51 @@ INSERT [dbo].[Tbl_ProgrameMaster] ([ProgrameID], [ProgrameName], [ProgrameDurati
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_ProgrameMaster] OFF
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 15, N'B', N'A', NULL)
+SET IDENTITY_INSERT [dbo].[Tbl_studentExamSubmit] ON 
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 9, N'A', N'D', NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (1, 0, 1, 2, N'D', N'', NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 5, N'C', N'', NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (2, 0, 1, 12, N'A', N'', NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 2, N'D', N'B', NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (3, 0, 1, 3, N'D', N'', NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 12, N'A', N'A', NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (4, 0, 1, 4, N'C', N'', NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 13, N'D', N'D', NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (5, 0, 1, 17, N'C', N'', NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 17, N'C', N'B', NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (6, 0, 1, 8, N'D', N'C', NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 8, N'D', N'D', NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (7, 0, 1, 13, N'D', N'', NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 4, N'C', N'C', NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (8, 0, 1, 16, N'A', N'B', NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 10, N'B', N'B', NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (9, 0, 1, 15, N'B', N'', NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 3, N'D', N'B', NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (10, 0, 1, 6, N'B', N'C', NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 6, N'B', N'C', NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (11, 0, 1, 11, N'C', N'', NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 1, N'B', N'B', NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (12, 0, 1, 5, N'C', N'C', NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 16, N'A', N'C', NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (13, 0, 1, 7, N'A', N'', NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (0, 1, 7, N'A', N'C', NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (14, 0, 1, 14, N'C', N'', NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession]) VALUES (15, 0, 1, 9, N'A', N'D', NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_studentExamSubmit] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_StudentInfo] ON 
 GO
-INSERT [dbo].[Tbl_StudentInfo] ([studentID], [userID], [fullname], [email], [phoneNumber], [gender], [dob], [activeStatus], [entityType], [parentId]) VALUES (1, 1, N'aaaa', N'ghgjgjhgh', N'7976978987', N'male', CAST(N'2025-01-06T00:00:00.000' AS DateTime), 1, 0, 0)
+INSERT [dbo].[Tbl_StudentInfo] ([studentID], [userID], [fullname], [email], [phoneNumber], [gender], [dob], [activeStatus], [entityType], [parentId], [Batch_ID]) VALUES (1, 1, N'Abhilash Kumar', N'abhilash@gmail.com', N'7800000001', N'male', CAST(N'2004-06-25T00:00:00.000' AS DateTime), 1, 6, 0, 1)
 GO
-INSERT [dbo].[Tbl_StudentInfo] ([studentID], [userID], [fullname], [email], [phoneNumber], [gender], [dob], [activeStatus], [entityType], [parentId]) VALUES (2, 2, N'aaaa', N'ghgjgjhgh', N'7976978988', N'male', CAST(N'2025-01-06T00:00:00.000' AS DateTime), 1, 0, 0)
+INSERT [dbo].[Tbl_StudentInfo] ([studentID], [userID], [fullname], [email], [phoneNumber], [gender], [dob], [activeStatus], [entityType], [parentId], [Batch_ID]) VALUES (2, 2, N'Atit Singh', N'itsatit@gmail.com', N'7800000002', N'male', CAST(N'1999-10-24T00:00:00.000' AS DateTime), 1, 6, 0, 1)
+GO
+INSERT [dbo].[Tbl_StudentInfo] ([studentID], [userID], [fullname], [email], [phoneNumber], [gender], [dob], [activeStatus], [entityType], [parentId], [Batch_ID]) VALUES (3, 3, N'Babli Kumari', N'bablikumari@yahoo.com', N'7800000003', N'female', CAST(N'2005-11-03T00:00:00.000' AS DateTime), 1, 6, 0, 1)
+GO
+INSERT [dbo].[Tbl_StudentInfo] ([studentID], [userID], [fullname], [email], [phoneNumber], [gender], [dob], [activeStatus], [entityType], [parentId], [Batch_ID]) VALUES (4, 4, N'Dayaram Sahu', N'dayas@gmail.com', N'7800000004', N'male', CAST(N'2004-08-11T00:00:00.000' AS DateTime), 1, 6, 0, 1)
+GO
+INSERT [dbo].[Tbl_StudentInfo] ([studentID], [userID], [fullname], [email], [phoneNumber], [gender], [dob], [activeStatus], [entityType], [parentId], [Batch_ID]) VALUES (5, 5, N'Daya Shankar Pandey', N'dspandey@gmail.com', N'7800000005', N'male', CAST(N'2003-03-21T00:00:00.000' AS DateTime), 1, 6, 0, 1)
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_StudentInfo] OFF
 GO
@@ -542,7 +648,7 @@ SET IDENTITY_INSERT [dbo].[Tbl_UserRoll] OFF
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UX_ExamPaperSub]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  Index [UX_ExamPaperSub]    Script Date: 04-07-2025 19:29:31 ******/
 CREATE UNIQUE NONCLUSTERED INDEX [UX_ExamPaperSub] ON [dbo].[Tbl_ExamPaper]
 (
 	[courseSchemeID] ASC,
@@ -550,7 +656,7 @@ CREATE UNIQUE NONCLUSTERED INDEX [UX_ExamPaperSub] ON [dbo].[Tbl_ExamPaper]
 	[SubjName] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -696,7 +802,7 @@ BEGIN
     END
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme_Test]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme_Test]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -841,7 +947,7 @@ BEGIN
 
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_Designation]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_Designation]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -864,7 +970,48 @@ Begin
 
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ExamPaper]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_Exam_Schedule]    Script Date: 04-07-2025 19:29:31 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[Sp_Exam_Schedule]
+    @Action VARCHAR(50) = null,
+   @examScheduleID int = null,
+   @programeId int = null,
+   @batch_Id int = null,
+   @semester_year int= null,
+   @examSession varchar(20) = null,
+   @openDate date= null,
+   @closeDate date= null,
+   @studentID int = null 
+
+AS
+BEGIN
+If(@Action='createExameSchedule')
+ Begin
+  insert into Tbl_ExamSchedule 
+  (
+   programeId
+   ,batch_Id
+   ,semester_year
+   ,examSession
+   ,openDate
+   ,closeDate
+  )
+ values(@programeId
+   ,@batch_Id
+   ,@semester_year
+   ,@examSession
+   ,@openDate
+   ,@closeDate)
+ select 1 as StatusCode ,'Exam Create Successfully' as [Message]
+ End
+
+ 
+END
+GO
+/****** Object:  StoredProcedure [dbo].[Sp_ExamPaper]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1012,7 +1159,7 @@ End
     END
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ExamPaperQuestionBank]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ExamPaperQuestionBank]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1063,7 +1210,7 @@ FROM Tbl_studentExamSubmit
 JOIN Tbl_ExamQuestionBank
 ON [Tbl_studentExamSubmit].[questionId] = Tbl_ExamQuestionBank.[questionId]
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagment]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagment]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1156,9 +1303,13 @@ BEGIN
 	 Begin
 	 select ProgrameName,ProgrameID from Tbl_ProgrameMaster
 	 End
+	 If(@Action='GetBatchDDL')
+	 Begin
+	 select Batch_ID,Batch_Name from Batch_master
+	 End
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagmenttest]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagmenttest]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1257,7 +1408,7 @@ End
 --{"Programe":[{"ProgrameID":1,"ProgrameName":"BCA","ProgrameDuration":"3 Year","ProgrameLebel":"UG"},{"ProgrameID":2,"ProgrameName":"DCA","ProgrameDuration":"1 Year","ProgrameLebel":"Diploma"}],"Paginationtemp":"{\"Pagination\":[{\"TotalRecords\":17,\"TotalPages\":9}]}"}
 --{"Programe":[{"ProgrameID":1,"ProgrameName":"BCA","ProgrameDuration":"3 Year","ProgrameLebel":"UG"},{"ProgrameID":2,"ProgrameName":"DCA","ProgrameDuration":"1 Year","ProgrameLebel":"Diploma"}],"Pagination":"{\"TotalRecords\":17,\"TotalPages\":9}"}
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_Role]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_Role]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1276,13 +1427,13 @@ Begin
 End
 
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_StudentAction]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_StudentAction]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE Procedure [dbo].[Sp_StudentAction]
+CREATE Procedure [dbo].[Sp_StudentAction] 
 @Action nvarchar(1000) =null,
 @studentID int =null,
 @userID int =null,
@@ -1299,10 +1450,11 @@ CREATE Procedure [dbo].[Sp_StudentAction]
 @userrole varchar(200)=null,
 @lastLogin date =null,
 @chechUser int=null,
-@PageNumber INT=0,
-@RowsOfPage INT=0,
+@PageNumber INT=1,
+@RowsOfPage INT=5,
 @SearchText NVARCHAR(MAX) ='',
-@SQL NVARCHAR(MAX) = N''
+@SQL NVARCHAR(MAX) = N'',
+@Table2 NVARCHAR(MAX) = N''
 as
 Begin
   --      IF(@Action='UserLogin')
@@ -1322,7 +1474,7 @@ END
 ELSE
 BEGIN
 INSERT INTO Tbl_Login(userName,passwordhash,activeStatus,userrole,lastLogin,entityTypeId,parentId) 
-                     values(@userName,@passwordhash,@activeStatus,@userrole,@lastLogin,@entityType,@parentId)
+                     values(@userName,@passwordhash,@activeStatus,@userrole,@lastLogin,6,@parentId)
 	  select @@IDENTITY
 END
 END
@@ -1337,41 +1489,60 @@ END
 ELSE
   BEGIN 
   INSERT INTO Tbl_StudentInfo(userID,fullname,email,phoneNumber,gender,dob,activeStatus,entityType,parentId)
-	  values(@userID,@fullname,@email,@phoneNumber,@gender,@dob,@activeStatus,@entityType,@parentId)
+	  values(@userID,@fullname,@email,@phoneNumber,@gender,@dob,@activeStatus,6,@parentId)
 	  select 1 as StatusCode ,'User Registration Successfully' as [Message]
   END
 END
 
-IF(@Action='UserList')
+IF(@Action='StudentList')
 		begin
+		SET NOCOUNT ON;
+		DECLARE @Offset INT = (@PageNumber - 1) * @RowsOfPage;
+		DECLARE @WhereClause NVARCHAR(MAX) = '';
+		DECLARE @TotalRecords INT;
+		DECLARE @TotalPages INT;
 		If(@SearchText='')
 		begin
 		    DECLARE @MaxTablePage  AS float
-				SELECT @MaxTablePage = COUNT(*) FROM [Tbl_User_login]
+				SELECT @MaxTablePage = COUNT(*) FROM [Tbl_StudentInfo]
 				SET @MaxTablePage = CEILING(@MaxTablePage/@RowsOfPage)
-			SELECT *,(select (Select count (*) from [Tbl_User_login])) as totalReord,@MaxTablePage as TotalPage FROM [Tbl_User_login]
+			SELECT * FROM [Tbl_StudentInfo]
 			ORDER BY [UserId] 
 			OFFSET (@PageNumber-1)*@RowsOfPage ROWS
 			FETCH NEXT @RowsOfPage ROWS ONLY
-			select (Select count (*) from [Tbl_User_login]) as total
-		
+			select (Select count (*) from [Tbl_StudentInfo]) as totalRecord, @MaxTablePage as TotalPage
 		end
 		else
 		begin
-					SELECT @SQL = @SQL + 
-					CASE WHEN @SQL = '' THEN '' ELSE ' OR ' END +
-					'CAST(' + QUOTENAME(COLUMN_NAME) + ' AS NVARCHAR(MAX)) LIKE ''%' + @SearchText + '%'''
-						FROM INFORMATION_SCHEMA.COLUMNS
-					WHERE TABLE_NAME = 'Tbl_User_login';
-					SET @SQL = 'SELECT * FROM Tbl_User_login WHERE ' + @SQL;
-					EXEC sp_executesql @SQL;
+		     SELECT @WhereClause = STRING_AGG(
+            'CAST(' + QUOTENAME(COLUMN_NAME) + ' AS NVARCHAR(MAX)) LIKE ''%' + @SearchText + '%''',
+            ' OR '
+        )
+        FROM INFORMATION_SCHEMA.COLUMNS
+        WHERE TABLE_NAME = 'Tbl_StudentInfo';
+
+        -- Get total records matching search
+        SET @SQL = N'SELECT @TotalRecordsOut = COUNT(*) FROM Tbl_StudentInfo WHERE ' + @WhereClause;
+        EXEC sp_executesql @SQL, N'@TotalRecordsOut INT OUTPUT', @TotalRecordsOut = @TotalRecords OUTPUT;
+
+        SET @TotalPages = CEILING(1.0 * @TotalRecords / @RowsOfPage);
+
+        -- Get paginated filtered data
+        SET @SQL = 'SELECT * FROM Tbl_StudentInfo WHERE ' + @WhereClause + 'ORDER BY userID
+            OFFSET ' + CAST(@Offset AS NVARCHAR) + ' ROWS FETCH NEXT ' + CAST(@RowsOfPage AS NVARCHAR) + ' ROWS ONLY';
+
+	    SET @Table2 ='SELECT ' + CAST(@TotalRecords AS NVARCHAR) + ' AS TotalRecords, ' + 
+                        CAST(@TotalPages AS NVARCHAR) + ' AS TotalPages';
+
+        EXEC sp_executesql @SQL;
+		EXEC sp_executesql @Table2;
 		end
 			
 		End
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_UserAction]    Script Date: 03-07-2025 19:34:46 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_UserAction]    Script Date: 04-07-2025 19:29:31 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

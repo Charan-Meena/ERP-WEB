@@ -27,38 +27,38 @@ export class AdminPanelOnlineExamComponent extends BaseService  implements OnIni
   ) {
     super();
   }//EOF constructor
-ngOnInit() {
-const currentState = this.router.lastSuccessfulNavigation;
-this.coursePaperObj = currentState?.extras?.state?.['CoursePaperObj'];
- this.mcqAdminForm = this.fb.group({
-      paperID:[this.coursePaperObj.subjectCourseID,Validators.required],
-      question:[''],
-      optionA:[''],
-      optionB:[''],
-      optionC:[''],
-      optionD:[''],
-      answer:[''],
+  ngOnInit() {
+    const currentState = this.router.lastSuccessfulNavigation;
+    this.coursePaperObj = currentState?.extras?.state?.['CoursePaperObj'];
+    this.mcqAdminForm = this.fb.group({
+      paperID: [this.coursePaperObj.subjectCourseID, Validators.required],
+      question: [''],
+      optionA: [''],
+      optionB: [''],
+      optionC: [''],
+      optionD: [''],
+      answer: [''],
     });
-}
-onSubmit(){
-  const param:any= {paperID:this.coursePaperObj.subjectCourseID,
-      question:this.mcqAdminForm.controls['question'].value,
-      optionA:this.mcqAdminForm.controls['optionA'].value,
-      optionB:this.mcqAdminForm.controls['optionB'].value,
-      optionC:this.mcqAdminForm.controls['optionC'].value,
-      optionD:this.mcqAdminForm.controls['optionD'].value,
-      answer:this.mcqAdminForm.controls['answer'].value,
+  }
+  onSubmit() {
+    const param: any = {
+      paperID: this.coursePaperObj.subjectCourseID,
+      question: this.mcqAdminForm.controls['question'].value,
+      optionA: this.mcqAdminForm.controls['optionA'].value,
+      optionB: this.mcqAdminForm.controls['optionB'].value,
+      optionC: this.mcqAdminForm.controls['optionC'].value,
+      optionD: this.mcqAdminForm.controls['optionD'].value,
+      answer: this.mcqAdminForm.controls['answer'].value,
     };
-  this.ApiServices.requestPost('/api/ProgrameManagment/examQuestionRegistration',param).subscribe({
-     next:(res:any)=>{
-         this.clearForm();
-         this.ApiServices.showToaster(res.statusCode,res.message);
-     },
-     error(e){
-      console.log('Error',e)
-     }
-  })
-    
+    this.ApiServices.requestPost('/api/Examination/examQuestionRegistration', param).subscribe({
+      next: (res: any) => {
+        this.clearForm();
+        this.ApiServices.showToaster(res.statusCode, res.message);
+      },
+      error(e) {
+        console.log('Error', e)
+      }
+    })
   }
   get mcqAdminFormControl() {
     return this.mcqAdminForm.controls;
