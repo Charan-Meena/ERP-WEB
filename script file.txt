@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [ARP]    Script Date: 04-07-2025 19:29:30 ******/
+/****** Object:  Database [ARP]    Script Date: 05-07-2025 18:16:46 ******/
 CREATE DATABASE [ARP]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,7 +82,7 @@ ALTER DATABASE [ARP] SET QUERY_STORE = OFF
 GO
 USE [ARP]
 GO
-/****** Object:  Table [dbo].[Batch_master]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  Table [dbo].[Batch_master]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -103,7 +103,18 @@ CREATE TABLE [dbo].[Batch_master](
 	[coursScheme] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Role_Table]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  Table [dbo].[MST_Sem_Year]    Script Date: 05-07-2025 18:16:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MST_Sem_Year](
+	[Sem_YearID] [int] NULL,
+	[Sem_Year_Name] [varchar](20) NULL,
+	[Sem_Year_Value] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Role_Table]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -114,22 +125,7 @@ CREATE TABLE [dbo].[Role_Table](
 	[ActiveStatus] [bit] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[SampleFruits]    Script Date: 04-07-2025 19:29:31 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[SampleFruits](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[FruitName] [varchar](50) NULL,
-	[Price] [int] NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Tbl_CourseScheme]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  Table [dbo].[Tbl_CourseScheme]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -146,7 +142,7 @@ CREATE TABLE [dbo].[Tbl_CourseScheme](
 	[examPattern] [nvarchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_Designation]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  Table [dbo].[Tbl_Designation]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -157,7 +153,7 @@ CREATE TABLE [dbo].[Tbl_Designation](
 	[IsActive] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ExamPaper]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  Table [dbo].[Tbl_ExamPaper]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -187,7 +183,7 @@ CREATE TABLE [dbo].[Tbl_ExamPaper](
 	[ActiveStatus] [bit] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ExamQuestionBank]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  Table [dbo].[Tbl_ExamQuestionBank]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -208,7 +204,7 @@ CREATE TABLE [dbo].[Tbl_ExamQuestionBank](
 	[updatedOn] [date] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ExamSchedule]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  Table [dbo].[Tbl_ExamSchedule]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -225,7 +221,23 @@ CREATE TABLE [dbo].[Tbl_ExamSchedule](
 	[createdon] [date] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_Login]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  Table [dbo].[Tbl_ExamSchedule_Student]    Script Date: 05-07-2025 18:16:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_ExamSchedule_Student](
+	[ExamSchedule_StudentID] [int] IDENTITY(1,1) NOT NULL,
+	[examScheduleID] [int] NULL,
+	[studentID] [int] NULL,
+	[isExamFormForwarded] [bit] NULL,
+	[isExamFormFill] [bit] NULL,
+	[isActive] [bit] NULL,
+	[createdby] [int] NULL,
+	[createdOn] [date] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_Login]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -241,7 +253,7 @@ CREATE TABLE [dbo].[Tbl_Login](
 	[parentId] [int] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ProgrameMaster]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  Table [dbo].[Tbl_ProgrameMaster]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -253,7 +265,7 @@ CREATE TABLE [dbo].[Tbl_ProgrameMaster](
 	[ProgrameLebel] [varchar](200) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_StaffInfo]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  Table [dbo].[Tbl_StaffInfo]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -274,7 +286,23 @@ CREATE TABLE [dbo].[Tbl_StaffInfo](
 	[parentId] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_studentExamSubmit]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  Table [dbo].[Tbl_StudentBatchAlloted]    Script Date: 05-07-2025 18:16:47 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Tbl_StudentBatchAlloted](
+	[stuentBatchAllotedID] [int] IDENTITY(1,1) NOT NULL,
+	[studentID] [int] NULL,
+	[userID] [int] NULL,
+	[Batch_ID] [int] NULL,
+	[current_sem_year] [int] NULL,
+	[isActive] [bit] NULL,
+	[createdby] [int] NULL,
+	[createdOn] [date] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Tbl_studentExamSubmit]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -289,7 +317,7 @@ CREATE TABLE [dbo].[Tbl_studentExamSubmit](
 	[examSession] [varchar](10) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_StudentInfo]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  Table [dbo].[Tbl_StudentInfo]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -308,7 +336,7 @@ CREATE TABLE [dbo].[Tbl_StudentInfo](
 	[Batch_ID] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_User_login]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  Table [dbo].[Tbl_User_login]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -326,7 +354,7 @@ CREATE TABLE [dbo].[Tbl_User_login](
 	[parentId] [int] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_UserRoll]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  Table [dbo].[Tbl_UserRoll]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -345,6 +373,22 @@ GO
 INSERT [dbo].[Batch_master] ([Batch_ID], [programeId], [Batch_name], [Start_Session], [End_Session], [Batch_Year], [currentSem_year], [startSem_year], [endSem_year], [Course_Duration], [Semester_Year], [Intake], [coursScheme]) VALUES (2, 2, N'DCA-2025', N'JUNE-2025', N'JUNE-2026', N'2025', 1, 1, 2, N'1 Year', N'Semester', 100, 2)
 GO
 SET IDENTITY_INSERT [dbo].[Batch_master] OFF
+GO
+INSERT [dbo].[MST_Sem_Year] ([Sem_YearID], [Sem_Year_Name], [Sem_Year_Value]) VALUES (1, N'First', 1)
+GO
+INSERT [dbo].[MST_Sem_Year] ([Sem_YearID], [Sem_Year_Name], [Sem_Year_Value]) VALUES (2, N'Second', 2)
+GO
+INSERT [dbo].[MST_Sem_Year] ([Sem_YearID], [Sem_Year_Name], [Sem_Year_Value]) VALUES (3, N'Third', 3)
+GO
+INSERT [dbo].[MST_Sem_Year] ([Sem_YearID], [Sem_Year_Name], [Sem_Year_Value]) VALUES (4, N'Fourth', 4)
+GO
+INSERT [dbo].[MST_Sem_Year] ([Sem_YearID], [Sem_Year_Name], [Sem_Year_Value]) VALUES (5, N'Fifth', 5)
+GO
+INSERT [dbo].[MST_Sem_Year] ([Sem_YearID], [Sem_Year_Name], [Sem_Year_Value]) VALUES (6, N'Sixth', 6)
+GO
+INSERT [dbo].[MST_Sem_Year] ([Sem_YearID], [Sem_Year_Name], [Sem_Year_Value]) VALUES (7, N'Seventh', 7)
+GO
+INSERT [dbo].[MST_Sem_Year] ([Sem_YearID], [Sem_Year_Name], [Sem_Year_Value]) VALUES (8, N'Eighth', 8)
 GO
 SET IDENTITY_INSERT [dbo].[Role_Table] ON 
 GO
@@ -365,36 +409,6 @@ GO
 INSERT [dbo].[Role_Table] ([roleId], [role], [ActiveStatus]) VALUES (8, N'Account', 1)
 GO
 SET IDENTITY_INSERT [dbo].[Role_Table] OFF
-GO
-SET IDENTITY_INSERT [dbo].[SampleFruits] ON 
-GO
-INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (1, N'Apple', 20)
-GO
-INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (2, N'Apricot', 12)
-GO
-INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (3, N'Banana', 8)
-GO
-INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (4, N'Cherry', 11)
-GO
-INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (5, N'Strawberry', 26)
-GO
-INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (6, N'Lemon', 4)
-GO
-INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (7, N'Kiwi', 14)
-GO
-INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (8, N'Coconut', 34)
-GO
-INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (9, N'Orange', 24)
-GO
-INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (10, N'Raspberry', 13)
-GO
-INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (11, N'Mango', 9)
-GO
-INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (12, N'Mandarin', 19)
-GO
-INSERT [dbo].[SampleFruits] ([Id], [FruitName], [Price]) VALUES (13, N'Pineapple', 22)
-GO
-SET IDENTITY_INSERT [dbo].[SampleFruits] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_CourseScheme] ON 
 GO
@@ -522,6 +536,26 @@ INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optio
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_ExamQuestionBank] OFF
 GO
+SET IDENTITY_INSERT [dbo].[Tbl_ExamSchedule] ON 
+GO
+INSERT [dbo].[Tbl_ExamSchedule] ([examScheduleID], [programeId], [batch_Id], [semester_year], [examSession], [openDate], [closeDate], [createdBy], [createdon]) VALUES (1, 1, 1, 1, N'June-2025', CAST(N'2025-07-01' AS Date), CAST(N'2025-07-16' AS Date), NULL, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_ExamSchedule] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_ExamSchedule_Student] ON 
+GO
+INSERT [dbo].[Tbl_ExamSchedule_Student] ([ExamSchedule_StudentID], [examScheduleID], [studentID], [isExamFormForwarded], [isExamFormFill], [isActive], [createdby], [createdOn]) VALUES (1, 1, 1, 0, 0, 1, NULL, CAST(N'2025-07-05' AS Date))
+GO
+INSERT [dbo].[Tbl_ExamSchedule_Student] ([ExamSchedule_StudentID], [examScheduleID], [studentID], [isExamFormForwarded], [isExamFormFill], [isActive], [createdby], [createdOn]) VALUES (2, 1, 2, 0, 0, 1, NULL, CAST(N'2025-07-05' AS Date))
+GO
+INSERT [dbo].[Tbl_ExamSchedule_Student] ([ExamSchedule_StudentID], [examScheduleID], [studentID], [isExamFormForwarded], [isExamFormFill], [isActive], [createdby], [createdOn]) VALUES (3, 1, 3, 0, 0, 1, NULL, CAST(N'2025-07-05' AS Date))
+GO
+INSERT [dbo].[Tbl_ExamSchedule_Student] ([ExamSchedule_StudentID], [examScheduleID], [studentID], [isExamFormForwarded], [isExamFormFill], [isActive], [createdby], [createdOn]) VALUES (4, 1, 4, 0, 0, 1, NULL, CAST(N'2025-07-05' AS Date))
+GO
+INSERT [dbo].[Tbl_ExamSchedule_Student] ([ExamSchedule_StudentID], [examScheduleID], [studentID], [isExamFormForwarded], [isExamFormFill], [isActive], [createdby], [createdOn]) VALUES (5, 1, 5, 0, 0, 1, NULL, CAST(N'2025-07-05' AS Date))
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_ExamSchedule_Student] OFF
+GO
 SET IDENTITY_INSERT [dbo].[Tbl_Login] ON 
 GO
 INSERT [dbo].[Tbl_Login] ([userID], [userName], [passwordhash], [activeStatus], [userrole], [lastLogin], [entityTypeId], [parentId]) VALUES (1, N'7800000001', N'MNY9AjGHl2ceXOMGwJbzgV8ccXjFfhIFUQYg5uaUr2I=', 1, N'', NULL, 6, 0)
@@ -551,6 +585,20 @@ GO
 INSERT [dbo].[Tbl_ProgrameMaster] ([ProgrameID], [ProgrameName], [ProgrameDuration], [ProgrameLebel]) VALUES (6, N'MBA', N'2 Year', N'PG Diploma')
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_ProgrameMaster] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_StudentBatchAlloted] ON 
+GO
+INSERT [dbo].[Tbl_StudentBatchAlloted] ([stuentBatchAllotedID], [studentID], [userID], [Batch_ID], [current_sem_year], [isActive], [createdby], [createdOn]) VALUES (1, 1, 1, 1, 1, 1, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_StudentBatchAlloted] ([stuentBatchAllotedID], [studentID], [userID], [Batch_ID], [current_sem_year], [isActive], [createdby], [createdOn]) VALUES (2, 2, 2, 1, 1, 1, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_StudentBatchAlloted] ([stuentBatchAllotedID], [studentID], [userID], [Batch_ID], [current_sem_year], [isActive], [createdby], [createdOn]) VALUES (3, 3, 3, 1, 1, 1, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_StudentBatchAlloted] ([stuentBatchAllotedID], [studentID], [userID], [Batch_ID], [current_sem_year], [isActive], [createdby], [createdOn]) VALUES (4, 4, 4, 1, 1, 1, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_StudentBatchAlloted] ([stuentBatchAllotedID], [studentID], [userID], [Batch_ID], [current_sem_year], [isActive], [createdby], [createdOn]) VALUES (5, 5, 5, 1, 1, 1, NULL, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Tbl_StudentBatchAlloted] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_studentExamSubmit] ON 
 GO
@@ -648,7 +696,7 @@ SET IDENTITY_INSERT [dbo].[Tbl_UserRoll] OFF
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UX_ExamPaperSub]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  Index [UX_ExamPaperSub]    Script Date: 05-07-2025 18:16:47 ******/
 CREATE UNIQUE NONCLUSTERED INDEX [UX_ExamPaperSub] ON [dbo].[Tbl_ExamPaper]
 (
 	[courseSchemeID] ASC,
@@ -656,7 +704,7 @@ CREATE UNIQUE NONCLUSTERED INDEX [UX_ExamPaperSub] ON [dbo].[Tbl_ExamPaper]
 	[SubjName] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -802,7 +850,7 @@ BEGIN
     END
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme_Test]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme_Test]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -947,7 +995,7 @@ BEGIN
 
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_Designation]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_Designation]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -970,7 +1018,7 @@ Begin
 
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_Exam_Schedule]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_Exam_Schedule]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1007,11 +1055,20 @@ If(@Action='createExameSchedule')
    ,@closeDate)
  select 1 as StatusCode ,'Exam Create Successfully' as [Message]
  End
-
+ if(@Action='ExameScheduleList')
+ Begin
+   select ES.examScheduleID,PM.ProgrameName,BM.Batch_name,SY.Sem_Year_Name,ES.programeId,ES.batch_Id,ES.semester_year,ES.examSession,
+   convert(varchar(10),ES.openDate,103) as openDate,
+   convert(varchar(10),ES.closeDate,120) as closeDate
+  from [Tbl_ExamSchedule] ES 
+  inner join Tbl_ProgrameMaster PM on ES.programeId =PM.ProgrameID
+  inner join Batch_master BM on ES.batch_Id=BM.Batch_ID
+  inner Join MST_Sem_Year SY on ES.semester_year = SY.Sem_YearID
+ END
  
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ExamPaper]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ExamPaper]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1159,7 +1216,7 @@ End
     END
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ExamPaperQuestionBank]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ExamPaperQuestionBank]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1210,7 +1267,7 @@ FROM Tbl_studentExamSubmit
 JOIN Tbl_ExamQuestionBank
 ON [Tbl_studentExamSubmit].[questionId] = Tbl_ExamQuestionBank.[questionId]
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagment]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagment]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1309,7 +1366,7 @@ BEGIN
 	 End
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagmenttest]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagmenttest]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1408,7 +1465,7 @@ End
 --{"Programe":[{"ProgrameID":1,"ProgrameName":"BCA","ProgrameDuration":"3 Year","ProgrameLebel":"UG"},{"ProgrameID":2,"ProgrameName":"DCA","ProgrameDuration":"1 Year","ProgrameLebel":"Diploma"}],"Paginationtemp":"{\"Pagination\":[{\"TotalRecords\":17,\"TotalPages\":9}]}"}
 --{"Programe":[{"ProgrameID":1,"ProgrameName":"BCA","ProgrameDuration":"3 Year","ProgrameLebel":"UG"},{"ProgrameID":2,"ProgrameName":"DCA","ProgrameDuration":"1 Year","ProgrameLebel":"Diploma"}],"Pagination":"{\"TotalRecords\":17,\"TotalPages\":9}"}
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_Role]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_Role]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1427,7 +1484,7 @@ Begin
 End
 
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_StudentAction]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_StudentAction]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1542,7 +1599,7 @@ IF(@Action='StudentList')
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_UserAction]    Script Date: 04-07-2025 19:29:31 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_UserAction]    Script Date: 05-07-2025 18:16:47 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

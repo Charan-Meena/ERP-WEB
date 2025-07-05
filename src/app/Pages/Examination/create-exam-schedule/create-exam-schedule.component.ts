@@ -47,7 +47,7 @@ ngOnInit():void{
   });
   setTimeout(()=>{
     this.fetchProgrameDDL();
-    //this.getUserList();
+    this.examScheduleList();
   },30)
 }
 Fromsubmit(){
@@ -59,7 +59,6 @@ Fromsubmit(){
      this.ApiServices.showToaster(res.statusCode,res.message);
      this.clearForm();
      this.isProgrameFormSubmitted = false;
-     this.getUserList();
     },
     error(e:any){
       console.log('error',e);
@@ -99,9 +98,9 @@ fetchBatchDDL(id:number){
     }
   })
 }
-getUserList(){
+examScheduleList(){
   this.pageArray=[];
-this.ApiServices.requestPost('/api/ProgrameManagment/programeList--',this.TableParam).subscribe({
+this.ApiServices.requestGet('/api/Examination/examScheduleList').subscribe({
   next:(res:PROGRAME_API_RESPONSE | any)=>{
     this.programeList=res.data || [];
     this.pageCount=res.totalPages;
@@ -117,7 +116,7 @@ this.ApiServices.requestPost('/api/ProgrameManagment/programeList--',this.TableP
 
 onpagechange(pageNumber:number){
   this.TableParam=pageNumber;
-   this.getUserList();
+   this.examScheduleList();
 }
 
  get progFormControls(){

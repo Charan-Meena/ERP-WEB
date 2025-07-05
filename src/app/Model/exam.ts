@@ -41,3 +41,19 @@ export interface IstudentExamSubmit{
     givenAnswer:string,
     examSession:string
 }
+
+export interface IExamSchedule{
+    examScheduleID:number,
+    programeName:string,
+    batch_name:string,
+    sem_Year_Name:string,
+    programeId:number,
+    batch_Id:number,
+    semester_year:number,
+    examSession:string,
+    openDate:string,
+    closeDate:Date
+}
+export interface   EXAMSCHEDULE_API_RESPONSE extends ResponseData{
+	data:Array<IExamSchedule>
+}
