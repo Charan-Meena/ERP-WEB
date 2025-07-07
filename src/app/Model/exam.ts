@@ -57,3 +57,22 @@ export interface IExamSchedule{
 export interface   EXAMSCHEDULE_API_RESPONSE extends ResponseData{
 	data:Array<IExamSchedule>
 }
+
+export interface IExamStudentSlots_Marks{
+	examStudentSlots_MarksID:number,
+	subjectCourseID:number,
+	examdate:Date,
+	semYear:number,
+	theoryMaxL:number,
+	theoryMin:number,
+	obtainTheory:number,
+	practMax:number,
+	practMin:number,
+	obtainPractical:number,
+	sesMax:number,
+	sesMin:number,
+	obtainSess:number,
+	maxTotal:number,
+	minTotal:number,
+	obtainMAx:number,
+}

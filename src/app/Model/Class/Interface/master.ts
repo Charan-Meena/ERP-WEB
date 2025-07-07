@@ -47,6 +47,29 @@ export interface UserRegistration{
      loginID:string,
      totalPage:number
 }
+
+export interface IUserinfo{
+userID:number,
+userName:string,
+passwordhash:string,
+activeStatus:any,
+userrole:any,
+lastLogin:any,
+entityTypeId:any,
+parentId:number,
+studentID:number,
+fullname:string,
+email:string,
+phoneNumber:string,
+gender:string,
+dob:string,
+entityType:number,
+Batch_ID:number,
+}
+export interface USERINFO_API_RESPONSE{
+	data:ResponseData
+}
+
 export interface USERREGISTRATION_API_RESPONSE{
 	data:ResponseData
 }
@@ -70,10 +93,11 @@ programeName:string,
 isActive:any,
 Action:string,
 }
+
+
  export interface   COURSESCHEME_API_RESPONSE{
 	data:ResponseData
 }   
-
 export interface ICoursePaper{
     subjectCourseID:number,
     courseSchemeID:number,

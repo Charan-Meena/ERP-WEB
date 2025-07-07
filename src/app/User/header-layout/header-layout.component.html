@@ -10,7 +10,8 @@
           <a class="nav-link active" aria-current="page" href="/dashboard">Home</a>
         </li>
         <li class="nav-item">
-          <a  type="button" class="nav-link dropdown-toggle" aria-labelledby="navbarDropdown" (click)="toggleDropdown('UserRegistration')">User Registration</a>
+           @if(UserInfo.entityTypeId!=6){
+            <a  type="button" class="nav-link dropdown-toggle" aria-labelledby="navbarDropdown" (click)="toggleDropdown('UserRegistration')">User Registration</a>
           @if(activeDropdown === 'UserRegistration'){
             <ul class="dropdown-menu" class="submenu">   
                 <li><a class="dropdown-item" href="/uniemployee-list">University Employee</a></li>
@@ -19,9 +20,13 @@
                 <li><a class="dropdown-item" href="/student-list">Student</a></li>
           </ul>
           } 
+
+           }
+          
           
         </li>
-        <li class="nav-item dropdown">
+        @if(UserInfo.entityTypeId!=6){
+          <li class="nav-item dropdown">
               <a type="button" class="nav-link dropdown-toggle" aria-labelledby="navbarDropdown" (click)="toggleDropdown('PrgrameManagment')">PrgrameManagment</a>
               <ul class="dropdown-menu" *ngIf="activeDropdown === 'PrgrameManagment'" class="submenu">   
                 <li><a class="dropdown-item" href="/PrgrameMaster">Programe Master</a></li>
@@ -30,6 +35,7 @@
                 <li><a class="dropdown-item" href="/PrgrameMaster">NOT Active</a></li>
               </ul>
          </li>
+        }
          <li class="nav-item dropdown">
               <a type="button" class="nav-link dropdown-toggle" aria-labelledby="navbarDropdown" (click)="toggleDropdown('settings')">Settings</a>
               <ul class="dropdown-menu" *ngIf="activeDropdown === 'settings'" class="submenu">
@@ -40,10 +46,17 @@
          <li class="nav-item dropdown">
               <a type="button" class="nav-link dropdown-toggle" aria-labelledby="navbarDropdown" (click)="toggleDropdown('exam')">Examination</a>
               <ul class="dropdown-menu" *ngIf="activeDropdown === 'exam'" class="submenu">
-                  <li><a class="dropdown-item" href="/exam-schedule">Create Exam Form</a></li>
+                  
+                  @if(UserInfo.entityTypeId==6){
+                  <li><a class="dropdown-item" href="/book-exam-slots">Book Exam Slots</a></li>
                   <li><a class="dropdown-item" href="/Online-Exam">Online Examination</a></li>
                   <li><a class="dropdown-item" href="/Online-Exam11">Online Examination</a></li>
+                  }
+                  @else{
+                  <li><a class="dropdown-item" href="/exam-schedule">Create Exam Form</a></li>
                   <li><a class="dropdown-item" href="/admin-Exam">Admin Panel</a></li>
+                  }
+                 
               </ul>
          </li>
         <li class="nav-item">

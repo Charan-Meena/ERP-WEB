@@ -1,0 +1,69 @@
+<div class="main-content modal-popup-main modal-experience-form">
+    <div class="page-content">
+        <div class="registration-main">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form >
+                        <div class="modal-body">
+                            <div class="registration-box border-box">
+                                <div class="container">
+                                    <div class="registration-box">
+                                        <div class="card border-0 p-0">
+                                            <div class="card-body p-0">
+                                                <fieldset class="border-box">
+                                                    <div class="row">
+                                                        <div class="col-9">
+                                                            <legend class="float-none w-auto"><b><span
+                                                                        class="badge bg-secondary">Book Exam Slots Paper Wise</span></b></legend>
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <a class="btn btn-icon btn-sm view-icon rounded-pill" (click)="closeModal('CLOSE')"> <i class="fa fa-remove" style="font-size:24px; color:crimson"></i></a> 
+                                                        </div>
+                                                    </div>
+                                                    <div class="card border-0 p-0">
+                                                        <div class="card-body p-0">
+                                                            <fieldset class="border-box">
+                                                                <div class="row my-3">
+                                                                    <div class="col">
+                                                                        <table class="table">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>S.No.</th>
+                                                                                    <th>subjectCode</th>
+                                                                                    <th>subjName</th>
+                                                                                    <th>Fill Date</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr class="success" *ngFor="let item of subjectList; let i=index">
+                                                                                    <td>{{i+1}}</td>
+                                                                                    <td>{{item.subjectCode}}</td>
+                                                                                    <td>{{item.subjName}}</td>
+                                                                                    <td><input type="date" class="form-control" name="examdate{{ i }}" [(ngModel)]="item.examdate"/></td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-2">
+                                                                        <button type="button" class="btn btn-dark" (click)="saveExamSchedule()"> SAVE </button>
+                                                                    </div>
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

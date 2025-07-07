@@ -1,0 +1,62 @@
+<div class="registration-box border-box mb-3 ">
+    <div class="container">
+        <div class="registration-box">
+            <div class="card border-0 p-0">
+                <div class="card-body p-0">
+                    <fieldset class="border-box mb-3">
+                      <div class="row">
+                        <div class="col-10">
+                          <legend class="float-none w-auto"><b><span class="badge bg-secondary">Exam Slots Book</span></b></legend>
+                        </div>
+                        <div class="col-2">
+                          <!-- <a class="btn btn-icon btn-sm view-icon rounded-pill fa-plus-square-font"><i class="fa fa-plus-square"></i></a> -->
+                           <!-- <button class="btn btn-success" (click)="openModalPage()">Add</button> -->
+                        </div>
+                      </div>
+                        <div class="card border-0 p-0">
+                          <div class="card-body p-4">
+                            @if(examScheduleList.length>0){
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>examScheduleID</th>
+                                        <th>Progrrame</th>
+                                        <th>Batch</th>
+                                        <th>Semester</th>                                   
+                                        <th>Exam Session</th>                                   
+                                        <th>Start Date</th>                                  
+                                        <th>End Date</th>                                  
+                                        <th>Book Slots</th>                                  
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="success" *ngFor="let item of examScheduleList">
+                                        <td>{{item.examScheduleID}}</td>
+                                        <td>{{item.programeName}}</td>
+                                        <td>{{item.batch_name}}</td>
+                                        <td>{{item.sem_Year_Name}}</td>
+                                        <td>{{item.examSession}}</td>
+                                        <td>{{item.openDate}}</td>
+                                        <td>{{item.closeDate}}</td>
+                                        <td><a class="btn btn-icon btn-sm view-icon rounded-pill" (click)="openModalPage(item)"> <i class="fa fa-calendar-plus-o" style="font-size:24px; color:crimson"></i></a> </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                            }
+                            @else
+                            {
+                                <div> 
+                                      <p>No Exam Schedule Creted till now...</p>
+                                </div>
+                            }
+                            
+
+                          </div>
+                        </div>
+                  </fieldset>
+                </div>
+            </div>            
+          </div>
+      </div>
+</div>

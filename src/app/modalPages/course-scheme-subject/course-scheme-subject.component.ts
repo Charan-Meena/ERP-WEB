@@ -32,22 +32,22 @@ export class CourseSchemeSubjectComponent extends BaseService implements OnInit{
 ngOnInit():void{
   this.courseSubjectForm =this.fb.group({
       courseSchemeID:[this.courseSchemeObj.courseSchemeID],
-      SubjectCourseID:['',Validators.required],
-      SemYear:['',Validators.required],
-      IsCompulsory:['',Validators.required],
-      SubjSeq:['',Validators.required],
-      SubjName:['',Validators.required],
-      SubjectCode:['',Validators.required],
-      TheoryMax:['',Validators.required],
-      TheoryMin:['',Validators.required],
-      PractMax:['',Validators.required],
-      PractMin:['',Validators.required],
-      SesMax:['',Validators.required],
-      SesMin:['',Validators.required],
-      MaxTotal:['',Validators.required],
+      subjectCourseID:['',Validators.required],
+      semYear:['',Validators.required],
+      isCompulsory:['',Validators.required],
+      subjSeq:['',Validators.required],
+      subjName:['',Validators.required],
+      subjectCode:['',Validators.required],
+      theoryMax:['',Validators.required],
+      theoryMin:['',Validators.required],
+      practMax:['',Validators.required],
+      practMin:['',Validators.required],
+      sesMax:['',Validators.required],
+      sesMin:['',Validators.required],
+      maxTotal:['',Validators.required],
       MinTotal:['',Validators.required],   
 	    Passing_On_Rule:[''],
-      ActiveStatus:['',Validators.required],
+      activeStatus:['',Validators.required],
   });
   setTimeout(() => {
     this.getPatternType();
@@ -63,32 +63,32 @@ AddSubject(){
         return;
     }
   this.subjectListObj= {
-        IsCompulsory:this.courseSubjectForm.controls['IsCompulsory'].value,
-        SubjSeq:this.courseSubjectForm.controls['SubjSeq'].value,
-        SubjName:this.courseSubjectForm.controls['SubjName'].value,
-        SubjectCode:this.courseSubjectForm.controls['SubjectCode'].value,
-        TheoryMax:this.courseSubjectForm.controls['TheoryMax'].value,
-        TheoryMin:this.courseSubjectForm.controls['TheoryMin'].value,
-        PractMax:this.courseSubjectForm.controls['PractMax'].value,
-        PractMin:this.courseSubjectForm.controls['PractMin'].value,
-        SesMax:this.courseSubjectForm.controls['SesMax'].value,
-        SesMin:this.courseSubjectForm.controls['SesMin'].value,
-        //MaxTotal:this.courseSubjectForm.controls['MaxTotal'].value,
-        MaxTotal:Number(this.courseSubjectForm.controls['TheoryMax'].value)+Number(this.courseSubjectForm.controls['PractMax'].value)+Number(this.courseSubjectForm.controls['SesMax'].value),
-        //MinTotal:this.courseSubjectForm.controls['MaxTotal'].value,
-        ActiveStatus:this.courseSubjectForm.controls['ActiveStatus'].value
+        isCompulsory:this.courseSubjectForm.controls['isCompulsory'].value,
+        subjSeq:this.courseSubjectForm.controls['subjSeq'].value,
+        subjName:this.courseSubjectForm.controls['subjName'].value,
+        subjectCode:this.courseSubjectForm.controls['subjectCode'].value,
+        theoryMax:this.courseSubjectForm.controls['theoryMax'].value,
+        theoryMin:this.courseSubjectForm.controls['theoryMin'].value,
+        practMax:this.courseSubjectForm.controls['practMax'].value,
+        practMin:this.courseSubjectForm.controls['practMin'].value,
+        sesMax:this.courseSubjectForm.controls['sesMax'].value,
+        sesMin:this.courseSubjectForm.controls['sesMin'].value,
+        //maxTotal:this.courseSubjectForm.controls['maxTotal'].value,
+        maxTotal:Number(this.courseSubjectForm.controls['theoryMax'].value)+Number(this.courseSubjectForm.controls['practMax'].value)+Number(this.courseSubjectForm.controls['sesMax'].value),
+        //MinTotal:this.courseSubjectForm.controls['maxTotal'].value,
+        activeStatus:this.courseSubjectForm.controls['activeStatus'].value
      }
-      if (this.subjectListObj.SubjName !== '' &&
-      this.subjectListObj.SubjectCode !== '' &&
-      this.subjectListObj.IsCompulsory !== '' &&
-      this.subjectListObj.SubjSequence !== '' &&
-      this.subjectListObj.TheoryMax !== '' && this.subjectListObj.TheoryMin !== '' &&
-      this.subjectListObj.PractMax !== '' && this.subjectListObj.PractMin !== '' &&
-      this.subjectListObj.SesMax !== '' && this.subjectListObj.SesMin !== '' &&
-      this.subjectListObj.MaxTotal !== '' &&
-      this.subjectListObj.ActiveStatus !== '') {
+      if (this.subjectListObj.subjName !== '' &&
+      this.subjectListObj.subjectCode !== '' &&
+      this.subjectListObj.isCompulsory !== '' &&
+      this.subjectListObj.subjSequence !== '' &&
+      this.subjectListObj.theoryMax !== '' && this.subjectListObj.theoryMin !== '' &&
+      this.subjectListObj.practMax !== '' && this.subjectListObj.practMin !== '' &&
+      this.subjectListObj.sesMax !== '' && this.subjectListObj.sesMin !== '' &&
+      this.subjectListObj.maxTotal !== '' &&
+      this.subjectListObj.activeStatus !== '') {
       this.subjectList.push(this.subjectListObj)
-      //this.subjectCourseForm.patchValue({SubjectCode:'',IsCompulsory:'',SubjectCourseName:'',SubjSequence:'',TH_MAX:'',TH_MIN:'',PR_MAX:'',PR_MIN:'',SESS_Max:'',SESS_MIN:'',TOTAL_Max:'',TotalCredit:'',ActiveStatus:''});
+      //this.subjectCourseForm.patchValue({subjectCode:'',isCompulsory:'',SubjectCourseName:'',subjSequence:'',TH_MAX:'',TH_MIN:'',PR_MAX:'',PR_MIN:'',SESS_Max:'',SESS_MIN:'',TOTAL_Max:'',TotalCredit:'',activeStatus:''});
       }
       else{
         alert("Please Fill All Grid Feild")
@@ -101,7 +101,7 @@ Fromsubmit(){
      const subjectParam={
       courseSchemeID:this.courseSubjectForm.controls['courseSchemeID'].value,
       examPattern:this.courseSchemeObj.examPattern,
-      SemYear:this.courseSubjectForm.controls['SemYear'].value,
+      semYear:this.courseSubjectForm.controls['semYear'].value,
       SubjectDetails:JSON.stringify(this.subjectList)
       //SubjectDetails:JsonString
      }
@@ -130,30 +130,30 @@ getPatternType(){
 
   validateMinMax(field: string) {
     const formControls = this.courseSubjectForm.controls;
-    if (field === 'TheoryMax' || field === 'TheoryMin') {
-        const TheoryMax = formControls['TheoryMax'].value;
-        const TheoryMin = formControls['TheoryMin'].value;
-        if ((TheoryMax !== '' && (TheoryMin === '' || Number(TheoryMin) > Number(TheoryMax))) || (TheoryMax === '' && (TheoryMin !== '' || Number(TheoryMin) > Number(TheoryMax)))) {
-            alert('TheoryMin should not be empty and should not be greater than TheoryMax');
-            this.courseSubjectForm.patchValue({TheoryMin:TheoryMax/2})
+    if (field === 'theoryMax' || field === 'theoryMin') {
+        const theoryMax = formControls['theoryMax'].value;
+        const theoryMin = formControls['theoryMin'].value;
+        if ((theoryMax !== '' && (theoryMin === '' || Number(theoryMin) > Number(theoryMax))) || (theoryMax === '' && (theoryMin !== '' || Number(theoryMin) > Number(theoryMax)))) {
+            alert('theoryMin should not be empty and should not be greater than theoryMax');
+            this.courseSubjectForm.patchValue({theoryMin:theoryMax/2})
             return false;
         }
     }
-    if (field === 'PractMax' || field === 'PractMin') {
-        const PractMax = formControls['PractMax'].value;
-        const PractMin = formControls['PractMin'].value;
-        if ((PractMax !== '' && (PractMin === '' || Number(PractMin) > Number(PractMax))) || (PractMax === '' && (PractMin !== '' || Number(PractMin) > Number(PractMax))) ) {
-            alert('PractMin should not be empty and should not be greater than PractMax');
-            this.courseSubjectForm.patchValue({TheoryMin:PractMax/2})
+    if (field === 'practMax' || field === 'practMin') {
+        const practMax = formControls['practMax'].value;
+        const practMin = formControls['practMin'].value;
+        if ((practMax !== '' && (practMin === '' || Number(practMin) > Number(practMax))) || (practMax === '' && (practMin !== '' || Number(practMin) > Number(practMax))) ) {
+            alert('practMin should not be empty and should not be greater than practMax');
+            this.courseSubjectForm.patchValue({theoryMin:practMax/2})
             return false;
         }
     }
-    if (field === 'SesMax' || field === 'SesMin') {
-        const SesMax = formControls['SesMax'].value;
-        const SesMin = formControls['SesMin'].value;
-        if ((SesMax !== '' && (SesMin === '' || Number(SesMin) > Number(SesMax))) || (SesMax === '' && (SesMin !== '' || Number(SesMin) > Number(SesMax))) ) {
-            alert('SesMin should not be empty and should not be greater than SesMax');
-            this.courseSubjectForm.patchValue({TheoryMin:SesMax/2})
+    if (field === 'sesMax' || field === 'sesMin') {
+        const sesMax = formControls['sesMax'].value;
+        const sesMin = formControls['sesMin'].value;
+        if ((sesMax !== '' && (sesMin === '' || Number(sesMin) > Number(sesMax))) || (sesMax === '' && (sesMin !== '' || Number(sesMin) > Number(sesMax))) ) {
+            alert('sesMin should not be empty and should not be greater than sesMax');
+            this.courseSubjectForm.patchValue({theoryMin:sesMax/2})
             return false;
         }
     }

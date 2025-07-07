@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { BaseService } from '../../../Base/base.service';
 import { PROGRAME_API_RESPONSE, ProgrameMenanet } from '../../../Model/Class/Interface/master';
 import { VoidTableComponent } from '../../../reusableComponent/void-table/void-table.component';
+import { IExamSchedule } from '../../../Model/exam';
 
 @Component({
   selector: 'app-create-exam-schedule',
@@ -20,11 +21,11 @@ export class CreateExamScheduleComponent extends BaseService implements OnInit{
   PageNumber:number=1;
   RowsOfPage:number=5;
   pageCount:number=0;
-  programeList:Array<ProgrameMenanet>=[];
+  examScheduleList:Array<IExamSchedule>=[];
   programeDDL:Array<ProgrameMenanet>=[];
   batchDDL:Array<any>=[];
   searchText:string="";
-  columnArray:Array<string>=['programeName','programeDuration','programeLebel','Action']
+  columnArray:Array<string>=['programeName','batch_name','sem_Year_Name','examSession','openDate','closeDate']
   TableParam:any={
    PageNumber:this.PageNumber,
    RowsOfPage:this.RowsOfPage,
@@ -47,7 +48,7 @@ ngOnInit():void{
   });
   setTimeout(()=>{
     this.fetchProgrameDDL();
-    this.examScheduleList();
+    this.fetchExamScheduleList();
   },30)
 }
 Fromsubmit(){
@@ -98,11 +99,11 @@ fetchBatchDDL(id:number){
     }
   })
 }
-examScheduleList(){
+fetchExamScheduleList(){
   this.pageArray=[];
 this.ApiServices.requestGet('/api/Examination/examScheduleList').subscribe({
   next:(res:PROGRAME_API_RESPONSE | any)=>{
-    this.programeList=res.data || [];
+    this.examScheduleList=res.data || [];
     this.pageCount=res.totalPages;
    for(let i=0;i<this.pageCount;i++){
       this.pageArray.push(i)
@@ -116,7 +117,7 @@ this.ApiServices.requestGet('/api/Examination/examScheduleList').subscribe({
 
 onpagechange(pageNumber:number){
   this.TableParam=pageNumber;
-   this.examScheduleList();
+   this.fetchExamScheduleList();
 }
 
  get progFormControls(){

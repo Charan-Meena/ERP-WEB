@@ -17,6 +17,7 @@ import { CollegeEmployeeListComponent } from './User/college-employee-list/colle
 import { CollegeAdminListComponent } from './User/college-admin-list/college-admin-list.component';
 import { StudentExamComponent } from './Pages/Examination/student-exam/student-exam.component';
 import { CreateExamScheduleComponent } from './Pages/Examination/create-exam-schedule/create-exam-schedule.component';
+import { StudentExamSlotsComponent } from './Students/student-exam-slots/student-exam-slots.component';
 
 export const routes: Routes = [
     {
@@ -53,7 +54,8 @@ export const routes: Routes = [
         {path:'uniemployee-list',component:UniEmployeeListComponent},
         {path:'college-employee-list',component:CollegeEmployeeListComponent},
         {path:'college-admin-list',component:CollegeAdminListComponent},
-        {path:'exam-schedule',component:CreateExamScheduleComponent}
+        {path:'exam-schedule',component:CreateExamScheduleComponent},
+        {path:'book-exam-slots',component:StudentExamSlotsComponent}
      ]   
     }
 

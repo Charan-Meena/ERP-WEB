@@ -32,7 +32,7 @@
                                                                     <div class="col-4">
                                                                         @if(patternType =='Yearly'){
                                                                         <select class="form-select"
-                                                                            formControlName="SemYear" name="SemYear">
+                                                                            formControlName="semYear" name="semYear">
                                                                             <option value="">Select Year</option>
                                                                             <option value="1">1 Year</option>
                                                                             <option value="2">2 Year</option>
@@ -43,7 +43,7 @@
                                                                         }
                                                                         @else {
                                                                         <select class="form-select"
-                                                                            formControlName="SemYear" name="SemYear">
+                                                                            formControlName="semYear" name="semYear">
                                                                             <option value="">Select Semester</option>
                                                                             <option value="1">First Semester</option>
                                                                             <option value="2">Second Semester</option>
@@ -61,38 +61,38 @@
                                                                 <div class="row my-3">
                                                                     <div class="col-md-2">
                                                                         <select class="form-select"
-                                                                            formControlName="IsCompulsory"
-                                                                            name="IsCompulsory">
+                                                                            formControlName="isCompulsory"
+                                                                            name="isCompulsory">
                                                                             <option value="" disabled selected>Is
                                                                                 Compulsury</option>
                                                                             <option value="1">Yes</option>
                                                                             <option value="0">No</option>
                                                                         </select>
-                                                                        @if((subjectFormControls['IsCompulsory'].touched
+                                                                        @if((subjectFormControls['isCompulsory'].touched
                                                                         || iscourseSubjectForm) &&
-                                                                        subjectFormControls['IsCompulsory'].invalid)
+                                                                        subjectFormControls['isCompulsory'].invalid)
                                                                         {
                                                                         <div class="errorMessage">
-                                                                            @if(subjectFormControls['IsCompulsory'].errors
+                                                                            @if(subjectFormControls['isCompulsory'].errors
                                                                             &&
-                                                                            subjectFormControls['IsCompulsory'].errors['required'])
+                                                                            subjectFormControls['isCompulsory'].errors['required'])
                                                                             {
-                                                                            <div>IsCompulsory is required.</div>
+                                                                            <div>isCompulsory is required.</div>
                                                                             }
                                                                         </div>
                                                                         }
                                                                     </div>
                                                                     <div class="col-md-2">
-                                                                        <input type="text" formControlName="SubjSeq"
-                                                                            name="SubjSeq" class="form-control"
+                                                                        <input type="text" formControlName="subjSeq"
+                                                                            name="subjSeq" class="form-control"
                                                                             placeholder="Paper Sequence.">
-                                                                        @if((subjectFormControls['SubjSeq'].touched ||
+                                                                        @if((subjectFormControls['subjSeq'].touched ||
                                                                         iscourseSubjectForm) &&
-                                                                        subjectFormControls['SubjSeq'].invalid)
+                                                                        subjectFormControls['subjSeq'].invalid)
                                                                         {
                                                                         <div class="errorMessage">
-                                                                            @if(subjectFormControls['SubjSeq'].errors &&
-                                                                            subjectFormControls['SubjSeq'].errors['required'])
+                                                                            @if(subjectFormControls['subjSeq'].errors &&
+                                                                            subjectFormControls['subjSeq'].errors['required'])
                                                                             {
                                                                             <div>Paper Sequence is required.</div>
                                                                             }
@@ -100,64 +100,64 @@
                                                                         }
                                                                     </div>
                                                                     <div class="col-md-4">
-                                                                        <input type="text" formControlName="SubjName"
-                                                                            name="SubjName" class="form-control"
+                                                                        <input type="text" formControlName="subjName"
+                                                                            name="subjName" class="form-control"
                                                                             placeholder="Paper Name">
                                                                         <input type="text" hidden="hidden"
-                                                                            formControlName="SubjectCourseID"
-                                                                            name="SubjectCourseID" class="form-control">
-                                                                        @if((subjectFormControls['SubjName'].touched ||
+                                                                            formControlName="subjectCourseID"
+                                                                            name="subjectCourseID" class="form-control">
+                                                                        @if((subjectFormControls['subjName'].touched ||
                                                                         iscourseSubjectForm) &&
-                                                                        subjectFormControls['SubjName'].invalid)
+                                                                        subjectFormControls['subjName'].invalid)
                                                                         {
                                                                         <div class="errorMessage">
-                                                                            @if(subjectFormControls['SubjName'].errors
+                                                                            @if(subjectFormControls['subjName'].errors
                                                                             &&
-                                                                            subjectFormControls['SubjName'].errors['required'])
+                                                                            subjectFormControls['subjName'].errors['required'])
                                                                             {
-                                                                            <div>SubjName is required.</div>
+                                                                            <div>subjName is required.</div>
                                                                             }
                                                                         </div>
                                                                         }
 
                                                                     </div>
                                                                     <div class="col-md-2">
-                                                                        <input type="text" formControlName="SubjectCode"
-                                                                            name="SubjectCode" class="form-control"
+                                                                        <input type="text" formControlName="subjectCode"
+                                                                            name="subjectCode" class="form-control"
                                                                             placeholder="Paper Code">
-                                                                        @if((subjectFormControls['SubjectCode'].touched
+                                                                        @if((subjectFormControls['subjectCode'].touched
                                                                         || iscourseSubjectForm) &&
-                                                                        subjectFormControls['SubjectCode'].invalid)
+                                                                        subjectFormControls['subjectCode'].invalid)
                                                                         {
                                                                         <div class="errorMessage">
-                                                                            @if(subjectFormControls['SubjectCode'].errors
+                                                                            @if(subjectFormControls['subjectCode'].errors
                                                                             &&
-                                                                            subjectFormControls['SubjectCode'].errors['required'])
+                                                                            subjectFormControls['subjectCode'].errors['required'])
                                                                             {
-                                                                            <div>SubjectCode is required.</div>
+                                                                            <div>subjectCode is required.</div>
                                                                             }
                                                                         </div>
                                                                         }
                                                                     </div>
                                                                     <div class="col-md-2">
                                                                         <select class="form-select"
-                                                                            formControlName="ActiveStatus"
-                                                                            name="ActiveStatus">
+                                                                            formControlName="activeStatus"
+                                                                            name="activeStatus">
                                                                             <option value="" disabled selected>Active
                                                                                 Status</option>
                                                                             <option value="1">Yes</option>
                                                                             <option value="0">No</option>
                                                                         </select>
-                                                                        @if((subjectFormControls['ActiveStatus'].touched
+                                                                        @if((subjectFormControls['activeStatus'].touched
                                                                         || iscourseSubjectForm) &&
-                                                                        subjectFormControls['ActiveStatus'].invalid)
+                                                                        subjectFormControls['activeStatus'].invalid)
                                                                         {
                                                                         <div class="errorMessage">
-                                                                            @if(subjectFormControls['ActiveStatus'].errors
+                                                                            @if(subjectFormControls['activeStatus'].errors
                                                                             &&
-                                                                            subjectFormControls['ActiveStatus'].errors['required'])
+                                                                            subjectFormControls['activeStatus'].errors['required'])
                                                                             {
-                                                                            <div>ActiveStatus is required.</div>
+                                                                            <div>activeStatus is required.</div>
                                                                             }
                                                                         </div>
                                                                         }
@@ -165,106 +165,106 @@
                                                                 </div>
                                                                 <div class="row my-3">
                                                                     <div class="col-md">
-                                                                        <input type="text" formControlName="TheoryMax"
-                                                                            name="TheoryMax" class="form-control"
-                                                                            placeholder="TheoryMax" NumberOnly>
-                                                                        @if((subjectFormControls['TheoryMax'].touched ||
+                                                                        <input type="text" formControlName="theoryMax"
+                                                                            name="theoryMax" class="form-control"
+                                                                            placeholder="theoryMax" NumberOnly>
+                                                                        @if((subjectFormControls['theoryMax'].touched ||
                                                                         iscourseSubjectForm) &&
-                                                                        subjectFormControls['TheoryMax'].invalid)
+                                                                        subjectFormControls['theoryMax'].invalid)
                                                                         {
                                                                         <div class="errorMessage">
-                                                                            @if(subjectFormControls['TheoryMax'].errors
+                                                                            @if(subjectFormControls['theoryMax'].errors
                                                                             &&
-                                                                            subjectFormControls['TheoryMax'].errors['required'])
+                                                                            subjectFormControls['theoryMax'].errors['required'])
                                                                             {
-                                                                            <div>TheoryMax is required.</div>
+                                                                            <div>theoryMax is required.</div>
                                                                             }
                                                                         </div>
                                                                         }
                                                                     </div>
                                                                     <div class="col-md">
-                                                                        <input type="text" formControlName="TheoryMin"
-                                                                            name="TheoryMin" class="form-control"
-                                                                            placeholder="TheoryMin" NumberOnly (blur)="validateMinMax('TheoryMin')">
-                                                                        @if((subjectFormControls['TheoryMin'].touched ||
+                                                                        <input type="text" formControlName="theoryMin"
+                                                                            name="theoryMin" class="form-control"
+                                                                            placeholder="theoryMin" NumberOnly (blur)="validateMinMax('theoryMin')">
+                                                                        @if((subjectFormControls['theoryMin'].touched ||
                                                                         iscourseSubjectForm) &&
-                                                                        subjectFormControls['TheoryMin'].invalid)
+                                                                        subjectFormControls['theoryMin'].invalid)
                                                                         {
                                                                         <div class="errorMessage">
-                                                                            @if(subjectFormControls['TheoryMin'].errors
+                                                                            @if(subjectFormControls['theoryMin'].errors
                                                                             &&
-                                                                            subjectFormControls['TheoryMin'].errors['required'])
+                                                                            subjectFormControls['theoryMin'].errors['required'])
                                                                             {
-                                                                            <div>TheoryMin is required.</div>
+                                                                            <div>theoryMin is required.</div>
                                                                             }
                                                                         </div>
                                                                         }
                                                                     </div>
                                                                     <div class="col-md">
-                                                                        <input type="text" formControlName="PractMax"
-                                                                            name="PractMax" class="form-control"
-                                                                            placeholder="PractMax" NumberOnly>
-                                                                        @if((subjectFormControls['TheoryMin'].touched ||
+                                                                        <input type="text" formControlName="practMax"
+                                                                            name="practMax" class="form-control"
+                                                                            placeholder="practMax" NumberOnly>
+                                                                        @if((subjectFormControls['theoryMin'].touched ||
                                                                         iscourseSubjectForm) &&
-                                                                        subjectFormControls['TheoryMin'].invalid){
+                                                                        subjectFormControls['theoryMin'].invalid){
                                                                         <div class="errorMessage">
-                                                                            @if(subjectFormControls['TheoryMin'].errors
+                                                                            @if(subjectFormControls['theoryMin'].errors
                                                                             &&
-                                                                            subjectFormControls['TheoryMin'].errors['required']){
-                                                                            <div>PractMax is required.</div>}
+                                                                            subjectFormControls['theoryMin'].errors['required']){
+                                                                            <div>practMax is required.</div>}
                                                                         </div>}
                                                                     </div>
                                                                     <div class="col-md">
-                                                                        <input type="text" formControlName="PractMin"
-                                                                            name="PractMin" class="form-control"
-                                                                            placeholder="PractMin" (blur)="validateMinMax('PractMin')" NumberOnly>
-                                                                        @if((subjectFormControls['PractMin'].touched ||
+                                                                        <input type="text" formControlName="practMin"
+                                                                            name="practMin" class="form-control"
+                                                                            placeholder="practMin" (blur)="validateMinMax('practMin')" NumberOnly>
+                                                                        @if((subjectFormControls['practMin'].touched ||
                                                                         iscourseSubjectForm) &&
-                                                                        subjectFormControls['PractMin'].invalid){
+                                                                        subjectFormControls['practMin'].invalid){
                                                                         <div class="errorMessage">
-                                                                            @if(subjectFormControls['PractMin'].errors
+                                                                            @if(subjectFormControls['practMin'].errors
                                                                             &&
-                                                                            subjectFormControls['PractMin'].errors['required']){
-                                                                            <div>PractMin is required.</div>}
+                                                                            subjectFormControls['practMin'].errors['required']){
+                                                                            <div>practMin is required.</div>}
                                                                         </div>}
                                                                     </div>
                                                                     <div class="col-md">
-                                                                        <input type="text" formControlName="SesMax"
-                                                                            name="SesMax" class="form-control"
-                                                                            placeholder="SesMax" NumberOnly>
-                                                                        @if((subjectFormControls['SesMax'].touched ||
+                                                                        <input type="text" formControlName="sesMax"
+                                                                            name="sesMax" class="form-control"
+                                                                            placeholder="sesMax" NumberOnly>
+                                                                        @if((subjectFormControls['sesMax'].touched ||
                                                                         iscourseSubjectForm) &&
-                                                                        subjectFormControls['SesMax'].invalid){
+                                                                        subjectFormControls['sesMax'].invalid){
                                                                         <div class="errorMessage">
-                                                                            @if(subjectFormControls['SesMax'].errors &&
-                                                                            subjectFormControls['SesMax'].errors['required']){
-                                                                            <div>SesMax is required.</div>}
+                                                                            @if(subjectFormControls['sesMax'].errors &&
+                                                                            subjectFormControls['sesMax'].errors['required']){
+                                                                            <div>sesMax is required.</div>}
                                                                         </div>}
                                                                     </div>
                                                                     <div class="col-md">
-                                                                        <input type="text" formControlName="SesMin"
-                                                                            name="SesMin" class="form-control"
-                                                                            placeholder="SesMin" (blur)="validateMinMax('SesMin')" NumberOnly>
-                                                                        @if((subjectFormControls['SesMin'].touched ||
+                                                                        <input type="text" formControlName="sesMin"
+                                                                            name="sesMin" class="form-control"
+                                                                            placeholder="sesMin" (blur)="validateMinMax('sesMin')" NumberOnly>
+                                                                        @if((subjectFormControls['sesMin'].touched ||
                                                                         iscourseSubjectForm) &&
-                                                                        subjectFormControls['SesMin'].invalid){
+                                                                        subjectFormControls['sesMin'].invalid){
                                                                         <div class="errorMessage">
-                                                                            @if(subjectFormControls['SesMin'].errors &&
-                                                                            subjectFormControls['SesMin'].errors['required']){
-                                                                            <div>SesMin is required.</div>}
+                                                                            @if(subjectFormControls['sesMin'].errors &&
+                                                                            subjectFormControls['sesMin'].errors['required']){
+                                                                            <div>sesMin is required.</div>}
                                                                         </div>}
                                                                     </div>
                                                                     <!-- <div class="col-md">
-                                                                        <input type="text" formControlName="MaxTotal"
-                                                                            name="MaxTotal" class="form-control"
-                                                                            placeholder="MaxTotal" NumberOnly>
-                                                                        @if((subjectFormControls['MaxTotal'].touched ||
+                                                                        <input type="text" formControlName="maxTotal"
+                                                                            name="maxTotal" class="form-control"
+                                                                            placeholder="maxTotal" NumberOnly>
+                                                                        @if((subjectFormControls['maxTotal'].touched ||
                                                                         iscourseSubjectForm) &&
-                                                                        subjectFormControls['MaxTotal'].invalid){
+                                                                        subjectFormControls['maxTotal'].invalid){
                                                                         <div class="errorMessage">
-                                                                            @if(subjectFormControls['MaxTotal'].errors
+                                                                            @if(subjectFormControls['maxTotal'].errors
                                                                             &&
-                                                                            subjectFormControls['MaxTotal'].errors['required']){
+                                                                            subjectFormControls['maxTotal'].errors['required']){
                                                                             <div>Course Scheme Name is required.</div>}
                                                                         </div>}
                                                                     </div> -->
@@ -309,27 +309,27 @@
                                                                             <th class="hoz-td sorting sorting_asc"
                                                                                 rowspan="1" colspan="1"
                                                                                 style="width: 5px;">
-                                                                                IsCompulsory
+                                                                                isCompulsory
                                                                             </th>
                                                                             <th class="hoz-td sorting sorting_asc"
                                                                                 rowspan="1" colspan="1"
                                                                                 style="width: 10px;">
-                                                                                SubjName
+                                                                                subjName
                                                                             </th>
                                                                              <th class="hoz-td sorting sorting_asc"
                                                                                 rowspan="1" colspan="1"
                                                                                 style="width: 10px;">
-                                                                                SubjectCode
+                                                                                subjectCode
                                                                             </th>
                                                                             <th class="hoz-td sorting sorting_asc"
                                                                                 rowspan="1" colspan="1"
                                                                                 style="width: 15px;">
-                                                                                TheoryMax
+                                                                                theoryMax
                                                                             </th>
                                                                              <th class="hoz-td sorting sorting_asc"
                                                                                 rowspan="1" colspan="1"
                                                                                 style="width: 10px;">
-                                                                                TheoryMin
+                                                                                theoryMin
                                                                             </th>
                                                                             <th class="hoz-td sorting sorting_asc"
                                                                                 rowspan="1" colspan="1"
@@ -354,7 +354,7 @@
                                                                             <th class="hoz-td sorting sorting_asc"
                                                                                 rowspan="1" colspan="1"
                                                                                 style="width: 10px;">
-                                                                                MaxTotal
+                                                                                maxTotal
                                                                             </th>
                                                                             <!-- <th class="hoz-td sorting sorting_asc"
                                                                                 rowspan="1" colspan="1"
@@ -364,7 +364,7 @@
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
-                                                                        @for (item of subjectList; track item.SubjName; let i=$index)  {
+                                                                        @for (item of subjectList; track item.subjName; let i=$index)  {
                                                                         <tr class="odd">
                                                                             <td>
                                                                                 <div class="flex flex-top">
@@ -373,52 +373,52 @@
                                                                             </td>
                                                                              <td>
                                                                                 <div class="flex flex-top">
-                                                                                    <p><span>{{item.IsCompulsory}}</span></p>
+                                                                                    <p><span>{{item.isCompulsory}}</span></p>
                                                                                 </div>
                                                                             </td>
                                                                               <td>
                                                                                 <div class="flex flex-top">
-                                                                                    <p><span>{{item.SubjName}}</span></p>
+                                                                                    <p><span>{{item.subjName}}</span></p>
                                                                                 </div>
                                                                               </td> 
                                                                               <td>
                                                                                 <div class="flex flex-top">
-                                                                                    <p><span>{{item.SubjectCode}}</span></p>
+                                                                                    <p><span>{{item.subjectCode}}</span></p>
                                                                                 </div>
                                                                               </td> 
                                                                               <td>
                                                                                 <div class="flex flex-top">
-                                                                                    <p><span>{{item.TheoryMax}}</span></p>
+                                                                                    <p><span>{{item.theoryMax}}</span></p>
                                                                                 </div>
                                                                               </td>
                                                                               <td>
                                                                                 <div class="flex flex-top">
-                                                                                    <p><span>{{item.TheoryMin}}</span></p>
+                                                                                    <p><span>{{item.theoryMin}}</span></p>
                                                                                 </div>
                                                                               </td>
                                                                                <td>
                                                                                 <div class="flex flex-top">
-                                                                                    <p><span>{{item.PractMax}}</span></p>
+                                                                                    <p><span>{{item.practMax}}</span></p>
                                                                                 </div>
                                                                               </td>
                                                                               <td>
                                                                               <div class="flex flex-top">
-                                                                                    <p><span>{{item.PractMin}}</span></p>
+                                                                                    <p><span>{{item.practMin}}</span></p>
                                                                                 </div>
                                                                               </td>
                                                                               <td>
                                                                               <div class="flex flex-top">
-                                                                                    <p><span>{{item.SesMax}}</span></p>
+                                                                                    <p><span>{{item.sesMax}}</span></p>
                                                                                 </div>
                                                                               </td>
                                                                               <td>
                                                                               <div class="flex flex-top">
-                                                                                    <p><span>{{item.SesMin}}</span></p>
+                                                                                    <p><span>{{item.sesMin}}</span></p>
                                                                                 </div>
                                                                               </td>
                                                                               <td>
                                                                               <div class="flex flex-top">
-                                                                                    <p><span>{{item.MaxTotal}}</span></p>
+                                                                                    <p><span>{{item.maxTotal}}</span></p>
                                                                                 </div>
                                                                               </td>
                                                                               <td>
