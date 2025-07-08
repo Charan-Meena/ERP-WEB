@@ -47,7 +47,7 @@ onActionEvent(actionData:CourseScheme){
 
 fetchExamScheduleList(){
   if(this.UserInfo.batch_ID){
-      this.ApiServices.requestGet('/api/student/examScheduleforStudents?id='+this.UserInfo.batch_ID).subscribe({
+      this.ApiServices.requestGet('/api/student/examScheduleforStudents?id='+this.UserInfo.batch_ID+'&studentID='+this.UserInfo.studentID).subscribe({
       next:(res:any)=>{
         this.examScheduleList=res.data || [];
       },
@@ -62,7 +62,7 @@ fetchExamScheduleList(){
     
     }
  
-  openModalPage(item:any){
+  openModalPage(item:any,actionString:string){
     console.log(item,'item....data')
           if (this.modalRef) this.modalRef = null;
           this.modalRef = this.modalStatus.open(ModalExamSlotsbookComponent, { centered: true, size: 'xl' });
@@ -73,5 +73,9 @@ fetchExamScheduleList(){
                  console.log("Error:Modal Open ::", e);
             });
             this.modalRef.componentInstance.examscheduleData = item;
+            this.modalRef.componentInstance.studentID = this.UserInfo.studentID;
+            this.modalRef.componentInstance.userID = this.UserInfo.userID;
+            this.modalRef.componentInstance.actionString = actionString;
+
   }  
 }

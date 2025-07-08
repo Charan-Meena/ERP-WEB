@@ -21,7 +21,16 @@ export class ModalExamSlotsbookComponent extends BaseService implements OnInit{
   isstudentForm:boolean=false;
   subjectList:Array<ICourseSubject>=[];
   subjectListObj:any;
+  isslotsok:boolean=false;
+  //userInfo:any=this.session.endSession();
  @Input() examscheduleData:IExamSchedule=<IExamSchedule>{};
+ @Input() studentID:number=0;;
+ @Input() userID:number=0;
+ @Input() actionString:string='';
+
+
+  
+
 
   constructor(private fb:FormBuilder){
        super();
@@ -33,12 +42,14 @@ ngOnInit():void{
       fullname:['',Validators.required],
   });
 setTimeout(() => {
+  console.log('studentID',this.studentID,this.userID)
   this.fetchPaperListforExam();
 }, 30);
 }
 
 fetchPaperListforExam(){
- this.ApiServices.requestGet('/api/student/getPaperforExam?batch_Id='+this.examscheduleData.batch_Id +'&semester_year='+this.examscheduleData.semester_year).subscribe({
+  if(this.actionString=="StudentExamSlotCreate"){
+   this.ApiServices.requestGet('/api/student/getPaperforExam?batch_Id='+this.examscheduleData.batch_Id +'&semester_year='+this.examscheduleData.semester_year).subscribe({
   next:(res:any)=>{
     console.log(res);
     this.subjectList=res.data || [];
@@ -47,14 +58,61 @@ fetchPaperListforExam(){
     console.log(e);
   }
  })
+  }
+  else{
+   this.ApiServices.requestGet('/api/student/getPaperforExam?studentID='+this.studentID+'&semester_year='+this.examscheduleData.semester_year).subscribe({
+  next:(res:any)=>{
+    console.log(res);
+    this.subjectList=res.data || [];
+  },
+  error(e){
+    console.log(e);
+  }
+ })
+  }
+ 
 }
 
 saveExamSchedule(){
-  console.log(this.subjectList,'subjectList');
+  this.datecheck();
+  if(this.isslotsok){
+   const param = {
+    examScheduleID:this.examscheduleData.examScheduleID,
+    studentID:this.studentID,
+    userID:this.userID,
+    spAction:this.actionString,
+    subject:JSON.stringify(this.subjectList)
+  }
+  this.ApiServices.requestPost('/api/student/studentExamSlotCreate',param).subscribe({
+    next:(res:any)=>{
+      console.log(res)
+      this.ApiServices.showToaster(res.statusCode,res.message)
+    },
+    error(e){
+      console.log(e,'Error');
+    }
+  })
+  }
+  else{
+    this.ApiServices.showToaster(3,"All Date Must be Filled...")
+  }
 }
 
 closeModal(type:any){
     this.activeModal.close(type);
+  }
+ 
+datecheck(){
+    for(let i=0;i<this.subjectList.length;i++){
+      if(!this.subjectList[i].examdate)
+      {
+         this.isslotsok=false;
+         return;
+      }
+      else{
+        this.isslotsok=true;
+      }
+    }
   }
 
 

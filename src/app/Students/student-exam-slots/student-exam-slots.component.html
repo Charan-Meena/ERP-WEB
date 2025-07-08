@@ -26,7 +26,9 @@
                                         <th>Exam Session</th>                                   
                                         <th>Start Date</th>                                  
                                         <th>End Date</th>                                  
-                                        <th>Book Slots</th>                                  
+                                        <th>Book Slots</th>
+                                        <th>See & Update</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -38,7 +40,23 @@
                                         <td>{{item.examSession}}</td>
                                         <td>{{item.openDate}}</td>
                                         <td>{{item.closeDate}}</td>
-                                        <td><a class="btn btn-icon btn-sm view-icon rounded-pill" (click)="openModalPage(item)"> <i class="fa fa-calendar-plus-o" style="font-size:24px; color:crimson"></i></a> </td>
+                                        <td>
+                                            @if(!item.isExamFormFill){
+                                                <a class="btn btn-icon btn-sm view-icon rounded-pill" (click)="openModalPage(item,'StudentExamSlotCreate')"> <i class="fa fa-calendar-plus-o" style="font-size:24px; color:crimson"></i></a>
+                                            }
+                                            @else {
+                                                <span> Slotes Created</span>
+                                            }
+                                         </td>
+                                         <td>
+                                             @if(item.isExamFormFill){
+                                                <a class="btn btn-icon btn-sm view-icon rounded-pill" (click)="openModalPage(item,'StudentExamSlotUpdate')"> <i class="fa fa-calendar-plus-o" style="font-size:24px; color:rgb(16, 224, 51)"></i></a>
+                                             }
+                                             @else {
+                                                <span> Slote Not Created</span>
+                                             }
+                                             
+                                         </td>
 
                                     </tr>
                                 </tbody>

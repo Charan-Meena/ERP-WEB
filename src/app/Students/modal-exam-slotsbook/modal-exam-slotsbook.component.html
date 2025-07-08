@@ -47,7 +47,13 @@
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-2">
+                                                                        @if(actionString=="StudentExamSlotCreate"){
                                                                         <button type="button" class="btn btn-dark" (click)="saveExamSchedule()"> SAVE </button>
+                                                                        }
+                                                                        @else {
+                                                                        <button type="button" class="btn btn-dark" (click)="saveExamSchedule()"> Update </button>
+                                                                        }
+                                                                        
                                                                     </div>
                                                                 </div>
                                                             </fieldset>

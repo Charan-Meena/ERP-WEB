@@ -52,7 +52,8 @@ export interface IExamSchedule{
     semester_year:number,
     examSession:string,
     openDate:string,
-    closeDate:Date
+    closeDate:Date,
+	isExamFormFill:boolean
 }
 export interface   EXAMSCHEDULE_API_RESPONSE extends ResponseData{
 	data:Array<IExamSchedule>
