@@ -3,6 +3,7 @@ import { BaseService } from '../../../Base/base.service';
 import { FormGroup, FormsModule } from '@angular/forms';
 import { IansOption, ImcqExam, IQuestionBank, QUESTIONBANK_API_RESPONSE } from '../../../Model/exam';
 import { CommonModule } from '@angular/common';
+import { ICourseSubject, ICourseSubjectObj } from '../../../Model/Class/programe';
 
 @Component({
   selector: 'app-online-examination',
@@ -24,165 +25,13 @@ export class OnlineExaminationComponent extends BaseService  implements OnInit{
     filtermcqQuestion:Array<IQuestionBank>=[];
     sbmitPaper:Array<IQuestionBank>=[];
     chart: any;
-    timeLeft: number = 60 * 60; // 1 hour in seconds
+    defaulttimeLeft: number = 60 ; // 1 hour in seconds
+    timeLeft: number = 0 // 1 hour in seconds
     interval: any;
     isExamActive: boolean = true;
     questionListforExam:Array<IQuestionBank>=[]
-    mcqQuestion:Array<ImcqExam>=[
-      {
-          "q_Id": 1,
-          "Pg_Id": 1,
-          "question": "testQuestion-1",
-          "ansOption": "A",
-          "givenAnswer":"",
-        "answerOption":[{"AnswerOption":"A","AnserDescription":" You Choose..A"},
-                        {"AnswerOption":"B","AnserDescription":" You Choose..B"},
-                        {"AnswerOption":"C","AnserDescription":" You Choose..C"},
-                        {"AnswerOption":"D","AnserDescription":" You Choose..D"},]
-      },
-      {   "q_Id": 2,
-          "Pg_Id": 1,
-          "question": "testQuestion-2",
-          "ansOption": "B",
-          "givenAnswer":"",
-          "answerOption":[{"AnswerOption":"A","AnserDescription":" You Choose..A"},
-                        {"AnswerOption":"B","AnserDescription":" You Choose..B"},
-                        {"AnswerOption":"C","AnserDescription":" You Choose..C"},
-                        {"AnswerOption":"D","AnserDescription":" You Choose..D"},]
-        },
-      {   "q_Id": 3,
-          "Pg_Id": 1,
-          "question": "testQuestion-3",
-          "ansOption": "C",
-          "givenAnswer":"",
-          "answerOption":[{"AnswerOption":"A","AnserDescription":" You Choose..A"},
-                        {"AnswerOption":"B","AnserDescription":" You Choose..B"},
-                        {"AnswerOption":"C","AnserDescription":" You Choose..C"},
-                        {"AnswerOption":"D","AnserDescription":" You Choose..D"},]
-        },
-      {   "q_Id": 4,
-          "Pg_Id": 1,
-          "question": "testQuestion-4",
-          "ansOption": "A",
-          "givenAnswer":"",
-          "answerOption":[{"AnswerOption":"A","AnserDescription":" You Choose..A"},
-                        {"AnswerOption":"B","AnserDescription":" You Choose..B"},
-                        {"AnswerOption":"C","AnserDescription":" You Choose..C"},
-                        {"AnswerOption":"D","AnserDescription":" You Choose..D"},]
-        },
-      {   "q_Id": 5,
-          "Pg_Id": 1,
-          "question": "testQuestion-5",
-          "ansOption": "B",
-          "givenAnswer":"",
-          "answerOption":[{"AnswerOption":"A","AnserDescription":" You Choose..A"},
-                        {"AnswerOption":"B","AnserDescription":" You Choose..B"},
-                        {"AnswerOption":"C","AnserDescription":" You Choose..C"},
-                        {"AnswerOption":"D","AnserDescription":" You Choose..D"},]
-        },
-      {   "q_Id": 6,
-          "Pg_Id": 1,
-          "question": "testQuestion-6",
-          "ansOption": "C",
-          "givenAnswer":"",
-          "answerOption":[{"AnswerOption":"A","AnserDescription":" You Choose..A"},
-                        {"AnswerOption":"B","AnserDescription":" You Choose..B"},
-                        {"AnswerOption":"C","AnserDescription":" You Choose..C"},
-                        {"AnswerOption":"D","AnserDescription":" You Choose..D"},]
-        },
-      {   "q_Id": 7,
-          "Pg_Id": 1,
-          "question": "testQuestion-7",
-          "ansOption": "A",
-          "givenAnswer":"",
-          "answerOption":[{"AnswerOption":"A","AnserDescription":" You Choose..A"},
-                        {"AnswerOption":"B","AnserDescription":" You Choose..B"},
-                        {"AnswerOption":"C","AnserDescription":" You Choose..C"},
-                        {"AnswerOption":"D","AnserDescription":" You Choose..D"},]
-        },
-      {   "q_Id": 8,
-          "Pg_Id": 1,
-          "question": "testQuestion-8",
-          "ansOption": "B",
-          "givenAnswer":"",
-          "answerOption":[{"AnswerOption":"A","AnserDescription":" You Choose..A"},
-                        {"AnswerOption":"B","AnserDescription":" You Choose..B"},
-                        {"AnswerOption":"C","AnserDescription":" You Choose..C"},
-                        {"AnswerOption":"D","AnserDescription":" You Choose..D"},]
-        },
-      {   "q_Id": 9,
-          "Pg_Id": 1,
-          "question": "testQuestion-9",
-          "ansOption": "C",
-          "givenAnswer":"",
-          "answerOption":[{"AnswerOption":"A","AnserDescription":" You Choose..A"},
-                        {"AnswerOption":"B","AnserDescription":" You Choose..B"},
-                        {"AnswerOption":"C","AnserDescription":" You Choose..C"},
-                        {"AnswerOption":"D","AnserDescription":" You Choose..D"},]
-        },
-      {   "q_Id": 10,
-          "Pg_Id": 1,
-          "question": "testQuestion-10",
-          "ansOption": "D",
-          "givenAnswer":"", 
-          "answerOption":[{"AnswerOption":"A","AnserDescription":" You Choose..A"},
-                        {"AnswerOption":"B","AnserDescription":" You Choose..B"},
-                        {"AnswerOption":"C","AnserDescription":" You Choose..C"},
-                        {"AnswerOption":"D","AnserDescription":" You Choose..D"},]
-      },
-      {   "q_Id": 11,
-          "Pg_Id": 1,
-          "question": "testQuestion-11",
-          "ansOption": "B",
-          "givenAnswer":"",
-          "answerOption":[{"AnswerOption":"A","AnserDescription":" You Choose..A"},
-                        {"AnswerOption":"B","AnserDescription":" You Choose..B"},
-                        {"AnswerOption":"C","AnserDescription":" You Choose..C"},
-                        {"AnswerOption":"D","AnserDescription":" You Choose..D"},]
-      },
-      {   "q_Id": 12,
-          "Pg_Id": 1,
-          "question": "testQuestion-12",
-          "ansOption": "C",
-          "givenAnswer":"",
-          "answerOption":[{"AnswerOption":"A","AnserDescription":" You Choose..A"},
-                        {"AnswerOption":"B","AnserDescription":" You Choose..B"},
-                        {"AnswerOption":"C","AnserDescription":" You Choose..C"},
-                        {"AnswerOption":"D","AnserDescription":" You Choose..D"},]
-      },
-      {   "q_Id": 13,
-          "Pg_Id": 1,
-          "question": "testQuestion-13",
-          "ansOption": "D",
-          "givenAnswer":"",
-          "answerOption":[{"AnswerOption":"A","AnserDescription":" You Choose..A"},
-                        {"AnswerOption":"B","AnserDescription":" You Choose..B"},
-                        {"AnswerOption":"C","AnserDescription":" You Choose..C"},
-                        {"AnswerOption":"D","AnserDescription":" You Choose..D"},]
-      },
-      {
-          "q_Id": 14,
-          "Pg_Id": 1,
-          "question": "testQuestion-14",
-          "ansOption": "B",
-          "givenAnswer":"",
-          "answerOption":[{"AnswerOption":"A","AnserDescription":" You Choose..A"},
-                        {"AnswerOption":"B","AnserDescription":" You Choose..B"},
-                        {"AnswerOption":"C","AnserDescription":" You Choose..C"},
-                        {"AnswerOption":"D","AnserDescription":" You Choose..D"},]
-      },
-      {
-          "q_Id": 15,
-          "Pg_Id": 1,
-          "question": "testQuestion-15",
-          "ansOption": "C",
-          "givenAnswer":"",
-          "answerOption":[{"AnswerOption":"A","AnserDescription":" You Choose..A"},
-                        {"AnswerOption":"B","AnserDescription":" You Choose..B"},
-                        {"AnswerOption":"C","AnserDescription":" You Choose..C"},
-                        {"AnswerOption":"D","AnserDescription":" You Choose..D"},]
-      }
-    ]
+    objSubject:ICourseSubjectObj=<ICourseSubjectObj>{};
+    UserInfo:any=this.sessionService.getSession();
 
     constructor(
     ) { 
@@ -190,6 +39,9 @@ export class OnlineExaminationComponent extends BaseService  implements OnInit{
       super();   
     }
     ngOnInit(){
+    const currentState = this.router.lastSuccessfulNavigation;
+    this.objSubject = currentState?.extras?.state?.['objCourseSubject'];
+    console.log('objSubject',this.objSubject);
       this.startTimer();
        setTimeout(() => {
           this.getQuestionforExamination()
@@ -201,6 +53,7 @@ export class OnlineExaminationComponent extends BaseService  implements OnInit{
   }
 ///////*********Timer Logic Start*******************//////////
   startTimer() {
+    this.timeLeft= this.defaulttimeLeft;
     this.interval = setInterval(() => {
       if (this.timeLeft > 0) {
         this.timeLeft--;
@@ -238,7 +91,7 @@ get seconds(): string {
   ///////*********Timer Logic End*******************//////////  api/Examination/getQuestionforExam
 
   getQuestionforExamination(){
-    this.ApiServices.requestGet('/api/Examination/getQuestionforExam').subscribe({
+    this.ApiServices.requestGet('/api/Examination/getQuestionforExam?examStudentSlots_MarksID='+this.objSubject.examStudentSlots_MarksID+'&studentID='+this.UserInfo.studentID+'&PaperID='+this.objSubject.subjectCourseID).subscribe({
       next:(res:QUESTIONBANK_API_RESPONSE|any)=>{
           this.questionListforExam=res.data || [];
           console.log('questionListforExam',this.questionListforExam);
@@ -249,9 +102,6 @@ get seconds(): string {
     })
 
   }
-
-
-
     nextQueCall(){
       if(this.currentIndex<(this.questionListforExam.length-1))
       {
@@ -285,15 +135,17 @@ get seconds(): string {
         this.filtermcqQuestion= this.questionListforExam.filter(s=>s.questionId==QID) 
         this.attemptQuestion= this.questionListforExam.filter(q => q.givenAnswer.trim() !== '').length;
         this.mcqLenghth= this.questionListforExam.length;
-        let reameningQuestion=this.mcqLenghth-this.attemptQuestion
-               
+        let reameningQuestion=this.mcqLenghth-this.attemptQuestion 
     }
 
     submit() {
-      //this.sbmitPaper= this.questionListforExam.filter(s=>s.givenAnswer!="")
+
       this.questionListforExam
       console.log(this.questionListforExam)
       const param ={
+        examStudentSlots_MarksID:this.objSubject.examStudentSlots_MarksID,
+        studentID:this.UserInfo.studentID,
+        PaperID:this.objSubject.subjectCourseID,
         questionList:JSON.stringify(this.questionListforExam)
       }
       this.ApiServices.requestPost('/api/Examination/studentExamSubmit',param).subscribe({
@@ -305,6 +157,11 @@ get seconds(): string {
          }        
       })
     }
-
+      submit11(e:any){
+        console.log(e,"ObjAnswer....");
+      }
+      gettime(){
+        console.log((this.timeLeft/60),' Hours Timeleft')
+      }
     
 }

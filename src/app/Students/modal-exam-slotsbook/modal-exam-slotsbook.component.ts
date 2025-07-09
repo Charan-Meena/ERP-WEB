@@ -27,11 +27,6 @@ export class ModalExamSlotsbookComponent extends BaseService implements OnInit{
  @Input() studentID:number=0;;
  @Input() userID:number=0;
  @Input() actionString:string='';
-
-
-  
-
-
   constructor(private fb:FormBuilder){
        super();
   }
@@ -70,7 +65,7 @@ fetchPaperListforExam(){
   }
  })
   }
- 
+
 }
 
 saveExamSchedule(){
@@ -86,7 +81,9 @@ saveExamSchedule(){
   this.ApiServices.requestPost('/api/student/studentExamSlotCreate',param).subscribe({
     next:(res:any)=>{
       console.log(res)
-      this.ApiServices.showToaster(res.statusCode,res.message)
+      this.ApiServices.showToaster(res.statusCode,res.message);
+      this.closeModal('CLOSE');
+
     },
     error(e){
       console.log(e,'Error');

@@ -25,3 +25,11 @@ export interface ICourseSubject{
 export interface   COURSESCHEME_API_RESPONSE extends ICourseSubject{
     data:ResponseData
 } 
+
+export interface ICourseSubjectObj{
+examStudentSlots_MarksID:number,
+examdate:Date,
+subjName:string,
+subjectCode:string,
+subjectCourseID:number
+}

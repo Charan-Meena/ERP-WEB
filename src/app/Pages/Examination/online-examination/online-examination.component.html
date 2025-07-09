@@ -25,8 +25,8 @@
                             <div class="student-top-part">
                                 <div class="section_heading mb-0">
                                     <div class="profile-basic">
-                                        <h6 class="text-muted">Paper Name:- Fundamental</h6>
-                                        <small class="text-muted">Paper Code:-CC-102</small>
+                                        <h6 class="text-muted">Paper Name:- {{objSubject.subjName}}</h6>
+                                        <small class="text-muted">Paper Code:-{{objSubject.subjectCode}}</small>
                                         <div class="staff-id">Roll No.:- XYZ123M0021</div>
                                         <div class="small doj text-muted">Exam Sesssion: June-2025 </div>
                                     </div>
@@ -51,33 +51,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <!-- <div class="col-8">
-                            <div class="row" *ngFor="let mcqList of filtermcqQuestion; let i=index">
-                                <div class="col-12 card-col">
-                                    <div class="card border-dark">
-                                        <div class="card-body">
-                                            <div class="card-title">
-                                                <p><span style="font-family: cursive; color: brown;">{{currentIndex+1}}){{mcqList.question}}</span></p>
-                                                <p *ngFor="let optionList of filtermcqQuestion[0].answerOption; let i=index">
-                                                    <span></span>
-                                                    <input class="form-check-input" type="radio" name="mcqList{{ mcqList.q_Id }}" [value]="optionList.AnswerOption" [(ngModel)]="mcqList.givenAnswer"/> 
-                                                    <span class="badge bg-warning text-dark me-2" >{{optionList.AnswerOption}}-{{optionList.AnserDescription}}    
-                                                 </span></p> 
-                                            </div> 
-                                        </div>
-                                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                            <button type="button" class="btn btn-danger" (click)="prevQueCall()"> << Previous</button>
-                                            <button type="button" class="btn btn-warning">Save</button>
-                                            <button type="button" class="btn btn-success" (click)=" nextQueCall()">Next >></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
+                    <section *ngIf="isExamActive; else examOver">
+                        <div class="row">
                          <div class="col-8">
                             <div class="row" *ngFor="let mcqList of filtermcqQuestion; let i=index">
-                                <!-- <div class="col-md-3 col-sm-12 col-xl-3 col-xxl-3 col-lg-3 mcard"> -->
                                 <div class="col-12 card-col">
                                     <div class="card border-dark">
                                         <div class="card-body">
@@ -85,23 +62,23 @@
                                                 <p><span style="font-family: cursive; color: brown;">{{currentIndex+1}}){{mcqList.question}}</span></p>
                                                 <p>
                                                     <span></span>
-                                                    <input class="form-check-input" type="radio" name="mcqList{{ mcqList.optionA }}" value="A" [(ngModel)]="mcqList.givenAnswer"/> 
+                                                    <input class="form-check-input" type="radio" (change)="submit11(mcqList)" name="mcqList{{ mcqList.optionA }}" value="A" [(ngModel)]="mcqList.givenAnswer"/> 
                                                     <span class="badge bg-warning text-dark me-2" >A-{{mcqList.optionA}}</span>
                                                 </p> 
                                                  <p>
                                                     <span></span>
-                                                    <input class="form-check-input" type="radio" name="mcqList{{ mcqList.optionB }}" value="B" [(ngModel)]="mcqList.givenAnswer"/> 
+                                                    <input class="form-check-input" type="radio" (change)="submit()" name="mcqList{{ mcqList.optionB }}" value="B" [(ngModel)]="mcqList.givenAnswer"/> 
                                                     <span class="badge bg-warning text-dark me-2" >B-{{mcqList.optionB}}</span>
                                                 </p> 
                                                  <p>
                                                     <span></span>
-                                                    <input class="form-check-input" type="radio" name="mcqList{{ mcqList.optionC }}" value="C" [(ngModel)]="mcqList.givenAnswer"/> 
+                                                    <input class="form-check-input" type="radio" (change)="submit()" name="mcqList{{ mcqList.optionC }}" value="C" [(ngModel)]="mcqList.givenAnswer"/> 
                                                     <span class="badge bg-warning text-dark me-2" >C-{{mcqList.optionC}}    
                                                  </span>
                                                 </p> 
                                                  <p>
                                                     <span></span>
-                                                    <input class="form-check-input" type="radio" name="mcqList{{ mcqList.optionD }}" value="D" [(ngModel)]="mcqList.givenAnswer"/> 
+                                                    <input class="form-check-input" type="radio" (change)="submit()" name="mcqList{{ mcqList.optionD }}" value="D" [(ngModel)]="mcqList.givenAnswer"/> 
                                                     <span class="badge bg-warning text-dark me-2" >D-{{mcqList.optionD}}    
                                                  </span>
                                                 </p> 
@@ -109,7 +86,7 @@
                                         </div>
                                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
                                             <button type="button" class="btn btn-danger" (click)="prevQueCall()"> << Previous</button>
-                                            <button type="button" class="btn btn-warning">Save</button>
+                                            <button type="button" class="btn btn-warning" (click)="gettime()">Save</button>
                                             <button type="button" class="btn btn-success" (click)=" nextQueCall()">Next >></button>
                                         </div>
                                     </div>
@@ -132,7 +109,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                        
                             <!-- <div class="row">
                                 <div class="col">
                                     <div class="card border-dark">
@@ -151,7 +128,7 @@
                             
                         </div>
                     </div>
-                    <div class="row">
+                       <div class="row">
                         <div class="col-3">
                             <div class="card border-dark">
                                 <div class="card-body">
@@ -168,6 +145,12 @@
                             <button class="btn btn-success" type="buttons" (click)="submit()">Submit</button>
                         </div>
                     </div>
+                    </section>
+                    <ng-template #examOver>
+                                    <h2>Exam Time Over</h2>
+                    </ng-template>
+                  
+                 
                     </div>
             <!-- </form> -->
         </section>

@@ -26,7 +26,8 @@ export interface ImcqExam{
     optionD:string,
     answer:string,
 	givenAnswer:string,
-    isActive:any
+    isActive:any,
+	timeLeft:number,
 }
 export interface   QUESTIONBANK_API_RESPONSE extends ResponseData{
 	data:Array<IQuestionBank>
@@ -76,4 +77,5 @@ export interface IExamStudentSlots_Marks{
 	maxTotal:number,
 	minTotal:number,
 	obtainMAx:number,
+	isExamgiven:boolean
 }

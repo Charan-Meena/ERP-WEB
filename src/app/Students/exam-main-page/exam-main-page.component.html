@@ -1,0 +1,63 @@
+<div class="registration-box border-box mb-3 ">
+    <div class="container">
+        <div class="registration-box">
+            <div class="card border-0 p-0">
+                <div class="card-body p-0">
+                    <fieldset class="border-box mb-3">
+                      <div class="row">
+                        <div class="col-10">
+                          <legend class="float-none w-auto"><b><span class="badge bg-secondary">Exam Slots Book</span></b></legend>
+                        </div>
+                        <div class="col-2">
+                          <!-- <a class="btn btn-icon btn-sm view-icon rounded-pill fa-plus-square-font"><i class="fa fa-plus-square"></i></a> -->
+                           <!-- <button class="btn btn-success" (click)="openModalPage()">Add</button> -->
+                        </div>
+                      </div>
+                        <div class="card border-0 p-0">
+                          <div class="card-body p-4">
+                            @if(examPaperList.length>0){
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>S.No.</th>
+                                        <th>Subject Code</th>
+                                        <th>Subject Name</th>
+                                        <th>Exam Date</th>
+                                        <th>Go for Online Exam</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="success" *ngFor="let item of examPaperList;let i=index">
+                                        <td>{{i+1}}</td>
+                                        <td>{{item.subjectCode}}</td>
+                                        <td>{{item.subjName}}</td>
+                                        <td>{{item.examdate}}</td>
+                                        <td>
+                                            @if(item.examdate){
+                                                <a class="btn btn-icon btn-sm view-icon rounded-pill" (click)="openPaperPage(item)"> <i class="fa fa-desktop" style="font-size:24px; color:rgb(20, 40, 220)"></i></a>
+                                            }
+                                            @else {
+                                                <span>Link Close</span>
+                                            }
+                                         </td>
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                            }
+                            @else
+                            {
+                                <div> 
+                                      <p>No Exam Schedule Creted till now...</p>
+                                </div>
+                            }
+                            
+
+                          </div>
+                        </div>
+                  </fieldset>
+                </div>
+            </div>            
+          </div>
+      </div>
+</div>
