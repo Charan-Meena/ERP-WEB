@@ -27,7 +27,7 @@ export interface ImcqExam{
     answer:string,
 	givenAnswer:string,
     isActive:any,
-	timeLeft:number,
+	timeleft:number,
 }
 export interface   QUESTIONBANK_API_RESPONSE extends ResponseData{
 	data:Array<IQuestionBank>

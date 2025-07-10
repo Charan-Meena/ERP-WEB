@@ -19,7 +19,9 @@ export interface ICourseSubject{
     minTotal:any,   
 	passing_On_Rule:any,
     activeStatus:any,
-	examdate:Date
+	examdate:Date,
+	isExamgiven:boolean,
+	isExamToday:number
 }
 
 export interface   COURSESCHEME_API_RESPONSE extends ICourseSubject{

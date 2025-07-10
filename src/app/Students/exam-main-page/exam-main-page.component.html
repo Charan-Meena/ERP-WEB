@@ -33,14 +33,19 @@
                                         <td>{{item.subjName}}</td>
                                         <td>{{item.examdate}}</td>
                                         <td>
-                                            @if(item.examdate){
+                                            @if(!item.isExamgiven && item.isExamToday==0){
                                                 <a class="btn btn-icon btn-sm view-icon rounded-pill" (click)="openPaperPage(item)"> <i class="fa fa-desktop" style="font-size:24px; color:rgb(20, 40, 220)"></i></a>
                                             }
-                                            @else {
-                                                <span>Link Close</span>
+                                            @else if(item.isExamgiven && item.isExamToday<=0) {
+                                                <b><span class="badge bg-success">Exam Completed</span></b>
                                             }
+                                            @else if(!item.isExamgiven && item.isExamToday>0) {
+                                                <b><span class="badge bg-primary">Link not Open</span></b>
+                                            }
+
+
                                          </td>
-                                        
+                    
                                     </tr>
                                 </tbody>
                             </table>

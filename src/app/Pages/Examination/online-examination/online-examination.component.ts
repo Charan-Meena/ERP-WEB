@@ -25,13 +25,14 @@ export class OnlineExaminationComponent extends BaseService  implements OnInit{
     filtermcqQuestion:Array<IQuestionBank>=[];
     sbmitPaper:Array<IQuestionBank>=[];
     chart: any;
-    defaulttimeLeft: number = 60 ; // 1 hour in seconds
+    defaulttimeLeft: number = 15*60 ; // 1 hour in seconds
     timeLeft: number = 0 // 1 hour in seconds
     interval: any;
     isExamActive: boolean = true;
     questionListforExam:Array<IQuestionBank>=[]
     objSubject:ICourseSubjectObj=<ICourseSubjectObj>{};
     UserInfo:any=this.sessionService.getSession();
+    isLoad:boolean=false;
 
     constructor(
     ) { 
@@ -42,22 +43,22 @@ export class OnlineExaminationComponent extends BaseService  implements OnInit{
     const currentState = this.router.lastSuccessfulNavigation;
     this.objSubject = currentState?.extras?.state?.['objCourseSubject'];
     console.log('objSubject',this.objSubject);
-      this.startTimer();
-       setTimeout(() => {
-          this.getQuestionforExamination()
-       }, 10);
-       setTimeout(() => {
-        this.getQuestion(this.questionListforExam[0].questionId,0);
-       }, 100);
-      
+  }
+ ngAfterViewInit() {
+    setTimeout(()=>{
+      this.loadQuestionDetails();
+    },100)
   }
 ///////*********Timer Logic Start*******************//////////
   startTimer() {
-    this.timeLeft= this.defaulttimeLeft;
+    if(!this.timeLeft){
+       this.timeLeft=this.defaulttimeLeft;  
+    }
     this.interval = setInterval(() => {
       if (this.timeLeft > 0) {
         this.timeLeft--;
       } else {
+        this.finalSubmitExam();
         this.isExamActive = false;
         clearInterval(this.interval);
       }
@@ -90,11 +91,15 @@ get seconds(): string {
 
   ///////*********Timer Logic End*******************//////////  api/Examination/getQuestionforExam
 
-  getQuestionforExamination(){
+  getQuestionforExamination(callback?:Function){
     this.ApiServices.requestGet('/api/Examination/getQuestionforExam?examStudentSlots_MarksID='+this.objSubject.examStudentSlots_MarksID+'&studentID='+this.UserInfo.studentID+'&PaperID='+this.objSubject.subjectCourseID).subscribe({
       next:(res:QUESTIONBANK_API_RESPONSE|any)=>{
           this.questionListforExam=res.data || [];
+          this.timeLeft=this.questionListforExam[0].timeleft;
           console.log('questionListforExam',this.questionListforExam);
+          console.log('this.timeLeft',this.timeLeft);
+          
+          callback && callback(true);
       },
       error(e){
         console.log(e);
@@ -139,13 +144,13 @@ get seconds(): string {
     }
 
     submit() {
-
       this.questionListforExam
       console.log(this.questionListforExam)
       const param ={
         examStudentSlots_MarksID:this.objSubject.examStudentSlots_MarksID,
         studentID:this.UserInfo.studentID,
         PaperID:this.objSubject.subjectCourseID,
+        timeleft:this.timeLeft,
         questionList:JSON.stringify(this.questionListforExam)
       }
       this.ApiServices.requestPost('/api/Examination/studentExamSubmit',param).subscribe({
@@ -157,11 +162,47 @@ get seconds(): string {
          }        
       })
     }
-      submit11(e:any){
-        console.log(e,"ObjAnswer....");
+      submitsingle(ObjAnswer:any){
+        console.log(ObjAnswer,"ObjAnswer....");
+         const param ={
+        examStudentSlots_MarksID:this.objSubject.examStudentSlots_MarksID,
+        studentID:this.UserInfo.studentID,
+        PaperID:this.objSubject.subjectCourseID,
+        timeleft:this.timeLeft,
+        questionList:JSON.stringify(ObjAnswer)
       }
-      gettime(){
-        console.log((this.timeLeft/60),' Hours Timeleft')
+      this.ApiServices.requestPost('/api/Examination/studentExamSubmitSingle',param).subscribe({
+         next:(res:any)=>{
+          console.log(res);
+         },
+         error(e){
+          console.log(e)
+         }        
+      })
       }
-    
+      
+      finalSubmitExam(){
+        const param ={
+        examStudentSlots_MarksID:this.objSubject.examStudentSlots_MarksID,
+        studentID:this.UserInfo.studentID,
+        PaperID:this.objSubject.subjectCourseID,
+        timeleft:this.timeLeft,
+      }
+      this.ApiServices.requestPost('/api/Examination/studentExamSubmitFinal',param).subscribe({
+         next:(res:any)=>{
+          console.log(res);
+         },
+         error(e){
+          console.log(e)
+         }        
+      })
+
+      }
+    loadQuestionDetails(){
+      this.getQuestionforExamination(()=>{
+      this.getQuestion(this.questionListforExam[0].questionId,0);
+      this.startTimer();
+      this.isLoad=true;
+      })
+    }
 }
