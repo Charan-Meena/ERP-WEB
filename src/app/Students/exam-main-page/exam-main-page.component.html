@@ -42,6 +42,9 @@
                                             @else if(!item.isExamgiven && item.isExamToday>0) {
                                                 <b><span class="badge bg-primary">Link not Open</span></b>
                                             }
+                                            @else if(!item.isExamgiven && item.isExamToday<0) {
+                                                <b><span class="badge bg-danger">Link Close</span></b>
+                                            }
 
 
                                          </td>

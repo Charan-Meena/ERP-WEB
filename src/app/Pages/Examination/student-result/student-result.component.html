@@ -1,0 +1,107 @@
+<div class="registration-box border-box mb-3 ">
+    <div class="container">
+        <div class="registration-box">
+            <div class="card border-0 p-0">
+                <div class="card-body p-0">
+                    <fieldset class="border-box mb-3">
+                      <legend class="float-none w-auto"><b><span class="badge bg-secondary">Student Result</span></b></legend>
+                        <div class="card border-0 p-0">
+                          <div class="card-body p-0">
+                             <form [formGroup]="ProgrameResitrationForm" (ngSubmit)="Fromsubmit()">
+                            <fieldset class="border-box mb-3">
+                              <div class="card">
+                              <div class="card border-0 p-0">
+                                 <div class="card-body p-0">
+                            <div class="row p-2">
+                               <div class="col-md-3">
+                                    <select class="form-select" formControlName="programeId" name="programeId" required>
+                                      <option value="" disabled selected>Select Programe</option>
+                                      @for (item of programeDDL; track item.programeID) 
+                                      {
+                                               <option [value]=item.programeID>{{item.programeName}}</option>
+                                      }
+                                    </select>
+                                    <div
+                                      *ngIf="(progFormControls['programeId'].touched || isProgrameFormSubmitted) && progFormControls['programeId'].invalid"
+                                      class="errorMessage">
+                                      <div *ngIf="progFormControls['programeId'].errors && progFormControls['programeId'].errors['required']">
+                                        Programe is required.</div>
+                                    </div>
+                                </div>
+                                  <div class="col-md-3">
+                                    <select class="form-select" formControlName="semester_year" name="semester_year" (change)="fetchSubject($event)" required>
+                                      <option value="" disabled selected>Select Semester_Year</option>
+                                      <option value="1">First</option>
+                                      <option value="2">Second</option>
+                                      <option value="3">Third</option>
+                                      <option value="4">Fourth</option>
+                                      <option value="5">Fifth</option>
+                                      <option value="6">Sixth</option>
+                                    </select>
+                                    <div
+                                      *ngIf="(progFormControls['semester_year'].touched || isProgrameFormSubmitted) && progFormControls['semester_year'].invalid"
+                                      class="errorMessage">
+                                      <div *ngIf="progFormControls['semester_year'].errors && progFormControls['semester_year'].errors['required']">
+                                        Semester_Year is required.</div>
+                                    </div>
+                                  </div>  
+                                   <div class="col-md-3">
+                                    <select class="form-select" formControlName="subject" name="subject" required (change)="onsubject($event)">
+                                      <option value="" disabled selected>Select Subject</option>
+                                       @for (item of SubjectDDL; track item.subjectCourseID) 
+                                      {
+                                               <option [value]=item.subjectCourseID>{{item.subjectCode}}--{{item.subjName}}</option>
+                                      }
+
+                                    </select>
+                                    <div
+                                      *ngIf="(progFormControls['subject'].touched || isProgrameFormSubmitted) && progFormControls['subject'].invalid"
+                                      class="errorMessage">
+                                      <div *ngIf="progFormControls['subject'].errors && progFormControls['subject'].errors['required']">
+                                        Subject is required.</div>
+                                    </div>
+                                  </div>        
+                                </div>
+                                </div>
+                                </div>
+                              </div>
+                            </fieldset>
+                            </form>
+                           </div>
+                        </div>
+                  </fieldset>
+                  <fieldset class="border-box mb-3">
+                    <div class="card border-0 p-0">
+                      <div class="card-body p-0">
+                        <div class="row">
+                          <div class="col">
+                            <table class="table">
+                              <thead>
+                                <th>Student Name</th>
+                                <th>Theory MAx</th>
+                                <th>Theory Min</th>
+                                <th>Theory Obtain</th>
+                              </thead>
+                              <tbody>
+                                @for(item of marksListBySubject; track item.fullname){
+                                <tr>
+                                  <td>{{item.fullname}}</td>
+                                  <td>{{item.theoryMax}}</td>
+                                  <td>{{item.theoryMin}}</td>
+                                  <td>{{item.obtainTheory}}</td>
+                                </tr>
+                                }
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+
+                </div>
+            </div>            
+          </div>
+      </div>
+</div>
+

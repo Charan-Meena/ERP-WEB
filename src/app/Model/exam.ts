@@ -61,11 +61,12 @@ export interface   EXAMSCHEDULE_API_RESPONSE extends ResponseData{
 }
 
 export interface IExamStudentSlots_Marks{
+	fullname:string,
 	examStudentSlots_MarksID:number,
 	subjectCourseID:number,
 	examdate:Date,
 	semYear:number,
-	theoryMaxL:number,
+	theoryMax:number,
 	theoryMin:number,
 	obtainTheory:number,
 	practMax:number,

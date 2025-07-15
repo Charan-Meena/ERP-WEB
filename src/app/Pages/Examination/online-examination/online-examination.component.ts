@@ -67,6 +67,7 @@ export class OnlineExaminationComponent extends BaseService  implements OnInit{
     ngOnDestroy() {
     if (this.interval) {
       clearInterval(this.interval);
+      this.pageChangeorDestroye();
     }
   }
    formatTime(seconds: number): string {
@@ -180,7 +181,7 @@ get seconds(): string {
          }        
       })
       }
-      
+
       finalSubmitExam(){
         const param ={
         examStudentSlots_MarksID:this.objSubject.examStudentSlots_MarksID,
@@ -191,6 +192,8 @@ get seconds(): string {
       this.ApiServices.requestPost('/api/Examination/studentExamSubmitFinal',param).subscribe({
          next:(res:any)=>{
           console.log(res);
+          this.ApiServices.showToaster(res.statusCode,res.message)
+          this.pageOpen('/exam-main-page');
          },
          error(e){
           console.log(e)
@@ -203,6 +206,23 @@ get seconds(): string {
       this.getQuestion(this.questionListforExam[0].questionId,0);
       this.startTimer();
       this.isLoad=true;
+      })
+    }
+
+    pageChangeorDestroye(){
+      const param ={
+        examStudentSlots_MarksID:this.objSubject.examStudentSlots_MarksID,
+        studentID:this.UserInfo.studentID,
+        PaperID:this.objSubject.subjectCourseID,
+        timeleft:this.timeLeft,
+      }
+      this.ApiServices.requestPost('/api/Examination/studentExamSubmitSingle',param).subscribe({
+         next:(res:any)=>{
+          console.log(res);
+         },
+         error(e){
+          console.log(e)
+         }        
       })
     }
 }

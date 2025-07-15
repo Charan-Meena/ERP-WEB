@@ -55,16 +55,17 @@
                                                     <span class="badge bg-warning text-dark me-2" >B-{{mcqList.optionB}}</span>
                                                 </p> 
                                                  <p>
-                                                    <span></span>
-                                                    <input class="form-check-input" type="radio" (change)="submitsingle(mcqList)" name="mcqList{{ mcqList.optionC }}" value="C" [(ngModel)]="mcqList.givenAnswer"/> 
+                                                    @if(mcqList.optionC!==""){
+                                                        <input class="form-check-input" type="radio" (change)="submitsingle(mcqList)" name="mcqList{{ mcqList.optionC }}" value="C" [(ngModel)]="mcqList.givenAnswer"/> 
                                                     <span class="badge bg-warning text-dark me-2" >C-{{mcqList.optionC}}    
                                                  </span>
+                                                    }
                                                 </p> 
                                                  <p>
-                                                    <span></span>
+                                                    @if(mcqList.optionD !==""){
                                                     <input class="form-check-input" type="radio" (change)="submitsingle(mcqList)" name="mcqList{{ mcqList.optionD }}" value="D" [(ngModel)]="mcqList.givenAnswer"/> 
-                                                    <span class="badge bg-warning text-dark me-2" >D-{{mcqList.optionD}}    
-                                                 </span>
+                                                    <span class="badge bg-warning text-dark me-2" >D-{{mcqList.optionD}}     </span>  
+                                                    }                                              
                                                 </p> 
                                             </div> 
                                         </div>

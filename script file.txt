@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [ARP]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Database [ARP]    Script Date: 15-07-2025 18:59:41 ******/
 CREATE DATABASE [ARP]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -82,7 +82,7 @@ ALTER DATABASE [ARP] SET QUERY_STORE = OFF
 GO
 USE [ARP]
 GO
-/****** Object:  Table [dbo].[Batch_master]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[Batch_master]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -103,7 +103,7 @@ CREATE TABLE [dbo].[Batch_master](
 	[coursScheme] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[MST_Sem_Year]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[MST_Sem_Year]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -114,7 +114,7 @@ CREATE TABLE [dbo].[MST_Sem_Year](
 	[Sem_Year_Value] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Role_Table]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[Role_Table]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -125,7 +125,7 @@ CREATE TABLE [dbo].[Role_Table](
 	[ActiveStatus] [bit] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_CourseScheme]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[Tbl_CourseScheme]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -142,7 +142,7 @@ CREATE TABLE [dbo].[Tbl_CourseScheme](
 	[examPattern] [nvarchar](50) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_Designation]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[Tbl_Designation]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -153,7 +153,7 @@ CREATE TABLE [dbo].[Tbl_Designation](
 	[IsActive] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ExamPaper]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[Tbl_ExamPaper]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -185,7 +185,7 @@ CREATE TABLE [dbo].[Tbl_ExamPaper](
 	[MarksEachQuestion] [decimal](18, 0) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ExamQuestionBank]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[Tbl_ExamQuestionBank]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -206,7 +206,7 @@ CREATE TABLE [dbo].[Tbl_ExamQuestionBank](
 	[updatedOn] [date] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ExamSchedule]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[Tbl_ExamSchedule]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -223,7 +223,7 @@ CREATE TABLE [dbo].[Tbl_ExamSchedule](
 	[createdon] [date] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ExamSchedule_Student]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[Tbl_ExamSchedule_Student]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -239,7 +239,7 @@ CREATE TABLE [dbo].[Tbl_ExamSchedule_Student](
 	[createdOn] [date] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ExamStudentSlots_Marks]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[Tbl_ExamStudentSlots_Marks]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -271,7 +271,7 @@ CREATE TABLE [dbo].[Tbl_ExamStudentSlots_Marks](
 	[isExamgiven] [bit] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_Login]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[Tbl_Login]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -287,7 +287,7 @@ CREATE TABLE [dbo].[Tbl_Login](
 	[parentId] [int] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_ProgrameMaster]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[Tbl_ProgrameMaster]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -299,7 +299,7 @@ CREATE TABLE [dbo].[Tbl_ProgrameMaster](
 	[ProgrameLebel] [varchar](200) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_StaffInfo]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[Tbl_StaffInfo]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -320,7 +320,7 @@ CREATE TABLE [dbo].[Tbl_StaffInfo](
 	[parentId] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_StudentBatchAlloted]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[Tbl_StudentBatchAlloted]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -336,7 +336,7 @@ CREATE TABLE [dbo].[Tbl_StudentBatchAlloted](
 	[createdOn] [date] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_studentExamSubmit]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[Tbl_studentExamSubmit]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -354,7 +354,7 @@ CREATE TABLE [dbo].[Tbl_studentExamSubmit](
 	[rightAnswer] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_StudentInfo]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[Tbl_StudentInfo]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -373,7 +373,7 @@ CREATE TABLE [dbo].[Tbl_StudentInfo](
 	[Batch_ID] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_User_login]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[Tbl_User_login]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -391,7 +391,7 @@ CREATE TABLE [dbo].[Tbl_User_login](
 	[parentId] [int] NULL
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Tbl_UserRoll]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Table [dbo].[Tbl_UserRoll]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -485,9 +485,9 @@ INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern]
 GO
 INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus], [QuesNforExam], [MarksEachQuestion]) VALUES (4, 1, N'Semster', 1, 1, 3, N'Programing Laboratory in C ', N'BC-104', 80, 28, 10, 5, 10, 5, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1, 20, CAST(4 AS Decimal(18, 0)))
 GO
-INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus], [QuesNforExam], [MarksEachQuestion]) VALUES (5, 1, N'Semster', 1, 1, 3, N'PC Package', N'BC-105', 80, 28, 10, 5, 10, 5, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1, 20, CAST(4 AS Decimal(18, 0)))
+INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus], [QuesNforExam], [MarksEachQuestion]) VALUES (5, 1, N'Semster', 1, 1, 3, N'DBMS ', N'BC-105', 80, 28, 10, 5, 10, 5, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1, 20, CAST(4 AS Decimal(18, 0)))
 GO
-INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus], [QuesNforExam], [MarksEachQuestion]) VALUES (6, 1, N'Semster', 2, 1, 1, N'DBMS ', N'BC-201', 80, 28, 10, 5, 10, 5, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1, 20, CAST(4 AS Decimal(18, 0)))
+INSERT [dbo].[Tbl_ExamPaper] ([SubjectCourseID], [courseSchemeID], [examPattern], [SemYear], [IsCompulsory], [SubjSeq], [SubjName], [SubjectCode], [TheoryMax], [TheoryMin], [PractMax], [PractMin], [SesMax], [SesMin], [MaxTotal], [MinTotal], [Passing_On_Rule], [createdBy], [createdon], [Updatedby], [updatedon], [ActiveStatus], [QuesNforExam], [MarksEachQuestion]) VALUES (6, 1, N'Semster', 2, 1, 1, N'PC Package ', N'BC-201', 80, 28, 10, 5, 10, 5, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1, 20, CAST(4 AS Decimal(18, 0)))
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_ExamPaper] OFF
 GO
@@ -534,6 +534,16 @@ INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optio
 GO
 INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (38, 2, N'Numerical techniques more commonly involve _______', N'Elimination method', N'Reduction method', N'Iterative method', N'Direct method', N'C', 1, NULL, NULL, NULL, NULL)
 GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (61, 3, N'The word communication is derived from _____', N'communicare', N'communicare', N'comuniicare', N'communnicare', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (62, 3, N'Which of these is the most important tool of communication?', N'Posture', N'Language', N'Body language', N'Gestures', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (63, 3, N' Which of these is the triangle of communication?', N'ARS', N'ARC', N'ABR', N'ARD', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (64, 3, N' Which of these is not an element of non-verbal communication?', N'Eye contact', N'Posture', N'Name of the speaker', N'Personal appearance', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (65, 3, N'Which of these is a main element of non-verbal communication?', N'Name of the listener', N'The volume of the speaker', N'Age of the speaker', N'Name of the speaker', N'B', 1, NULL, NULL, NULL, NULL)
+GO
 INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (19, 1, N'20. Which of the following is known as the interval between the instant a computer makes a request for the transfer of data from a disk system to the primary storage and the instance the operation is completed?', N'Disk utilization time', N'Drive utilization time', N'Disk access time', N'Disk arrival time', N'D', 1, NULL, NULL, NULL, NULL)
 GO
 INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (20, 1, N'Which of the following devices provides the communication between a computer and the outer world?', N'Compact', N' I/O', N'Drivers', N'Storage', N'B', 1, NULL, NULL, NULL, NULL)
@@ -572,6 +582,20 @@ GO
 INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (36, 1, N'A __________ gate gives the output as 1 only if all the inputs signals are 1.', N'AND', N'OR', N'EXOR', N'NOR', N'A', 1, NULL, NULL, NULL, NULL)
 GO
 INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (37, 1, N'The boolean expression of an OR gate is _______', N'A.B', N'A’B+AB’', N' A+B', N' A’B’', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (66, 3, N'Talking comes under which type of communication?', N'Dramatic', N'Non-verbal', N'Written', N'Verbal', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (67, 3, N' Which of these is the most common form of dyadic communication?', N'Blogging', N'Writing', N'Conversation', N'Texting', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (68, 3, N'Which of these is the easiest way of communication?', N'Letter', N'Fax', N'E-mail', N'Telephone', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (69, 3, N'Which of these factors is not required for communication growth?', N'Growth in size of organisations', N'Negative atmosphere', N'Public relations', N'Globalisation', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (70, 3, N'Which of these must be avoided for effective communication?', N'Sharing of activity', N'Politeness', N'Ambiguity', N'Listening', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (71, 3, N'Which of these should not be avoided for effective communication?', N'Planning', N'Noise', N'Semantic problems', N'Wrong assumptions', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (72, 3, N'Which of these terms refer to the study of speech process?', N'Semantics', N'Phonetic substances', N'Phonology', N'Phonetics', N'D', 1, NULL, NULL, NULL, NULL)
 GO
 INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (39, 2, N'Which of the following is an iterative method?', N'Gauss Seidel', N'Gauss Jordan', N'Factorization', N'Gauss Elimination', N'B', 1, NULL, NULL, NULL, NULL)
 GO
@@ -620,6 +644,176 @@ INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optio
 GO
 INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (60, 2, N'Find the positive root of the equation 4x = ex using Regula Falsi method and correct to 4 decimal places.', N'0.5374', N'0.3574', N'0.3647', N'0.4673', N'B', 1, NULL, NULL, NULL, NULL)
 GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (87, 3, N'Which of these proposals are academic in nature?', N'Research proposals', N'Business proposals', N'Musical proposals', N'Personal proposals', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (88, 3, N'Which of these is not considered for a debate?', N'Volume of the speaker', N'Body language', N'Fluency in language', N'Availability of information', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (73, 3, N'What is the most important characteristic of a good listener?', N'Giving full attention', N'Interrupting the speaker', N'Repeating what is heard', N'Making assumptions', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (74, 3, N' Which of these methods should be used to improve clarity in written communication?', N'Use of complex language', N'Frequent use of jargon', N'Long paragraphs', N'Clear structure and concise sentences', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (75, 3, N' Which of these is an example of verbal communication?', N'Using facial expressions', N'Gesturing with your hands', N'Writing a letter', N'Nodding your head', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (76, 3, N'What role does body language play in communication?', N'It can reinforce or contradict the message', N'It makes communication more difficult', N'It is only important in face-to-face communication', N'It has no effect on communication', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (77, 3, N'Which of these is essential for clear verbal communication?', N'Maintaining eye contact', N'Speaking too quickly', N'Overloading the message with details', N'Using slang', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (78, 3, N'Which type of communication is most effective in delivering complex information?', N'Group communication', N'Nonverbal communication', N'Written communication', N'Oral communication', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (79, 3, N'What is the effect of using a passive tone in communication?', N'It resolves conflicts efficiently', N'It creates confusion and misunderstanding', N'It shows confidence', N'It encourages open discussion', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (80, 3, N'Which of the following helps prevent misunderstandings during communication?', N'Asking clarifying questions', N'Speaking in a monotone voice', N'Avoiding feedback', N'Ignoring the receiver’s response', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (81, 3, N'How can distractions impact communication?', N'They improve focus', N'They hinder the reception of the message', N'They facilitate understanding', N' They make communication more efficient', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (82, 3, N'Find the correct statement.', N'The sun rises in east.', N'Sun rises in the east.', N'The sun rises in east.', N'The sun rises in the east.', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (83, 3, N' Which of these is an example of simple present tense?', N'I am reading the Gita.', N'There she goes!', N'I am going to Delhi tomorrow.', N'He has just gone out.', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (84, 3, N' Which of these is used between sentences which are grammatically independent?', N'Colon', N'Hyphen', N'Comma', N'Semicolon', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (85, 3, N'Which of these is used to refer to something that happened before the moment of speaking?', N'Present infinitive', N'Continuous infinitive', N'Perfect infinitive', N'Bare infinitive', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (86, 3, N' Which of these must not be mentioned in a business letter?', N'With regards', N'Name of the firm', N'The mode of payment', N'Information of the quality of the order', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (89, 3, N'Which of these are to be avoided in a debate?', N'Fights', N'Using rhetoric', N'Taking notes', N'Listening', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (90, 3, N'When is the worst time to break into a discussion?', N'When there is less time left', N'When one person is talking', N'When everyone is silent', N'When two or three people are talking simultaneously', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (91, 3, N'Which of these must be avoided in a group discussion?', N'Speaking with clarity', N'Speaking fast', N'Asking questions', N'Speaking facts', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (92, 3, N'Which of these is a benefit of good communication skills?', N'Conflict', N'Stress', N'Improved relationships', N'Misunderstandings', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (93, 3, N' Which of these must be avoided in a meeting?', N'Patience', N'Criticism', N'Tact', N'Leadership', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (94, 4, N'Who is the father of C language?', N'Steve Jobs', N'James Gosling', N'Dennis Ritchie', N'Rasmus Lerdorf', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (95, 4, N'Which of the following is not a valid C variable name?', N'int number;', N'float rate;', N'int variable_count;', N'int $main;', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (96, 4, N'All keywords in C are in ____________', N'LowerCase letters', N'UpperCase letters', N'CamelCase letters', N'None of the mentioned', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (97, 4, N'Which of the following is true for variable names in C?', N'They can contain alphanumeric characters as well as special characters', N'It is not an error to declare a variable to be one of the keywords(like goto, static)', N'Variable names cannot start with a digit', N'Variable can be of any length', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (98, 4, N' Which is valid C expression?', N'int my_num = 100,000;', N'int my_num = 100000;', N'int my num = 1000;', N'int $my_num = 10000;', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (99, 4, N'Which of the following cannot be a variable name in C?', N'volatile', N'true', N'friend', N'export', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (100, 4, N'What is short int in C programming?', N'The basic data type of C', N'Qualifier', N'Short is the qualifier and int is the basic data type', N'All of the mentioned', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (101, 4, N'Which of the following declaration is not supported by C language?', N'String str;', N'char *str;', N' float str = 3e2;', N'Both “String str;” and “float str = 3e2;”', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (102, 4, N'Which keyword is used to prevent any changes in the variable within a C program?', N'immutable', N'mutable', N'const', N'volatile', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (103, 4, N'What is the result of logical or relational expression in C?', N'True or False', N'0 or 1', N'0 if an expression false and any positive number if an expression is true', N'None of the mentioned', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (104, 4, N'Which of the following typecasting is accepted by C language?', N'Widening conversions', N'Narrowing conversions', N'Widening & Narrowing conversions', N'None of the mentioned', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (105, 4, N'Where in C the order of precedence of operators do not exist?', N'Within conditional statements, if, else', N'Within while, do-while', N'Within a macro definition', N'None of the mentioned', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (106, 4, N'Which of the following is NOT possible with any 2 operators in C?', N'Different precedence, same associativity', N'Different precedence, different associativity', N'Same precedence, different associativity', N'All of the mentioned', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (107, 4, N'What is an example of iteration in C?', N'for', N'while', N'do-while', N'all of the mentioned', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (108, 4, N'Functions can return enumeration constants in C?', N'true', N'false', N'depends on the compiler', N'depends on the standard', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (109, 4, N'Functions in C Language are always _________', N'Internal', N'External', N'Both Internal and External', N'External and Internal are not valid terms for functions', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (111, 4, N'Property which allows to produce different executable for different platforms in C is called?', N'File inclusion', N'Selective inclusion', N'Conditional compilation', N'Recursive macros', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (112, 4, N'What is #include <stdio.h>?', N'Preprocessor directive', N'Inclusion directive', N'File inclusion directive', N'None of the mentioned', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (113, 4, N'C preprocessors can have compiler specific features.', N'True', N'False', N'Depends on the standard', N'Depends on the platform', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (114, 4, N'Which of the following are C preprocessors?', N'#ifdef', N'#define', N'#endif', N'all of the mentioned', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (115, 4, N'The C-preprocessors are specified with _________ symbol.', N'#', N'$', N'" "', N'&', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (110, 4, N' Which of following is not accepted in C?', N'static a = 10; //static as', N'static int func (int); //parameter as static', N'static static int a; //a static variable prefixed with static', N'all of the mentioned', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (116, 4, N'How is search done in #include and #include “somelibrary.h” according to C standard?', N'When former is used, current directory is searched and when latter is used, standard directory is se', N' When former is used, standard directory is searched and when latter is used, current directory is s', N'directory is searched', N'For both, search for ‘somelibrary’ is done in implementation-defined places', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (117, 4, N'How many number of pointer (*) does C have against a pointer variable declaration?', N'7', N'127', N'255', N'No Limits', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (118, 4, N'Which of the following is not possible statically in C language?', N'Jagged Array', N'Rectangular Array', N'Cuboidal Array', N'Multidimensional Array', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (119, 4, N'Which of the following return-type cannot be used for a function in C?', N'char *', N'struct', N'void', N'none of the mentioned', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (120, 4, N'The standard header _______ is used for variable list arguments (…) in C.', N'<stdio.h >', N'<stdlib.h>', N'<math.h>', N'<stdarg.h>', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (121, 4, N'When a C program is started, O.S environment is responsible for opening file and providing pointer for that file?', N'Standard input', N'Standard output', N'Standard error', N'All of the mentioned', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (122, 4, N'In C language, FILE is of which data type?', N'int', N'char *', N'struct', N'None of the mentioned', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (123, 4, N'What is the sizeof(char) in a 32-bit C compiler?', N'1 bit', N'2 bits', N'1 Byte', N'2 Bytes', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (124, 4, N'Which of the following is not an operator in C?', N',', N'sizeof()', N'~', N'None of the mentioned', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (125, 5, N'Which of the following is the full form of RDBMS?', N'Relational Data Management System', N'Relational Database Management System', N'Relative Database Management System', N'Regional Data Management System', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (126, 5, N'What is an RDBMS?', N'Database that stores data elements that are not linked', N'Database that accesses data elements that are not linked', N'Database that stores and allows access to data elements that are linked', N'None of the mentioned', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (127, 5, N'Does RDBMS have ACID properties?', N'Follows ACID properties', N'Doesn’t follow ACID properties', N'Depends on the data stored in the database', N'Can’t say', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (128, 5, N'What is a relation in RDBMS?', N'Key', N'Table', N'Row', N'Data Types', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (129, 5, N'Which of the following systems use RDMS?', N'Oracle', N'Microsoft SQLServer', N'IBM', N'All of the mentioned', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (130, 5, N'Dynamic hashing allows us to?', N'Accommodate the growth of the database', N'Accommodate the shrinkage of the database', N'Allows modification of hash function', N'All of the mentioned', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (131, 5, N'Which of the following constraints RDBS doesn’t check before creating the tables?', N'Not null', N'Primary keys', N'Data Structure', N'Data integrity', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (132, 5, N'Which of the following commands do we use to delete a relation (RDBMS) from a database?', N'delete table RDBMS', N'drop table RDBMS', N'delete from RDBMS', N'drop relation RDBMS', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (133, 5, N'If RDBMS1, RDBMS2, RDBMS3 are attributes in a relation and S is another relation, which of the following is an incorrect specification of an integrity constraint?', N'foreign key(RDBMS1, RDBMS2)', N'foreign key(RDBMS1, RDBMS2) references S', N'primary key(RDBMS1, RDBMS2, RDBMS3)', N'primary key(RDBMS1)', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (134, 5, N'Which of the following is the time of temporal data that record when a fact was recorded in a database?', N'Enter time', N'Exit time', N'Valid time', N'Transaction time', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (135, 5, N'________ deletes a data item from a database.', N'Insert(RDBMS)', N'Drop(RDBMS)', N'Delete(RDBMS)', N'None of the mentioned', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (136, 5, N'________ is a predicate that we expect the database to always satisfy', N'Reason', N'Mandate', N'Assertion', N'Verify', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (137, 5, N'Which of the following is a good database management practice?', N'Adding redundant attributes', N'Not specifying primary keys', N'Removing redundant attributes', N'None of the mentioned', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (138, 5, N'What is an Instance of a Database?', N'The state of the database system at any given point of time', N'The entire set of attributes of the Database put together in a single relation', N'The initial values inserted into the Database immediately after its creation', N'The logical design of the database system', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (139, 5, N'The schema for the relationship set linking a weak entity set to its corresponding strong entity set is redundant.', N'False', N'True', N'null', N'null', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (140, 5, N'Which of the following information does the database system catalog store?', N'Number of blocks', N'Size of a tuple of a relation', N'Number of tuples', N'All of the mentioned', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (141, 5, N'If the database modifications occur while the transaction is still active, the transaction is said to use the __________ modification technique', N'Immediate', N'Deferred', N'More than one of the mentioned', N'None of the mentioned', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (142, 5, N'If a transaction does not modify the database until it has committed it is said to use a _______ modification technique', N'Immediate', N'Deferred', N'More than one of the mentioned', N'None of the mentioned', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (143, 5, N'The dependency rules specified by the database designer are known as _______', N'Functional dependencies', N'Designer dependencies', N'Database rules', N'None of the mentioned', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (144, 5, N'During the _______ phase, the local variables that hold the write operations are copied to the database', N'Validation phase', N'Write phase', N'Read phase', N'None of the mentioned', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (145, 5, N'What is the format of entering date into a database while inserting data into it?', N'“YYYY-MM-DD”', N' YYYY-MM-DD', N'“DD-MM-YYYY”', N'‘YYYY-MM-DD’', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (146, 5, N'What does the following query do?
+UPDATE student 
+SET marks = marks*1.10;', N'It decreases the marks of all the students by 90%', N'It increases the marks of all the students by 10%', N'It is syntactically wrong', N'It increases the marks of all the students by 110%', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (147, 5, N'Which of the following cannot be used to modify the data in a database?', N'delete', N'update', N'drop', N'insert', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (148, 5, N'The on condition appears at the _______ of the join expression', N'Beginning', N'End', N'Between', N'The on condition is not related to join expression', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (149, 5, N'What is the difference between a join and an outer join operation?', N'There is no difference', N'Join preserves a few tuples that are otherwise lost in the outer join', N' Outer join preserves a few tuples that are otherwise lost in the join', N'An outer join can be used only on outer queries whereas a join operation can be used in Subqueries', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (150, 5, N'The join operations that do not retain mismatched tuples are called as _________ operations', N'outer join', N'natural join', N'full outer join', N'inner join', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (151, 5, N'What is the function of a left outer join?', N'It preserves tuples only in the relation named before the operation', N'It preserves tuples only in the relation named after the operation', N'It preserved tuples in the relations named on both the sides of the operation', N'It does not preserve any tuples on either side of the relation', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (152, 5, N'What is the function of a full outer join?', N'It preserves tuples only in the relation named before the operation', N'It preserves tuples only in the relation named after the operation', N'It preserved tuples in the relations named on both the sides of the operation', N'It does not preserve any tuples on either side of the relation', N'C', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (153, 5, N'What is the function of a right outer join?', N'It preserves tuples only in the relation named before the operation', N'It preserves tuples only in the relation named after the operation', N'It preserved tuples in the relations named on both the sides of the operation', N'It does not preserve any tuples on either side of the relation', N'B', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (154, 5, N'What is the function of inner join?', N'It preserves tuples only in the relation named before the operation', N'It preserves tuples only in the relation named after the operation', N'It preserved tuples in the relations named on both the sides of the operation', N'It does not preserve any tuples on either side of the relation', N'D', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (155, 5, N'State true or false: on and where behave differently for outer join', N'True', N'False', N'null', N'null', N'A', 1, NULL, NULL, NULL, NULL)
+GO
+INSERT [dbo].[Tbl_ExamQuestionBank] ([questionId], [paperID], [question], [optionA], [optionB], [optionC], [optionD], [answer], [isActive], [createdBy], [createdOn], [updatedBy], [updatedOn]) VALUES (156, 5, N'Which off the following is not a valid type of join?', N'left outer join', N'outer join', N'join', N'full join', N'D', 1, NULL, NULL, NULL, NULL)
+GO
 SET IDENTITY_INSERT [dbo].[Tbl_ExamQuestionBank] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_ExamSchedule] ON 
@@ -630,11 +824,11 @@ SET IDENTITY_INSERT [dbo].[Tbl_ExamSchedule] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_ExamSchedule_Student] ON 
 GO
-INSERT [dbo].[Tbl_ExamSchedule_Student] ([ExamSchedule_StudentID], [examScheduleID], [studentID], [isExamFormForwarded], [isExamFormFill], [isActive], [createdby], [createdOn]) VALUES (1, 1, 1, 0, 0, 1, NULL, CAST(N'2025-07-05' AS Date))
+INSERT [dbo].[Tbl_ExamSchedule_Student] ([ExamSchedule_StudentID], [examScheduleID], [studentID], [isExamFormForwarded], [isExamFormFill], [isActive], [createdby], [createdOn]) VALUES (1, 1, 1, 0, 1, 1, NULL, CAST(N'2025-07-05' AS Date))
 GO
-INSERT [dbo].[Tbl_ExamSchedule_Student] ([ExamSchedule_StudentID], [examScheduleID], [studentID], [isExamFormForwarded], [isExamFormFill], [isActive], [createdby], [createdOn]) VALUES (2, 1, 2, 0, 0, 1, NULL, CAST(N'2025-07-05' AS Date))
+INSERT [dbo].[Tbl_ExamSchedule_Student] ([ExamSchedule_StudentID], [examScheduleID], [studentID], [isExamFormForwarded], [isExamFormFill], [isActive], [createdby], [createdOn]) VALUES (2, 1, 2, 0, 1, 1, NULL, CAST(N'2025-07-05' AS Date))
 GO
-INSERT [dbo].[Tbl_ExamSchedule_Student] ([ExamSchedule_StudentID], [examScheduleID], [studentID], [isExamFormForwarded], [isExamFormFill], [isActive], [createdby], [createdOn]) VALUES (3, 1, 3, 0, 0, 1, NULL, CAST(N'2025-07-05' AS Date))
+INSERT [dbo].[Tbl_ExamSchedule_Student] ([ExamSchedule_StudentID], [examScheduleID], [studentID], [isExamFormForwarded], [isExamFormFill], [isActive], [createdby], [createdOn]) VALUES (3, 1, 3, 0, 1, 1, NULL, CAST(N'2025-07-05' AS Date))
 GO
 INSERT [dbo].[Tbl_ExamSchedule_Student] ([ExamSchedule_StudentID], [examScheduleID], [studentID], [isExamFormForwarded], [isExamFormFill], [isActive], [createdby], [createdOn]) VALUES (4, 1, 4, 0, 1, 1, NULL, CAST(N'2025-07-05' AS Date))
 GO
@@ -646,13 +840,13 @@ SET IDENTITY_INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ON
 GO
 INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (1, 1, 5, 5, 1, CAST(N'2025-07-10' AS Date), 1, 80, 28, 24, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1)
 GO
-INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (2, 1, 5, 5, 2, CAST(N'2025-07-10' AS Date), 1, 80, 28, NULL, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 0)
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (2, 1, 5, 5, 2, CAST(N'2025-07-11' AS Date), 1, 80, 28, 16, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1)
 GO
-INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (3, 1, 5, 5, 3, CAST(N'2025-07-17' AS Date), 1, 80, 28, NULL, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 0)
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (3, 1, 5, 5, 3, CAST(N'2025-07-14' AS Date), 1, 80, 28, 4, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1)
 GO
-INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (4, 1, 5, 5, 4, CAST(N'2025-07-19' AS Date), 1, 80, 28, NULL, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 0)
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (4, 1, 5, 5, 4, CAST(N'2025-07-14' AS Date), 1, 80, 28, 8, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1)
 GO
-INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (5, 1, 5, 5, 5, CAST(N'2025-07-22' AS Date), 1, 80, 28, NULL, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 0)
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (5, 1, 5, 5, 5, CAST(N'2025-07-14' AS Date), 1, 80, 28, 20, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1)
 GO
 INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (6, 1, 4, 4, 1, CAST(N'2025-07-22' AS Date), 1, 80, 28, NULL, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 0)
 GO
@@ -663,6 +857,36 @@ GO
 INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (9, 1, 4, 4, 4, CAST(N'2025-07-09' AS Date), 1, 80, 28, NULL, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 0)
 GO
 INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (10, 1, 4, 4, 5, CAST(N'2025-07-25' AS Date), 1, 80, 28, NULL, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 0)
+GO
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (11, 1, 3, 3, 1, CAST(N'2025-07-11' AS Date), 1, 80, 28, 20, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1)
+GO
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (12, 1, 3, 3, 2, CAST(N'2025-07-12' AS Date), 1, 80, 28, NULL, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 0)
+GO
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (13, 1, 3, 3, 3, CAST(N'2025-07-13' AS Date), 1, 80, 28, NULL, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 0)
+GO
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (14, 1, 3, 3, 4, CAST(N'2025-07-14' AS Date), 1, 80, 28, NULL, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 0)
+GO
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (15, 1, 3, 3, 5, CAST(N'2025-07-15' AS Date), 1, 80, 28, NULL, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 0)
+GO
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (16, 1, 1, 1, 1, CAST(N'2025-07-15' AS Date), 1, 80, 28, 12, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1)
+GO
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (17, 1, 1, 1, 2, CAST(N'2025-07-15' AS Date), 1, 80, 28, 12, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1)
+GO
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (18, 1, 1, 1, 3, CAST(N'2025-07-15' AS Date), 1, 80, 28, 28, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1)
+GO
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (19, 1, 1, 1, 4, CAST(N'2025-07-15' AS Date), 1, 80, 28, 24, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1)
+GO
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (20, 1, 1, 1, 5, CAST(N'2025-07-15' AS Date), 1, 80, 28, 16, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1)
+GO
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (21, 1, 2, 2, 1, CAST(N'2025-07-15' AS Date), 1, 80, 28, 20, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1)
+GO
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (22, 1, 2, 2, 2, CAST(N'2025-07-15' AS Date), 1, 80, 28, 32, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1)
+GO
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (23, 1, 2, 2, 3, CAST(N'2025-07-15' AS Date), 1, 80, 28, 24, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1)
+GO
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (24, 1, 2, 2, 4, CAST(N'2025-07-15' AS Date), 1, 80, 28, 28, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1)
+GO
+INSERT [dbo].[Tbl_ExamStudentSlots_Marks] ([ExamStudentSlots_MarksID], [examScheduleID], [studentID], [userID], [SubjectCourseID], [examdate], [SemYear], [TheoryMax], [TheoryMin], [obtainTheory], [PractMax], [PractMin], [obtainPractical], [SesMax], [SesMin], [obtainSess], [MaxTotal], [MinTotal], [obtainMAx], [createdBy], [createdon], [Updatedby], [updatedon], [isExamgiven]) VALUES (25, 1, 2, 2, 5, CAST(N'2025-07-15' AS Date), 1, 80, 28, 16, 10, 5, NULL, 10, 5, NULL, 100, NULL, NULL, NULL, NULL, NULL, NULL, 1)
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_ExamStudentSlots_Marks] OFF
 GO
@@ -718,85 +942,645 @@ SET IDENTITY_INSERT [dbo].[Tbl_StudentBatchAlloted] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_studentExamSubmit] ON 
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (1, 5, 1, 22, N'C', N'C', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (1, 5, 1, 22, N'C', N'A', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (2, 5, 1, 5, N'C', N'B', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (2, 5, 1, 5, N'C', N'B', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (3, 5, 1, 15, N'B', N'B', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (3, 5, 1, 15, N'B', N'B', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (4, 5, 1, 26, N'C', N'D', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (4, 5, 1, 26, N'C', N'C', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (5, 5, 1, 23, N'A', N'A', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (5, 5, 1, 23, N'A', N'D', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (6, 5, 1, 33, N'D', N'C', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (6, 5, 1, 33, N'D', N'D', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (7, 5, 1, 35, N'A', N'C', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (7, 5, 1, 35, N'A', N'C', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (8, 5, 1, 19, N'D', N'B', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (8, 5, 1, 19, N'D', N'B', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (9, 5, 1, 37, N'C', N'C', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (9, 5, 1, 37, N'C', N'C', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (10, 5, 1, 1, N'B', N'C', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (10, 5, 1, 1, N'B', N'B', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (11, 5, 1, 11, N'C', N'B', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (11, 5, 1, 11, N'C', N'A', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (12, 5, 1, 36, N'A', N'C', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (12, 5, 1, 36, N'A', N'A', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (13, 5, 1, 34, N'D', N'D', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (13, 5, 1, 34, N'D', N'B', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (14, 5, 1, 13, N'D', N'C', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (14, 5, 1, 13, N'D', N'A', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (15, 5, 1, 7, N'A', N'C', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (15, 5, 1, 7, N'A', N'B', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (16, 5, 1, 4, N'C', N'C', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (16, 5, 1, 4, N'C', N'C', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (17, 5, 1, 30, N'D', N'C', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (17, 5, 1, 30, N'D', N'C', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (18, 5, 1, 10, N'B', N'C', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (18, 5, 1, 10, N'B', N'C', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (19, 5, 1, 6, N'B', N'C', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (19, 5, 1, 6, N'B', N'C', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (20, 5, 1, 20, N'B', N'C', NULL, 1, 575, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (20, 5, 1, 20, N'B', N'B', NULL, 1, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (21, 5, 2, 56, N'A', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (21, 5, 2, 56, N'A', N'A', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (22, 5, 2, 47, N'A', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (22, 5, 2, 47, N'A', N'B', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (23, 5, 2, 51, N'B', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (23, 5, 2, 51, N'B', N'B', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (24, 5, 2, 43, N'B', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (24, 5, 2, 43, N'B', N'B', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (25, 5, 2, 60, N'B', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (25, 5, 2, 60, N'B', N'C', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (26, 5, 2, 41, N'C', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (26, 5, 2, 41, N'C', N'C', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (27, 5, 2, 54, N'A', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (27, 5, 2, 54, N'A', N'D', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (28, 5, 2, 45, N'C', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (28, 5, 2, 45, N'C', N'B', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (29, 5, 2, 39, N'B', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (29, 5, 2, 39, N'B', N'C', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (30, 5, 2, 38, N'C', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (30, 5, 2, 38, N'C', N'A', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (31, 5, 2, 58, N'A', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (31, 5, 2, 58, N'A', N'C', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (32, 5, 2, 52, N'D', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (32, 5, 2, 52, N'D', N'C', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (33, 5, 2, 46, N'D', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (33, 5, 2, 46, N'D', N'D', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (34, 5, 2, 57, N'C', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (34, 5, 2, 57, N'C', N'C', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (35, 5, 2, 48, N'C', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (35, 5, 2, 48, N'C', N'C', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (36, 5, 2, 59, N'A', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (36, 5, 2, 59, N'A', N'D', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (37, 5, 2, 55, N'C', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (37, 5, 2, 55, N'C', N'C', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (38, 5, 2, 40, N'D', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (38, 5, 2, 40, N'D', N'B', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (39, 5, 2, 49, N'C', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (39, 5, 2, 49, N'C', N'B', NULL, 2, 864, NULL)
 GO
-INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (40, 5, 2, 53, N'D', N'', NULL, 2, NULL, NULL)
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (40, 5, 2, 53, N'D', N'D', NULL, 2, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (41, 3, 1, 18, N'D', N'B', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (42, 3, 1, 8, N'D', N'B', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (43, 3, 1, 33, N'D', N'D', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (44, 3, 1, 31, N'B', N'B', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (45, 3, 1, 20, N'B', N'B', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (46, 3, 1, 7, N'A', N'B', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (47, 3, 1, 22, N'C', N'A', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (48, 3, 1, 28, N'A', N'C', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (49, 3, 1, 37, N'C', N'C', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (50, 3, 1, 21, N'D', N'D', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (51, 3, 1, 17, N'C', N'B', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (52, 3, 1, 36, N'A', N'A', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (53, 3, 1, 35, N'A', N'C', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (54, 3, 1, 2, N'D', N'C', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (55, 3, 1, 14, N'C', N'B', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (56, 3, 1, 19, N'D', N'B', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (57, 3, 1, 25, N'A', N'C', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (58, 3, 1, 32, N'C', N'C', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (59, 3, 1, 15, N'B', N'B', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (60, 3, 1, 30, N'D', N'C', NULL, 11, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (61, 5, 3, 72, N'D', N'B', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (62, 5, 3, 80, N'A', N'C', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (63, 5, 3, 67, N'C', N'C', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (64, 5, 3, 78, N'C', N'B', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (65, 5, 3, 79, N'B', N'', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (66, 5, 3, 65, N'B', N'C', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (67, 5, 3, 64, N'C', N'B', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (68, 5, 3, 68, N'C', N'C', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (69, 5, 3, 69, N'B', N'A', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (70, 5, 3, 82, N'D', N'A', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (71, 5, 3, 92, N'C', N'D', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (72, 5, 3, 76, N'A', N'', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (73, 5, 3, 61, N'A', N'A', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (74, 5, 3, 87, N'A', N'A', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (75, 5, 3, 93, N'B', N'C', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (76, 5, 3, 88, N'A', N'', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (77, 5, 3, 84, N'A', N'D', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (78, 5, 3, 86, N'A', N'C', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (79, 5, 3, 85, N'C', N'B', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (80, 5, 3, 91, N'B', N'C', NULL, 3, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (81, 5, 4, 124, N'D', N'B', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (82, 5, 4, 112, N'A', N'C', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (83, 5, 4, 106, N'C', N'C', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (84, 5, 4, 116, N'B', N'C', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (85, 5, 4, 122, N'C', N'C', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (86, 5, 4, 110, N'C', N'C', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (87, 5, 4, 104, N'C', N'C', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (88, 5, 4, 99, N'A', N'B', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (89, 5, 4, 119, N'D', N'B', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (90, 5, 4, 107, N'D', N'C', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (91, 5, 4, 100, N'C', N'D', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (92, 5, 4, 96, N'A', N'A', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (93, 5, 4, 115, N'A', N'C', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (94, 5, 4, 113, N'A', N'B', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (95, 5, 4, 121, N'D', N'B', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (96, 5, 4, 118, N'A', N'C', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (97, 5, 4, 109, N'B', N'C', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (98, 5, 4, 101, N'A', N'C', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (99, 5, 4, 102, N'C', N'', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (100, 5, 4, 103, N'B', N'D', NULL, 4, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (101, 5, 5, 152, N'C', N'C', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (102, 5, 5, 134, N'D', N'D', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (103, 5, 5, 148, N'B', N'C', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (104, 5, 5, 128, N'B', N'', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (105, 5, 5, 132, N'B', N'B', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (106, 5, 5, 135, N'C', N'A', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (107, 5, 5, 138, N'A', N'C', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (108, 5, 5, 150, N'D', N'B', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (109, 5, 5, 126, N'C', N'', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (110, 5, 5, 143, N'A', N'C', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (111, 5, 5, 125, N'B', N'A', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (112, 5, 5, 145, N'D', N'B', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (113, 5, 5, 137, N'C', N'B', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (114, 5, 5, 147, N'C', N'B', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (115, 5, 5, 154, N'D', N'B', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (116, 5, 5, 142, N'B', N'C', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (117, 5, 5, 136, N'C', N'D', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (118, 5, 5, 149, N'C', N'D', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (119, 5, 5, 144, N'B', N'B', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (120, 5, 5, 151, N'A', N'B', NULL, 5, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (121, 1, 1, 13, N'D', N'A', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (122, 1, 1, 23, N'A', N'D', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (123, 1, 1, 33, N'D', N'D', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (124, 1, 1, 22, N'C', N'A', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (125, 1, 1, 26, N'C', N'C', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (126, 1, 1, 2, N'D', N'C', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (127, 1, 1, 20, N'B', N'B', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (128, 1, 1, 14, N'C', N'', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (129, 1, 1, 6, N'B', N'', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (130, 1, 1, 8, N'D', N'B', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (131, 1, 1, 1, N'B', N'B', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (132, 1, 1, 18, N'D', N'', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (133, 1, 1, 3, N'D', N'C', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (134, 1, 1, 19, N'D', N'B', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (135, 1, 1, 4, N'C', N'', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (136, 1, 1, 17, N'C', N'B', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (137, 1, 1, 34, N'D', N'B', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (138, 1, 1, 36, N'A', N'A', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (139, 1, 1, 21, N'D', N'D', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (140, 1, 1, 7, N'A', N'', NULL, 16, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (141, 1, 2, 45, N'C', N'B', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (142, 1, 2, 55, N'C', N'C', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (143, 1, 2, 46, N'D', N'D', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (144, 1, 2, 51, N'B', N'B', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (145, 1, 2, 49, N'C', N'B', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (146, 1, 2, 50, N'B', N'C', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (147, 1, 2, 42, N'B', N'D', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (148, 1, 2, 60, N'B', N'C', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (149, 1, 2, 47, N'A', N'B', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (150, 1, 2, 59, N'A', N'D', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (151, 1, 2, 48, N'C', N'C', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (152, 1, 2, 54, N'A', N'D', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (153, 1, 2, 40, N'D', N'B', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (154, 1, 2, 57, N'C', N'C', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (155, 1, 2, 56, N'A', N'A', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (156, 1, 2, 39, N'B', N'C', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (157, 1, 2, 38, N'C', N'A', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (158, 1, 2, 58, N'A', N'C', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (159, 1, 2, 53, N'D', N'D', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (160, 1, 2, 44, N'B', N'B', NULL, 17, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (241, 2, 2, 46, N'D', N'D', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (242, 2, 2, 49, N'C', N'B', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (243, 2, 2, 53, N'D', N'D', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (244, 2, 2, 52, N'D', N'C', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (245, 2, 2, 47, N'A', N'B', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (246, 2, 2, 59, N'A', N'', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (247, 2, 2, 54, N'A', N'D', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (248, 2, 2, 41, N'C', N'C', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (249, 2, 2, 45, N'C', N'B', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (250, 2, 2, 42, N'B', N'D', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (251, 2, 2, 60, N'B', N'C', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (252, 2, 2, 43, N'B', N'B', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (253, 2, 2, 48, N'C', N'C', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (254, 2, 2, 38, N'C', N'A', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (255, 2, 2, 58, N'A', N'', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (256, 2, 2, 55, N'C', N'', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (257, 2, 2, 39, N'B', N'C', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (258, 2, 2, 57, N'C', N'C', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (161, 1, 3, 63, N'B', N'C', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (162, 1, 3, 85, N'C', N'B', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (163, 1, 3, 74, N'D', N'D', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (164, 1, 3, 66, N'D', N'D', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (165, 1, 3, 87, N'A', N'A', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (166, 1, 3, 86, N'A', N'C', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (167, 1, 3, 82, N'D', N'A', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (168, 1, 3, 69, N'B', N'A', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (169, 1, 3, 81, N'B', N'C', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (170, 1, 3, 70, N'C', N'C', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (171, 1, 3, 64, N'C', N'B', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (172, 1, 3, 73, N'A', N'B', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (173, 1, 3, 75, N'C', N'C', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (174, 1, 3, 92, N'C', N'D', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (175, 1, 3, 77, N'A', N'C', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (176, 1, 3, 67, N'C', N'C', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (177, 1, 3, 65, N'B', N'C', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (178, 1, 3, 68, N'C', N'C', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (179, 1, 3, 72, N'D', N'B', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (180, 1, 3, 83, N'B', N'D', NULL, 18, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (181, 1, 4, 120, N'D', N'B', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (182, 1, 4, 103, N'B', N'D', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (183, 1, 4, 109, N'B', N'C', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (184, 1, 4, 110, N'C', N'C', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (185, 1, 4, 119, N'D', N'B', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (186, 1, 4, 118, N'A', N'C', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (187, 1, 4, 106, N'C', N'C', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (188, 1, 4, 122, N'C', N'C', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (189, 1, 4, 98, N'B', N'B', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (190, 1, 4, 94, N'C', N'C', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (191, 1, 4, 100, N'C', N'D', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (192, 1, 4, 104, N'C', N'C', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (193, 1, 4, 95, N'D', N'C', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (194, 1, 4, 114, N'D', N'D', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (195, 1, 4, 99, N'A', N'B', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (196, 1, 4, 101, N'A', N'C', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (197, 1, 4, 97, N'C', N'D', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (198, 1, 4, 108, N'A', N'B', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (199, 1, 4, 115, N'A', N'C', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (200, 1, 4, 111, N'C', N'C', NULL, 19, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (201, 1, 5, 132, N'B', N'B', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (202, 1, 5, 152, N'C', N'C', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (203, 1, 5, 143, N'A', N'C', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (204, 1, 5, 137, N'C', N'B', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (205, 1, 5, 145, N'D', N'B', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (206, 1, 5, 129, N'D', N'D', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (207, 1, 5, 138, N'A', N'C', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (208, 1, 5, 148, N'B', N'C', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (209, 1, 5, 146, N'B', N'B', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (210, 1, 5, 134, N'D', N'D', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (211, 1, 5, 147, N'C', N'B', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (212, 1, 5, 125, N'B', N'A', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (213, 1, 5, 156, N'D', N'D', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (214, 1, 5, 136, N'C', N'D', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (215, 1, 5, 127, N'C', N'B', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (216, 1, 5, 139, N'B', N'C', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (217, 1, 5, 144, N'B', N'B', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (218, 1, 5, 130, N'D', N'C', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (219, 1, 5, 140, N'D', N'B', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (220, 1, 5, 133, N'A', N'C', NULL, 20, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (221, 2, 1, 8, N'D', N'B', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (222, 2, 1, 12, N'A', N'', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (223, 2, 1, 10, N'B', N'C', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (224, 2, 1, 17, N'C', N'B', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (225, 2, 1, 25, N'A', N'C', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (226, 2, 1, 24, N'D', N'C', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (227, 2, 1, 36, N'A', N'', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (228, 2, 1, 2, N'D', N'C', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (229, 2, 1, 20, N'B', N'B', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (230, 2, 1, 26, N'C', N'C', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (231, 2, 1, 16, N'A', N'B', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (232, 2, 1, 30, N'D', N'C', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (233, 2, 1, 28, N'A', N'C', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (234, 2, 1, 11, N'C', N'A', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (235, 2, 1, 1, N'B', N'B', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (236, 2, 1, 13, N'D', N'A', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (237, 2, 1, 33, N'D', N'D', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (238, 2, 1, 9, N'A', N'C', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (239, 2, 1, 19, N'D', N'B', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (240, 2, 1, 37, N'C', N'C', NULL, 21, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (261, 2, 3, 62, N'B', N'B', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (262, 2, 3, 66, N'D', N'D', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (263, 2, 3, 79, N'B', N'', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (264, 2, 3, 83, N'B', N'D', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (265, 2, 3, 89, N'A', N'C', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (266, 2, 3, 77, N'A', N'', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (267, 2, 3, 74, N'D', N'D', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (268, 2, 3, 61, N'A', N'A', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (269, 2, 3, 80, N'A', N'', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (270, 2, 3, 69, N'B', N'A', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (271, 2, 3, 63, N'B', N'C', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (272, 2, 3, 84, N'A', N'', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (273, 2, 3, 78, N'C', N'', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (274, 2, 3, 91, N'B', N'C', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (275, 2, 3, 64, N'C', N'B', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (276, 2, 3, 93, N'B', N'C', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (277, 2, 3, 81, N'B', N'C', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (278, 2, 3, 87, N'A', N'A', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (279, 2, 3, 90, N'D', N'D', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (280, 2, 3, 65, N'B', N'C', NULL, 23, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (281, 2, 4, 120, N'D', N'B', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (282, 2, 4, 94, N'C', N'C', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (283, 2, 4, 116, N'B', N'C', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (284, 2, 4, 117, N'D', N'D', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (285, 2, 4, 111, N'C', N'C', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (286, 2, 4, 99, N'A', N'B', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (287, 2, 4, 102, N'C', N'', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (288, 2, 4, 103, N'B', N'', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (289, 2, 4, 113, N'A', N'B', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (290, 2, 4, 112, N'A', N'C', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (291, 2, 4, 104, N'C', N'C', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (292, 2, 4, 114, N'D', N'D', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (293, 2, 4, 100, N'C', N'D', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (294, 2, 4, 115, N'A', N'C', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (295, 2, 4, 110, N'C', N'C', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (296, 2, 4, 122, N'C', N'C', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (297, 2, 4, 108, N'A', N'B', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (298, 2, 4, 95, N'D', N'C', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (299, 2, 4, 123, N'C', N'D', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (300, 2, 4, 119, N'D', N'B', NULL, 24, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (301, 2, 5, 151, N'A', N'B', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (302, 2, 5, 137, N'C', N'', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (303, 2, 5, 133, N'A', N'C', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (304, 2, 5, 135, N'C', N'', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (305, 2, 5, 145, N'D', N'B', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (306, 2, 5, 154, N'D', N'B', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (307, 2, 5, 134, N'D', N'', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (308, 2, 5, 142, N'B', N'C', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (309, 2, 5, 156, N'D', N'D', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (310, 2, 5, 144, N'B', N'B', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (311, 2, 5, 148, N'B', N'C', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (312, 2, 5, 127, N'C', N'B', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (313, 2, 5, 139, N'B', N'C', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (314, 2, 5, 155, N'A', N'B', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (315, 2, 5, 152, N'C', N'C', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (316, 2, 5, 141, N'A', N'B', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (317, 2, 5, 146, N'B', N'B', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (318, 2, 5, 149, N'C', N'D', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (319, 2, 5, 150, N'D', N'B', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (320, 2, 5, 140, N'D', N'B', NULL, 25, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (259, 2, 2, 51, N'B', N'B', NULL, 22, 864, NULL)
+GO
+INSERT [dbo].[Tbl_studentExamSubmit] ([submitID], [studentID], [paperID], [questionId], [answer], [givenAnswer], [examSession], [ExamStudentSlots_MarksID], [timeleft], [rightAnswer]) VALUES (260, 2, 2, 56, N'A', N'A', NULL, 22, 864, NULL)
 GO
 SET IDENTITY_INSERT [dbo].[Tbl_studentExamSubmit] OFF
 GO
@@ -864,7 +1648,7 @@ SET IDENTITY_INSERT [dbo].[Tbl_UserRoll] OFF
 GO
 SET ANSI_PADDING ON
 GO
-/****** Object:  Index [UX_ExamPaperSub]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  Index [UX_ExamPaperSub]    Script Date: 15-07-2025 18:59:41 ******/
 CREATE UNIQUE NONCLUSTERED INDEX [UX_ExamPaperSub] ON [dbo].[Tbl_ExamPaper]
 (
 	[courseSchemeID] ASC,
@@ -874,7 +1658,7 @@ CREATE UNIQUE NONCLUSTERED INDEX [UX_ExamPaperSub] ON [dbo].[Tbl_ExamPaper]
 GO
 ALTER TABLE [dbo].[Tbl_ExamStudentSlots_Marks] ADD  CONSTRAINT [DF_Tbl_ExamStudentSlots_Marks_isExamgiven]  DEFAULT ((0)) FOR [isExamgiven]
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1020,7 +1804,7 @@ BEGIN
     END
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme_Test]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_CourseScheme_Test]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1165,7 +1949,7 @@ BEGIN
 
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_Designation]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_Designation]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1188,7 +1972,7 @@ Begin
 
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_Exam_Schedule]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_Exam_Schedule]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1306,7 +2090,7 @@ select 1 as StatusCode, 'Exam Slots Successfully Updated..' as [Message]
  End
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ExamPaper]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ExamPaper]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1454,7 +2238,7 @@ End
     END
 END
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ExamPaperQuestionBank]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ExamPaperQuestionBank]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1505,7 +2289,37 @@ END
 --JOIN Tbl_ExamQuestionBank
 --ON [Tbl_studentExamSubmit].[questionId] = Tbl_ExamQuestionBank.[questionId]
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_OnlineExam]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ExamResult]    Script Date: 15-07-2025 18:59:41 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [dbo].[Sp_ExamResult]
+@Action varchar(100)=null,
+@studentID int =null,
+@paperID int =null,
+@programeId int =null,
+@semester_year int =null,
+@courseSchemeID int =null,
+@SubjectCourseID int =null
+As
+Begin
+IF(@Action='GetPaperListforResult')
+Begin
+set @courseSchemeID=(select coursScheme from Batch_master where programeId=@programeId and currentSem_year=@semester_year);
+Select SubjectCourseID,SubjName,SubjectCode From [Tbl_ExamPaper] where SemYear=@semester_year and courseSchemeID=@courseSchemeID
+
+End
+IF(@Action='GetMarkListByPaper')
+Begin
+select SI.fullname,ES.SubjectCourseID,ES.SemYear,ES.TheoryMax,TheoryMin,obtainTheory,PractMax,PractMin,obtainPractical,SesMax,SesMin,obtainSess,MaxTotal,MinTotal,obtainMAx
+	  from [Tbl_ExamStudentSlots_Marks] ES 
+      Inner Join [Tbl_StudentInfo] SI on ES.studentID=SI.studentID  where ES.SubjectCourseID=@SubjectCourseID
+End
+End
+
+GO
+/****** Object:  StoredProcedure [dbo].[Sp_OnlineExam]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1592,7 +2406,7 @@ END
 End
 
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagment]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagment]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1691,7 +2505,7 @@ BEGIN
 	 End
 End
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagmenttest]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_ProgrameManagmenttest]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1790,7 +2604,7 @@ End
 --{"Programe":[{"ProgrameID":1,"ProgrameName":"BCA","ProgrameDuration":"3 Year","ProgrameLebel":"UG"},{"ProgrameID":2,"ProgrameName":"DCA","ProgrameDuration":"1 Year","ProgrameLebel":"Diploma"}],"Paginationtemp":"{\"Pagination\":[{\"TotalRecords\":17,\"TotalPages\":9}]}"}
 --{"Programe":[{"ProgrameID":1,"ProgrameName":"BCA","ProgrameDuration":"3 Year","ProgrameLebel":"UG"},{"ProgrameID":2,"ProgrameName":"DCA","ProgrameDuration":"1 Year","ProgrameLebel":"Diploma"}],"Pagination":"{\"TotalRecords\":17,\"TotalPages\":9}"}
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_Role]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_Role]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1809,7 +2623,7 @@ Begin
 End
 
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_StudentAction]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_StudentAction]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1924,7 +2738,7 @@ IF(@Action='StudentList')
 END
 
 GO
-/****** Object:  StoredProcedure [dbo].[Sp_UserAction]    Script Date: 10-07-2025 18:28:02 ******/
+/****** Object:  StoredProcedure [dbo].[Sp_UserAction]    Script Date: 15-07-2025 18:59:41 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

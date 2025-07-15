@@ -19,6 +19,7 @@ import { StudentExamComponent } from './Pages/Examination/student-exam/student-e
 import { CreateExamScheduleComponent } from './Pages/Examination/create-exam-schedule/create-exam-schedule.component';
 import { StudentExamSlotsComponent } from './Students/student-exam-slots/student-exam-slots.component';
 import { ExamMainPageComponent } from './Students/exam-main-page/exam-main-page.component';
+import { StudentResultComponent } from './Pages/Examination/student-result/student-result.component';
 
 export const routes: Routes = [
     {
@@ -58,6 +59,7 @@ export const routes: Routes = [
         {path:'exam-schedule',component:CreateExamScheduleComponent},
         {path:'book-exam-slots',component:StudentExamSlotsComponent},
         {path:'exam-main-page',component:ExamMainPageComponent},
+        {path:'exam-result',component:StudentResultComponent},
      ]   
     }
 
