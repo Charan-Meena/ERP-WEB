@@ -1,14 +1,7 @@
-
-
-
-
-
-
-
-
 export const environment = {
   production: false, 
   baseUrl: 'https://localhost:44319',
+  MERCHANT_KEY:'KMDRE23870FDR3S'
 //   imgUrl:'https://aguuniapi.aisectinfotech.com/',
 //   wsServiceUrl:'https://aguuniapi.aisectinfotech.com/helpDeskService',
 //   Weather:'https://aguuniapi.aisectinfotech.com/WeatherForecast',
